@@ -1,0 +1,7 @@
+schema: "classroom50/repo-config/v1"
+classroom: "sys26d"
+assignment: "sys26d-html-css-js-grupparbete"
+owner:
+  username: "Levvo42"
+  id: 210210358
+  accepted_at: "2026-09-21T07:16:49Z"
