@@ -190,7 +190,7 @@ Possibly implement in the coming weeks. Maybe prettier, TBD.
 Finally, you should sign the document with your signatures.
 
 <ul>
-<li>
+<li> Mattias Carlstedt
 <li>
 <li>
 <li>Felix J
