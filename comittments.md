@@ -191,7 +191,7 @@ Finally, you should sign the document with your signatures.
 
 <ul>
 <li> Mattias Carlstedt
-<li>
+<li> Konan M
 <li>
 <li>Felix J
 </ul>
