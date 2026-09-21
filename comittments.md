@@ -192,8 +192,8 @@ Finally, you should sign the document with your signatures.
 <ul>
 <li> Mattias Carlstedt
 <li> Konan M
-<li>
-<li>Felix J
+<li> Alena T
+<li> Felix J
 </ul>
 
 ## Working in a Group
