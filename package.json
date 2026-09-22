@@ -1,0 +1,29 @@
+{
+  "name": "sys26d-sys26d-html-css-js-grupparbete-group-8",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Coding Trivia RPG built with HTML, SCSS, JavaScript and Vite.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Medieinstitutet/sys26d-sys26d-html-css-js-grupparbete-group-8.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Medieinstitutet/sys26d-sys26d-html-css-js-grupparbete-group-8/issues"
+  },
+  "homepage": "https://github.com/Medieinstitutet/sys26d-sys26d-html-css-js-grupparbete-group-8#readme",
+  "devDependencies": {
+    "sass": "^1.104.1",
+    "vite": "^8.3.0"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.6.0": true
+  }
+}
