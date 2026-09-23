@@ -222,6 +222,12 @@ Then open `.env` and paste in the real key — ask for it in Discord (never post
 
 ---
 
+## Set Up the Editor
+
+Install the recommended VS Code extensions (Prettier, ESLint, Stylelint, html-validate). VS Code offers them in a popup when you open the project folder. Details and a quick test are in [code-quality.md](code-quality.md#one-time-setup).
+
+---
+
 # 7. Initial Project Setup
 
 > Only needed when initially creating/configuring the project.
@@ -269,7 +275,7 @@ Make sure `package.json` contains these scripts:
 }
 ```
 
-Other project scripts such as linting and formatting can be added later.
+The project also has formatting and linting scripts (`format`, `lint`, `check` and more). They are explained in [code-quality.md](code-quality.md).
 
 ---
 
@@ -455,6 +461,12 @@ npm run build
 
 ```powershell
 npm run preview
+```
+
+## Check formatting and linting (run before every push)
+
+```powershell
+npm run check
 ```
 
 ## Check installed dependencies

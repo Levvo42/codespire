@@ -85,13 +85,16 @@ Difficulty should dynamically increase as the player progresses.
 ### Getting started
 
 - [Installation & local development](docs/tutorials/setup.md)
-- [Git workflow](docs/tutorials/git-workflow.md)
+- [Git workflow](docs/tutorials/daily-git-operations.md)
+- [Code quality: formatting & linting](docs/tutorials/code-quality.md)
+- [Where files belong](docs/tutorials/indexing.md)
 - [Semantic HTML](docs/tutorials/semantic-html.md)
 - [BEM CSS naming](docs/tutorials/bem.md)
-- [JavaScript conventions](docs/tutorials/javascript.md)
-- [API usage](docs/tutorials/api-usage.md)
+
+Planned, not written yet: JavaScript conventions, API usage.
 
 ### Project documentation
 
 - [Project structure](docs/project-structure.md)
-- [Story points](docs/story-points.md)
+- [Story points](docs/project/story-points.md)
+- [MVP scope](docs/project/MVP%20Scope.md)
