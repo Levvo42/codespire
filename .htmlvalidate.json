@@ -1,5 +1,5 @@
 {
-  "$schema": "https://html-validate.org/schemas/config.json",
+  "$schema": "./node_modules/html-validate/dist/schema/config.json",
   "root": true,
   "extends": ["html-validate:recommended", "html-validate:prettier"]
 }
