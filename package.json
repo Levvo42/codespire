@@ -12,7 +12,8 @@
     "lint:js": "eslint .",
     "lint:js:fix": "eslint . --fix",
     "lint:css": "stylelint \"src/**/*.scss\"",
-    "lint:css:fix": "stylelint \"src/**/*.scss\" --fix"
+    "lint:css:fix": "stylelint \"src/**/*.scss\" --fix",
+    "lint:html": "html-validate index.html pages"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
     "@eslint/js": "^10.0.1",
     "eslint": "^10.11.0",
     "globals": "^17.12.0",
+    "html-validate": "^11.16.0",
     "prettier": "3.9.9",
     "sass": "^1.104.1",
     "stylelint": "^17.15.0",
