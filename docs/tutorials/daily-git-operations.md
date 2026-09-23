@@ -90,6 +90,14 @@ We agreed on [Conventional Commits](https://www.conventionalcommits.org/):
 
 ## Every day: sharing your work
 
+Before pushing, run the same checks GitHub will run:
+
+```powershell
+npm run check
+```
+
+Fix any errors first — see [code-quality.md](code-quality.md).
+
 First push of a new branch (`-u` links it to GitHub so later pushes are just `git push`):
 
 ```powershell
@@ -105,6 +113,10 @@ git push
 Then on GitHub: open a **pull request** from your branch into `main`, ask for
 a review in Discord, and merge it during a merge window. Delete the branch on
 GitHub when the PR is merged (button in the PR).
+
+GitHub only allows the merge when the **CI check is green** and **one other
+team member has approved** the PR. How to review is described in
+[code-quality.md](code-quality.md#reviewing-a-teammates-pr).
 
 ---
 
@@ -245,10 +257,11 @@ Ask in Discord before doing anything drastic.
 
 ## Golden rules
 
-1. Never commit directly to `main` — always a branch + pull request.
+1. Never commit directly to `main` — always a branch + pull request (GitHub blocks direct pushes).
 2. Never `git push --force` a shared branch.
 3. Pull before you start, push before you stop for the day.
 4. Small commits with Conventional Commit messages.
 5. `.env` and other secrets never get committed (they're gitignored — don't fight it).
 6. Unsure about a ⚠ command? Ask in Discord _first_. Everything not yet
    committed is the only thing git can't get back.
+7. Run `npm run check` before every push.
