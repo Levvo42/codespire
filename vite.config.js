@@ -19,6 +19,7 @@ export default defineConfig({
         singleplayer: resolve(import.meta.dirname, "pages/singleplayer.html"),
         tutorial: resolve(import.meta.dirname, "pages/tutorial.html"),
         credits: resolve(import.meta.dirname, "pages/credits.html"),
+        createplayer: resolve(import.meta.dirname, "pages/createplayer.html"),
       },
     },
   },
