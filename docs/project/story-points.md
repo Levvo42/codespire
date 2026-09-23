@@ -58,14 +58,14 @@ Deployment + final documentation + demo
 
 | Status | Scope | Task | Rank | Assigned | Estimated | Actual |
 |---|---|---|---|---|---:|---:|
-| ⬜ | 🎯 | Decide final project/game name | Novice | ALL | 1h | — |
+| ✅ | 🎯 | Decide final project/game name | Novice | ALL | 1h | 1h |
 | ⬜ | 🎯 | Define MVP scope | Novice | FJ | 2h | — |
 | ✅ | 🎯 | Define complete game loop | Novice | ALL | 2h | 1h |
-| ⬜ | 🎯 | Define required pages/views | Novice | ALL | 1h | — |
-| ⬜ | 🎯 | Define core game rules | Apprentice | ALL | 3h | — |
-| ⬜ | 🎯 | Write acceptance criteria for core features | Apprentice | — | 3h | — |
-| ⬜ | 🎯 | Create/refine GitHub backlog | Apprentice | KM | 3h | — |
-| ⬜ | 🎯 | Create GitHub project board | Novice | — | 1h | — |
+| ✅ | 🎯 | Define required pages/views | Novice | ALL | 1h | 1h |
+| 🟨 | 🎯 | Define core game rules | Apprentice | ALL | 3h | — |
+| 🟨 | 🎯 | Write acceptance criteria for core features | Apprentice | — | 3h | — |
+| 🟨 | 🎯 | Create/refine GitHub backlog | Apprentice | KM | 3h | — |
+| 🟨 | 🎯 | Create GitHub project board | Novice | — | 1h | — |
 | ✅ | 🎯 | Create milestones / phases | Novice | ALL | 1h | 1h |
 
 ---
@@ -74,20 +74,20 @@ Deployment + final documentation + demo
 
 | Status | Scope | Task | Rank | Assigned | Estimated | Actual |
 |---|---|---|---|---|---:|---:|
-| ⬜ | 🎯 | Initialize Vite project | Novice | — | 1h | — |
-| ⬜ | 🎯 | Define project folder structure | Novice | MC | 2h | — |
-| ⬜ | 🎯 | Configure `.gitignore` | Novice | MC | 1h | — |
-| ⬜ | 🎯 | Configure npm scripts | Novice | — | 2h | — |
+| 🟨 | 🎯 | Initialize Vite project | Novice | MC | 1h | — |
+| ✅ | 🎯 | Define project folder structure | Novice | MC | 2h | — |
+| ✅ | 🎯 | Configure `.gitignore` | Novice | MC | 1h | — |
+| ✅ | 🎯 | Configure npm scripts | Novice | — | 2h | — |
 | ⬜ | 🎯 | Configure Prettier | Novice | — | 1h | — |
 | ⬜ | 🎯 | Configure ESLint | Apprentice | — | 3h | — |
 | ⬜ | 🎯 | Configure Stylelint | Apprentice | — | 2h | — |
 | ⬜ | 🎯 | Configure HTML linting | Novice | — | 1h | — |
 | ⬜ | 🎯 | Configure lint/format commands | Novice | — | 2h | — |
-| ⬜ | 🎯 | Create base README | Novice | — | 2h | — |
-| ⬜ | 🎯 | Create local installation/setup tutorial | Apprentice | — | 3h | — |
-| ⬜ | 🎯 | Create Git workflow tutorial | Apprentice | — | 3h | — |
-| ⬜ | 🎯 | Create Semantic HTML tutorial | Novice | — | 2h | — |
-| ⬜ | 🎯 | Create BEM tutorial | Novice | — | 2h | — |
+| ✅ | 🎯 | Create base README | Novice | — | 2h | — |
+| ✅ | 🎯 | Create local installation/setup tutorial | Apprentice | — | 3h | — |
+| ✅ | 🎯 | Create Git workflow tutorial | Apprentice | — | 3h | — |
+| ✅ | 🎯 | Create Semantic HTML tutorial | Novice | — | 2h | — |
+| ✅ | 🎯 | Create BEM tutorial | Novice | — | 2h | — |
 | ⬜ | 🎯 | Create BEM mind map | Novice | — | 1h | — |
 | ⬜ | 🎯 | Define JavaScript conventions | Novice | — | 2h | — |
 | ⬜ | 🎯 | Document project structure | Novice | — | 2h | — |
@@ -105,10 +105,10 @@ Deployment + final documentation + demo
 
 | Status | Scope | Task | Rank | Assigned | Estimated | Actual |
 |---|---|---|---|---|---:|---:|
-| ⬜ | 🎯 | Create Figma wireframes | Apprentice | — | 4h | — |
-| ⬜ | 🎯 | Create Figma mid-fidelity design | Apprentice | — | 4h | — |
-| ⬜ | 🎯 | Create Figma high-fidelity design | Adept | — | 6h | — |
-| ⬜ | 🎯 | Define final color palette | Novice | — | 1h | — |
+| ⬜ | 🎯 | Create Figma wireframes | Apprentice | KM/AT | 4h | — |
+| ⬜ | 🎯 | Create Figma mid-fidelity design | Apprentice | KM/AT | 4h | — |
+| ⬜ | 🎯 | Create Figma high-fidelity design | Adept | KM/AT | 6h | — |
+| ✅ | 🎯 | Define final color palette | Novice | ALL | 1h | — |
 | ⬜ | 🎯 | Define typography | Novice | — | 1h | — |
 | ⬜ | 🎯 | Define reusable UI components | Apprentice | — | 3h | — |
 | ⬜ | 🎯 | Define mobile/tablet/desktop layouts | Apprentice | — | 4h | — |
