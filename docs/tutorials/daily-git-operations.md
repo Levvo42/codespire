@@ -77,14 +77,14 @@ save point you can always go back to.
 We agreed on [Conventional Commits](https://www.conventionalcommits.org/):
 `type: short description in imperative mood`, all lowercase.
 
-| Type | Use for | Example |
-|---|---|---|
-| `feat` | New feature | `feat: add answer buttons to battle screen` |
-| `fix` | Bug fix | `fix: prevent double answer submission` |
-| `docs` | Documentation only | `docs: add git tutorial` |
-| `style` | Formatting, no logic change | `style: fix indentation in lobby.scss` |
+| Type       | Use for                                  | Example                                        |
+| ---------- | ---------------------------------------- | ---------------------------------------------- |
+| `feat`     | New feature                              | `feat: add answer buttons to battle screen`    |
+| `fix`      | Bug fix                                  | `fix: prevent double answer submission`        |
+| `docs`     | Documentation only                       | `docs: add git tutorial`                       |
+| `style`    | Formatting, no logic change              | `style: fix indentation in lobby.scss`         |
 | `refactor` | Rewriting code without changing behavior | `refactor: extract fetch logic to api/quiz.js` |
-| `chore` | Config, dependencies, tooling | `chore: add prettier` |
+| `chore`    | Config, dependencies, tooling            | `chore: add prettier`                          |
 
 ---
 
@@ -250,5 +250,5 @@ Ask in Discord before doing anything drastic.
 3. Pull before you start, push before you stop for the day.
 4. Small commits with Conventional Commit messages.
 5. `.env` and other secrets never get committed (they're gitignored — don't fight it).
-6. Unsure about a ⚠ command? Ask in Discord *first*. Everything not yet
+6. Unsure about a ⚠ command? Ask in Discord _first_. Everything not yet
    committed is the only thing git can't get back.

@@ -13,5 +13,7 @@ dist/
 
 # Editor and OS junk
 .idea/
-.vscode/
 .DS_Store
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json

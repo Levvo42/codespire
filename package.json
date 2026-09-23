@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,7 @@
   },
   "homepage": "https://github.com/Medieinstitutet/sys26d-sys26d-html-css-js-grupparbete-group-8#readme",
   "devDependencies": {
+    "prettier": "3.9.9",
     "sass": "^1.104.1",
     "vite": "^8.3.0"
   },

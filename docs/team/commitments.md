@@ -21,13 +21,13 @@ Bad experiences from previous group work, and what we commit to instead:
 
 ## Meetings
 
-| Meeting | When |
-|---|---|
-| Daily standup | Every weekday, 11:00 |
-| Afternoon check-in | 15:00 |
-| Backlog refinement (~1 h) | Monday / Wednesday |
-| Sprint planning (1–2 h) | Monday |
-| Retrospective (~1 h) | Monday / Friday |
+| Meeting                   | When                 |
+| ------------------------- | -------------------- |
+| Daily standup             | Every weekday, 11:00 |
+| Afternoon check-in        | 15:00                |
+| Backlog refinement (~1 h) | Monday / Wednesday   |
+| Sprint planning (1–2 h)   | Monday               |
+| Retrospective (~1 h)      | Monday / Friday      |
 
 A logbook entry with the daily standup **must** be written every weekday —
 in English, on a rotating basis — in `docs/team/meetings/`.
@@ -74,26 +74,26 @@ Sky high.
 Contract questions we have not answered yet. Go through these at a meeting
 and move the answers up into the sections above:
 
-1. **Meeting format:** 
+1. **Meeting format:**
    Camera on and pre-prepared presentation.
 2. **Urgency:**
    Big project effects that needs everyones attention. Send text to member if you can't connect to discord and can't join.
-3. **Feedback timeframe:** 
-   Same day, same hour (within working hours). 
-6. **Task distribution:** 
+3. **Feedback timeframe:**
+   Same day, same hour (within working hours).
+4. **Task distribution:**
    Scrum master assigns tasks, people with expertice have oversight but everyone does every task.
-7. **Participation & consequences:** 
+5. **Participation & consequences:**
    3 warnings then byebye. 1 warning = no contact for no reason.
-8. **Strengths & goals:** 
+6. **Strengths & goals:**
    Alena  
    Felix  
    Konan  
-   Mattias  
-    
-9. **Scrum Master:** 
+   Mattias
+
+7. **Scrum Master:**
    Mattias for now
-10. **Linter/formatter:** which tool and configuration (Prettier?), and when
-    do we add it?
+8. **Linter/formatter:** which tool and configuration (Prettier?), and when
+   do we add it?
 
 ## Signatures
 
