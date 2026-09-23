@@ -4,7 +4,7 @@ BEM = **Block**, **Element**, **Modifier**. It keeps class names predictable
 so nobody has to guess what `.battle__answer--correct` belongs to.
 
 - **Block** — a standalone component: `.battle`
-- **Element** — a part *inside* a block, named `block__element`: `.battle__monster`
+- **Element** — a part _inside_ a block, named `block__element`: `.battle__monster`
 - **Modifier** — a variant/state of a block or element, named with `--`: `.battle--boss`
 
 ```text
@@ -31,9 +31,7 @@ BEM
 
   <div class="battle__question">...</div>
 
-  <button class="battle__answer battle__answer--correct">
-    Answer
-  </button>
+  <button class="battle__answer battle__answer--correct">Answer</button>
 </section>
 ```
 

@@ -22,18 +22,18 @@ node_modules/       Installed dependencies — never committed (gitignored)
 
 JSON does not allow comments, so the file is explained here instead:
 
-| Field | What it does |
-|---|---|
-| `name`, `version`, `description` | Identifies the project. Only informational for us. |
-| `private: true` | Safety lock: makes `npm publish` refuse to upload the project to the public npm registry by accident. |
-| `scripts.dev` | `npm run dev` — starts the Vite dev server with hot reload. Use this while working. |
-| `scripts.build` | `npm run build` — creates the optimized production build in `dist/`. |
-| `scripts.preview` | `npm run preview` — serves the finished `dist/` build locally so you can check it before deploying. Run `build` first. |
-| `repository`, `bugs`, `homepage` | Links to our GitHub repo. Informational. |
-| `license` | ISC (npm's default). Informational for a school project. |
-| `type: "module"` | Makes Node treat `.js` files as ES modules (`import`/`export`). Required for our Vite setup. |
-| `devDependencies` | Tools needed to develop/build, not shipped to users: `vite` (dev server + bundler) and `sass` (compiles SCSS). |
-| `allowScripts` | npm's consent list for packages that run install scripts. `@parcel/watcher` (used by sass for file watching) is allowed. Added automatically by npm — leave it. |
+| Field                            | What it does                                                                                                                                                    |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`, `version`, `description` | Identifies the project. Only informational for us.                                                                                                              |
+| `private: true`                  | Safety lock: makes `npm publish` refuse to upload the project to the public npm registry by accident.                                                           |
+| `scripts.dev`                    | `npm run dev` — starts the Vite dev server with hot reload. Use this while working.                                                                             |
+| `scripts.build`                  | `npm run build` — creates the optimized production build in `dist/`.                                                                                            |
+| `scripts.preview`                | `npm run preview` — serves the finished `dist/` build locally so you can check it before deploying. Run `build` first.                                          |
+| `repository`, `bugs`, `homepage` | Links to our GitHub repo. Informational.                                                                                                                        |
+| `license`                        | ISC (npm's default). Informational for a school project.                                                                                                        |
+| `type: "module"`                 | Makes Node treat `.js` files as ES modules (`import`/`export`). Required for our Vite setup.                                                                    |
+| `devDependencies`                | Tools needed to develop/build, not shipped to users: `vite` (dev server + bundler) and `sass` (compiles SCSS).                                                  |
+| `allowScripts`                   | npm's consent list for packages that run install scripts. `@parcel/watcher` (used by sass for file watching) is allowed. Added automatically by npm — leave it. |
 
 `package-lock.json` records the exact version of every installed package so
 all four of us get identical installs. It **is** committed — don't delete it,
