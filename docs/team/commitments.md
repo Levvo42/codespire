@@ -74,25 +74,24 @@ Sky high.
 Contract questions we have not answered yet. Go through these at a meeting
 and move the answers up into the sections above:
 
-1. **Meeting format:** cameras on or off? Does everyone come prepared, or do
-   we plan together during the meeting?
-2. **Urgency:** what counts as "urgent", and how do we reach each other then
-   (phone call, SMS)?
-3. **Feedback timeframe:** within what time should feedback on someone's work
-   be given?
-4. **Schedule confirmation:** lock down the exact days/times for refinement,
-   planning, and retro (the current table is ambiguous).
-5. **Stress & roles:** how does each member react under stress (withdraw,
-   confront, freeze, mediate)? What role does each of us naturally take
-   (leader, planner, specialist, quality assurer, motivator, ...)?
-6. **Task distribution:** how are tasks assigned? May you claim a task outside
-   the standup, or wait for the next one? What is our definition of "done"?
-7. **Participation & consequences:** how active is everyone expected to be?
-   If someone goes inactive: how many contact attempts, how fast must they
-   respond, and when do we contact the teacher?
-8. **Strengths & goals:** what is each member good at, less good at, and what
-   does each of us want to practice (HTML, CSS, Git, project management)?
-9. **Scrum Master:** who takes the role — one person or rotating?
+1. **Meeting format:** 
+   Camera on and pre-prepared presentation.
+2. **Urgency:**
+   Big project effects that needs everyones attention. Send text to member if you can't connect to discord and can't join.
+3. **Feedback timeframe:** 
+   Same day, same hour (within working hours). 
+6. **Task distribution:** 
+   Scrum master assigns tasks, people with expertice have oversight but everyone does every task.
+7. **Participation & consequences:** 
+   3 warnings then byebye. 1 warning = no contact for no reason.
+8. **Strengths & goals:** 
+   Alena  
+   Felix  
+   Konan  
+   Mattias  
+    
+9. **Scrum Master:** 
+   Mattias for now
 10. **Linter/formatter:** which tool and configuration (Prettier?), and when
     do we add it?
 
