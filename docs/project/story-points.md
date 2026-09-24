@@ -75,30 +75,31 @@ Deployment + final documentation + demo
 
 | Status | Scope | Task                                     | Rank       | Assigned | Estimated | Actual |
 | ------ | ----- | ---------------------------------------- | ---------- | -------- | --------: | -----: |
-| 🟨     | 🎯    | Initialize Vite project                  | Novice     | MC       |        1h |      — |
-| ✅     | 🎯    | Define project folder structure          | Novice     | MC       |        2h |      — |
-| ✅     | 🎯    | Configure `.gitignore`                   | Novice     | MC       |        1h |      — |
-| ✅     | 🎯    | Configure npm scripts                    | Novice     | —        |        2h |      — |
-| 🟨     | 🎯    | Configure Prettier                       | Novice     | —        |        1h |      — |
-| 🟨     | 🎯    | Configure ESLint                         | Apprentice | —        |        3h |      — |
-| 🟨     | 🎯    | Configure Stylelint                      | Apprentice | —        |        2h |      — |
-| 🟨     | 🎯    | Configure HTML linting                   | Novice     | —        |        1h |      — |
-| 🟨     | 🎯    | Configure lint/format commands           | Novice     | —        |        2h |      — |
-| ✅     | 🎯    | Create base README                       | Novice     | —        |        2h |      — |
-| ✅     | 🎯    | Create local installation/setup tutorial | Apprentice | —        |        3h |      — |
-| ✅     | 🎯    | Create Git workflow tutorial             | Apprentice | —        |        3h |      — |
-| ✅     | 🎯    | Create Semantic HTML tutorial            | Novice     | —        |        2h |      — |
-| ✅     | 🎯    | Create BEM tutorial                      | Novice     | —        |        2h |      — |
-| ⬜     | 🎯    | Create BEM mind map                      | Novice     | —        |        1h |      — |
-| ⬜     | 🎯    | Define JavaScript conventions            | Novice     | —        |        2h |      — |
-| ✅     | 🎯    | Document project structure               | Novice     | —        |        2h |      — |
-| ⬜     | 🎯    | Document development commands            | Novice     | —        |        1h |      — |
-| ✅     | 🎯    | Define branch naming convention          | Novice     | —        |        1h |      — |
-| ⬜     | 🎯    | Define Conventional Commit rules         | Novice     | —        |        1h |      — |
-| ✅     | 🎯    | Create Pull Request template             | Novice     | —        |        1h |      — |
-| ✅     | 🎯    | Create GitHub Issue template             | Novice     | —        |        1h |      — |
-| ⬜     | 🎯    | Configure GitHub branch protection       | Novice     | —        |        2h |      — |
-| ⬜     | 🎯    | Configure basic CI checks                | Apprentice | —        |        3h |      — |
+| ✅     | 🎯    | Initialize Vite project                  | Novice     | MC       |        1h | 30 min |
+| ✅     | 🎯    | Define project folder structure          | Novice     | MC       |        2h | 15 min |
+| ✅     | 🎯    | Configure `.gitignore`                   | Novice     | MC       |        1h |  5 min |
+| ✅     | 🎯    | Configure npm scripts                    | Novice     | MC       |        2h | 30 min |
+| ✅     | 🎯    | Configure Prettier                       | Novice     | MC       |        1h | 30 min |
+| ✅     | 🎯    | Configure ESLint                         | Apprentice | MC       |        3h | 30 min |
+| ✅     | 🎯    | Configure Stylelint                      | Apprentice | MC       |        2h | 30 min |
+| ✅     | 🎯    | Configure HTML linting                   | Novice     | MC       |        1h | 30 min |
+| ✅     | 🎯    | Configure lint/format commands           | Novice     | MC       |        2h | 30 min |
+| ✅     | 🎯    | Create base README                       | Novice     | MC       |        2h | 30 min |
+| ✅     | 🎯    | Create local installation/setup tutorial | Apprentice | MC       |        3h | 30 min |
+| ✅     | 🎯    | Create Git workflow tutorial             | Apprentice | MC       |        3h | 30 min |
+| ✅     | 🎯    | Create Semantic HTML tutorial            | Novice     | MC       |        2h | 30 min |
+| ✅     | 🎯    | Create BEM tutorial                      | Novice     | MC       |        2h | 15 min |
+| ✅     | 🎯    | Create BEM mind map                      | Novice     | MC       |        1h | 15 min |
+| ✅     | 🎯    | Define JavaScript conventions            | Novice     | MC       |        2h |     1h |
+| ✅     | 🎯    | Create JavaScript conventions tutorial   | Novice     | MC       |        2h |     1h |
+| ✅     | 🎯    | Document project structure               | Novice     | MC       |        2h | 30 min |
+| ✅     | 🎯    | Document development commands            | Novice     | MC       |        1h | 30 min |
+| ✅     | 🎯    | Define branch naming convention          | Novice     | MC       |        1h | 15 min |
+| ✅     | 🎯    | Define Conventional Commit rules         | Novice     | MC       |        1h | 15 min |
+| ✅     | 🎯    | Create Pull Request template             | Novice     | MC       |        1h | 30 min |
+| ✅     | 🎯    | Create GitHub Issue template             | Novice     | MC       |        1h | 30 min |
+| ✅     | 🎯    | Configure GitHub branch protection       | Novice     | MC       |        2h | 30 min |
+| ✅     | 🎯    | Configure basic CI checks                | Apprentice | MC       |        3h | 30 min |
 
 ---
 
@@ -106,14 +107,14 @@ Deployment + final documentation + demo
 
 | Status | Scope | Task                                 | Rank       | Assigned | Estimated | Actual |
 | ------ | ----- | ------------------------------------ | ---------- | -------- | --------: | -----: |
-| ⬜     | 🎯    | Create Figma wireframes              | Apprentice | KM/AT    |        4h |      — |
-| ⬜     | 🎯    | Create Figma mid-fidelity design     | Apprentice | KM/AT    |        4h |      — |
-| ⬜     | 🎯    | Create Figma high-fidelity design    | Adept      | KM/AT    |        6h |      — |
+| 🟨     | 🎯    | Create Figma wireframes              | Apprentice | KM/AT    |        4h |      — |
+| 🟨     | 🎯    | Create Figma mid-fidelity design     | Apprentice | KM/AT    |        4h |      — |
+| 🟨     | 🎯    | Create Figma high-fidelity design    | Adept      | KM/AT    |        6h |      — |
 | ✅     | 🎯    | Define final color palette           | Novice     | ALL      |        1h |      — |
-| ⬜     | 🎯    | Define typography                    | Novice     | —        |        1h |      — |
+| 🟨     | 🎯    | Define typography                    | Novice     | AT       |        1h |      — |
 | ⬜     | 🎯    | Define reusable UI components        | Apprentice | —        |        3h |      — |
-| ⬜     | 🎯    | Define mobile/tablet/desktop layouts | Apprentice | —        |        4h |      — |
-| ⬜     | 🎯    | Review design against game flow      | Novice     | —        |        2h |      — |
+| 🟨     | 🎯    | Define mobile/tablet/desktop layouts | Apprentice | KM/AT    |        4h |      — |
+| 🟨     | 🎯    | Review design against game flow      | Novice     | ALL      |        2h |      — |
 
 ---
 
@@ -122,15 +123,16 @@ Deployment + final documentation + demo
 | Status | Scope | Task                                | Rank       | Assigned | Estimated | Actual |
 | ------ | ----- | ----------------------------------- | ---------- | -------- | --------: | -----: |
 | ⬜     | 🎯    | Create semantic base HTML structure | Apprentice | —        |        4h |      — |
-| ⬜     | 🎯    | Build header/navigation             | Novice     | —        |        2h |      — |
-| ⬜     | 🎯    | Build start/menu screen             | Apprentice | —        |        4h |      — |
+| 🟨     | 🎯    | Build header/navigation             | Novice     | FJ       |        2h |      — |
+| 🟨     | 🎯    | Build start/menu screen             | Apprentice | FJ       |        4h |      — |
+| 🟨     | 🎯    | Build start/menu screen             | Novice     | FJ       |        2h |      — |
 | ⬜     | 🎯    | Build lobby/tower selection layout  | Adept      | —        |        6h |      — |
 | ⬜     | 🎯    | Build battle screen layout          | Adept      | —        |        8h |      — |
 | ⬜     | 🎯    | Build tutorial/help view            | Apprentice | —        |        3h |      — |
 | ⬜     | 🎯    | Build credits view                  | Novice     | —        |        2h |      — |
 | ⬜     | 🎯    | Create shared BEM component styles  | Adept      | —        |        6h |      — |
 | ⬜     | 🎯    | Implement base visual theme         | Adept      | —        |        6h |      — |
-| ⬜     | 🎯    | Implement responsive layouts        | Expert     | —        |        8h |      — |
+| 🟨     | 🎯    | Implement responsive layouts        | Expert     | ALL      |        8h |      — |
 
 ---
 

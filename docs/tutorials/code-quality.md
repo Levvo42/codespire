@@ -5,17 +5,19 @@ GitHub for every pull request. This guide covers the one-time setup, what to do
 every day, how to read and fix errors, and what happens on GitHub.
 
 Installing Node and the project itself is covered in [setup.md](setup.md).
+The JavaScript rules ESLint enforces for us — and the conventions it can't
+check — are in [javascript.md](javascript.md).
 
 ---
 
 ## The tools
 
-| Tool              | Checks                                                               | Files                  | Config file           |
-| ----------------- | -------------------------------------------------------------------- | ---------------------- | --------------------- |
-| **Prettier**      | Formatting only: indentation, quotes, line breaks                    | Everything             | `.prettierrc.json`    |
-| **ESLint**        | JavaScript bugs: undefined names, unused variables, unreachable code | `.js`                  | `eslint.config.js`    |
-| **Stylelint**     | SCSS mistakes, **BEM class names**, **max 3 nesting levels**         | `src/**/*.scss`        | `stylelint.config.js` |
-| **html-validate** | Invalid HTML, duplicate IDs, accessibility (e.g. missing `alt`)      | `index.html`, `pages/` | `.htmlvalidate.json`  |
+| Tool              | Checks                                                                                          | Files                  | Config file           |
+| ----------------- | ----------------------------------------------------------------------------------------------- | ---------------------- | --------------------- |
+| **Prettier**      | Formatting only: indentation, quotes, line breaks                                               | Everything             | `.prettierrc.json`    |
+| **ESLint**        | JavaScript bugs (undefined names, unused variables) **and our [JS conventions](javascript.md)** | `.js`                  | `eslint.config.js`    |
+| **Stylelint**     | SCSS mistakes, **BEM class names**, **max 3 nesting levels**                                    | `src/**/*.scss`        | `stylelint.config.js` |
+| **html-validate** | Invalid HTML, duplicate IDs, accessibility (e.g. missing `alt`)                                 | `index.html`, `pages/` | `.htmlvalidate.json`  |
 
 The difference that matters:
 
@@ -157,15 +159,24 @@ Work in this order:
 
 Errors you are likely to meet in this project:
 
-| Rule                      | Tool          | Typical cause → fix                                                                                     |
-| ------------------------- | ------------- | ------------------------------------------------------------------------------------------------------- |
-| `no-undef`                | ESLint        | Typo in a name, or forgot to `import` it → fix the name / add the import                                |
-| `no-unused-vars`          | ESLint        | Leftover variable or import → remove it                                                                 |
-| `selector-class-pattern`  | Stylelint     | Class name isn't BEM (`.BattleAnswer`, `.battle__answers__button`) → see [bem.md](bem.md)               |
-| `max-nesting-depth`       | Stylelint     | SCSS nested more than 3 levels → flatten; with BEM `&__element` you rarely need deep nesting            |
-| `wcag/h37`                | html-validate | `<img>` without `alt` → describe the image, or `alt=""` if it's purely decorative                       |
-| `no-implicit-button-type` | html-validate | `<button>` without `type` defaults to `submit` → write `type="button"` for normal buttons               |
-| `no-dup-id`               | html-validate | Same `id` used twice on a page → IDs must be unique; use a class if several elements need the same hook |
+| Rule                      | Tool          | Typical cause → fix                                                                                      |
+| ------------------------- | ------------- | -------------------------------------------------------------------------------------------------------- |
+| `no-undef`                | ESLint        | Typo in a name, or forgot to `import` it → fix the name / add the import                                 |
+| `no-unused-vars`          | ESLint        | Leftover variable or import → remove it                                                                  |
+| `no-var`, `prefer-const`  | ESLint        | `var`, or a `let` that is never reassigned → `npm run lint:js:fix` fixes both                            |
+| `eqeqeq`                  | ESLint        | `==` instead of `===` → always `===`; see [javascript.md](javascript.md)                                 |
+| `camelcase`               | ESLint        | `snake_case` name, usually copied from API data → rename it: `const { hit_points: hitPoints } = monster` |
+| `no-console`              | ESLint        | Leftover `console.log` → remove it before the PR (**warning** only — CI still passes)                    |
+| `no-restricted-syntax`    | ESLint        | `export default`, or assigning `innerHTML` → use a named export / `textContent`; the message says which  |
+| `selector-class-pattern`  | Stylelint     | Class name isn't BEM (`.BattleAnswer`, `.battle__answers__button`) → see [bem.md](bem.md)                |
+| `max-nesting-depth`       | Stylelint     | SCSS nested more than 3 levels → flatten; with BEM `&__element` you rarely need deep nesting             |
+| `wcag/h37`                | html-validate | `<img>` without `alt` → describe the image, or `alt=""` if it's purely decorative                        |
+| `no-implicit-button-type` | html-validate | `<button>` without `type` defaults to `submit` → write `type="button"` for normal buttons                |
+| `no-dup-id`               | html-validate | Same `id` used twice on a page → IDs must be unique; use a class if several elements need the same hook  |
+
+Most of the ESLint rules in this table are our team's JavaScript conventions.
+Each one, with examples and the reasoning behind it, is in
+[javascript.md](javascript.md).
 
 ---
 
