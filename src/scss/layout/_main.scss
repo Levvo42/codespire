@@ -1,0 +1,40 @@
+// ========================================
+// MAIN
+// ========================================
+// 1. Mobile main layout
+// 2. Tablet layout
+// 3. Desktop layout
+// ========================================
+// #region Grid
+main {
+  // gridsetup
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+
+  // spacers
+  padding-inline: 1rem;
+  padding-block: 1rem;
+  gap: 2rem;
+}
+
+// #endregion Grid
+// ========================================
+// #region Mobile
+
+// #endregion Mobile
+// ========================================
+// #region desktop
+
+@media (width >= 64rem) {
+  // placeholder
+}
+
+// #endregion desktop
+// ========================================
+// #region Tablet
+
+@media (width >= 48rem) {
+  // placeholder
+}
+
+// #endregion Tablet
