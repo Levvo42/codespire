@@ -1,20 +1,36 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" type="text/css" href="src/scss/style.scss" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CodeSpire</title>
-    <meta name="description" content="" />
+    <title>.codeSpire</title>
+    <meta name="Code your way to victory." content="" />
   </head>
   <body>
-    <header></header>
+    <header class="site-header">
+      <img
+        src="src/assets/images/placeholderlogo.png"
+        loading="eager"
+        class="site-header__logo"
+        alt=""
+      />
+      <nav class="site-header__menu">
+        <a href="http://localhost:5173/">Play</a>
+        <a href="http://localhost:5173/">Story</a>
+        <a href="http://localhost:5173/">Shop</a>
+        <a href="http://localhost:5173/">Tutorial</a>
+      </nav>
+    </header>
+    <main class="site-main"></main>
 
-    <main>
-      <h1>CodeSpire</h1>
-    </main>
+    <footer class="site-footer">
+      <ul class="site-footer__info">
+        <li><a href="http://localhost:5173/">Credits</a></li>
+        <li><a href="http://localhost:5173/">Extra</a></li>
+      </ul>
+    </footer>
 
-    <footer></footer>
-
-    <script type="module" src="/src/js/main.js"></script>
+    <script type="module" src="/src/js/pages/index.js"></script>
   </body>
 </html>

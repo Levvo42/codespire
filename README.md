@@ -90,11 +90,13 @@ Difficulty should dynamically increase as the player progresses.
 - [Where files belong](docs/tutorials/indexing.md)
 - [Semantic HTML](docs/tutorials/semantic-html.md)
 - [BEM CSS naming](docs/tutorials/bem.md)
+- [JavaScript conventions](docs/tutorials/javascript.md)
 
-Planned, not written yet: JavaScript conventions, API usage.
+Planned, not written yet: API usage.
 
 ### Project documentation
 
 - [Project structure](docs/project-structure.md)
 - [Story points](docs/project/story-points.md)
+- [API logs](docs/logs/README.md)
 - [MVP scope](docs/project/MVP%20Scope.md)

@@ -17,8 +17,10 @@ project-root/
 │   ├── js/
 │   │   ├── api/
 │   │   ├── game/
+│   │   ├── pages/
 │   │   ├── ui/
-│   │   └── utils/
+│   │   ├── utils/
+│   │   └── main.js
 │   │
 │   ├── scss/
 │   │   ├── base/
@@ -48,8 +50,13 @@ project-root/
 │   │   ├── setup.md
 │   │   ├── daily-git-operations.md
 │   │   ├── indexing.md
+│   │   ├── code-quality.md
+│   │   ├── javascript.md
 │   │   ├── bem.md
 │   │   └── semantic-html.md
+│   │
+│   ├── logs/
+│   │   └── README.md
 │   │
 │   └── assets/
 │       └── images/
@@ -73,9 +80,14 @@ HTML pages other than the main `index.html`.
 JavaScript used by the website.
 
 - `api/` — API requests
-- `game/` — game logic
+- `game/` — game rules, constants and state
+- `pages/` — one entry script per HTML page (`lobby.html` → `pages/lobby.js`)
 - `ui/` — interface behaviour
 - `utils/` — reusable helper functions
+- `main.js` — the setup every page shares; each page script imports it
+
+Which code belongs in which folder is explained in
+[javascript.md](javascript.md).
 
 ### `src/scss/`
 
@@ -99,6 +111,7 @@ Project documentation.
 - `team/` — group contract and meeting notes
 - `project/` — planning and project structure
 - `tutorials/` — guides for working in the project
+- `logs/` — what each API actually does (one file per API)
 - `assets/images/` — images used only in documentation
 
 ## Simple rule
