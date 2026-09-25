@@ -41,5 +41,8 @@
   },
   "allowScripts": {
     "@parcel/watcher@2.6.0": true
+  },
+  "dependencies": {
+    "modern-normalize": "^3.0.1"
   }
 }
