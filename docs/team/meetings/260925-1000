@@ -1,0 +1,9 @@
+Alena raised some questions regarding the design, particularly what content should be placed in the footer if all main navigation links are already located in the header.
+
+Felix mentioned that he had considered the same issue and suggested moving credits and other additional information to the footer instead. The header should primarily focus on gameplay-related navigation and functionality.
+
+We agreed that the HTML structure should be completed today so that we can start implementing API asap.
+
+We decided that the footer should be kept as minimal as possible to reduce visual clutter. It will consist of a thin bar with an arrow that can expand the bar to reveal additional information.
+
+We then completed merges and pulleed the latest main to ensure we're all up to date.
