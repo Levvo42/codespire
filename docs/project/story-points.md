@@ -122,6 +122,7 @@ Deployment + final documentation + demo
 
 | Status | Scope | Task                                | Rank       | Assigned | Estimated | Actual |
 | ------ | ----- | ----------------------------------- | ---------- | -------- | --------: | -----: |
+| ✅     | 🎯    | Add a CSS reset (modern-normalize)  | Novice     | MC       |        1h | 10 min |
 | ⬜     | 🎯    | Create semantic base HTML structure | Apprentice | —        |        4h |      — |
 | 🟨     | 🎯    | Build header/navigation             | Novice     | FJ       |        2h |      — |
 | 🟨     | 🎯    | Build start/menu screen             | Apprentice | FJ       |        4h |      — |

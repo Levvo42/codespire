@@ -3,9 +3,8 @@
 **Team:** Mattias Carlstedt, Konan M, Alena T, Felix J
 
 We work according to agile methods: daily standups, backlog refinement,
-sprint planning, and retrospectives. Unanswered contract questions are
-collected in [Open questions](#open-questions--to-revisit) and will be
-answered at an upcoming meeting.
+sprint planning, and retrospectives. New contract questions are collected in
+[Open questions](#open-questions) and answered at an upcoming meeting.
 
 ## What we want to avoid
 
@@ -19,6 +18,40 @@ Bad experiences from previous group work, and what we commit to instead:
   guidance instead of doing nothing and stressing about it. Everyone in the
   group is willing to help.
 
+## Roles & task distribution
+
+- **Scrum master:** Mattias.
+- **Task assignment:** the scrum master assigns tasks.
+- **Expertise:** members with expertise in an area oversee that area — but
+  everyone works on every kind of task, so everyone learns all parts of the
+  project.
+
+## Strengths & weaknesses
+
+### Per member
+
+| Member      | Strengths                                                                   | Weaknesses                                                               |
+| ----------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| **Alena**   | Graphic design<br>HTML/CSS (re-engineering)                                 | JavaScript<br>GitHub                                                     |
+| **Felix**   | Information gathering<br>Troubleshooting                                    | Conventions & standardization<br>Graphic design                          |
+| **Konan**   | Object-oriented programming<br>GitHub (Scrum & git features)<br>UX / design | JavaScript<br>Conventions & standardization<br>Group leadership          |
+| **Mattias** | Architecture OCD<br>Organizational skills<br>Design structure               | OCD / control needs<br>Over-ambitious<br>Short experience in development |
+
+### Per area
+
+Who to ask for help (strong), and who to pair up with when working in an
+area (weak). Based on the table above.
+
+| Area                                | Strong                | Weak         |
+| ----------------------------------- | --------------------- | ------------ |
+| Graphic design / UX                 | Alena, Konan, Mattias | Felix        |
+| HTML/CSS                            | Alena                 | —            |
+| JavaScript / programming            | Konan (OOP)           | Alena, Konan |
+| GitHub / git                        | Konan                 | Alena        |
+| Conventions & standards / structure | Mattias               | Felix, Konan |
+| Research & troubleshooting          | Felix                 | —            |
+| Organization & leadership           | Mattias               | Konan        |
+
 ## Meetings
 
 | Meeting                   | When                 |
@@ -29,8 +62,10 @@ Bad experiences from previous group work, and what we commit to instead:
 | Sprint planning (1–2 h)   | Monday               |
 | Retrospective (~1 h)      | Monday / Friday      |
 
-A logbook entry with the daily standup **must** be written every weekday —
-in English, on a rotating basis — in `docs/team/meetings/`.
+- **Format:** camera on, and come prepared — have what you will present ready
+  before the meeting starts.
+- **Logbook:** an entry with the daily standup **must** be written every
+  weekday — in English, on a rotating basis — in `docs/team/meetings/`.
 
 ## Communication
 
@@ -38,6 +73,14 @@ in English, on a rotating basis — in `docs/team/meetings/`.
 - **Response time:** at the latest the next morning.
 - **Unavailability:** notify the day before, or at the latest 1 hour before;
   same-day notice only for emergencies.
+- **Urgent matters:** something that affects the whole project and needs
+  everyone's attention. If you can't reach Discord or can't join, send a text
+  message to a team member.
+
+## Participation & consequences
+
+- **1 warning** = being unreachable without a reason.
+- **3 warnings** = the member is removed from the group.
 
 ## Working style
 
@@ -50,8 +93,11 @@ in English, on a rotating basis — in `docs/team/meetings/`.
 
 ## Feedback & code review
 
-- Code is shown and discussed at the morning standup, and we read each
-  other's commits and pull requests.
+- **Feedback time:** the same day — within the hour during working hours.
+- **Pull requests** need a green CI check and **1 approval** from another
+  member before they can be merged. Everyone reads each other's code. See
+  [code-quality.md](../tutorials/code-quality.md#pull-requests-and-github).
+- Code is shown and discussed at the morning standup.
 - Design work is based in Figma and follows the predetermined color theme;
   feedback is given via Discord screen sharing.
 
@@ -59,41 +105,25 @@ in English, on a rotating basis — in `docs/team/meetings/`.
 
 - **Commit messages:** [Conventional Commits](https://www.conventionalcommits.org/)
   — see [daily-git-operations.md](../tutorials/daily-git-operations.md).
-- **Nesting:** maximum 3 levels of parent–child indentation.
+- **Linting & formatting:** Prettier, ESLint, Stylelint and html-validate.
+  Run `npm run check` before every push — see
+  [code-quality.md](../tutorials/code-quality.md).
+- **JavaScript:** see [javascript.md](../tutorials/javascript.md).
+- **CSS class names:** BEM — see [bem.md](../tutorials/bem.md).
+- **Nesting:** maximum 3 levels of parent–child indentation (enforced for SCSS
+  by Stylelint).
 - **Language:** English everywhere in code, including CSS selectors and comments.
 - **Comments:** each file gets an index comment when it is done; use
   collapsible regions where the editor supports them.
-- **Linter/formatter:** to be decided (leaning Prettier) — see open questions.
 
 ## Ambition
 
 Sky high.
 
-## Open questions — to revisit
+## Open questions
 
-Contract questions we have not answered yet. Go through these at a meeting
-and move the answers up into the sections above:
-
-1. **Meeting format:**
-   Camera on and pre-prepared presentation.
-2. **Urgency:**
-   Big project effects that needs everyones attention. Send text to member if you can't connect to discord and can't join.
-3. **Feedback timeframe:**
-   Same day, same hour (within working hours).
-4. **Task distribution:**
-   Scrum master assigns tasks, people with expertice have oversight but everyone does every task.
-5. **Participation & consequences:**
-   3 warnings then byebye. 1 warning = no contact for no reason.
-6. **Strengths & goals:**
-   Alena  
-   Felix  
-   Konan  
-   Mattias
-
-7. **Scrum Master:**
-   Mattias for now
-8. **Linter/formatter:** which tool and configuration (Prettier?), and when
-   do we add it?
+None right now. Add new contract questions here, and move the answer up into
+the right section once the team has agreed on it.
 
 ## Signatures
 
