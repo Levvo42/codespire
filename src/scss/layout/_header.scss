@@ -6,6 +6,34 @@
 // 3. Desktop layout
 // ========================================
 // #region Mobile
+.site-header {
+  // grid layout
+  display: grid;
+  grid-template: "logo . nav" auto / auto auto auto;
+  align-items: center;
+  border-radius: 1.5rem;
+  border: 2px solid;
+  border-color: rgb(255 174 0);
+
+  // position
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+  padding-inline: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+  // styling
+  background-color: black;
+
+  &__logo {
+    grid-area: logo;
+  }
+
+  &__menu {
+    grid-area: nav;
+  }
+}
 
 // #endregion Mobile
 // ========================================
