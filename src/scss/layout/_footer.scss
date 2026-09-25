@@ -1,0 +1,35 @@
+// ========================================
+// FOOTER
+// ========================================
+// 1. Mobile footer layout
+// 2. Tablet layout
+// 3. Desktop layout
+// ========================================
+// #region Mobile
+.site-footer {
+  // gridlayout
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+
+  // spacers
+  padding-inline: 1rem;
+  border-top: 1px solid;
+}
+
+// #endregion Mobile
+// ========================================
+// #region desktop
+
+@media (width >= 64rem) {
+  // placeholder
+}
+
+// #endregion desktop
+// ========================================
+// #region Tablet
+
+@media (width >= 48rem) {
+  // placeholder
+}
+
+// #endregion Tablet
