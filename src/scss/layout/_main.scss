@@ -9,6 +9,7 @@
 main {
   // gridsetup
   display: grid;
+  flex: 1;
   grid-template-columns: repeat(10, 1fr);
 
   // spacers

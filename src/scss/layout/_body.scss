@@ -1,0 +1,10 @@
+body {
+  // lets footer follow page bottom
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+
+  // removes infinite scrollbar
+  margin-top: 0;
+  margin-bottom: 0;
+}
