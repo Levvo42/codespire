@@ -11,6 +11,7 @@ main {
   display: grid;
   flex: 1;
   grid-template-columns: repeat(10, 1fr);
+  background-color: #2e0000;
 
   // spacers
   padding-inline: 1rem;

@@ -7,13 +7,25 @@
 // ========================================
 // #region Mobile
 .site-footer {
+  // styling
+  background-color: black;
+
   // gridlayout
   display: grid;
   grid-template-columns: repeat(10, 1fr);
 
+  // position
+  z-index: 1000;
+  position: sticky;
+  bottom: 0;
+  right: 0;
+
   // spacers
   padding-inline: 1rem;
-  border-top: 1px solid;
+  border-top: 2px solid;
+
+  // border
+  border-color: rgb(255 174 0);
 }
 
 // #endregion Mobile
