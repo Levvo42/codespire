@@ -19,3 +19,8 @@ ul {
 .index-body {
   background-color: $bodybg;
 }
+
+// hides unwanted elements
+.visually-hidden {
+  display: none;
+}
