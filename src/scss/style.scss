@@ -1,11 +1,20 @@
 // Main stylesheet: imports all partials from base/, layout/, components/ and pages/.
 // CSS-Reset
 @use "modern-normalize";
+
+// Variables
+
+// Base
 @use "base/base";
 
-/* @use "base/variables"; */
+// Layout
 @use "layout/header";
 @use "layout/main";
 @use "layout/body";
 @use "layout/footer";
+
+// Pages
+@use "pages/lobby";
+
+// Components
 @use "components/buttons";

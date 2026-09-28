@@ -1,0 +1,110 @@
+// ========================================
+// MAIN
+// ========================================
+// 1. Mobile main layout
+// 2. Tablet layout
+// 3. Desktop layout
+// ========================================
+// #region Grid // Mobile
+.site-lobby {
+  display: grid;
+  grid-template:
+    ". tower ." auto
+    ". select ." 1fr
+    "stats player inventory" auto
+    / 1fr auto 1fr;
+  background-color: white;
+
+  &__tower {
+    grid-area: tower;
+
+    // TEMPORARY - DELETE ME
+    border-style: dotted;
+    border-width: 5px;
+    background-color: aqua;
+    border-color: red;
+
+    img {
+      height: 70vh;
+    }
+  }
+
+  &__select {
+    grid-area: select;
+    display: grid;
+    grid-template:
+      "select-left select-right" auto
+      "play play" auto
+      / auto auto;
+
+    // TEMPORARY - DELETE ME
+    border-style: dotted;
+    border-width: 5px;
+    background-color: yellow;
+    border-color: greenyellow;
+
+    button {
+      &--play {
+        grid-area: play;
+      }
+
+      &--left {
+        grid-area: select-left;
+      }
+
+      &--right {
+        grid-area: select-right;
+      }
+    }
+  }
+
+  &__stats {
+    grid-area: stats;
+
+    // TEMPORARY - DELETE ME
+    border-style: dotted;
+    border-width: 5px;
+  }
+
+  &__player {
+    grid-area: player;
+
+    // TEMPORARY - DELETE ME
+    border-style: dotted;
+    border-width: 5px;
+  }
+
+  &__inventory {
+    grid-area: inventory;
+
+    // TEMPORARY - DELETE ME
+    border-style: dotted;
+    border-width: 5px;
+  }
+}
+
+.site-lobby-footer {
+  display: grid;
+  position: relative;
+  grid-template:
+    "stats player inventory" 10vh
+    / auto auto auto;
+}
+
+// #endregion Grid
+// ========================================
+// #region Tablet
+
+@media (width >= 48rem) {
+  // placeholder
+}
+
+// #endregion Tablet
+// ========================================
+// #region desktop
+
+@media (width >= 64rem) {
+  // placeholder
+}
+
+// #endregion desktop
