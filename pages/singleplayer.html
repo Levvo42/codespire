@@ -74,15 +74,23 @@
       <!-- Aria-live polite tells a screen reader to wait until the user pauses their current task before announcing dynamic content updates -->
       <section class="site-singleplayer__dialog" aria-live="polite">
         <p class="site-singleplayer__feedback" hidden>CORRECT!</p>
+        <p class="site-singleplayer__explanation" hidden>
+          The :focus pseudo-class applies styles when an element has focus (for
+          example, via keyboard navigation).
+        </p>
         <p class="site-singleplayer__question">
           Which of the following are valid CSS pseudo-classes?
         </p>
+        <!-- 2 buttons for JS to have 2 click handlers and hide/unhide button based on state -->
         <button class="site-singleplayer__next" type="button" hidden>
           Next Level
         </button>
+        <button class="site-singleplayer__retry" type="button" hidden>
+          Try again
+        </button>
       </section>
 
-      <section class="site-singleplayer__answers" aria-label="answers">
+      <section class="site-singleplayer__answers" aria-label="Answers">
         <button class="site-singleplayer__answer" type="button">
           [A] :focus
         </button>
