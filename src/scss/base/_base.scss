@@ -1,9 +1,21 @@
+// ========================================
+// RESET
+// ========================================
+// 1. Mobile
+// 2. Tablet
+// 3. Desktop
+// ========================================
+// #region Import variables
+@use "../base/variables" as *;
+
+// #endregion Import variables
+// ========================================
 // remove bullets from lists
 ul {
   list-style-type: none;
 }
 
 // overall background color on website
-body {
-  background-color: black;
+.index-body {
+  background-color: $bodybg;
 }

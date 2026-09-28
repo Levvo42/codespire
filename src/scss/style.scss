@@ -3,9 +3,14 @@
 @use "modern-normalize";
 @use "base/base";
 
-/* @use "base/variables"; */
+// CSS-Layout
 @use "layout/header";
 @use "layout/main";
 @use "layout/body";
 @use "layout/footer";
+
+// CSS-Components
 @use "components/buttons";
+
+// CSS-Variables
+@use "base/variables";

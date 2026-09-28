@@ -1,18 +1,21 @@
 // ========================================
 // FOOTER
 // ========================================
-// 1. Mobile footer layout
+// 1. Mobile layout
 // 2. Tablet layout
 // 3. Desktop layout
+// ========================================
+// #region Import variables
+@use "../base/variables" as *;
+
+// #endregion Import variables
 // ========================================
 // #region Mobile
 .site-footer {
   // styling
   background-color: black;
-
-  // gridlayout
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  display: flex;
+  height: 1.5rem;
 
   // position
   z-index: 1000;
@@ -26,17 +29,15 @@
 
   // border
   border-color: rgb(255 174 0);
+
+  &__info {
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
+  }
 }
 
 // #endregion Mobile
-// ========================================
-// #region desktop
-
-@media (width >= 64rem) {
-  // placeholder
-}
-
-// #endregion desktop
 // ========================================
 // #region Tablet
 
@@ -45,3 +46,11 @@
 }
 
 // #endregion Tablet
+// ========================================
+// #region desktop
+
+@media (width >= 64rem) {
+  // placeholder
+}
+
+// #endregion desktop
