@@ -24,7 +24,9 @@
   padding-bottom: 0.5rem;
 
   // styling
-  background-color: black;
+
+  /* background-color: white; */
+  background-image: url("../../assets/images/header-banner.jpg");
 
   &__logo {
     grid-area: logo;
