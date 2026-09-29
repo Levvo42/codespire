@@ -1,1 +1,25 @@
+// COLORS
+
 $bodybgcolor: red;
+
+// BREAKPOINTS
+$breakpoint-mobile: 22.5rem; // 360px
+$breakpoint-tablet: 48rem; // 768px
+$breakpoint-desktop: 64rem; // 1366px
+$breakpoint-large: 120rem; // 1920px <-- Don't use if you really don't have too
+
+// @media (width >= #{$breakpoint-mobile}) {
+//   /* mobile */
+// }
+
+// @media (width >= #{$breakpoint-tablet}) {
+//  /* tablet */
+// }
+
+// @media (width >= #{$breakpoint-desktop}) {
+//   /* desktop */
+// }
+
+// @media (width >= #{$breakpoint-large}) {
+//   /* desktop */
+// }
