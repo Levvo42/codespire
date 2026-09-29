@@ -10,8 +10,75 @@
 
 // #endregion Import variables
 // ========================================
+// #region grid layout
+.index-main {
+  display: grid;
+  grid-template-areas:
+    "indexA indexB indexC"
+    "indexA indexB indexC"
+    "indexA indexB indexC";
+  grid-template-columns: 1fr 1fr 1fr;
+
+  &__story {
+    grid-area: "indexA";
+    text-shadow:
+      0 0 6px #010200,
+      0 0 7px #030500;
+    color: rgb(255 255 255);
+
+    .sickness {
+      color: black;
+      text-shadow:
+        0 0 6px #468b00,
+        0 0 7px #60a000;
+    }
+
+    .golden {
+      color: black;
+      text-shadow:
+        0 0 6px #c2ae00,
+        0 0 7px #ffe600;
+    }
+
+    p {
+      font-size: 0.85rem;
+    }
+
+    strong {
+      font-family: rpgFont, sans-serif;
+      font-weight: lighter;
+      font-size: 1.1rem;
+    }
+
+    h1 {
+      font-family: rpgFont, sans-serif;
+      font-weight: lighter;
+      color: goldenrod;
+      font-size: 3rem;
+    }
+
+    h2 {
+      font-family: rpgFont, sans-serif;
+      font-weight: lighter;
+      color: rgb(160 91 0);
+    }
+  }
+}
+
+// #endregion grid layout
+// ========================================
 .index-body {
-  background-image: url("../../assets/images/lobby-bg.jpg");
-  background-size: 200dvh;
+  background-image: url("../../assets/images/FranzStieberich.jpg");
+
+  /* background-size: 200dvh; */
   background-position: top;
+  background-size: cover;
+}
+
+.index-main {
+  padding: 0.5rem;
+
+  &hr {
+    // placeholder
+  }
 }
