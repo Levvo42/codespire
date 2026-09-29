@@ -2,3 +2,15 @@
 a:visited:hover {
   color: red;
 }
+
+.site-lobby__button {
+  background: #eae6ed;
+
+  // Stone button
+  box-shadow:
+    inset -28px -22px 36px #778,
+    inset 38px 18px 36px #fffffc,
+    12px 8px 18px rgb(0 0 0 / 25%);
+  border-radius: 69% 68% 86% 200px / 62% 54% 70% 30px; // Irregular shape
+  text-shadow: 1px 1px 1px rgb(255 255 255 / 50%); // Engraved text look
+}

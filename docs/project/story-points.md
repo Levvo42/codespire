@@ -40,7 +40,8 @@ Deployment + final documentation + demo
 
 ⬜ Not started  
 🟨 In progress  
-✅ Completed
+✅ Completed  
+🟥 Removed / Aborted
 
 ### Scope
 
@@ -107,14 +108,14 @@ Deployment + final documentation + demo
 
 | Status | Scope | Task                                 | Rank       | Assigned | Estimated | Actual |
 | ------ | ----- | ------------------------------------ | ---------- | -------- | --------: | -----: |
-| 🟨     | 🎯    | Create Figma wireframes              | Apprentice | KM/AT    |        4h |      — |
-| 🟨     | 🎯    | Create Figma mid-fidelity design     | Apprentice | KM/AT    |        4h |      — |
-| 🟨     | 🎯    | Create Figma high-fidelity design    | Adept      | KM/AT    |        6h |      — |
+| ✅     | 🎯    | Create Figma wireframes              | Apprentice | KM/AT    |        4h |      — |
+| ✅     | 🎯    | Create Figma mid-fidelity design     | Apprentice | KM/AT    |        4h |      — |
+| 🟥     | 🎯    | Create Figma high-fidelity design    | Adept      | KM/AT    |        6h |      — |
 | ✅     | 🎯    | Define final color palette           | Novice     | ALL      |        1h |      — |
 | 🟨     | 🎯    | Define typography                    | Novice     | AT       |        1h |      — |
-| ⬜     | 🎯    | Define reusable UI components        | Apprentice | —        |        3h |      — |
-| 🟨     | 🎯    | Define mobile/tablet/desktop layouts | Apprentice | KM/AT    |        4h |      — |
-| 🟨     | 🎯    | Review design against game flow      | Novice     | ALL      |        2h |      — |
+| 🟨     | 🎯    | Define reusable UI components        | Apprentice | —        |        3h |      — |
+| ✅     | 🎯    | Define mobile/tablet/desktop layouts | Apprentice | KM/AT    |        4h |      — |
+| ✅     | 🎯    | Review design against game flow      | Novice     | ALL      |        2h |      — |
 
 ---
 
@@ -127,12 +128,12 @@ Deployment + final documentation + demo
 | 🟨     | 🎯    | Build header/navigation             | Novice     | FJ       |        2h |      — |
 | 🟨     | 🎯    | Build start/menu screen             | Apprentice | FJ       |        4h |      — |
 | 🟨     | 🎯    | Build start/menu screen             | Novice     | FJ       |        2h |      — |
-| ⬜     | 🎯    | Build lobby/tower selection layout  | Adept      | —        |        6h |      — |
-| ⬜     | 🎯    | Build battle screen layout          | Adept      | —        |        8h |      — |
-| ⬜     | 🎯    | Build tutorial/help view            | Apprentice | —        |        3h |      — |
-| ⬜     | 🎯    | Build credits view                  | Novice     | —        |        2h |      — |
-| ⬜     | 🎯    | Create shared BEM component styles  | Adept      | —        |        6h |      — |
-| ⬜     | 🎯    | Implement base visual theme         | Adept      | —        |        6h |      — |
+| 🟨     | 🎯    | Build lobby/tower selection layout  | Adept      | MC       |        6h |      — |
+| 🟨     | 🎯    | Build battle screen layout          | Adept      | KM       |        8h |      — |
+| 🟨     | 🎯    | Build tutorial/help view            | Apprentice | AT       |        3h |      — |
+| 🟨     | 🎯    | Build credits view                  | Novice     | AT       |        2h |      — |
+| 🟨     | 🎯    | Create shared BEM component styles  | Adept      | ALL      |        6h |      — |
+| 🟨     | 🎯    | Implement base visual theme         | Adept      | ALL      |        6h |      — |
 | 🟨     | 🎯    | Implement responsive layouts        | Expert     | ALL      |        8h |      — |
 
 ---
