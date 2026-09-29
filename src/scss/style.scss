@@ -8,14 +8,15 @@
 // Base
 @use "base/base";
 
-// Components
-@use "components/buttons";
-
 // Layout
 @use "layout/header";
 @use "layout/main";
 @use "layout/body";
 @use "layout/footer";
 
+// Components
+@use "components/buttons";
+
 // Pages
 @use "pages/lobby";
+@use "pages/singleplayer";

@@ -1,0 +1,117 @@
+// ========================================
+// SINGLEPLAYER
+// ========================================
+// 1. Mobile main layout
+// 2. Tablet layout
+// 3. Desktop layout
+// ========================================
+// #region Mobile
+.site-singleplayer {
+  display: grid;
+  grid-template:
+    "status" auto
+    "scene" auto
+    "dialog" auto
+    "answers" auto
+    / 1fr;
+  gap: 1rem;
+  padding: 1rem;
+
+  // Background - sick and tired of the white colored background
+
+  background-image: url("../../assets/images/placeholder-singleplayer-bg-image.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+
+  // endbackground
+
+  &__title {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  &__status {
+    grid-area: status;
+    text-align: center;
+  }
+
+  &__scene {
+    grid-area: scene;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+  }
+
+  // torches only show on desktop
+  &__torch {
+    display: none;
+  }
+
+  &__dialog {
+    grid-area: dialog;
+    padding: 1rem;
+    background-color: black;
+    color: white;
+    text-align: center;
+  }
+
+  &__answers {
+    grid-area: answers;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  &__answer {
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    background-color: #1e1e1e;
+    color: white;
+    text-align: start;
+
+    &--correct {
+      background-color: #b6ff6e;
+      color: black;
+    }
+
+    &--wrong {
+      background-color: #ff6060;
+      color: black;
+    }
+  }
+}
+
+// #endregion Mobile
+// ========================================
+// #region Tablet
+
+@media (width >= 48rem) {
+  .site-singleplayer__answers {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// #endregion Tablet
+// ========================================
+// #region Desktop
+
+@media (width >= 64rem) {
+  .site-singleplayer {
+    padding-inline: 3rem;
+  }
+
+  .site-singleplayer__scene {
+    justify-content: space-between;
+  }
+
+  .site-singleplayer__torch {
+    display: block;
+  }
+}
+
+// #endregion Desktop
