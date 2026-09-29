@@ -1,9 +1,14 @@
 // ========================================
 // HEADER
 // ========================================
-// 1. Mobile header layout
+// 1. Mobile layout
 // 2. Tablet layout
 // 3. Desktop layout
+// ========================================
+// #region Import variables
+@use "../base/variables" as *;
+
+// #endregion Import variables
 // ========================================
 // #region Mobile
 .site-header {
@@ -24,35 +29,33 @@
   padding-bottom: 0.5rem;
 
   // styling
-  background-color: black;
+
+  /* background-color: white; */
+  background-image: url("../../assets/images/header-banner.jpg");
+  background-size: 100% 100%;
 
   &__logo {
     grid-area: logo;
   }
 
-  &__menu {
+  &__nav {
+    display: none;
+  }
+
+  &__menu-button {
+    background-color: transparent;
+    border: 0;
     grid-area: nav;
+    justify-self: end;
+
+    & img {
+      height: 3rem;
+      width: 7rem;
+    }
   }
 }
 
 // #endregion Mobile
-// ========================================
-// #region desktop
-
-@media (width >= 64rem) {
-  .site-header {
-    // gridlayout
-    display: grid;
-    position: relative;
-    grid-template-columns: repeat(12, 1fr);
-
-    // spacers
-    padding-inline: 1rem;
-    padding-block: 1rem;
-  }
-}
-
-// #endregion desktop
 // ========================================
 // #region Tablet
 
@@ -61,3 +64,22 @@
 }
 
 // #endregion Tablet
+// ========================================
+// #region desktop
+
+@media (width >= 64rem) {
+  .site-header {
+    &__menu-button {
+      display: none;
+    }
+
+    &__nav {
+      grid-area: nav;
+      display: flex;
+      flex: 1;
+      justify-content: space-evenly;
+    }
+  }
+}
+
+// #endregion desktop
