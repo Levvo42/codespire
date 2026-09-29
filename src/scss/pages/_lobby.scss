@@ -1,32 +1,97 @@
-// ========================================
+// ────────────────────────────────────────
 // MAIN
-// ========================================
+// ────────────────────────────────────────
 // 1. Mobile main layout
 // 2. Tablet layout
 // 3. Desktop layout
-// ========================================
-// #region Grid // Mobile
+// ────────────────────────────────────────
+// #region Import Variables
+@use "../base/variables" as *;
+
+// #endregion
+// ────────────────────────────────────────
+// #region MOBILE // GRID
+// ────────────────────────────────────────
+
+.page-lobby {
+  background: #2a2f1f;
+}
+
+.page-lobby .site-header {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  background-color: rgb(0 0 0 / 40%); // or transparent
+}
+
 .site-lobby {
   display: grid;
+  min-height: 100svh;
+  overflow-x: clip;
   grid-template:
-    ". tower ." auto
-    ". select ." 1fr
-    "stats player inventory" auto
-    / 1fr auto 1fr;
-  background-color: white;
+    "tower" 1fr
+    "select" auto
+    "player" auto
+    / 1fr;
 
-  &__tower {
+  h1 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  &__scene {
     grid-area: tower;
 
-    // TEMPORARY - DELETE ME
-    border-style: dotted;
-    border-width: 5px;
-    background-color: aqua;
-    border-color: red;
+    --zoom: 4; // mobile: close-up on the door
+
+    overflow: hidden;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: auto;
+    position: fixed;
+  }
+
+  &__stage {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: max(
+      calc(100% * var(--zoom)),
+      calc(100svh * 3314 / 2211) // scene height × image ratio
+    );
+    aspect-ratio: 3314 / 2211;
+    translate: -50% 0;
+    background: url("../../assets/images/lobby-bg.jpg") center / 100% 100%;
+  }
+
+  &__tower {
+    display: grid;
+    justify-items: center;
+    container-type: inline-size;
+    position: absolute;
+    left: 50%;
+    bottom: 12%; // where the ground is in the bg
+    width: 80%; // % of the stage, so it scales with it
+    translate: -50% 0;
 
     img {
-      height: 70vh;
+      display: block;
+      width: 100%;
+      height: auto;
     }
+  }
+
+  &__sign {
+    position: absolute;
+    left: 50%;
+    top: 61%; // just above the door
+    translate: -50% 0;
+    font-size: 5cqi; // 6% of the tower's width
+    margin: 0;
   }
 
   &__select {
@@ -36,34 +101,30 @@
       "select-left select-right" auto
       "play play" auto
       / auto auto;
+  }
 
-    // TEMPORARY - DELETE ME
-    border-style: dotted;
-    border-width: 5px;
-    background-color: yellow;
-    border-color: greenyellow;
+  &__button {
+    &--play {
+      grid-area: play;
+    }
 
-    button {
-      &--play {
-        grid-area: play;
-      }
+    &--left {
+      grid-area: select-left;
+    }
 
-      &--left {
-        grid-area: select-left;
-      }
-
-      &--right {
-        grid-area: select-right;
-      }
+    &--right {
+      grid-area: select-right;
     }
   }
 
   &__stats {
-    grid-area: stats;
+    grid-area: player;
+    display: none;
 
     // TEMPORARY - DELETE ME
     border-style: dotted;
     border-width: 5px;
+    background-color: aqua;
   }
 
   &__player {
@@ -72,10 +133,13 @@
     // TEMPORARY - DELETE ME
     border-style: dotted;
     border-width: 5px;
+    background-color: aqua;
   }
 
   &__inventory {
-    grid-area: inventory;
+    grid-area: player;
+    display: none;
+    background-color: aqua;
 
     // TEMPORARY - DELETE ME
     border-style: dotted;
@@ -83,28 +147,101 @@
   }
 }
 
-.site-lobby-footer {
-  display: grid;
-  position: relative;
-  grid-template:
-    "stats player inventory" 10vh
-    / auto auto auto;
-}
-
 // #endregion Grid
-// ========================================
-// #region Tablet
+// ──────────────────────────────────────────────────
+// #region ─────────────── · TABLET · ───────────────
+// ──────────────────────────────────────────────────
 
-@media (width >= 48rem) {
-  // placeholder
+@media (width >= #{$breakpoint-tablet}) {
+  .site-lobby {
+    display: grid;
+    grid-template:
+      "tower tower tower tower" 1fr
+      ". select select ." auto
+      "stats stats player player" auto
+      / 1fr auto auto 1fr;
+
+    &__stats {
+      grid-area: stats;
+      display: block;
+
+      // TEMPORARY - DELETE ME
+      border-style: dotted;
+      border-width: 5px;
+    }
+
+    &__player {
+      grid-area: player;
+
+      // TEMPORARY - DELETE ME
+      border-style: dotted;
+      border-width: 5px;
+    }
+
+    &__inventory {
+      grid-area: inventory;
+      display: none;
+
+      // TEMPORARY - DELETE ME
+      border-style: dotted;
+      border-width: 5px;
+    }
+
+    &__scene {
+      --zoom: 2.5; // mobile: close-up on the door
+    }
+
+    &__tower {
+      bottom: 16%; // where the ground is in the bg
+    }
+  }
 }
 
 // #endregion Tablet
-// ========================================
-// #region desktop
+// ────────────────────────────────────────
+// #region DESKTOP
+// ────────────────────────────────────────
 
-@media (width >= 64rem) {
-  // placeholder
+@media (width >= #{$breakpoint-desktop}) {
+  .site-lobby {
+    display: grid;
+    grid-template:
+      "tower tower tower" 1fr
+      ". select ." auto
+      "stats player inventory" auto
+      / 1fr auto 1fr;
+
+    &__stats {
+      grid-area: stats;
+      display: block;
+
+      // TEMPORARY - DELETE ME
+      border-style: dotted;
+      border-width: 5px;
+    }
+
+    &__player {
+      grid-area: player;
+
+      // TEMPORARY - DELETE ME
+      border-style: dotted;
+      border-width: 5px;
+    }
+
+    &__inventory {
+      grid-area: inventory;
+      display: block;
+
+      // TEMPORARY - DELETE ME
+      border-style: dotted;
+      border-width: 5px;
+    }
+
+    &__scene {
+      --zoom: 1; // mobile: close-up on the door
+    }
+  } /* desktop */
 }
 
 // #endregion desktop
+// ────────────────────────────────────────

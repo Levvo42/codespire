@@ -40,7 +40,8 @@ Deployment + final documentation + demo
 
 ⬜ Not started  
 🟨 In progress  
-✅ Completed
+✅ Completed  
+🟥 Removed / Aborted
 
 ### Scope
 
@@ -109,12 +110,12 @@ Deployment + final documentation + demo
 | ------ | ----- | ------------------------------------ | ---------- | -------- | --------: | -----: |
 | ✅     | 🎯    | Create Figma wireframes              | Apprentice | KM/AT    |        4h |      — |
 | ✅     | 🎯    | Create Figma mid-fidelity design     | Apprentice | KM/AT    |        4h |      — |
-| 🟨     | 🎯    | Create Figma high-fidelity design    | Adept      | KM/AT    |        6h |      — |
+| 🟥     | 🎯    | Create Figma high-fidelity design    | Adept      | KM/AT    |        6h |      — |
 | ✅     | 🎯    | Define final color palette           | Novice     | ALL      |        1h |      — |
 | 🟨     | 🎯    | Define typography                    | Novice     | AT       |        1h |      — |
 | 🟨     | 🎯    | Define reusable UI components        | Apprentice | —        |        3h |      — |
-| 🟨     | 🎯    | Define mobile/tablet/desktop layouts | Apprentice | KM/AT    |        4h |      — |
-| 🟨     | 🎯    | Review design against game flow      | Novice     | ALL      |        2h |      — |
+| ✅     | 🎯    | Define mobile/tablet/desktop layouts | Apprentice | KM/AT    |        4h |      — |
+| ✅     | 🎯    | Review design against game flow      | Novice     | ALL      |        2h |      — |
 
 ---
 

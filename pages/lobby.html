@@ -7,7 +7,7 @@
     <meta name="description" content="" />
   </head>
 
-  <body>
+  <body class="page-lobby">
     <header class="site-header">
       <img
         src="/src/assets/images/placeholderlogo.png"
@@ -24,35 +24,40 @@
     </header>
 
     <main class="site-lobby">
+      <!-- <a href='https://pngtree.com/freepng/medieval-stone-castle-tower-with-wooden-door-and-mossy-walls_23400916.html'>png image from pngtree.com/</a> -->
       <h1>Lobby</h1>
+
       <!--Main Tower-->
       <section class="site-lobby__scene">
-        <div class="site.lobby__scene--tower">
-          <img
-            src="/src/assets/images/placeholder_400x1000.svg"
-            alt="Main tower"
-            width="400"
-            height="1000"
-          />
-          <p class="lobby__sign" aria-live="polite">Level</p>
+        <div class="site-lobby__stage">
+          <div class="site-lobby__tower">
+            <img
+              src="/src/assets/images/medival-tower.png"
+              alt="Main tower"
+              width="3072"
+              height="3072"
+            />
+            <p class="site-lobby__sign" aria-live="polite">Level</p>
+          </div>
         </div>
       </section>
-      <!--Main Selection-->
+
+      <!--Selection-->
       <section class="site-lobby__select">
         <button
-          class="site-lobby__button site-lobby__botton--left"
+          class="site-lobby__button site-lobby__button--left"
           type="button"
         >
           Left
         </button>
         <button
-          class="site-lobby__button site-lobby__botton--right"
+          class="site-lobby__button site-lobby__button--right"
           type="button"
         >
           Right
         </button>
         <button
-          class="site-lobby__button site-lobby__botton--play"
+          class="site-lobby__button site-lobby__button--play"
           type="button"
         >
           Play
@@ -65,7 +70,7 @@
       <article class="site-lobby__player">
         <button
           type="button"
-          class="lobby__toggle"
+          class="site-lobby__toggle"
           aria-controls="panel-stats"
           aria-expanded="false"
         >
@@ -74,17 +79,18 @@
         <h2>Player</h2>
         <button
           type="button"
-          class="lobby__toggle"
+          class="site-lobby__toggle"
           aria-controls="panel-inventory"
           aria-expanded="false"
         >
-          Stats
+          Inventory
         </button>
       </article>
       <article class="site-lobby__inventory" id="panel-inventory">
         <h2>Inventory</h2>
       </article>
     </main>
+    <footer class="site-footer"></footer>
 
     <script type="module" src="/src/js/pages/lobby.js"></script>
   </body>
