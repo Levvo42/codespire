@@ -16,10 +16,6 @@
 @use "layout/body";
 @use "layout/footer";
 
-// Pages
-@use "pages/lobby";
-@use "pages/credits";
-
 // Components
 @use "components/buttons";
 
@@ -27,3 +23,4 @@
 @use "pages/lobby";
 @use "pages/singleplayer";
 @use "pages/index";
+@use "pages/credits";
