@@ -1,0 +1,116 @@
+// ========================================
+// STORY
+// ========================================
+// 1. Mobile layout
+// 2. Tablet layout
+// 3. Desktop layout
+// ========================================
+// #region Import variables
+@use "../base/variables" as *;
+
+// #endregion Import variables
+// ========================================
+// #region text styling
+
+.story-main {
+  &__story {
+    text-shadow:
+      2px 2px black,
+      0 0 5px black;
+    color: rgb(255 255 255);
+    justify-items: center;
+
+    // margin block for spacing between border and text.
+    margin-block: -2.5em; // Intro needed another instance further down.
+
+    .sickness {
+      color: rgb(146 250 137);
+      text-shadow:
+        2px 2px rgb(2 0 0),
+        0 0 10px #15ff00;
+    }
+
+    .golden {
+      color: rgb(250 229 134);
+      text-shadow:
+        2px 2px rgb(0 0 0),
+        0 0 7px #fac001;
+    }
+
+    .warning {
+      color: rgb(196 0 0);
+      text-shadow:
+        2px 2px rgb(0 0 0),
+        0 0 7px #f00;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 40rem;
+    }
+
+    strong {
+      font-family: rpgFont, sans-serif;
+      font-weight: lighter;
+      font-size: 1.4rem;
+      position: relative;
+      top: 0.3rem;
+    }
+
+    h1 {
+      font-family: rpgFont, sans-serif;
+      font-weight: lighter;
+      color: goldenrod;
+      font-size: 4rem;
+      position: relative;
+      top: 0.3rem;
+    }
+
+    h2 {
+      font-family: rpgFont, sans-serif;
+      font-weight: lighter;
+      color: rgb(160 91 0);
+      font-size: 2.5rem;
+      position: relative;
+      top: 0.3rem;
+    }
+  }
+}
+
+// #endregion text styling
+// ========================================
+// #region scrollbar styling
+.story-page {
+  scrollbar-color: #c79a35 #20170f;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 0.75rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #20170f;
+    border-inline: 1px solid #705321;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(#e7c66e, #9c7024);
+    border: 2px solid #20170f;
+    border-radius: 0.25rem;
+  }
+}
+
+// #endregion scrollbarstyling
+// ========================================
+.index-main__intro-text {
+  margin-block: -1.5rem; // "The journey begins" needs more top spacing
+}
+
+.story-main {
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  &hr {
+    // placeholder
+  }
+}
