@@ -19,9 +19,16 @@
       0 0 5px black;
     color: rgb(255 255 255);
     justify-items: center;
-
-    // margin block for spacing between border and text.
-    margin-block: -2.5em; // Intro needed another instance further down.
+    width: fit-content;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: auto;
+    background-color: rgb(0 0 0 / 55%);
+    border-radius: 0.5rem 0.7rem 1.6rem;
+    border: 0.14rem groove rgb(218 165 32 / 64.4%);
 
     .sickness {
       color: rgb(146 250 137);
@@ -75,38 +82,47 @@
       top: 0.3rem;
     }
   }
+
+  &__scrollbar {
+    min-height: 0;
+    overflow-y: auto;
+    padding: 1rem;
+
+    &::-webkit-scrollbar {
+      width: 0.75rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #20170f;
+      border-inline: 1px solid #705321;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: linear-gradient(#e7c66e, #9c7024);
+      border: 2px solid #20170f;
+      border-radius: 0.25rem;
+    }
+  }
 }
 
 // #endregion text styling
 // ========================================
 // #region scrollbar styling
 .story-page {
-  scrollbar-color: #c79a35 #20170f;
-  scrollbar-width: thin;
-
-  &::-webkit-scrollbar {
-    width: 0.75rem;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: #20170f;
-    border-inline: 1px solid #705321;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: linear-gradient(#e7c66e, #9c7024);
-    border: 2px solid #20170f;
-    border-radius: 0.25rem;
-  }
+  overflow: hidden;
 }
 
 // #endregion scrollbarstyling
 // ========================================
 .index-main__intro-text {
-  margin-block: -1.5rem; // "The journey begins" needs more top spacing
+  margin-block: auto;
 }
 
 .story-main {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
   padding-left: 1rem;
   padding-right: 1rem;
 
