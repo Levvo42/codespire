@@ -1,4 +1,4 @@
-@keyframes creditsmove {
+@keyframes site-creditsmove {
   from {
     transform: translateY(80vh);
   }
@@ -23,7 +23,7 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
-.credits {
+.site-credits {
   min-height: 100%;
   background: #000;
   color: #fff;
@@ -74,7 +74,7 @@ body {
     }
   }
 
-  &__credits__divider {
+  &__site-credits__divider {
     margin: 0.2rem 0;
     padding: 0;
   }
@@ -101,12 +101,12 @@ body {
     margin: 0;
   }
 
-  &__api .credits__row {
+  &__api .site-credits__row {
     grid-template-columns: 1fr 1fr;
     gap: 2rem 4rem;
   }
 
-  &__assets .credits__row {
+  &__assets .site-credits__row {
     grid-template-columns: 1fr 1fr;
     gap: 2rem 4rem;
   }
@@ -162,7 +162,7 @@ audio {
 // Tablet
 // =====================================
 @media (width >= 48rem) {
-  .credits {
+  .site-credits {
     &__container {
       // width: ???;
     }
@@ -173,7 +173,7 @@ audio {
 // Desktop
 // =====================================
 @media (width >= 64rem) {
-  .credits {
+  .site-credits {
     &__container {
       // width: ???;
     }
