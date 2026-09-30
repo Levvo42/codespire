@@ -7,6 +7,8 @@
 
 // Base
 @use "base/base";
+@use "base/accessibility";
+@use "base/typography";
 
 // Layout
 @use "layout/header";
@@ -20,3 +22,4 @@
 // Pages
 @use "pages/lobby";
 @use "pages/singleplayer";
+@use "pages/index";
