@@ -10,7 +10,7 @@
     />
   </head>
 
-  <body>
+  <body class="page-singleplayer">
     <header class="site-header">
       <img
         src="/src/assets/images/placeholderlogo.png"
@@ -82,10 +82,18 @@
           Which of the following are valid CSS pseudo-classes?
         </p>
         <!-- 2 buttons for JS to have 2 click handlers and hide/unhide button based on state -->
-        <button class="site-singleplayer__next" type="button" hidden>
+        <button
+          class="site-singleplayer__button site-singleplayer__button--next"
+          type="button"
+          hidden
+        >
           Next Level
         </button>
-        <button class="site-singleplayer__retry" type="button" hidden>
+        <button
+          class="site-singleplayer__button site-singleplayer__button--retry"
+          type="button"
+          hidden
+        >
           Try again
         </button>
       </section>
@@ -106,7 +114,7 @@
       </section>
     </main>
 
-    <footer></footer>
+    <footer class="site-footer"></footer>
 
     <script type="module" src="/src/js/pages/singleplayer.js"></script>
   </body>

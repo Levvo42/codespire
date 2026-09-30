@@ -9,15 +9,18 @@ import "../scss/style.scss";
 const menuButton = document.querySelector(".site-header__menu-button");
 const navigation = document.querySelector(".site-header__nav");
 const menuText = menuButton.querySelector("span");
-const desktopMedia = window.matchMedia("(min-width: 64rem)");
+const desktopMedia = window.matchMedia("(min-width: 53rem)");
 // #endregion Variables
 // ========================================
 // #region Event listeners
-menuButton.addEventListener("click", toggleNavMenu);
-desktopMedia.addEventListener("change", closeMenuOnDesktop);
+menuButton.addEventListener("click", toggleNavMenu); // decides if the mobile nav menu is open
+document.addEventListener("click", closeMenuOnOutsideClick); // closes menu if you click outside the box
+desktopMedia.addEventListener("change", closeMenuOnDesktop); // closes auto if you resize to big window
 // #endregion Event listeners
 // ========================================
 // #region Functions
+
+// open / close mobile nav menu
 function toggleNavMenu() {
   const isOpen = navigation.classList.toggle("is-open");
 
@@ -30,12 +33,29 @@ function toggleNavMenu() {
   }
 }
 
+// autoclose menu on resizing to desktop sized window
 function closeMenuOnDesktop(event) {
   if (event.matches) {
-    navigation.classList.remove("is-open");
-    menuButton.setAttribute("aria-expanded", "false");
-    menuText.textContent = "Menu";
+    closeNavMenu();
   }
+}
+
+// closes menu if you click outside the menu
+function closeMenuOnOutsideClick(event) {
+  if (
+    navigation.classList.contains("is-open") &&
+    !navigation.contains(event.target) &&
+    !menuButton.contains(event.target)
+  ) {
+    closeNavMenu();
+  }
+}
+
+// closetrigger for menu
+function closeNavMenu() {
+  navigation.classList.remove("is-open");
+  menuButton.setAttribute("aria-expanded", "false");
+  menuText.textContent = "Menu";
 }
 // #endregion Functions
 // ========================================
