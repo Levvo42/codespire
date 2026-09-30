@@ -4,24 +4,117 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CodeSpire — Singleplayer</title>
-    <meta name="description" content="" />
+    <meta
+      name="description"
+      content="Answer questions to defeat monsters and climb the tower."
+    />
   </head>
 
-  <body>
-    <header>
+  <body class="page-singleplayer">
+    <header class="site-header">
       <img
         src="/src/assets/images/placeholderlogo.png"
         loading="eager"
         class="site-header__logo"
-        alt=""
+        alt="codeSpire"
       />
+      <nav class="site-header__menu">
+        <a href="./createplayer.html">Play</a>
+        <a href="">Story</a>
+        <a href="./tutorial.html">Tutorial</a>
+        <a href="./credits.html">Credits</a>
+        <a href="">Extra</a>
+      </nav>
     </header>
 
-    <main>
-      <h1>Singleplayer</h1>
+    <main class="site-singleplayer">
+      <h1 class="site-singleplayer__title">Singleplayer</h1>
+
+      <!-- Lives + Tower Stage -->
+      <section class="site-singleplayer__status" aria-label="Player status">
+        <p
+          class="site-singleplayer__hearts"
+          role="img"
+          aria-label="Lives: 4 of 4"
+        >
+          <span class="site-singleplayer__heart">♥</span>
+          <span class="site-singleplayer__heart">♥</span>
+          <span class="site-singleplayer__heart">♥</span>
+          <span class="site-singleplayer__heart">♥</span>
+        </p>
+        <p class="site-singleplayer__level">CSS: Level - 5</p>
+      </section>
+
+      <section class="site-singleplayer__scene" aria-label="Battle scene">
+        <img
+          class="site-singleplayer__torch site-singleplayer__torch--left"
+          src="/src/assets/images/placeholder_torch.png"
+          alt=""
+          width="64"
+          height="128"
+        />
+        <!-- Replace PLACEHOLDER image with better monster image -->
+        <img
+          class="site-singleplayer__monster"
+          src="/src/assets/images/placeholderlogo.png"
+          alt="Monster"
+          width="158"
+          height="50"
+        />
+        <img
+          class="site-singleplayer__torch site-singleplayer__torch--right"
+          src="/src/assets/images/placeholder_torch.png"
+          alt=""
+          width="64"
+          height="128"
+        />
+      </section>
+
+      <!-- Question, feedback answers (correct / wrong) and next button -->
+      <!-- Aria-live polite tells a screen reader to wait until the user pauses their current task before announcing dynamic content updates -->
+      <section class="site-singleplayer__dialog" aria-live="polite">
+        <p class="site-singleplayer__feedback" hidden>CORRECT!</p>
+        <p class="site-singleplayer__explanation" hidden>
+          The :focus pseudo-class applies styles when an element has focus (for
+          example, via keyboard navigation).
+        </p>
+        <p class="site-singleplayer__question">
+          Which of the following are valid CSS pseudo-classes?
+        </p>
+        <!-- 2 buttons for JS to have 2 click handlers and hide/unhide button based on state -->
+        <button
+          class="site-singleplayer__button site-singleplayer__button--next"
+          type="button"
+          hidden
+        >
+          Next Level
+        </button>
+        <button
+          class="site-singleplayer__button site-singleplayer__button--retry"
+          type="button"
+          hidden
+        >
+          Try again
+        </button>
+      </section>
+
+      <section class="site-singleplayer__answers" aria-label="Answers">
+        <button class="site-singleplayer__answer" type="button">
+          [A] :focus
+        </button>
+        <button class="site-singleplayer__answer" type="button">
+          [B] :hover
+        </button>
+        <button class="site-singleplayer__answer" type="button">
+          [C] ::before
+        </button>
+        <button class="site-singleplayer__answer" type="button">
+          [D] :active
+        </button>
+      </section>
     </main>
 
-    <footer></footer>
+    <footer class="site-footer"></footer>
 
     <script type="module" src="/src/js/pages/singleplayer.js"></script>
   </body>

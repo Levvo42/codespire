@@ -1,42 +1,70 @@
 // ========================================
 // FOOTER
 // ========================================
-// 1. Mobile footer layout
+// 1. Mobile layout
 // 2. Tablet layout
 // 3. Desktop layout
+// ========================================
+// #region Import variables
+@use "../base/variables" as *;
+
+@font-face {
+  font-family: rpgFont;
+  src: url("../../assets/fonts/TWBOZ.ttf");
+}
+
+// #endregion Import variables
 // ========================================
 // #region Mobile
 .site-footer {
   // styling
-  background-color: black;
+  background-image: url("../../assets/images/header-banner.jpg");
+  background-size: 100% 100%;
+  opacity: 0.9;
+  display: flex;
+  height: 1.5rem;
 
-  // gridlayout
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  & a {
+    color: $navlinkcolor;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      color: black;
+    }
+  }
 
   // position
   z-index: 1000;
-  position: sticky;
+  position: fixed;
   bottom: 0;
-  right: 0;
+  width: 100%;
 
   // spacers
   padding-inline: 1rem;
-  border-top: 2px solid;
+  border-top: 1.5px solid;
 
   // border
-  border-color: rgb(255 174 0);
+  border-color: rgb(218 165 32 / 64.4%);
+
+  &__info {
+    font-family: rpgFont, sans-serif;
+    color: $navlinkcolor;
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
+    align-items: end;
+    text-shadow:
+      0 0 3px #0c5713,
+      0 0 4px #026b12a1;
+
+    :visited:hover {
+      color: rgb(166 168 168 / 77.4%);
+    }
+  }
 }
 
 // #endregion Mobile
-// ========================================
-// #region desktop
-
-@media (width >= 64rem) {
-  // placeholder
-}
-
-// #endregion desktop
 // ========================================
 // #region Tablet
 
@@ -45,3 +73,11 @@
 }
 
 // #endregion Tablet
+// ========================================
+// #region desktop
+
+@media (width >= 64rem) {
+  // placeholder
+}
+
+// #endregion desktop

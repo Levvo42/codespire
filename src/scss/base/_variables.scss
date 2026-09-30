@@ -1,1 +1,26 @@
-$bodybgcolor: red;
+// COLORS
+$bodybg: red;
+$text-glow: #7fffd4;
+$navlinkcolor: white;
+
+// BREAKPOINTS
+$breakpoint-mobile: 22.5rem; // 360px, 22.5rem
+$breakpoint-tablet: 48rem; // 768px, 48rem (
+$breakpoint-desktop: 53rem; // 1366px, 64rem (53rem qhd halfscreen)
+$breakpoint-large: 120rem; // 1920px <-- Don't use if you really don't have too
+
+// @media (width >= #{$breakpoint-mobile}) {
+//   /* mobile */
+// }
+
+// @media (width >= #{$breakpoint-tablet}) {
+//  /* tablet */
+// }
+
+// @media (width >= #{$breakpoint-desktop}) {
+//   /* desktop */
+// }
+
+// @media (width >= #{$breakpoint-large}) {
+//   /* desktop */
+// }

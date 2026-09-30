@@ -1,9 +1,14 @@
 // ========================================
 // MAIN
 // ========================================
-// 1. Mobile main layout
+// 1. Mobile layout
 // 2. Tablet layout
 // 3. Desktop layout
+// ========================================
+// #region Import variables
+@use "../base/variables" as *;
+
+// #endregion Import variables
 // ========================================
 // #region Grid
 .site-main {
@@ -11,7 +16,7 @@
   display: grid;
   flex: 1;
   grid-template-columns: repeat(10, 1fr);
-  background-color: #2e0000;
+  background-color: $bodybg;
 
   // spacers
   padding-inline: 1rem;
@@ -25,14 +30,6 @@
 
 // #endregion Mobile
 // ========================================
-// #region desktop
-
-@media (width >= 64rem) {
-  // placeholder
-}
-
-// #endregion desktop
-// ========================================
 // #region Tablet
 
 @media (width >= 48rem) {
@@ -40,3 +37,11 @@
 }
 
 // #endregion Tablet
+// ========================================
+// #region desktop
+
+@media (width >= 64rem) {
+  // placeholder
+}
+
+// #endregion desktop
