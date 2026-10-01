@@ -76,7 +76,7 @@
     color: rgb(196 0 0);
     text-shadow:
       2px 2px rgb(0 0 0),
-      0 0 7px #f00;
+      3px 1px rgb(128 0 0);
   }
 
   p {
@@ -107,6 +107,15 @@
     font-size: 2.5rem;
     position: relative;
     top: 0.3rem;
+  }
+
+  a:hover,
+  a:visited:hover,
+  a:focus-visible {
+    color: rgb(255 255 255);
+    text-shadow:
+      0 0 6px #050505,
+      0 0 14px #7e7e7df8;
   }
 
   // #endregion text styling
@@ -151,13 +160,14 @@ p.index-main__pressplay {
   padding: 0.5rem 0.5rem 2rem; // spacing for page elements and fixed footer
 
   &__pressplay {
+    text-decoration: none;
     font-family: rpgFont, sans-serif;
     position: relative;
     max-width: 4rem;
-    top: calc(50% + 6rem);
+    top: calc(40% + 10rem);
     left: 0.5rem;
     color: rgb(218 218 218);
-    font-size: 4rem;
+    font-size: 2rem;
     text-shadow:
       2px 2px rgb(2 0 0),
       0 0 10px #050505;
@@ -167,18 +177,33 @@ p.index-main__pressplay {
     text-align: center;
   }
 
+  // #region Tombstone+hover effect
+  &__pressplay::after {
+    content: "";
+    position: absolute;
+    inset: -4.5rem -3rem; // hitbox size for hover effect
+  }
+
   &__tombstone {
-    height: 25rem;
+    // tombstone image
     z-index: 10;
     width: auto;
     max-height: calc(100% + 10rem);
-    min-height: calc(100% + 10rem);
+    min-height: calc(80% + 15rem);
     object-fit: contain;
     position: relative;
     bottom: 2rem;
     right: 0;
-    filter: drop-shadow(0 -6mm 4mm rgb(210 144 0));
+    transition: transform 180ms ease;
   }
+
+  &__pressplay:hover + &__tombstone,  // tombstone hover effect
+  &__pressplay:focus-visible + &__tombstone {
+    transform: scale(1.1);
+    filter: drop-shadow(0 -1em 1em rgb(210 144 0));
+  }
+
+  // #endregion Tombstone hover effect
 
   &__story {
     // #region iframe story box
