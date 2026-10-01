@@ -1,6 +1,10 @@
 // Entry script for pages/lobby.html.
 // Wiring only: import from game/, ui/ and api/, then start. No rules here.
 import "../main.js";
+import { createPlayer } from "../game/player.js";
+import { saveGame, loadGame } from "../game/save.js";
+
+window.test = { createPlayer, saveGame, loadGame };
 
 // ========================================
 // #region Variables
