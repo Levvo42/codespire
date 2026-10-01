@@ -112,8 +112,8 @@ Deployment + final documentation + demo
 | ✅     | 🎯    | Create Figma mid-fidelity design     | Apprentice | KM/AT    |        4h |      — |
 | 🟥     | 🎯    | Create Figma high-fidelity design    | Adept      | KM/AT    |        6h |      — |
 | ✅     | 🎯    | Define final color palette           | Novice     | ALL      |        1h |      — |
-| 🟨     | 🎯    | Define typography                    | Novice     | AT       |        1h |      — |
-| 🟨     | 🎯    | Define reusable UI components        | Apprentice | —        |        3h |      — |
+| 🟨     | 🎯    | Define typography                    | Novice     | ALL      |        1h |      — |
+| ✅     | 🎯    | Define reusable UI components        | Apprentice | ALL      |        3h |      — |
 | ✅     | 🎯    | Define mobile/tablet/desktop layouts | Apprentice | KM/AT    |        4h |      — |
 | ✅     | 🎯    | Review design against game flow      | Novice     | ALL      |        2h |      — |
 
@@ -125,14 +125,14 @@ Deployment + final documentation + demo
 | ------ | ----- | ----------------------------------- | ---------- | -------- | --------: | -----: |
 | ✅     | 🎯    | Add a CSS reset (modern-normalize)  | Novice     | MC       |        1h | 10 min |
 | ⬜     | 🎯    | Create semantic base HTML structure | Apprentice | —        |        4h |      — |
-| 🟨     | 🎯    | Build header/navigation             | Novice     | FJ       |        2h |      — |
-| 🟨     | 🎯    | Build start/menu screen             | Apprentice | FJ       |        4h |      — |
-| 🟨     | 🎯    | Build start/menu screen             | Novice     | FJ       |        2h |      — |
-| 🟨     | 🎯    | Build lobby/tower selection layout  | Adept      | MC       |        6h |      — |
-| 🟨     | 🎯    | Build battle screen layout          | Adept      | KM       |        8h |      — |
+| ✅     | 🎯    | Build header/navigation             | Novice     | FJ       |        2h |      — |
+| ✅     | 🎯    | Build start/menu screen             | Apprentice | FJ       |        4h |      — |
+| ✅     | 🎯    | Build lobby/tower selection layout  | Adept      | MC       |        6h |      — |
+| ✅     | 🎯    | Build battle screen layout          | Adept      | KM       |        8h |      — |
 | 🟨     | 🎯    | Build tutorial/help view            | Apprentice | AT       |        3h |      — |
-| 🟨     | 🎯    | Build credits view                  | Novice     | AT       |        2h |      — |
-| 🟨     | 🎯    | Create shared BEM component styles  | Adept      | ALL      |        6h |      — |
+| 🟨     | 🎯    | Character creation layout           | Apprentice | AT       |        3h |      — |
+| ✅     | 🎯    | Build credits view                  | Novice     | AT       |        2h |      — |
+| ✅     | 🎯    | Create shared BEM component styles  | Adept      | ALL      |        6h |      — |
 | 🟨     | 🎯    | Implement base visual theme         | Adept      | ALL      |        6h |      — |
 | 🟨     | 🎯    | Implement responsive layouts        | Expert     | ALL      |        8h |      — |
 
@@ -142,20 +142,21 @@ Deployment + final documentation + demo
 
 | Status | Scope | Task                                  | Rank       | Assigned | Estimated | Actual |
 | ------ | ----- | ------------------------------------- | ---------- | -------- | --------: | -----: |
-| ⬜     | 🧪    | Research QuizAPI capabilities         | Novice     | —        |        2h |      — |
-| ⬜     | 🧪    | Research D&D API capabilities         | Novice     | —        |        2h |      — |
-| ⬜     | 🎯    | Define internal question data model   | Novice     | —        |        2h |      — |
-| ⬜     | 🎯    | Define internal monster data model    | Novice     | —        |        2h |      — |
-| ⬜     | 🎯    | Build QuizAPI service                 | Adept      | —        |        6h |      — |
-| ⬜     | 🎯    | Build D&D monster API service         | Apprentice | —        |        4h |      — |
-| ⬜     | 🎯    | Normalize QuizAPI response data       | Apprentice | —        |        3h |      — |
-| ⬜     | 🎯    | Normalize D&D monster data            | Apprentice | —        |        3h |      — |
-| ⬜     | 🎯    | Add loading state                     | Novice     | —        |        2h |      — |
-| ⬜     | 🎯    | Add API error state                   | Apprentice | —        |        3h |      — |
+| 🟥     | 🧪    | Research QuizAPI capabilities         | Novice     | —        |        2h |      — |
+| 🟨     | 🧪    | Research D&D API capabilities         | Novice     | KM/FJ    |        2h |      — |
+| 🟨     | 🧪    | Research Web storage API capabilities | Novice     | MC       |        2h |      — |
+| 🟨     | 🎯    | Define internal question data model   | Novice     | MC       |        2h |      — |
+| 🟨     | 🎯    | Define internal monster data model    | Novice     | KM/FJ    |        2h |      — |
+| 🟥     | 🎯    | Build QuizAPI service                 | Adept      | —        |        6h |      — |
+| ⬜     | 🎯    | Build D&D monster API service         | Apprentice | KM/FJ    |        4h |      — |
+| 🟥     | 🎯    | Normalize QuizAPI response data       | Apprentice | —        |        3h |      — |
+| ⬜     | 🎯    | Normalize D&D monster data            | Apprentice | KM/FJ    |        3h |      — |
+| ⬜     | 🎯    | Add loading state                     | Novice     | MC       |        2h |      — |
+| ⬜     | 🎯    | Add API error state                   | Apprentice | ALL      |        3h |      — |
 | ⬜     | 🎯    | Add fallback monster image            | Novice     | —        |        1h |      — |
-| ⬜     | 🎯    | Create mock question data             | Novice     | —        |        1h |      — |
-| ⬜     | 🎯    | Create mock monster data              | Novice     | —        |        1h |      — |
-| ⬜     | 🎯    | Implement secure QuizAPI access/proxy | Adept      | —        |        6h |      — |
+| 🟨     | 🎯    | Create mock question data             | Novice     | KM/FJ    |        1h |      — |
+| 🟨     | 🎯    | Create mock monster data              | Novice     | KM/FJ    |        1h |      — |
+| 🟥     | 🎯    | Implement secure QuizAPI access/proxy | Adept      | —        |        6h |      — |
 
 ---
 
@@ -163,21 +164,21 @@ Deployment + final documentation + demo
 
 | Status | Scope | Task                               | Rank       | Assigned | Estimated | Actual |
 | ------ | ----- | ---------------------------------- | ---------- | -------- | --------: | -----: |
-| ⬜     | 🎯    | Create game-state model            | Apprentice | —        |        4h |      — |
-| ⬜     | 🎯    | Implement player-name input        | Novice     | —        |        2h |      — |
-| ⬜     | 🎯    | Implement tower/category selection | Apprentice | —        |        4h |      — |
-| ⬜     | 🎯    | Render trivia question             | Apprentice | —        |        3h |      — |
-| ⬜     | 🎯    | Render answer alternatives         | Apprentice | —        |        3h |      — |
-| ⬜     | 🎯    | Validate selected answer           | Apprentice | —        |        4h |      — |
-| ⬜     | 🎯    | Display correct/incorrect feedback | Novice     | —        |        2h |      — |
-| ⬜     | 🎯    | Implement player hearts/health     | Apprentice | —        |        4h |      — |
-| ⬜     | 🎯    | Implement monster health           | Apprentice | —        |        4h |      — |
-| ⬜     | 🎯    | Implement player damage            | Novice     | —        |        2h |      — |
-| ⬜     | 🎯    | Implement monster damage           | Novice     | —        |        2h |      — |
-| ⬜     | 🎯    | Implement next-question flow       | Apprentice | —        |        3h |      — |
-| ⬜     | 🎯    | Implement victory state            | Apprentice | —        |        3h |      — |
-| ⬜     | 🎯    | Implement defeat/game-over state   | Apprentice | —        |        3h |      — |
-| ⬜     | 🎯    | Connect complete battle loop       | Adept      | —        |        8h |      — |
+| 🟨     | 🎯    | Create game-state model            | Apprentice | MC       |        4h |      — |
+| 🟨     | 🎯    | Implement player-name input        | Novice     | AT       |        2h |      — |
+| 🟨     | 🎯    | Implement tower/category selection | Apprentice | MC       |        4h |      — |
+| 🟨     | 🎯    | Render trivia question             | Apprentice | KM/FJ    |        3h |      — |
+| 🟨     | 🎯    | Render answer alternatives         | Apprentice | ALL      |        3h |      — |
+| 🟨     | 🎯    | Validate selected answer           | Apprentice | KM/FJ    |        4h |      — |
+| 🟨     | 🎯    | Display correct/incorrect feedback | Novice     | KM/FJ    |        2h |      — |
+| 🟨     | 🎯    | Implement player hearts/health     | Apprentice | MC/AT    |        4h |      — |
+| 🟨     | 🎯    | Implement monster health           | Apprentice | KM/FJ    |        4h |      — |
+| 🟨     | 🎯    | Implement player damage            | Novice     | MC/AT    |        2h |      — |
+| 🟨     | 🎯    | Implement monster damage           | Novice     | KM/FJ    |        2h |      — |
+| 🟨     | 🎯    | Implement next-question flow       | Apprentice | KM/FJ    |        3h |      — |
+| 🟨     | 🎯    | Implement victory state            | Apprentice | KM/FJ    |        3h |      — |
+| 🟨     | 🎯    | Implement defeat/game-over state   | Apprentice | KM/FJ    |        3h |      — |
+| 🟨     | 🎯    | Connect complete battle loop       | Adept      | ALL      |        8h |      — |
 
 ---
 
@@ -185,16 +186,16 @@ Deployment + final documentation + demo
 
 | Status | Scope | Task                                    | Rank       | Assigned | Estimated | Actual |
 | ------ | ----- | --------------------------------------- | ---------- | -------- | --------: | -----: |
-| ⬜     | 🎯    | Define difficulty rules                 | Apprentice | —        |        3h |      — |
-| ⬜     | 🎯    | Implement dynamic question difficulty   | Adept      | —        |        6h |      — |
-| ⬜     | 🎯    | Match monster difficulty to tower level | Apprentice | —        |        4h |      — |
-| ⬜     | 🎯    | Implement tower level progression       | Adept      | —        |        6h |      — |
-| ⬜     | 🎯    | Display tower levels in lobby           | Apprentice | —        |        3h |      — |
-| ⬜     | 🎯    | Balance player/monster damage values    | Apprentice | —        |        4h |      — |
-| ⬜     | 🎯    | Balance question progression            | Apprentice | —        |        4h |      — |
-| ⬜     | ⭐    | Save progression with LocalStorage      | Apprentice | —        |        4h |      — |
-| ⬜     | ⭐    | Add boss encounter                      | Adept      | —        |        6h |      — |
-| ⬜     | ⭐    | Add character classes                   | Expert     | —        |  1–2 days |      — |
+| ✅     | 🎯    | Define difficulty rules                 | Apprentice | ALL      |        3h |     1h |
+| ⬜     | 🎯    | Implement dynamic question difficulty   | Adept      | KM/FJ    |        6h |      — |
+| ⬜     | 🎯    | Match monster difficulty to tower level | Apprentice | KM/FJ    |        4h |      — |
+| ⬜     | 🎯    | Implement tower level progression       | Adept      | MJ/AT    |        6h |      — |
+| ⬜     | 🎯    | Display tower levels in lobby           | Apprentice | MJ       |        3h |      — |
+| ⬜     | 🎯    | Balance player/monster damage values    | Apprentice | ALL      |        4h |      — |
+| ⬜     | 🎯    | Balance question progression            | Apprentice | ALL      |        4h |      — |
+| ⬜     | ⭐    | Save progression with LocalStorage      | Apprentice | MC       |        4h |      — |
+| ⬜     | ⭐    | Add boss encounter                      | Adept      | KM/FJ    |        6h |      — |
+| ⬜     | ⭐    | Add character classes                   | Expert     | AT       |  1–2 days |      — |
 | ⬜     | ⭐    | Add items/equipment                     | Expert     | —        |  1–2 days |      — |
 
 ---
