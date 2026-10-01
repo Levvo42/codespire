@@ -19,11 +19,12 @@
         alt="codeSpire"
       />
       <nav class="site-header__nav" id="header-navigation">
-        <a href="/createplayer.html">Play</a>
+        <a href="/pages/createplayer.html">Play</a>
         <a href="/pages/singleplayer.html" aria-current="page">Battle</a>
         <a href="/index.html">Menu</a>
-        <a href="/pages/lobby.html">Credits</a>
+        <a href="/pages/lobby.html">Lobby</a>
         <a href="/pages/tutorial.html">Tutorial</a>
+        <a href="/pages/credits.html">Credits</a>
       </nav>
 
       <button
@@ -39,7 +40,7 @@
     <main class="site-singleplayer">
       <h1 class="visually-hidden">Singleplayer</h1>
 
-      <!-- Boss name, difficulty, tower level, boss health -->
+      <!-- Boss: difficulty + tower level | name + health -->
       <section class="site-singleplayer__boss" aria-labelledby="boss-name">
         <div class="site-singleplayer__encounter">
           <p class="site-singleplayer__difficulty">Difficulty: Normal</p>
@@ -50,12 +51,13 @@
         </h2>
         <p class="site-singleplayer__boss-health">
           <span class="site-singleplayer__health-value">500</span>
-          <!-- Each heart = 20% of max health, JS should set --fill (0%-100%) per heart -->
+          <!-- Each heart = 20% of max health. JS sets --fill (0%–100%) per heart -->
           <span
             class="site-singleplayer__hearts"
             role="img"
-            aria-label="Boss Health: 500 of 500"
+            aria-label="Boss health: 500 of 500"
           >
+            <span class="site-singleplayer__heart">♥</span>
             <span class="site-singleplayer__heart">♥</span>
             <span class="site-singleplayer__heart">♥</span>
             <span class="site-singleplayer__heart">♥</span>
@@ -132,7 +134,7 @@
         </button>
       </section>
 
-      <!-- Player Section -->
+      <!-- Panels: stats | player | inventory (same pattern as the lobby) -->
       <div class="site-singleplayer__panels">
         <article
           class="site-singleplayer__panel site-singleplayer__panel--stats"
@@ -140,6 +142,7 @@
         >
           <h2>Stats</h2>
         </article>
+
         <article
           class="site-singleplayer__panel site-singleplayer__panel--player"
         >
@@ -180,6 +183,7 @@
             Inventory
           </button>
         </article>
+
         <article
           class="site-singleplayer__panel site-singleplayer__panel--inventory"
           id="panel-inventory"
