@@ -18,31 +18,66 @@
         class="site-header__logo"
         alt="codeSpire"
       />
-      <nav class="site-header__menu">
-        <a href="./createplayer.html">Play</a>
-        <a href="">Story</a>
-        <a href="./tutorial.html">Tutorial</a>
-        <a href="./credits.html">Credits</a>
-        <a href="">Extra</a>
+      <nav class="site-header__nav" id="header-navigation">
+        <a href="/pages/createplayer.html">Play</a>
+        <a href="/pages/singleplayer.html" aria-current="page">Battle</a>
+        <a href="/index.html">Menu</a>
+        <a href="/pages/lobby.html">Lobby</a>
+        <a href="/pages/tutorial.html">Tutorial</a>
+        <a href="/pages/credits.html">Credits</a>
       </nav>
+
+      <button
+        class="site-header__menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="header-navigation"
+      >
+        <span>Menu</span>
+      </button>
     </header>
 
     <main class="site-singleplayer">
-      <h1 class="site-singleplayer__title">Singleplayer</h1>
+      <h1 class="visually-hidden">Singleplayer</h1>
 
-      <!-- Lives + Tower Stage -->
-      <section class="site-singleplayer__status" aria-label="Player status">
-        <p
-          class="site-singleplayer__hearts"
-          role="img"
-          aria-label="Lives: 4 of 4"
+      <!-- Boss: difficulty + tower level | name + health -->
+      <section class="site-singleplayer__boss" aria-labelledby="boss-name">
+        <div class="site-singleplayer__encounter">
+          <p class="site-singleplayer__difficulty">
+            Difficulty: <span data-js="difficulty">Normal</span>
+          </p>
+          <p class="site-singleplayer__tower-level">
+            <span data-js="tower-name">CSS</span> Tower: Level
+            <span class="site-singleplayer__level-number" data-js="tower-level"
+              >5</span
+            >
+          </p>
+        </div>
+        <h2
+          class="site-singleplayer__boss-name"
+          id="boss-name"
+          data-js="boss-name"
         >
-          <span class="site-singleplayer__heart">♥</span>
-          <span class="site-singleplayer__heart">♥</span>
-          <span class="site-singleplayer__heart">♥</span>
-          <span class="site-singleplayer__heart">♥</span>
+          Archduke Nicodemus Valerius von Dragomirov
+        </h2>
+        <p class="site-singleplayer__boss-health">
+          <span class="site-singleplayer__health-value" data-js="boss-hp"
+            >500</span
+          >
+          <!-- Each heart = 20% of max health. JS sets --fill (0%–100%) per heart -->
+          <span
+            class="site-singleplayer__hearts"
+            role="img"
+            aria-label="Boss health: 500 of 500"
+            data-js="boss-hearts"
+          >
+            <span class="site-singleplayer__heart">♥</span>
+            <span class="site-singleplayer__heart">♥</span>
+            <span class="site-singleplayer__heart">♥</span>
+            <span class="site-singleplayer__heart">♥</span>
+            <span class="site-singleplayer__heart">♥</span>
+          </span>
         </p>
-        <p class="site-singleplayer__level">CSS: Level - 5</p>
       </section>
 
       <section class="site-singleplayer__scene" aria-label="Battle scene">
@@ -58,6 +93,7 @@
           class="site-singleplayer__monster"
           src="/src/assets/images/placeholderlogo.png"
           alt="Monster"
+          data-js="monster-image"
           width="158"
           height="50"
         />
@@ -73,25 +109,42 @@
       <!-- Question, feedback answers (correct / wrong) and next button -->
       <!-- Aria-live polite tells a screen reader to wait until the user pauses their current task before announcing dynamic content updates -->
       <section class="site-singleplayer__dialog" aria-live="polite">
-        <p class="site-singleplayer__feedback" hidden>CORRECT!</p>
-        <p class="site-singleplayer__explanation" hidden>
+        <p class="site-singleplayer__feedback" data-js="feedback" hidden>
+          CORRECT!
+        </p>
+        <!-- This turn's D20 roll and damage, e.g. "D20: 14 → You hit for 42 damage" -->
+        <p class="site-singleplayer__roll" data-js="roll" hidden>
+          D20: 14 → You hit the boss for 42 damage.
+        </p>
+        <p class="site-singleplayer__explanation" data-js="explanation" hidden>
           The :focus pseudo-class applies styles when an element has focus (for
           example, via keyboard navigation).
         </p>
-        <p class="site-singleplayer__question">
+        <p class="site-singleplayer__question" data-js="question">
           Which of the following are valid CSS pseudo-classes?
         </p>
-        <!-- 2 buttons for JS to have 2 click handlers and hide/unhide button based on state -->
+        <!-- One button per outcome, JS shows only one of them:
+             both alive → Next question, monster dead → Continue, player dead → Try again -->
         <button
           class="site-singleplayer__button site-singleplayer__button--next"
           type="button"
+          data-js="next-button"
           hidden
         >
-          Next Level
+          Next question
+        </button>
+        <button
+          class="site-singleplayer__button site-singleplayer__button--continue"
+          type="button"
+          data-js="continue-button"
+          hidden
+        >
+          Continue
         </button>
         <button
           class="site-singleplayer__button site-singleplayer__button--retry"
           type="button"
+          data-js="retry-button"
           hidden
         >
           Try again
@@ -99,22 +152,108 @@
       </section>
 
       <section class="site-singleplayer__answers" aria-label="Answers">
-        <button class="site-singleplayer__answer" type="button">
+        <button
+          class="site-singleplayer__answer"
+          type="button"
+          data-js="answer-button"
+        >
           [A] :focus
         </button>
-        <button class="site-singleplayer__answer" type="button">
+        <button
+          class="site-singleplayer__answer"
+          type="button"
+          data-js="answer-button"
+        >
           [B] :hover
         </button>
-        <button class="site-singleplayer__answer" type="button">
+        <button
+          class="site-singleplayer__answer"
+          type="button"
+          data-js="answer-button"
+        >
           [C] ::before
         </button>
-        <button class="site-singleplayer__answer" type="button">
+        <button
+          class="site-singleplayer__answer"
+          type="button"
+          data-js="answer-button"
+        >
           [D] :active
         </button>
       </section>
+
+      <!-- Panels: stats | player | inventory (same pattern as the lobby) -->
+      <div class="site-singleplayer__panels">
+        <article
+          class="site-singleplayer__panel site-singleplayer__panel--stats"
+          id="panel-stats"
+        >
+          <h2>Stats</h2>
+        </article>
+
+        <article
+          class="site-singleplayer__panel site-singleplayer__panel--player"
+        >
+          <button
+            class="site-singleplayer__toggle site-singleplayer__toggle--stats"
+            type="button"
+            aria-controls="panel-stats"
+            aria-expanded="false"
+            data-js="panel-toggle"
+          >
+            Stats
+          </button>
+          <div class="site-singleplayer__player-content">
+            <h2>Player</h2>
+            <!-- JS adds site-singleplayer__player-health--low at 1 heart or less -->
+            <p class="site-singleplayer__player-health" data-js="player-health">
+              <span>Player health</span>
+              <span class="site-singleplayer__health-value" data-js="player-hp"
+                >100</span
+              >
+              <span
+                class="site-singleplayer__hearts"
+                role="img"
+                aria-label="Player health: 100 of 100"
+                data-js="player-hearts"
+              >
+                <span class="site-singleplayer__heart">♥</span>
+                <span class="site-singleplayer__heart">♥</span>
+                <span class="site-singleplayer__heart">♥</span>
+                <span class="site-singleplayer__heart">♥</span>
+                <span class="site-singleplayer__heart">♥</span>
+              </span>
+            </p>
+          </div>
+          <button
+            class="site-singleplayer__toggle site-singleplayer__toggle--inventory"
+            type="button"
+            aria-controls="panel-inventory"
+            aria-expanded="false"
+            data-js="panel-toggle"
+          >
+            Inventory
+          </button>
+        </article>
+
+        <article
+          class="site-singleplayer__panel site-singleplayer__panel--inventory"
+          id="panel-inventory"
+        >
+          <h2>Inventory</h2>
+        </article>
+      </div>
     </main>
 
-    <footer class="site-footer"></footer>
+    <footer class="site-footer">
+      <span class="site-footer__info">
+        <a href="/pages/credits.html">About</a>
+        <a href="/pages/credits.html">Credits</a>
+        <a href="/pages/credits.html">Extra</a>
+        <a href="/pages/credits.html">Bug Report</a>
+        <a href="/pages/credits.html">Socials</a>
+      </span>
+    </footer>
 
     <script type="module" src="/src/js/pages/singleplayer.js"></script>
   </body>
