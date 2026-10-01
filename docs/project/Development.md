@@ -55,5 +55,5 @@ Figma design [here](https://www.figma.com/design/BC0MyUMRgNGACaPtwx7HoR/Website-
 
 ### Credits Page
 
-<img src="(../assets/images/Figma/Desktop-Tablet-Mobile-Credits-Page-1.png)" alt="Description" width="500">
-<img src="(../assets/images/Figma/Desktop-Tablet-Mobile-Credits-Page-2.png)" alt="Description" width="500">
+<img src="../assets/images/Figma/Desktop-Tablet-Mobile-Credits-Page-1.png" alt="Description" width="500">
+<img src="../assets/images/Figma/Desktop-Tablet-Mobile-Credits-Page-2.png" alt="Description" width="500">
