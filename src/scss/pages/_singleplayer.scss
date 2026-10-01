@@ -203,6 +203,10 @@ $glow:
     font-size: 1.25rem;
   }
 
+  &__roll {
+    margin: 0 0 0.25rem;
+  }
+
   // long questions scroll inside the box instead of pushing the page down,
   // and long code (no spaces) can break anywhere instead of overflowing
   &__explanation,

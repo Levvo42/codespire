@@ -43,22 +43,33 @@
       <!-- Boss: difficulty + tower level | name + health -->
       <section class="site-singleplayer__boss" aria-labelledby="boss-name">
         <div class="site-singleplayer__encounter">
-          <p class="site-singleplayer__difficulty">Difficulty: Normal</p>
+          <p class="site-singleplayer__difficulty">
+            Difficulty: <span data-js="difficulty">Normal</span>
+          </p>
           <p class="site-singleplayer__tower-level">
-            CSS Tower: Level
-            <span class="site-singleplayer__level-number">5</span>
+            <span data-js="tower-name">CSS</span> Tower: Level
+            <span class="site-singleplayer__level-number" data-js="tower-level"
+              >5</span
+            >
           </p>
         </div>
-        <h2 class="site-singleplayer__boss-name" id="boss-name">
+        <h2
+          class="site-singleplayer__boss-name"
+          id="boss-name"
+          data-js="boss-name"
+        >
           Archduke Nicodemus Valerius von Dragomirov
         </h2>
         <p class="site-singleplayer__boss-health">
-          <span class="site-singleplayer__health-value">500</span>
+          <span class="site-singleplayer__health-value" data-js="boss-hp"
+            >500</span
+          >
           <!-- Each heart = 20% of max health. JS sets --fill (0%–100%) per heart -->
           <span
             class="site-singleplayer__hearts"
             role="img"
             aria-label="Boss health: 500 of 500"
+            data-js="boss-hearts"
           >
             <span class="site-singleplayer__heart">♥</span>
             <span class="site-singleplayer__heart">♥</span>
@@ -82,6 +93,7 @@
           class="site-singleplayer__monster"
           src="/src/assets/images/placeholderlogo.png"
           alt="Monster"
+          data-js="monster-image"
           width="158"
           height="50"
         />
@@ -97,25 +109,42 @@
       <!-- Question, feedback answers (correct / wrong) and next button -->
       <!-- Aria-live polite tells a screen reader to wait until the user pauses their current task before announcing dynamic content updates -->
       <section class="site-singleplayer__dialog" aria-live="polite">
-        <p class="site-singleplayer__feedback" hidden>CORRECT!</p>
-        <p class="site-singleplayer__explanation" hidden>
+        <p class="site-singleplayer__feedback" data-js="feedback" hidden>
+          CORRECT!
+        </p>
+        <!-- This turn's D20 roll and damage, e.g. "D20: 14 → You hit for 42 damage" -->
+        <p class="site-singleplayer__roll" data-js="roll" hidden>
+          D20: 14 → You hit the boss for 42 damage.
+        </p>
+        <p class="site-singleplayer__explanation" data-js="explanation" hidden>
           The :focus pseudo-class applies styles when an element has focus (for
           example, via keyboard navigation).
         </p>
-        <p class="site-singleplayer__question">
+        <p class="site-singleplayer__question" data-js="question">
           Which of the following are valid CSS pseudo-classes?
         </p>
-        <!-- 2 buttons for JS to have 2 click handlers and hide/unhide button based on state -->
+        <!-- One button per outcome, JS shows only one of them:
+             both alive → Next question, monster dead → Continue, player dead → Try again -->
         <button
           class="site-singleplayer__button site-singleplayer__button--next"
           type="button"
+          data-js="next-button"
           hidden
         >
-          Next Level
+          Next question
+        </button>
+        <button
+          class="site-singleplayer__button site-singleplayer__button--continue"
+          type="button"
+          data-js="continue-button"
+          hidden
+        >
+          Continue
         </button>
         <button
           class="site-singleplayer__button site-singleplayer__button--retry"
           type="button"
+          data-js="retry-button"
           hidden
         >
           Try again
@@ -123,16 +152,32 @@
       </section>
 
       <section class="site-singleplayer__answers" aria-label="Answers">
-        <button class="site-singleplayer__answer" type="button">
+        <button
+          class="site-singleplayer__answer"
+          type="button"
+          data-js="answer-button"
+        >
           [A] :focus
         </button>
-        <button class="site-singleplayer__answer" type="button">
+        <button
+          class="site-singleplayer__answer"
+          type="button"
+          data-js="answer-button"
+        >
           [B] :hover
         </button>
-        <button class="site-singleplayer__answer" type="button">
+        <button
+          class="site-singleplayer__answer"
+          type="button"
+          data-js="answer-button"
+        >
           [C] ::before
         </button>
-        <button class="site-singleplayer__answer" type="button">
+        <button
+          class="site-singleplayer__answer"
+          type="button"
+          data-js="answer-button"
+        >
           [D] :active
         </button>
       </section>
@@ -160,13 +205,17 @@
           </button>
           <div class="site-singleplayer__player-content">
             <h2>Player</h2>
-            <p class="site-singleplayer__player-health">
+            <!-- JS adds site-singleplayer__player-health--low at 1 heart or less -->
+            <p class="site-singleplayer__player-health" data-js="player-health">
               <span>Player health</span>
-              <span class="site-singleplayer__health-value">100</span>
+              <span class="site-singleplayer__health-value" data-js="player-hp"
+                >100</span
+              >
               <span
                 class="site-singleplayer__hearts"
                 role="img"
                 aria-label="Player health: 100 of 100"
+                data-js="player-hearts"
               >
                 <span class="site-singleplayer__heart">♥</span>
                 <span class="site-singleplayer__heart">♥</span>
