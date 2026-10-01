@@ -46,12 +46,12 @@ Figma design [here](https://www.figma.com/design/BC0MyUMRgNGACaPtwx7HoR/Website-
 
 ### Singleplayer Page
 
-<img src="(../assets/images/Figma/Desktop-Singleplayer-Page.png)" alt="Description" width="500">
+<img src="../assets/images/Figma/Desktop-Singleplayer-Page.png" alt="Description" width="500">
 
 ### Character Creation Page
 
-<img src="(../assets/images/Figma/Desktop-Tablet-Mobile-CharacterCreation-Page-1.png)" alt="Description" width="500">
-<img src="(../assets/images/Figma/Desktop-Tablet-Mobile-CharacterCreation-Page-2.png)" alt="Description" width="500">
+<img src="../assets/images/Figma/Desktop-Tablet-Mobile-CharacterCreation-Page-1.png" alt="Description" width="500">
+<img src="../assets/images/Figma/Desktop-Tablet-Mobile-CharacterCreation-Page-2.png" alt="Description" width="500">
 
 ### Credits Page
 
