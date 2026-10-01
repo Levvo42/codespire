@@ -19,10 +19,12 @@ $glow:
 // ========================================
 // #region Mobile
 
+// The page is exactly one screen tall (like the lobby): sections share the
+// height instead of pushing the panels below the screen.
 .page-singleplayer {
   display: flex;
   flex-direction: column;
-  min-height: 100dvh;
+  height: 100dvh;
   background-color: #1e1e1e;
   background-image: url("../../assets/images/placeholder-singleplayer-bg-image.jpg");
   background-size: cover;
@@ -36,12 +38,14 @@ $glow:
   --pad: 1rem; // side padding of main
 
   // height of the stats, player and inventory row: about a third of the screen
-  --panel-h: clamp(10rem, 30dvh, 16rem);
+  --panel-h: clamp(9rem, 26dvh, 16rem);
   --gap: 0.5rem; // space between the sections
+  --scene-min: 4rem; // smallest the monster scene may get
   --tab-w: 2.75rem; // width of the side tabs (same as lobby)
 
   // flex 1 fills the space under the header
   flex: 1;
+  min-height: 0; // lets main shrink to the space left in the body
   display: grid;
   grid-template-areas:
     "boss"
@@ -49,10 +53,14 @@ $glow:
     "dialog"
     "answers"
     "panels";
-  grid-template-rows: auto minmax(0, 1fr) auto auto var(--panel-h);
+
+  // answers row: as tall as its content, but shrinks (and scrolls) when space runs out
+  grid-template-rows:
+    auto minmax(var(--scene-min), 1fr) auto minmax(0, auto)
+    var(--panel-h);
   gap: var(--gap);
   padding: var(--gap) var(--pad) 1.6rem;
-  overflow-x: clip; // hide panels off screen
+  overflow: hidden auto; // x: hide panels off screen, y: last resort on tiny screens
 
   // difficulty, tower level, boss name, boss health
   &__boss {
@@ -90,7 +98,7 @@ $glow:
     margin: 0;
     padding-block: 0.25rem;
     font-family: rpgFont, sans-serif;
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     text-shadow: $glow;
   }
 
@@ -153,13 +161,18 @@ $glow:
     display: flex;
     justify-content: center;
     align-items: end;
+    min-height: 0;
+    container-type: size; // lets the images below use cqh (% of the scene height)
   }
 
+  // API images come in different sizes and shapes:
+  // shrink to fit the scene, never stretch or crop
   &__monster {
     width: auto;
-    max-width: 100%;
     height: auto;
-    max-height: 6rem; // small on phones, more room on tablet/desktop
+    max-width: 100%;
+    max-height: 100cqh;
+    object-fit: contain;
   }
 
   // torches only show on desktop
@@ -190,9 +203,18 @@ $glow:
     font-size: 1.25rem;
   }
 
+  // long questions scroll inside the box instead of pushing the page down,
+  // and long code (no spaces) can break anywhere instead of overflowing
   &__explanation,
   &__question {
+    max-height: 18dvh; // phones: bigger on tablet/desktop
     margin: 0;
+    overflow-y: auto;
+    overflow-wrap: anywhere;
+  }
+
+  &__question {
+    font-size: 0.95rem;
   }
 
   // sits on the bottom edge of the dialog, similar to the wireframes (currently hidden)
@@ -221,6 +243,11 @@ $glow:
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--gap);
+    min-height: 0;
+    overflow-y: auto; // long answers scroll here, the panels stay visible
+    scrollbar-color: goldenrod transparent;
+    scrollbar-width: thin;
+    font-size: 0.95rem;
   }
 
   &__answer {
@@ -231,7 +258,9 @@ $glow:
     color: $navlinkcolor;
     font: inherit;
     font-weight: bold;
+    line-height: 1.3;
     text-align: start;
+    overflow-wrap: anywhere;
     cursor: pointer;
 
     &:hover,
@@ -366,15 +395,28 @@ $glow:
   .site-singleplayer {
     --panel-h: 15rem;
     --gap: 1rem;
-
-    grid-template-rows: auto minmax(8rem, 1fr) auto auto var(--panel-h);
+    --scene-min: 5rem;
 
     &__boss-name {
       font-size: 1.5rem;
     }
 
-    &__monster {
-      max-height: none;
+    &__difficulty,
+    &__tower-level {
+      font-size: 1.1rem;
+    }
+
+    &__explanation,
+    &__question {
+      max-height: 30dvh;
+    }
+
+    &__question {
+      font-size: 1rem;
+    }
+
+    &__answers {
+      font-size: 1rem;
     }
 
     &__answer {
@@ -431,7 +473,7 @@ $glow:
 @media (width >= #{$breakpoint-desktop}) {
   .site-singleplayer {
     --pad: 3rem;
-    --panel-h: 13rem;
+    --panel-h: clamp(9rem, 24dvh, 13rem);
 
     // Making sure dialog and answers don't strech across wide screens
     &__dialog,
@@ -450,6 +492,8 @@ $glow:
       display: block;
       width: 5rem;
       height: auto;
+      max-height: 100cqh;
+      object-fit: contain;
     }
 
     &__panels {
