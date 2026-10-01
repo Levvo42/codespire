@@ -75,6 +75,7 @@
     // makes open/close text hoverable
     &:hover span,
     &:focus-visible span {
+      cursor: pointer;
       color: rgb(10 71 21 / 64.4%);
       text-shadow:
         0 0 6px #fcfbfb,
@@ -169,7 +170,6 @@
       grid-area: nav;
       display: flex;
       justify-content: space-evenly;
-      color: #f5e8c5;
       font-family: rpgFont, sans-serif;
       font-size: 1.7rem;
       background-color: rgb(0 0 0 / 50.7%);
@@ -180,6 +180,7 @@
       border-color: rgb(218 165 32 / 64.4%);
       border-inline-end-width: 0.2rem;
       border-inline-start-width: 0.2rem;
+      color: #f5e8c5;
       text-shadow:
         1px 1px #20170f,
         0 0 3px #20170f;

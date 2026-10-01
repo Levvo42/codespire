@@ -29,6 +29,9 @@
     background-image: url("../../assets/images/parchment.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    mask-image: url("../../assets/images/parchment.png"); // makes text dissapear on parchment rips
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
 
     .sickness {
       color: #285b24;
