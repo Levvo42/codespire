@@ -1,9 +1,21 @@
 // ========================================
 // SINGLEPLAYER
 // ========================================
-// 1. Mobile main layout
+// 1. Mobile main layout (stats + inventory slide in over the player)
 // 2. Tablet layout
-// 3. Desktop layout
+// 3. Desktop layout (all three panels visible)
+// ========================================
+// #region Import variables
+@use "../base/variables" as *;
+
+// same gold + glow as the header/footer
+$gold-border: rgb(218 165 32 / 64.4%);
+$panel-bg: rgb(0 0 0 / 60%);
+$glow:
+  0 0 6px #f7f200,
+  0 0 14px #704900a1;
+
+// #endregion Import variables
 // ========================================
 // #region Mobile
 
@@ -20,17 +32,96 @@
 // Making it so that buttons, text, text frames etc take up much less space in the screen.
 // and would fit the screens better based on wireframe reference.
 .site-singleplayer {
+  // Tuning knobs, changed per breakpoint
+  --pad: 1rem; // side padding of main
+  --panel-h: 11rem; // height of the stats, player and inventory row
+  --tab-w: 2.75rem; // width of the side tabs (same as lobby)
+
   // flex 1 fills the space under the header
   flex: 1;
   display: grid;
-  grid-template:
-    "status" auto
-    "scene" minmax(8rem, 1fr)
-    "dialog" auto
-    "answers" auto
-    / 1fr;
+  grid-template-areas:
+    "boss"
+    "scene"
+    "dialog"
+    "answers"
+    "panels";
+  grid-template-rows: auto minmax(8rem, 1fr) auto auto var(--panel-h);
   gap: 1rem;
-  padding: 1rem;
+  padding: 1rem var(--pad) 1.6rem;
+  overflow-x: clip; // hide panels off screen
+
+  // difficulty, tower level, boss name, boss health
+  &__boss {
+    grid-area: boss;
+    display: grid;
+    grid-template:
+      "encounter name" auto
+      "encounter health" auto
+      / auto 1fr;
+    gap: 0.25rem;
+    justify-self: center;
+    width: min(100%, 40rem);
+  }
+
+  &__encounter,
+  &__boss-name,
+  &__boss-health {
+    margin: 0;
+    padding: 0.25rem 0.75rem;
+    border: 2px groove $gold-border;
+    border-radius: 0.5rem;
+    background-color: $panel-bg;
+    color: $navlinkcolor;
+    text-align: center;
+  }
+
+  &__encounter {
+    grid-area: encounter;
+    display: grid;
+    align-content: center;
+  }
+
+  &__difficulty,
+  &__tower-level {
+    margin: 0;
+    padding-block: 0.25rem;
+    font-family: rpgFont, sans-serif;
+    font-size: 1.1rem;
+    text-shadow: $glow;
+  }
+
+  // divider between difficulty and tower level
+  &__tower-level {
+    border-top: 2px solid $gold-border;
+  }
+
+  &__boss-name {
+    grid-area: name;
+    font-family: rpgFont, sans-serif;
+    font-weight: lighter;
+    font-size: 1.5rem;
+    color: goldenrod;
+  }
+
+  &__boss-health {
+    grid-area: health;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // Hearts/HP for boss and player
+  &__health-value {
+    font-weight: bold;
+  }
+
+  &__hearts {
+    font-size: 1.5rem;
+    letter-spacing: 0.15;
+    white-space: nowrap;
+  }
 
   // Visually hidden
   &__title {
@@ -55,22 +146,19 @@
     text-align: center;
   }
 
-  &__hearts {
-    margin: 0;
-    font-size: 1.75rem;
-    letter-spacing: 0.25rem;
+  &__heart {
+    --fill: 100%;
+
+    background: linear-gradient(
+      90deg,
+      #d10000 var(--fill),
+      #5a5a5a var(--fill)
+    );
+    background-clip: text;
+    color: transparent;
   }
 
-  // Would be cool if JS could use scss heart--lost re-coloring, else remove.
-  &__heart--lost {
-    color: #ff6060;
-  }
-
-  &__level {
-    margin: 0;
-    font-weight: bold;
-  }
-
+  // Scene
   &__scene {
     grid-area: scene;
     display: flex;
@@ -88,18 +176,23 @@
     display: none;
   }
 
+  // Dialog
+  // questions and answers will stay default font so code texts becomes easier to read
   &__dialog {
     grid-area: dialog;
     margin-bottom: 1.5rem;
     padding: 1rem;
-    background-color: black;
-    color: white;
+    border: 2px groove $gold-border;
+    border-radius: 0.5rem;
+    background-color: rgb(0 0 0 / 85%);
+    color: $navlinkcolor;
     text-align: center;
   }
 
   &__feedback {
     margin-block: 0 0.25rem;
-    font-weight: bold;
+    font-family: rpgFont, sans-serif;
+    font-size: 1.25rem;
   }
 
   &__explanation,
@@ -112,15 +205,22 @@
     position: relative;
     top: 2rem;
     padding: 0.5rem 2rem;
-    border: 1px solid black;
-    border-radius: 0.5rem;
-    background-color: white;
-    color: black;
-    font: inherit;
-    font-weight: bold;
+    border: 2px groove $gold-border;
+    border-radius: 0.5rem 0.7rem 1.6rem;
+    background-color: #1e1e1e;
+    color: $navlinkcolor;
+    font-family: rpgFont, sans-serif;
+    font-size: 1.25rem;
+    text-shadow: $glow;
     cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+      background-color: #704900b9;
+    }
   }
 
+  // Answers
   &__answers {
     grid-area: answers;
     display: grid;
@@ -132,8 +232,8 @@
     padding: 0.75rem 1rem;
     border: 2px solid transparent;
     border-radius: 0.5rem;
-    background-color: #1e1e1e;
-    color: white;
+    background-color: rgb(20 20 20 / 90%);
+    color: $navlinkcolor;
     font: inherit;
     font-weight: bold;
     text-align: start;
@@ -141,7 +241,7 @@
 
     &:hover,
     &:focus-visible {
-      border-color: #fb0;
+      border-color: goldenrod;
     }
 
     &--correct {
@@ -153,6 +253,111 @@
       background-color: #ff6060;
       color: black;
     }
+  }
+
+  // Panels, stats, player, inventory
+  // same pattern as the lobby
+  &__panels {
+    grid-area: panels;
+    display: grid;
+    grid-template: "panel" minmax(0, 1fr) / 1fr;
+    min-height: 0;
+    margin-inline: calc(-1 * var(--pad));
+    overflow: hidden;
+  }
+
+  &__panel {
+    grid-area: panel;
+    min-height: 0;
+    padding: 1rem;
+    overflow-y: auto;
+    color: #f2e9d8;
+    background-color: rgb(18 16 12);
+    border-top: 2px solid rgb(255 174 0);
+
+    h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.25;
+    }
+
+    // Mobile player section
+    // visibility hidden keeps a closed panel out of the tab order
+    &--stats,
+    &--inventory {
+      z-index: 1;
+      padding-inline: calc(var(--tab-w) + 1rem);
+      visibility: hidden;
+      transition:
+        translate 0.4s ease,
+        visibility 0.4s;
+
+      &.is-open {
+        translate: 0;
+        visibility: visible;
+      }
+    }
+
+    &--stats {
+      translate: -100% 0; // waits off screen to the left
+    }
+
+    &--inventory {
+      translate: 100% 0; // waits off screen to the right
+    }
+
+    &--player {
+      display: grid;
+      grid-template: minmax(0, 1fr) / auto 1fr auto;
+      padding: 0;
+      overflow: hidden;
+    }
+  }
+
+  &__player-content {
+    grid-area: 1 / 2;
+    min-height: 0;
+    padding: 1rem;
+    overflow-y: auto;
+  }
+
+  &__toggle {
+    grid-row: 1;
+    z-index: 2;
+    width: var(--tab-w);
+    padding: 0.5rem 0;
+    border: 0;
+    writing-mode: vertical-rl;
+    font: inherit;
+    font-weight: 500;
+    letter-spacing: 0, 1rem;
+    color: #f2e9d8;
+    background: rgb(255 174 0 / 15%);
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover,
+    &[aria-expanded="true"] {
+      background-color: rgb(255 174 0 / 35%);
+    }
+
+    &--stats {
+      rotate: 180deg;
+    }
+  }
+
+  // Player health inside the player panel
+  &__player-health {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0.25rem 1 rem;
+    border: 2px groove $gold-border;
+    border-radius: 0.5rem;
+    background-color: rgb(0 0 0 / 60%);
+    color: $navlinkcolor;
   }
 }
 

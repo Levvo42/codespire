@@ -18,31 +18,50 @@
         class="site-header__logo"
         alt="codeSpire"
       />
-      <nav class="site-header__menu">
-        <a href="./createplayer.html">Play</a>
-        <a href="">Story</a>
-        <a href="./tutorial.html">Tutorial</a>
-        <a href="./credits.html">Credits</a>
-        <a href="">Extra</a>
+      <nav class="site-header__nav" id="header-navigation">
+        <a href="/createplayer.html">Play</a>
+        <a href="/pages/singleplayer.html" aria-current="page">Battle</a>
+        <a href="/index.html">Menu</a>
+        <a href="/pages/lobby.html">Credits</a>
+        <a href="/pages/tutorial.html">Tutorial</a>
       </nav>
+
+      <button
+        class="site-header__menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="header-navigation"
+      >
+        <span>Menu</span>
+      </button>
     </header>
 
     <main class="site-singleplayer">
-      <h1 class="site-singleplayer__title">Singleplayer</h1>
+      <h1 class="visually-hidden">Singleplayer</h1>
 
-      <!-- Lives + Tower Stage -->
-      <section class="site-singleplayer__status" aria-label="Player status">
-        <p
-          class="site-singleplayer__hearts"
-          role="img"
-          aria-label="Lives: 4 of 4"
-        >
-          <span class="site-singleplayer__heart">♥</span>
-          <span class="site-singleplayer__heart">♥</span>
-          <span class="site-singleplayer__heart">♥</span>
-          <span class="site-singleplayer__heart">♥</span>
+      <!-- Boss name, difficulty, tower level, boss health -->
+      <section class="site-singleplayer__boss" aria-labelledby="boss-name">
+        <div class="site-singleplayer__encounter">
+          <p class="site-singleplayer__difficulty">Difficulty: Normal</p>
+          <p class="site-singleplayer__tower-level">CSS Tower: Level 5</p>
+        </div>
+        <h2 class="site-singleplayer__boss-name" id="boss-name">
+          Archduke Nicodemus Valerius von Dragomirov
+        </h2>
+        <p class="site-singleplayer__boss-health">
+          <span class="site-singleplayer__health-value">500</span>
+          <!-- Each heart = 20% of max health, JS should set --fill (0%-100%) per heart -->
+          <span
+            class="site-singleplayer__hearts"
+            role="img"
+            aria-label="Boss Health: 500 of 500"
+          >
+            <span class="site-singleplayer__heart">♥</span>
+            <span class="site-singleplayer__heart">♥</span>
+            <span class="site-singleplayer__heart">♥</span>
+            <span class="site-singleplayer__heart">♥</span>
+          </span>
         </p>
-        <p class="site-singleplayer__level">CSS: Level - 5</p>
       </section>
 
       <section class="site-singleplayer__scene" aria-label="Battle scene">
@@ -112,9 +131,73 @@
           [D] :active
         </button>
       </section>
+
+      <!-- Player Section -->
+      <div class="site-singleplayer__panels">
+        <article
+          class="site-singleplayer__panel site-singleplayer__panel--stats"
+          id="panel-stats"
+        >
+          <h2>Stats</h2>
+        </article>
+        <article
+          class="site-singleplayer__panel site-singleplayer__panel--player"
+        >
+          <button
+            class="site-singleplayer__toggle site-singleplayer__toggle--stats"
+            type="button"
+            aria-controls="panel-stats"
+            aria-expanded="false"
+            data-js="panel-toggle"
+          >
+            Stats
+          </button>
+          <div class="site-singleplayer__player-content">
+            <h2>Player</h2>
+            <p class="site-singleplayer__player-health">
+              <span>Player health</span>
+              <span class="site-singleplayer__health-value">100</span>
+              <span
+                class="site-singleplayer__hearts"
+                role="img"
+                aria-label="Player health: 100 of 100"
+              >
+                <span class="site-singleplayer__heart">♥</span>
+                <span class="site-singleplayer__heart">♥</span>
+                <span class="site-singleplayer__heart">♥</span>
+                <span class="site-singleplayer__heart">♥</span>
+                <span class="site-singleplayer__heart">♥</span>
+              </span>
+            </p>
+          </div>
+          <button
+            class="site-singleplayer__toggle site-singleplayer__toggle--inventory"
+            type="button"
+            aria-controls="panel-inventory"
+            aria-expanded="false"
+            data-js="panel-toggle"
+          >
+            Inventory
+          </button>
+        </article>
+        <article
+          class="site-singleplayer__panel site-singleplayer__panel--inventory"
+          id="panel-inventory"
+        >
+          <h2>Inventory</h2>
+        </article>
+      </div>
     </main>
 
-    <footer class="site-footer"></footer>
+    <footer class="site-footer">
+      <span class="site-footer__info">
+        <a href="/pages/credits.html">About</a>
+        <a href="/pages/credits.html">Credits</a>
+        <a href="/pages/credits.html">Extra</a>
+        <a href="/pages/credits.html">Bug Report</a>
+        <a href="/pages/credits.html">Socials</a>
+      </span>
+    </footer>
 
     <script type="module" src="/src/js/pages/singleplayer.js"></script>
   </body>
