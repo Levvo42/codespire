@@ -143,7 +143,7 @@
   overflow: hidden;
 
   // #region mainpage background
-  background-image: url("../../assets/images/lobby-bg.jpg");
+  background-image: url("../../assets/images/lobby-bg.webp");
 
   /* background-size: 200dvh; */
   background-position: top;
@@ -207,7 +207,6 @@ p.index-main__pressplay {
 
   &__story {
     // #region iframe story box
-    background: transparent;
     border: 0;
 
     // #endregion iframe story box
