@@ -1,3 +1,7 @@
+# Figma Design Link - Guest View
+
+Figma design [here](https://www.figma.com/design/BC0MyUMRgNGACaPtwx7HoR/Website-Design-Group-8?node-id=0-1&t=9CZlyraSfUcVhFSe-1)
+
 # Brainstorming website design
 
 <img src="../assets/images/260922-01.png" alt="Description" width="500">
@@ -37,3 +41,19 @@
 
 <img src="../assets/images/Figma/Mobile-Lobby.png" alt="Description" width="500">
 <img src="../assets/images/Figma/Mobile-Lobby-PageOpen.png" alt="Description" width="500">
+
+## Combined - Desktop, Tablet and Mobile
+
+### Singleplayer Page
+
+<img src="../assets/images/Figma/Desktop-Singleplayer-Page.png" alt="Description" width="500">
+
+### Character Creation Page
+
+<img src="../assets/images/Figma/Desktop-Tablet-Mobile-CharacterCreation-Page-1.png" alt="Description" width="500">
+<img src="../assets/images/Figma/Desktop-Tablet-Mobile-CharacterCreation-Page-2.png" alt="Description" width="500">
+
+### Credits Page
+
+<img src="../assets/images/Figma/Desktop-Tablet-Mobile-Credits-Page-1.png" alt="Description" width="500">
+<img src="../assets/images/Figma/Desktop-Tablet-Mobile-Credits-Page-2.png" alt="Description" width="500">
