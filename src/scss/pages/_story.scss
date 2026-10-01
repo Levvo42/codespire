@@ -1,0 +1,132 @@
+// ========================================
+// STORY
+// ========================================
+// 1. Mobile layout
+// 2. Tablet layout
+// 3. Desktop layout
+// ========================================
+// #region Import variables
+@use "../base/variables" as *;
+
+// #endregion Import variables
+// ========================================
+// #region text styling
+
+.story-main {
+  &__story {
+    text-shadow:
+      2px 2px black,
+      0 0 5px black;
+    color: rgb(255 255 255);
+    justify-items: center;
+    width: fit-content;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: auto;
+    background-color: rgb(0 0 0 / 55%);
+    border-radius: 0.5rem 0.7rem 1.6rem;
+    border: 0.14rem groove rgb(218 165 32 / 64.4%);
+
+    .sickness {
+      color: rgb(146 250 137);
+      text-shadow:
+        2px 2px rgb(2 0 0),
+        0 0 10px #15ff00;
+    }
+
+    .golden {
+      color: rgb(250 229 134);
+      text-shadow:
+        2px 2px rgb(0 0 0),
+        0 0 7px #fac001;
+    }
+
+    .warning {
+      color: rgb(196 0 0);
+      text-shadow:
+        2px 2px rgb(0 0 0),
+        3px 1px rgb(128 0 0);
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 40rem;
+    }
+
+    strong {
+      font-family: rpgFont, sans-serif;
+      font-weight: lighter;
+      font-size: 1.4rem;
+      position: relative;
+      top: 0.3rem;
+    }
+
+    h1 {
+      font-family: rpgFont, sans-serif;
+      font-weight: lighter;
+      color: goldenrod;
+      font-size: 4rem;
+      position: relative;
+      top: 0.3rem;
+    }
+
+    h2 {
+      font-family: rpgFont, sans-serif;
+      font-weight: lighter;
+      color: rgb(160 91 0);
+      font-size: 2.5rem;
+      position: relative;
+      top: 0.3rem;
+    }
+  }
+
+  &__scrollbar {
+    min-height: 0;
+    overflow-y: auto;
+    padding: 1rem;
+
+    &::-webkit-scrollbar {
+      width: 0.75rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #20170f;
+      border-inline: 1px solid #705321;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: linear-gradient(#e7c66e, #9c7024);
+      border: 2px solid #20170f;
+      border-radius: 0.25rem;
+    }
+  }
+}
+
+// #endregion text styling
+// ========================================
+// #region scrollbar styling
+.story-page {
+  overflow: hidden;
+}
+
+// #endregion scrollbarstyling
+// ========================================
+.index-main__intro-text {
+  margin-block: auto;
+}
+
+.story-main {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  &hr {
+    // placeholder
+  }
+}

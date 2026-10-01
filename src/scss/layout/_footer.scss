@@ -25,7 +25,7 @@
   height: 1.5rem;
 
   & a {
-    color: $navlinkcolor;
+    color: rgb(166 168 168 / 89.7%);
     text-decoration: none;
 
     &:hover,
@@ -49,6 +49,7 @@
 
   &__info {
     font-family: rpgFont, sans-serif;
+    font-size: 1.2rem;
     color: $navlinkcolor;
     display: flex;
     flex: 1;
@@ -59,7 +60,7 @@
       0 0 4px #026b12a1;
 
     :visited:hover {
-      color: rgb(166 168 168 / 77.4%);
+      color: rgb(255 255 255 / 77.4%);
     }
   }
 }
