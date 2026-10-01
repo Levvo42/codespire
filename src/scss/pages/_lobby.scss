@@ -1,247 +1,501 @@
-// ────────────────────────────────────────
-// MAIN
-// ────────────────────────────────────────
-// 1. Mobile main layout
-// 2. Tablet layout
-// 3. Desktop layout
-// ────────────────────────────────────────
-// #region Import Variables
+// ========================================
+// LOBBY
+// ========================================
+// 1. Page frame  – one screen, no page scroll
+// 2. Lobby grid  – scene / platform / panels + tuning knobs
+// 3. Scene       – background, tower, level sign
+// 4. Platform    – floating rock with 3 stone buttons
+// 5. Panels      – stats, player, inventory + side tabs
+// 6. Tablet
+// 7. Desktop
+// ========================================
+// #region Import variables and fonts
+
+// Variables
 @use "../base/variables" as *;
 
-// #endregion
-// ────────────────────────────────────────
-// #region MOBILE // GRID
-// ────────────────────────────────────────
+// Fonts
+@font-face {
+  font-family: "BabelStone Runic";
+  src: url("../../assets/fonts/BabelStoneRunic.woff2") format("woff2");
+  font-display: block;
+}
 
+// #endregion Import variables
+// ========================================
+// #region Page frame
+// The body is exactly one screen tall. The header floats on top,
+// main fills what is left and the footer sits at the bottom.
 .page-lobby {
-  background: #2a2f1f;
+  display: flex;
+  flex-direction: column;
+  height: 100svh;
+  overflow: hidden; // no page scroll, only the panels scroll
+  background-color: #2a2f1f;
 }
 
 .page-lobby .site-header {
   position: fixed;
   inset-inline: 0;
   top: 0;
-  background-color: rgb(0 0 0 / 40%); // or transparent
+  background-color: rgb(0 0 0 / 40%);
 }
 
+// #endregion Page frame
+// ========================================
+// #region Lobby grid
 .site-lobby {
-  display: grid;
-  min-height: 100svh;
-  overflow-x: clip;
-  grid-template:
-    "tower" 1fr
-    "select" auto
-    "player" auto
-    / 1fr;
+  // Tuning knobs, changed per breakpoint further down
+  --panel-h: 36%; // height of the panel row
+  --tower-h: 80cqb; // tower height (cqb = % of the lobby height)
+  --platform-w: min(62cqi, 34cqb); // max 62% of the width, never too tall
+  --select-h: calc(var(--platform-w) * 4 / 11); // platform box height
+  --tab-w: 2.75rem; // width of the side tabs
 
-  h1 {
+  // Tower + background share one ground line, so they always move together
+  --ground: calc(
+    var(--select-h) * 0.9
+  ); // tower's foot, measured up from the panels
+
+  --bg-h: max(
+    var(--tower-h) * 1.4,
+    100cqi * 1601 / 2400
+  ); // photo height: 1.8 × tower, never narrower than the screen
+
+  --bg-ground: 0.17; // where the ground is in the photo (0 = its bottom, 1 = its top)
+
+  position: relative;
+  flex: 1;
+  min-height: 0; // lets main shrink to the space left in the body
+  display: grid;
+  grid-template-areas:
+    "scene"
+    "select"
+    "panels";
+  grid-template-rows: minmax(0, 1fr) auto var(--panel-h);
+  overflow: hidden;
+  container-type: size; // makes cqi / cqb work inside the lobby
+  isolation: isolate; // keeps the scene's z-index: -1 inside main
+
+  &__title {
+    // visually hidden, still read by screen readers
     position: absolute;
     width: 1px;
     height: 1px;
     overflow: hidden;
     clip-path: inset(50%);
+    white-space: nowrap;
   }
 
+  // #endregion Lobby grid
+  // ========================================
+  // #region Scene
   &__scene {
-    grid-area: tower;
+    grid-area: 1 / 1 / 3 / -1; // scene + platform rows, stops at the panels
+    position: relative;
+    z-index: -1; // behind everything else in main
 
-    --zoom: 4; // mobile: close-up on the door
-
-    overflow: hidden;
-    inset: 0;
-    z-index: -1;
-    width: 100%;
-    height: auto;
-    position: fixed;
-  }
-
-  &__stage {
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: max(
-      calc(100% * var(--zoom)),
-      calc(100svh * 3314 / 2211) // scene height × image ratio
-    );
-    aspect-ratio: 3314 / 2211;
-    translate: -50% 0;
-    background: url("../../assets/images/lobby-bg.jpg") center / 100% 100%;
+    // The photo's ground line is placed exactly at the tower's foot
+    background: url("../../assets/images/lobby-bg.webp") no-repeat;
+    background-position: center bottom
+      calc(var(--ground) - var(--bg-h) * var(--bg-ground));
+    background-size: auto var(--bg-h);
   }
 
   &__tower {
-    display: grid;
-    justify-items: center;
-    container-type: inline-size;
     position: absolute;
     left: 50%;
-    bottom: 12%; // where the ground is in the bg
-    width: 80%; // % of the stage, so it scales with it
+    bottom: var(--ground); // stands on the ground line, just behind the stones
+    width: calc(var(--tower-h) * 900 / 1558); // same shape as tower.webp
+    height: var(--tower-h);
     translate: -50% 0;
+    container-type: inline-size; // the sign's cqi = % of the tower's width
 
     img {
       display: block;
       width: 100%;
-      height: auto;
+      height: 100%;
+      mask-image: linear-gradient(
+        to bottom,
+        black 82%,
+        rgb(0 0 0 / 50%),
+        transparent
+      );
     }
   }
 
   &__sign {
     position: absolute;
     left: 50%;
-    top: 61%; // just above the door
-    translate: -50% 0;
-    font-size: 5cqi; // 6% of the tower's width
+    top: 62%; // on the wall just above the door arch
+    translate: -50% -50%;
     margin: 0;
+    background-color: black;
+    border: 3px gold solid;
+    border-radius: 15%;
+    font-size: 7cqi;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    color: #f4e7c5;
+    text-shadow: 0 0.05em 0.2em rgb(0 0 0 / 80%);
   }
 
+  // #endregion Scene
+  // ========================================
+  // #region Platform
+  // The box is taller than the rock: the top part is room for the
+  // hovering stones, the rock image sits at the bottom.
   &__select {
     grid-area: select;
-    display: grid;
-    grid-template:
-      "select-left select-right" auto
-      "play play" auto
-      / auto auto;
+    justify-self: center;
+    position: relative;
+    width: var(--platform-w);
+    aspect-ratio: 11 / 8;
+    background: url("../../assets/images/stone-platform.webp") center bottom /
+      100% auto no-repeat;
   }
 
+  // One stone. The button box is the stone itself:
+  //   ::before  the stone image, floats up on hover
+  //   ::after   its shadow on the platform, only shrinks and fades
+  //   __label   the rune lying on top of the stone
   &__button {
-    &--play {
-      grid-area: play;
+    --lift: 0cqi; // how far the stone floats up, set per state below
+    --rune-y: 24%; // rune height on the stone, override per stone below
+    --shadow-y: 95%; // shadow height on the platform, override per stone below
+
+    position: absolute;
+    width: 26%;
+    aspect-ratio: 8 / 5; // a bit taller than the photo (2.14 / 1)
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    container-type: inline-size; // cqi inside = % of the stone's width
+    isolation: isolate; // keeps ::before / ::after behind the label
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: url("../../assets/images/stone-platform.webp") center / 100%
+        100% no-repeat;
+      translate: 0 calc(-1 * var(--lift));
+      transition: translate 0.6s ease;
     }
 
+    &::after {
+      content: "";
+      position: absolute;
+      top: var(--shadow-y);
+      inset-inline: 5%;
+      height: 80%;
+      z-index: -2;
+      background: radial-gradient(closest-side, rgb(0 0 0 / 35%), transparent);
+      transition:
+        scale 0.6s ease,
+        opacity 0.6s ease;
+    }
+
+    // Lit: the stone floats up and the rune lights up
+    &:hover,
+    &:focus-visible {
+      --lift: 6cqi;
+
+      &::after {
+        scale: 0.8;
+        opacity: 0.6;
+      }
+
+      .site-lobby__label {
+        color: rgb(205 245 255);
+        -webkit-text-stroke-color: transparent;
+        filter: drop-shadow(0 0 0.03em rgb(186 242 255))
+          drop-shadow(0 0 0.12em rgb(133 223 253 / 60%));
+      }
+
+      .site-lobby__label::after {
+        opacity: 1;
+      }
+
+      .site-lobby__hint {
+        opacity: 1;
+        translate: -50% calc(-40% - var(--lift)); // rises with the stone
+      }
+    }
+
+    // Pressed: sinks halfway back down
+    &:active {
+      --lift: 3cqi;
+    }
+
+    // Per stone: position on the platform (% of the platform box),
+    // rune and shadow height (% of the stone's own height)
     &--left {
-      grid-area: select-left;
+      --rune-y: 18%;
+      --rune-x: -5%;
+      --shadow-y: 144%;
+
+      transform: rotateZ(7deg);
+      top: 8%;
+      left: 5%;
+
+      .site-lobby__label {
+        scale: -1 1;
+      }
     }
 
     &--right {
-      grid-area: select-right;
+      --rune-y: 18%;
+      --rune-x: -1%;
+      --shadow-y: 120%;
+
+      transform: rotateZ(-9deg);
+      top: 12%;
+      right: 6%;
+    }
+
+    &--play {
+      --rune-y: 18%;
+      --rune-x: 0%;
+      --shadow-y: 70%;
+
+      transform: rotateX(-15deg);
+      top: 26%;
+      left: 34%;
+      width: 35%; // in front, so a bit bigger
     }
   }
 
-  &__stats {
-    grid-area: player;
-    display: none;
+  // RUNES (Text inside buttons)
+  &__label {
+    position: absolute;
+    inset-inline: 0;
+    top: var(--rune-y); // set per stone in &__button
+    left: var(--rune-x); // set per stone in &__button
+    font-size: 100cqi;
+    line-height: 1;
+    text-align: center;
+    color: rgb(36 34 34 / 78.8%);
+    -webkit-text-stroke: 0.001em rgb(0 0 0 / 25%);
+    filter: drop-shadow(0 0.03em 0 rgb(255 255 255 / 25%));
+    transform: perspective(5em) rotateX(83deg);
+    translate: 0 calc(-50% - var(--lift));
+    pointer-events: none;
+    transition:
+      translate 0.6s ease,
+      color 0.6s ease,
+      filter 0.6s ease,
+      -webkit-text-stroke-color 0.6s ease;
 
-    // TEMPORARY - DELETE ME
-    border-style: dotted;
-    border-width: 5px;
-    background-color: aqua;
+    // Soft pool of light on the stone, only while lit
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0 20%;
+      z-index: -1;
+      background: radial-gradient(
+        closest-side,
+        rgb(233 242 245 / 35%),
+        transparent
+      );
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
   }
 
-  &__player {
-    grid-area: player;
-
-    // TEMPORARY - DELETE ME
-    border-style: dotted;
-    border-width: 5px;
-    background-color: aqua;
+  // Word that rises out of the stone on hover
+  &__hint {
+    position: absolute;
+    left: 50%;
+    bottom: 100%; // starts just above the stone
+    font-size: 30cqi; // % of the stone's width
+    font-weight: 700;
+    white-space: nowrap;
+    color: #effbffd2;
+    text-shadow: 0 0.05em 0.2em rgb(97 133 158 / 96.6%);
+    opacity: 0;
+    translate: -50% 20%; // centered, a bit low
+    pointer-events: none;
+    transition:
+      opacity 0.4s ease,
+      translate 0.6s ease;
   }
 
-  &__inventory {
-    grid-area: player;
-    display: none;
-    background-color: aqua;
+  // #endregion Platform
+  // ========================================
+  // #region Panels
+  // One solid bar along the bottom. Only the content scrolls.
+  &__panel {
+    grid-area: panels;
+    min-height: 0;
+    padding: 1rem;
+    overflow-y: auto;
+    color: #f2e9d8;
+    background-color: rgb(18 16 12);
+    border-top: 2px solid rgb(255 174 0);
 
-    // TEMPORARY - DELETE ME
-    border-style: dotted;
-    border-width: 5px;
+    h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.25rem;
+    }
+
+    // Mobile: stats / inventory slide in over the player.
+    // visibility: hidden keeps a closed panel out of the tab order.
+    &--stats,
+    &--inventory {
+      z-index: 1;
+      padding-inline: calc(var(--tab-w) + 1rem); // room for the tabs on top
+      visibility: hidden;
+      transition:
+        translate 0.4s ease,
+        visibility 0.4s;
+
+      &.is-open {
+        translate: 0;
+        visibility: visible;
+      }
+    }
+
+    &--stats {
+      translate: -100% 0; // waits off-screen to the left
+    }
+
+    &--inventory {
+      translate: 100% 0; // waits off-screen to the right
+    }
+
+    &--player {
+      display: grid;
+      grid-template: minmax(0, 1fr) / auto 1fr auto; // tab | content | tab
+      padding: 0;
+      overflow: hidden; // the content scrolls, not the whole panel
+    }
+  }
+
+  &__player-content {
+    grid-area: 1 / 2;
+    min-height: 0;
+    padding: 1rem;
+    overflow-y: auto;
+  }
+
+  // Side tabs on the player. z-index 2 keeps them above the
+  // sliding panels, so the same tab also closes its panel.
+  &__toggle {
+    grid-row: 1;
+    z-index: 2;
+    width: var(--tab-w);
+    padding: 0.5rem 0;
+    border: 0;
+    writing-mode: vertical-rl; // text runs top to bottom
+    font: inherit;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: #f2e9d8;
+    background-color: rgb(255 174 0 / 15%);
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover,
+    &[aria-expanded="true"] {
+      background-color: rgb(255 174 0 / 35%);
+    }
+
+    &--stats {
+      rotate: 180deg; // reads bottom to top on the left edge
+    }
   }
 }
 
-// #endregion Grid
-// ──────────────────────────────────────────────────
-// #region ─────────────── · TABLET · ───────────────
-// ──────────────────────────────────────────────────
-
+// #endregion Panels
+// ========================================
+// #region Tablet
+// Two columns: a side panel (stats, inventory slides over it) + player.
 @media (width >= #{$breakpoint-tablet}) {
   .site-lobby {
-    display: grid;
-    grid-template:
-      "tower tower tower tower" 1fr
-      ". select select ." auto
-      "stats stats player player" auto
-      / 1fr auto auto 1fr;
+    --panel-h: 34%;
+    --tower-h: 80cqb;
 
-    &__stats {
-      grid-area: stats;
-      display: block;
+    grid-template-areas:
+      "scene scene"
+      "select select"
+      "side player";
+    grid-template-columns: 1fr 1fr;
 
-      // TEMPORARY - DELETE ME
-      border-style: dotted;
-      border-width: 5px;
+    &__panel {
+      &--stats,
+      &--inventory {
+        grid-area: side;
+        padding-inline: 1rem;
+      }
+
+      &--stats {
+        translate: 0;
+        visibility: visible; // always there, underneath the inventory
+      }
+
+      &--inventory {
+        translate: -100% 0; // slides in from the left
+      }
+
+      &--player {
+        grid-area: player;
+        border-left: 2px solid rgb(255 174 0); // divider
+      }
     }
 
-    &__player {
-      grid-area: player;
+    // One switch, on the edge next to the side panel
+    &__toggle {
+      &--stats {
+        display: none;
+      }
 
-      // TEMPORARY - DELETE ME
-      border-style: dotted;
-      border-width: 5px;
-    }
-
-    &__inventory {
-      grid-area: inventory;
-      display: none;
-
-      // TEMPORARY - DELETE ME
-      border-style: dotted;
-      border-width: 5px;
-    }
-
-    &__scene {
-      --zoom: 2.5; // mobile: close-up on the door
-    }
-
-    &__tower {
-      bottom: 16%; // where the ground is in the bg
+      &--inventory {
+        grid-column: 1;
+      }
     }
   }
 }
 
 // #endregion Tablet
-// ────────────────────────────────────────
-// #region DESKTOP
-// ────────────────────────────────────────
-
+// ========================================
+// #region Desktop
+// Three columns, everything visible, no tabs.
 @media (width >= #{$breakpoint-desktop}) {
   .site-lobby {
-    display: grid;
-    grid-template:
-      "tower tower tower" 1fr
-      ". select ." auto
-      "stats player inventory" auto
-      / 1fr auto 1fr;
+    --panel-h: 30%;
+    --tower-h: 70cqb;
 
-    &__stats {
-      grid-area: stats;
-      display: block;
+    grid-template-areas:
+      "scene scene scene"
+      "select select select"
+      "stats player inventory";
+    grid-template-columns: 1fr 1fr 1fr;
 
-      // TEMPORARY - DELETE ME
-      border-style: dotted;
-      border-width: 5px;
+    &__panel {
+      &--stats {
+        grid-area: stats;
+      }
+
+      &--inventory {
+        grid-area: inventory;
+        translate: 0;
+        visibility: visible;
+      }
+
+      &--player {
+        border-inline: 2px solid rgb(255 174 0); // dividers on both sides
+      }
     }
 
-    &__player {
-      grid-area: player;
-
-      // TEMPORARY - DELETE ME
-      border-style: dotted;
-      border-width: 5px;
+    &__toggle {
+      display: none;
     }
-
-    &__inventory {
-      grid-area: inventory;
-      display: block;
-
-      // TEMPORARY - DELETE ME
-      border-style: dotted;
-      border-width: 5px;
-    }
-
-    &__scene {
-      --zoom: 1; // mobile: close-up on the door
-    }
-  } /* desktop */
+  }
 }
 
-// #endregion desktop
-// ────────────────────────────────────────
+// #endregion Desktop
+// ========================================

@@ -1,0 +1,2582 @@
+{
+  "topic": "html",
+  "version": 1,
+  "questions": [
+    {
+      "id": "html-easy-001",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element is used for the main top-level heading of a page or section?",
+      "answers": [
+        { "text": "<header>", "isCorrect": false },
+        { "text": "<h1>", "isCorrect": true },
+        { "text": "<head>", "isCorrect": false },
+        { "text": "<h6>", "isCorrect": false }
+      ],
+      "explanation": "<h1> represents a top-level heading. Heading elements range from <h1> to <h6>.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-002",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element is used to create a paragraph?",
+      "answers": [
+        { "text": "<span>", "isCorrect": false },
+        { "text": "<text>", "isCorrect": false },
+        { "text": "<p>", "isCorrect": true },
+        { "text": "<section>", "isCorrect": false }
+      ],
+      "explanation": "<p> represents a paragraph of text.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-003",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element creates a hyperlink?",
+      "answers": [
+        { "text": "<link>", "isCorrect": false },
+        { "text": "<a>", "isCorrect": true },
+        { "text": "<href>", "isCorrect": false },
+        { "text": "<nav>", "isCorrect": false }
+      ],
+      "explanation": "<a> creates a hyperlink, usually with the href attribute specifying its destination.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-004",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which attribute specifies the destination of an <a> element?",
+      "answers": [
+        { "text": "src", "isCorrect": false },
+        { "text": "target", "isCorrect": false },
+        { "text": "action", "isCorrect": false },
+        { "text": "href", "isCorrect": true }
+      ],
+      "explanation": "The href attribute contains the URL or other destination that the hyperlink points to.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-005",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "Content that should be visible on the page belongs inside the <head> element.",
+      "answers": [
+        { "text": "True", "isCorrect": false },
+        { "text": "False", "isCorrect": true }
+      ],
+      "explanation": "Visible page content belongs in <body>. <head> holds metadata such as the title, meta tags and linked stylesheets.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-006",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element is used to embed an image in an HTML page?",
+      "answers": [
+        { "text": "<pic>", "isCorrect": false },
+        { "text": "<image>", "isCorrect": false },
+        { "text": "<img>", "isCorrect": true },
+        { "text": "<media>", "isCorrect": false }
+      ],
+      "explanation": "<img> embeds an image into the document.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-007",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which attribute on <img> specifies the image resource to load?",
+      "answers": [
+        { "text": "href", "isCorrect": false },
+        { "text": "src", "isCorrect": true },
+        { "text": "alt", "isCorrect": false },
+        { "text": "path", "isCorrect": false }
+      ],
+      "explanation": "The src attribute specifies the image resource that the browser should load.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-008",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What is the main purpose of the alt attribute on an <img> element?",
+      "answers": [
+        { "text": "To set the image width", "isCorrect": false },
+        {
+          "text": "To specify an alternative text replacement for the image",
+          "isCorrect": true
+        },
+        { "text": "To link the image to another page", "isCorrect": false },
+        { "text": "To choose the image file format", "isCorrect": false }
+      ],
+      "explanation": "The alt attribute provides a text replacement for the image when appropriate, including for accessibility and when the image cannot be displayed.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-009",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element creates an unordered list?",
+      "answers": [
+        { "text": "<li>", "isCorrect": false },
+        { "text": "<ol>", "isCorrect": false },
+        { "text": "<list>", "isCorrect": false },
+        { "text": "<ul>", "isCorrect": true }
+      ],
+      "explanation": "<ul> represents an unordered list, whose items are typically written using <li> elements.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-010",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element represents an item inside a list?",
+      "answers": [
+        { "text": "<item>", "isCorrect": false },
+        { "text": "<li>", "isCorrect": true },
+        { "text": "<ul>", "isCorrect": false },
+        { "text": "<list>", "isCorrect": false }
+      ],
+      "explanation": "<li> represents a list item inside elements such as <ul> or <ol>.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-011",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element creates an ordered list?",
+      "answers": [
+        { "text": "<ol>", "isCorrect": true },
+        { "text": "<ul>", "isCorrect": false },
+        { "text": "<li>", "isCorrect": false },
+        { "text": "<order>", "isCorrect": false }
+      ],
+      "explanation": "<ol> represents an ordered list, where the ordering of the items is meaningful.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-012",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element is a generic block-level container with no special semantic meaning?",
+      "answers": [
+        { "text": "<section>", "isCorrect": false },
+        { "text": "<article>", "isCorrect": false },
+        { "text": "<div>", "isCorrect": true },
+        { "text": "<main>", "isCorrect": false }
+      ],
+      "explanation": "<div> is a generic container that does not represent a specific type of content by itself.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-013",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element is a generic inline container commonly used around text?",
+      "answers": [
+        { "text": "<span>", "isCorrect": true },
+        { "text": "<div>", "isCorrect": false },
+        { "text": "<section>", "isCorrect": false },
+        { "text": "<p>", "isCorrect": false }
+      ],
+      "explanation": "<span> is a generic phrasing container commonly used to group inline content.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-014",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element marks text as strongly important?",
+      "answers": [
+        { "text": "<b>", "isCorrect": false },
+        { "text": "<mark>", "isCorrect": false },
+        { "text": "<em>", "isCorrect": false },
+        { "text": "<strong>", "isCorrect": true }
+      ],
+      "explanation": "<strong> represents strong importance, seriousness, or urgency for its contents.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-015",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "The <br> element inserts a line break.",
+      "answers": [
+        { "text": "True", "isCorrect": true },
+        { "text": "False", "isCorrect": false }
+      ],
+      "explanation": "<br> represents a line break, such as one used in a poem or an address.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-016",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element contains metadata and other document-level information that is not part of the page body?",
+      "answers": [
+        { "text": "<header>", "isCorrect": false },
+        { "text": "<main>", "isCorrect": false },
+        { "text": "<head>", "isCorrect": true },
+        { "text": "<body>", "isCorrect": false }
+      ],
+      "explanation": "<head> contains document metadata and related information such as the title and linked resources.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-017",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element sets the document title shown in places such as the browser tab?",
+      "answers": [
+        { "text": "<title>", "isCorrect": true },
+        { "text": "<h1>", "isCorrect": false },
+        { "text": "<header>", "isCorrect": false },
+        { "text": "<meta>", "isCorrect": false }
+      ],
+      "explanation": "<title> defines the document's title, which browsers commonly display in the tab or window title.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-018",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which declaration identifies a document as HTML?",
+      "answers": [
+        { "text": "<html5>", "isCorrect": false },
+        { "text": "<!DOCTYPE html>", "isCorrect": true },
+        { "text": "<doctype='html'>", "isCorrect": false },
+        { "text": "<meta html>", "isCorrect": false }
+      ],
+      "explanation": "<!DOCTYPE html> is the doctype used for HTML documents and causes browsers to use standards mode.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-019",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element is used to create a clickable button?",
+      "answers": [
+        { "text": "<btn>", "isCorrect": false },
+        { "text": "<click>", "isCorrect": false },
+        { "text": "<button>", "isCorrect": true },
+        { "text": "<press>", "isCorrect": false }
+      ],
+      "explanation": "<button> represents a button that can be activated by the user.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-020",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "The id attribute should identify at most one element in a document.",
+      "answers": [
+        { "text": "True", "isCorrect": true },
+        { "text": "False", "isCorrect": false }
+      ],
+      "explanation": "An id value must be unique within a document so that it identifies a single element.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-021",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which attribute can assign one or more reusable class names to an element?",
+      "answers": [
+        { "text": "name", "isCorrect": false },
+        { "text": "id", "isCorrect": false },
+        { "text": "style", "isCorrect": false },
+        { "text": "class", "isCorrect": true }
+      ],
+      "explanation": "The class attribute assigns one or more space-separated class names to an element.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-022",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element is used to collect user input and submit form data?",
+      "answers": [
+        { "text": "<form>", "isCorrect": true },
+        { "text": "<fieldset>", "isCorrect": false },
+        { "text": "<input>", "isCorrect": false },
+        { "text": "<label>", "isCorrect": false }
+      ],
+      "explanation": "<form> represents a form containing controls that can be used to submit information.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-023",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element creates a single-line text field?",
+      "answers": [
+        { "text": "<textarea>", "isCorrect": false },
+        { "text": "<input>", "isCorrect": true },
+        { "text": "<label>", "isCorrect": false },
+        { "text": "<text>", "isCorrect": false }
+      ],
+      "explanation": "<input type='text'> creates a single-line text field. <textarea> is for multiple lines.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-024",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element associates descriptive text with a form control?",
+      "answers": [
+        { "text": "<caption>", "isCorrect": false },
+        { "text": "<legend>", "isCorrect": false },
+        { "text": "<label>", "isCorrect": true },
+        { "text": "<description>", "isCorrect": false }
+      ],
+      "explanation": "<label> represents a caption for a form control and can be associated with that control.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-025",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "HTML comments written as <!-- comment --> are normally not rendered as visible page content.",
+      "answers": [
+        { "text": "True", "isCorrect": true },
+        { "text": "False", "isCorrect": false }
+      ],
+      "explanation": "HTML comments are part of the document source but are not rendered as normal visible content.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-026",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element represents the main content of a document?",
+      "answers": [
+        { "text": "<section>", "isCorrect": false },
+        { "text": "<body>", "isCorrect": false },
+        { "text": "<main>", "isCorrect": true },
+        { "text": "<article>", "isCorrect": false }
+      ],
+      "explanation": "<main> represents the dominant content of the document body.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-027",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element represents a section of navigation links?",
+      "answers": [
+        { "text": "<menu>", "isCorrect": false },
+        { "text": "<nav>", "isCorrect": true },
+        { "text": "<header>", "isCorrect": false },
+        { "text": "<links>", "isCorrect": false }
+      ],
+      "explanation": "<nav> represents a section containing navigation links.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-028",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element represents introductory content or a group of navigational aids for a page or section?",
+      "answers": [
+        { "text": "<header>", "isCorrect": true },
+        { "text": "<head>", "isCorrect": false },
+        { "text": "<main>", "isCorrect": false },
+        { "text": "<intro>", "isCorrect": false }
+      ],
+      "explanation": "<header> represents introductory content or navigational aids for its nearest sectioning context.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-029",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element represents a footer for its nearest sectioning content or the document body?",
+      "answers": [
+        { "text": "<bottom>", "isCorrect": false },
+        { "text": "<aside>", "isCorrect": false },
+        { "text": "<footer>", "isCorrect": true },
+        { "text": "<section>", "isCorrect": false }
+      ],
+      "explanation": "<footer> represents footer information such as authorship, related links, or copyright information.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-030",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "<section> should be used as a generic wrapper when you only need a box for styling.",
+      "answers": [
+        { "text": "True", "isCorrect": false },
+        { "text": "False", "isCorrect": true }
+      ],
+      "explanation": "<section> is a thematic section of content, usually with a heading. For a wrapper that is only needed for styling, use <div>.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-031",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element is best suited for a self-contained blog post or news story?",
+      "answers": [
+        { "text": "<article>", "isCorrect": true },
+        { "text": "<span>", "isCorrect": false },
+        { "text": "<div>", "isCorrect": false },
+        { "text": "<footer>", "isCorrect": false }
+      ],
+      "explanation": "<article> represents self-contained content that could potentially be distributed or reused independently.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-032",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element represents content that is only indirectly related to the surrounding content?",
+      "answers": [
+        { "text": "<aside>", "isCorrect": true },
+        { "text": "<main>", "isCorrect": false },
+        { "text": "<article>", "isCorrect": false },
+        { "text": "<details>", "isCorrect": false }
+      ],
+      "explanation": "<aside> represents content that is tangentially related to the content around it.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-033",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element represents emphasized text?",
+      "answers": [
+        { "text": "<strong>", "isCorrect": false },
+        { "text": "<mark>", "isCorrect": false },
+        { "text": "<em>", "isCorrect": true },
+        { "text": "<small>", "isCorrect": false }
+      ],
+      "explanation": "<em> represents stress emphasis in its contents.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-034",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element represents text highlighted for reference or relevance?",
+      "answers": [
+        { "text": "<strong>", "isCorrect": false },
+        { "text": "<mark>", "isCorrect": true },
+        { "text": "<em>", "isCorrect": false },
+        { "text": "<highlight>", "isCorrect": false }
+      ],
+      "explanation": "<mark> represents text that is marked or highlighted because of its relevance in the current context.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-035",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element is used to embed playable audio content?",
+      "answers": [
+        { "text": "<sound>", "isCorrect": false },
+        { "text": "<media>", "isCorrect": false },
+        { "text": "<audio>", "isCorrect": true },
+        { "text": "<source>", "isCorrect": false }
+      ],
+      "explanation": "<audio> is used to embed audio content in a document.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-036",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element is used to embed video content?",
+      "answers": [
+        { "text": "<video>", "isCorrect": true },
+        { "text": "<media>", "isCorrect": false },
+        { "text": "<movie>", "isCorrect": false },
+        { "text": "<source>", "isCorrect": false }
+      ],
+      "explanation": "<video> is used to embed video content in a document.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-037",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "The controls attribute can tell the browser to show built-in playback controls for <audio> or <video>.",
+      "answers": [
+        { "text": "True", "isCorrect": true },
+        { "text": "False", "isCorrect": false }
+      ],
+      "explanation": "The controls attribute enables the browser's own playback controls for media elements.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-038",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which input type is intended for entering an email address?",
+      "answers": [
+        { "text": "<input type='text'>", "isCorrect": false },
+        { "text": "<input type='mail'>", "isCorrect": false },
+        { "text": "<input type='email'>", "isCorrect": true },
+        { "text": "<input type='address'>", "isCorrect": false }
+      ],
+      "explanation": "<input type='email'> is designed for entering an email address and can use built-in validation.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-039",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which input type lets a user choose a date using a date-oriented control when supported?",
+      "answers": [
+        { "text": "<input type='calendar'>", "isCorrect": false },
+        { "text": "<input type='date'>", "isCorrect": true },
+        { "text": "<input type='day'>", "isCorrect": false },
+        { "text": "<input type='datetime'>", "isCorrect": false }
+      ],
+      "explanation": "<input type='date'> creates a control for entering a date.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-040",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which input type is commonly used for a checkbox?",
+      "answers": [
+        { "text": "<input type='checkbox'>", "isCorrect": true },
+        { "text": "<input type='check'>", "isCorrect": false },
+        { "text": "<input type='toggle'>", "isCorrect": false },
+        { "text": "<input type='select'>", "isCorrect": false }
+      ],
+      "explanation": "<input type='checkbox'> creates a checkbox control.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-041",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which input type is commonly used when the user should choose one option from a group?",
+      "answers": [
+        { "text": "<input type='choice'>", "isCorrect": false },
+        { "text": "<input type='select'>", "isCorrect": false },
+        { "text": "<input type='radio'>", "isCorrect": true },
+        { "text": "<input type='option'>", "isCorrect": false }
+      ],
+      "explanation": "Radio buttons are created with <input type='radio'> and are grouped by giving them the same name value.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-042",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element creates a multi-line text input control?",
+      "answers": [
+        { "text": "<input type='multiline'>", "isCorrect": false },
+        { "text": "<text>", "isCorrect": false },
+        { "text": "<textarea>", "isCorrect": true },
+        { "text": "<paragraph>", "isCorrect": false }
+      ],
+      "explanation": "<textarea> provides a control for entering multiple lines of plain text.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-043",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element creates a drop-down selection control?",
+      "answers": [
+        { "text": "<select>", "isCorrect": true },
+        { "text": "<dropdown>", "isCorrect": false },
+        { "text": "<choice>", "isCorrect": false },
+        { "text": "<list>", "isCorrect": false }
+      ],
+      "explanation": "<select> creates a control that lets the user choose from a set of options.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-044",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element defines an individual choice inside a <select> element?",
+      "answers": [
+        { "text": "<item>", "isCorrect": false },
+        { "text": "<option>", "isCorrect": true },
+        { "text": "<choice>", "isCorrect": false },
+        { "text": "<selectitem>", "isCorrect": false }
+      ],
+      "explanation": "<option> represents one selectable choice within a <select> control.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-045",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "The placeholder attribute is a good replacement for a <label>.",
+      "answers": [
+        { "text": "True", "isCorrect": false },
+        { "text": "False", "isCorrect": true }
+      ],
+      "explanation": "A placeholder is only a short hint and disappears when the user starts typing. Every form control should still have a <label>.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-046",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which attribute turns off a form control so it can't be used, focused or submitted with the form?",
+      "answers": [
+        { "text": "locked", "isCorrect": false },
+        { "text": "readonly", "isCorrect": false },
+        { "text": "disabled", "isCorrect": true },
+        { "text": "inactive", "isCorrect": false }
+      ],
+      "explanation": "A disabled control can't be used or focused and its value is not submitted. A readonly control can't be edited, but it can still be focused and its value is submitted.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-047",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element inserts a thematic break between sections of content?",
+      "answers": [
+        { "text": "<break>", "isCorrect": false },
+        { "text": "<line>", "isCorrect": false },
+        { "text": "<hr>", "isCorrect": true },
+        { "text": "<br>", "isCorrect": false }
+      ],
+      "explanation": "<hr> represents a thematic break between paragraph-level topics or sections. <br> is only a line break inside text.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-048",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element is used for a long quotation that forms its own block of content?",
+      "answers": [
+        { "text": "<quote>", "isCorrect": false },
+        { "text": "<q>", "isCorrect": false },
+        { "text": "<blockquote>", "isCorrect": true },
+        { "text": "<cite>", "isCorrect": false }
+      ],
+      "explanation": "<blockquote> represents content quoted from another source as a block.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-049",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which global attribute specifies the human language of an element's content?",
+      "answers": [
+        { "text": "language", "isCorrect": false },
+        { "text": "locale", "isCorrect": false },
+        { "text": "lang", "isCorrect": true },
+        { "text": "charset", "isCorrect": false }
+      ],
+      "explanation": "The lang attribute specifies the language of an element's content, such as lang='en' or lang='sv'.",
+      "verified": false
+    },
+    {
+      "id": "html-easy-050",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "An HTML element can have more than one class name in its class attribute.",
+      "answers": [
+        { "text": "True", "isCorrect": true },
+        { "text": "False", "isCorrect": false }
+      ],
+      "explanation": "The class attribute can contain multiple class names separated by spaces.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-001",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What is the purpose of the required attribute on a supported form control?",
+      "answers": [
+        {
+          "text": "It prevents the control from being edited",
+          "isCorrect": false
+        },
+        {
+          "text": "It requires the user to provide a valid value before form submission",
+          "isCorrect": true
+        },
+        { "text": "It automatically fills the control", "isCorrect": false },
+        { "text": "It hides the control until submission", "isCorrect": false }
+      ],
+      "explanation": "The required attribute makes a supported control mandatory for constraint validation before the form can be submitted normally.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-002",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which attribute connects a <label> to a form control by referencing the control's id?",
+      "answers": [
+        { "text": "name", "isCorrect": false },
+        { "text": "target", "isCorrect": false },
+        { "text": "for", "isCorrect": true },
+        { "text": "value", "isCorrect": false }
+      ],
+      "explanation": "The for attribute on <label> references the id of the associated form control.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-003",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which attribute gives a form control the key used when its value is submitted with a form?",
+      "answers": [
+        { "text": "name", "isCorrect": true },
+        { "text": "id", "isCorrect": false },
+        { "text": "class", "isCorrect": false },
+        { "text": "for", "isCorrect": false }
+      ],
+      "explanation": "The name attribute provides the key used for successful form control data during submission.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-004",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "A disabled form control is normally excluded from submitted form data.",
+      "answers": [
+        { "text": "True", "isCorrect": true },
+        { "text": "False", "isCorrect": false }
+      ],
+      "explanation": "Disabled controls are not successful controls and are normally omitted from submitted form data.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-005",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which attribute is used to suggest that a browser may automatically fill a form field with known user data?",
+      "answers": [
+        { "text": "autofocus", "isCorrect": false },
+        { "text": "autocomplete", "isCorrect": true },
+        { "text": "autofill", "isCorrect": false },
+        { "text": "default", "isCorrect": false }
+      ],
+      "explanation": "The autocomplete attribute provides hints about whether and how browsers may autofill form controls.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-006",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does the min attribute do on <input type='number'>?",
+      "answers": [
+        {
+          "text": "Sets the minimum number of characters allowed",
+          "isCorrect": false
+        },
+        { "text": "Sets the smallest valid numeric value", "isCorrect": true },
+        { "text": "Sets the default numeric value", "isCorrect": false },
+        {
+          "text": "Sets the smallest visual width of the control",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "For numeric input types, min defines the lowest value that satisfies constraint validation.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-007",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which attribute limits the number of characters a user may enter into a compatible text control?",
+      "answers": [
+        { "text": "max", "isCorrect": false },
+        { "text": "size", "isCorrect": false },
+        { "text": "maxlength", "isCorrect": true },
+        { "text": "limit", "isCorrect": false }
+      ],
+      "explanation": "The maxlength attribute specifies the maximum permitted length of text in supported controls.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-008",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which attribute supplies a regular expression that a text-like input value must match during validation?",
+      "answers": [
+        { "text": "pattern", "isCorrect": true },
+        { "text": "format", "isCorrect": false },
+        { "text": "match", "isCorrect": false },
+        { "text": "regex", "isCorrect": false }
+      ],
+      "explanation": "The pattern attribute defines a regular expression used by constraint validation for supported input types.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-009",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "The placeholder attribute is an adequate replacement for a visible <label> in accessible forms.",
+      "answers": [
+        { "text": "True", "isCorrect": false },
+        { "text": "False", "isCorrect": true }
+      ],
+      "explanation": "Placeholder text is not a reliable replacement for a label because it may disappear and does not provide the same accessible association.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-010",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element groups related form controls together?",
+      "answers": [
+        { "text": "<group>", "isCorrect": false },
+        { "text": "<fieldset>", "isCorrect": true },
+        { "text": "<section>", "isCorrect": false },
+        { "text": "<formgroup>", "isCorrect": false }
+      ],
+      "explanation": "<fieldset> groups related controls within a form.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-011",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element provides a caption for a <fieldset>?",
+      "answers": [
+        { "text": "<caption>", "isCorrect": false },
+        { "text": "<label>", "isCorrect": false },
+        { "text": "<legend>", "isCorrect": true },
+        { "text": "<summary>", "isCorrect": false }
+      ],
+      "explanation": "<legend> provides the caption or title for its parent <fieldset>.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-012",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does the action attribute on a <form> specify?",
+      "answers": [
+        { "text": "The URL used for form submission", "isCorrect": true },
+        { "text": "The JavaScript event to run", "isCorrect": false },
+        { "text": "The HTTP request method", "isCorrect": false },
+        { "text": "The validation mode of the form", "isCorrect": false }
+      ],
+      "explanation": "The action attribute specifies the destination URL used when the form is submitted.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-013",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which form method normally places submitted form data in the URL query string?",
+      "answers": [
+        { "text": "POST", "isCorrect": false },
+        { "text": "PATCH", "isCorrect": false },
+        { "text": "GET", "isCorrect": true },
+        { "text": "SEND", "isCorrect": false }
+      ],
+      "explanation": "With method='get', form data is encoded into the destination URL's query component.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-014",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "A <button> inside a form defaults to type='button' when no type attribute is provided.",
+      "answers": [
+        { "text": "True", "isCorrect": false },
+        { "text": "False", "isCorrect": true }
+      ],
+      "explanation": "A <button> associated with a form defaults to the submit state unless another type is specified.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-015",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which button markup prevents a button inside a form from submitting that form?",
+      "answers": [
+        { "text": "<button type='submit'>", "isCorrect": false },
+        { "text": "<button type='button'>", "isCorrect": true },
+        { "text": "<button type='none'>", "isCorrect": false },
+        { "text": "<button submit='false'>", "isCorrect": false }
+      ],
+      "explanation": "type='button' creates a button with no default form submission behavior.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-016",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element represents tabular data arranged into rows and columns?",
+      "answers": [
+        { "text": "<grid>", "isCorrect": false },
+        { "text": "<table>", "isCorrect": true },
+        { "text": "<data>", "isCorrect": false },
+        { "text": "<tabular>", "isCorrect": false }
+      ],
+      "explanation": "<table> represents data that has a meaningful two-dimensional relationship between rows and columns.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-017",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element represents a header cell in a table?",
+      "answers": [
+        { "text": "<thead>", "isCorrect": false },
+        { "text": "<header>", "isCorrect": false },
+        { "text": "<th>", "isCorrect": true },
+        { "text": "<td>", "isCorrect": false }
+      ],
+      "explanation": "<th> represents a table header cell associated with one or more data cells.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-018",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which attribute on a <th> can indicate whether the header applies to a row or a column?",
+      "answers": [
+        { "text": "scope", "isCorrect": true },
+        { "text": "headers", "isCorrect": false },
+        { "text": "axis", "isCorrect": false },
+        { "text": "direction", "isCorrect": false }
+      ],
+      "explanation": "The scope attribute can identify a header cell as applying to a row, column, row group, or column group.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-019",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "The <caption> element provides a title or description associated with a <table>.",
+      "answers": [
+        { "text": "True", "isCorrect": true },
+        { "text": "False", "isCorrect": false }
+      ],
+      "explanation": "<caption> represents the title of its parent table and helps describe what the table contains.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-020",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element groups the header rows of a table?",
+      "answers": [
+        { "text": "<header>", "isCorrect": false },
+        { "text": "<thead>", "isCorrect": true },
+        { "text": "<thgroup>", "isCorrect": false },
+        { "text": "<tbody>", "isCorrect": false }
+      ],
+      "explanation": "<thead> groups rows that form the table's header section.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-021",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which attribute allows one table cell to span multiple columns?",
+      "answers": [
+        { "text": "rowspan", "isCorrect": false },
+        { "text": "span", "isCorrect": false },
+        { "text": "columns", "isCorrect": false },
+        { "text": "colspan", "isCorrect": true }
+      ],
+      "explanation": "The colspan attribute specifies how many table columns a cell spans.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-022",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element is most appropriate for a standalone figure such as an image, diagram, or code listing that may have a caption?",
+      "answers": [
+        { "text": "<figure>", "isCorrect": true },
+        { "text": "<picture>", "isCorrect": false },
+        { "text": "<aside>", "isCorrect": false },
+        { "text": "<media>", "isCorrect": false }
+      ],
+      "explanation": "<figure> represents self-contained content that may be referenced from the main content and may include a caption.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-023",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element provides a caption for content inside <figure>?",
+      "answers": [
+        { "text": "<caption>", "isCorrect": false },
+        { "text": "<figcaption>", "isCorrect": true },
+        { "text": "<legend>", "isCorrect": false },
+        { "text": "<summary>", "isCorrect": false }
+      ],
+      "explanation": "<figcaption> provides a caption or legend for its parent <figure>.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-024",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "The <aside> element must always be placed outside <main>.",
+      "answers": [
+        { "text": "True", "isCorrect": false },
+        { "text": "False", "isCorrect": true }
+      ],
+      "explanation": "<aside> may appear inside <main> when its content is tangentially related to nearby main content.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-025",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element represents contact information for the author or owner of a document or article?",
+      "answers": [
+        { "text": "<contact>", "isCorrect": false },
+        { "text": "<footer>", "isCorrect": false },
+        { "text": "<address>", "isCorrect": true },
+        { "text": "<details>", "isCorrect": false }
+      ],
+      "explanation": "<address> represents contact information for the relevant document or article author or owner.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-026",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element represents a machine-readable date or time while also allowing human-readable text?",
+      "answers": [
+        { "text": "<date>", "isCorrect": false },
+        { "text": "<time>", "isCorrect": true },
+        { "text": "<datetime>", "isCorrect": false },
+        { "text": "<data>", "isCorrect": false }
+      ],
+      "explanation": "<time> represents a date or time and can use the datetime attribute to provide a machine-readable value.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-027",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which markup provides a machine-readable date for visible text such as 30 September 2026?",
+      "answers": [
+        {
+          "text": "<time datetime='2026-09-30'>30 September 2026</time>",
+          "isCorrect": true
+        },
+        {
+          "text": "<date value='2026-09-30'>30 September 2026</date>",
+          "isCorrect": false
+        },
+        {
+          "text": "<time value='2026-09-30'>30 September 2026</time>",
+          "isCorrect": false
+        },
+        {
+          "text": "<datetime date='2026-09-30'>30 September 2026</datetime>",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The datetime attribute on <time> supplies a machine-readable representation of the displayed date or time.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-028",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element provides expandable content that the user can open and close?",
+      "answers": [
+        { "text": "<dialog>", "isCorrect": false },
+        { "text": "<details>", "isCorrect": true },
+        { "text": "<summary>", "isCorrect": false },
+        { "text": "<expand>", "isCorrect": false }
+      ],
+      "explanation": "<details> creates a disclosure widget whose additional content can be shown or hidden by the user.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-029",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element provides the visible label for a <details> disclosure widget?",
+      "answers": [
+        { "text": "<label>", "isCorrect": false },
+        { "text": "<legend>", "isCorrect": false },
+        { "text": "<summary>", "isCorrect": true },
+        { "text": "<caption>", "isCorrect": false }
+      ],
+      "explanation": "<summary> provides the summary or label that activates its parent <details> element.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-030",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "Adding the open attribute to <details> makes its contents initially visible.",
+      "answers": [
+        { "text": "True", "isCorrect": true },
+        { "text": "False", "isCorrect": false }
+      ],
+      "explanation": "The open boolean attribute indicates that the <details> element should initially be expanded.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-031",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element should be used for a short inline quotation?",
+      "answers": [
+        { "text": "<blockquote>", "isCorrect": false },
+        { "text": "<q>", "isCorrect": true },
+        { "text": "<cite>", "isCorrect": false },
+        { "text": "<quote>", "isCorrect": false }
+      ],
+      "explanation": "<q> represents a quotation that is part of the surrounding phrasing content.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-032",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element represents the title of a cited creative work?",
+      "answers": [
+        { "text": "<source>", "isCorrect": false },
+        { "text": "<reference>", "isCorrect": false },
+        { "text": "<cite>", "isCorrect": true },
+        { "text": "<q>", "isCorrect": false }
+      ],
+      "explanation": "<cite> represents the title of a work such as a book, film, article, or other creative work.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-033",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which meta element declares UTF-8 as the document character encoding?",
+      "answers": [
+        { "text": "<meta charset='UTF-8'>", "isCorrect": true },
+        { "text": "<meta encoding='UTF-8'>", "isCorrect": false },
+        { "text": "<meta type='UTF-8'>", "isCorrect": false },
+        { "text": "<charset value='UTF-8'>", "isCorrect": false }
+      ],
+      "explanation": "<meta charset='UTF-8'> declares the document's character encoding as UTF-8.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-034",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which meta element is commonly used to configure the layout viewport for responsive pages on mobile devices?",
+      "answers": [
+        {
+          "text": "<meta name='mobile' content='responsive'>",
+          "isCorrect": false
+        },
+        {
+          "text": "<meta name='viewport' content='width=device-width, initial-scale=1.0'>",
+          "isCorrect": true
+        },
+        { "text": "<meta viewport='device-width'>", "isCorrect": false },
+        { "text": "<meta name='screen' content='auto'>", "isCorrect": false }
+      ],
+      "explanation": "The viewport meta element can instruct mobile browsers to size the layout viewport to the device width.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-035",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element is used to provide metadata such as a page description in the document head?",
+      "answers": [
+        { "text": "<data>", "isCorrect": false },
+        { "text": "<meta>", "isCorrect": true },
+        { "text": "<info>", "isCorrect": false },
+        { "text": "<description>", "isCorrect": false }
+      ],
+      "explanation": "<meta> represents metadata that cannot be expressed using other dedicated metadata elements.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-036",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "The meta description directly changes the visible body content of the page.",
+      "answers": [
+        { "text": "True", "isCorrect": false },
+        { "text": "False", "isCorrect": true }
+      ],
+      "explanation": "A meta description is document metadata and does not itself render as visible body content.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-037",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element links an external stylesheet to an HTML document?",
+      "answers": [
+        { "text": "<style src='styles.css'>", "isCorrect": false },
+        { "text": "<css href='styles.css'>", "isCorrect": false },
+        {
+          "text": "<link rel='stylesheet' href='styles.css'>",
+          "isCorrect": true
+        },
+        {
+          "text": "<script rel='stylesheet' src='styles.css'>",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "<link rel='stylesheet'> establishes a relationship between the document and an external CSS stylesheet.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-038",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does the rel attribute describe on a <link> element?",
+      "answers": [
+        {
+          "text": "The relationship between the current document and the linked resource",
+          "isCorrect": true
+        },
+        { "text": "The MIME type of the current document", "isCorrect": false },
+        {
+          "text": "The visual location of the linked resource",
+          "isCorrect": false
+        },
+        {
+          "text": "The HTTP method used to retrieve the resource",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The rel attribute identifies the relationship between the current document and the referenced resource.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-039",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element can provide alternative image sources for different conditions while still using an <img> fallback?",
+      "answers": [
+        { "text": "<picture>", "isCorrect": true },
+        { "text": "<figure>", "isCorrect": false },
+        { "text": "<sourcegroup>", "isCorrect": false },
+        { "text": "<media>", "isCorrect": false }
+      ],
+      "explanation": "<picture> can contain <source> elements for alternative image resources and requires an <img> element as its image content and fallback.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-040",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which attribute on an <img> can provide multiple image candidates for different display conditions?",
+      "answers": [
+        { "text": "sources", "isCorrect": false },
+        { "text": "srcset", "isCorrect": true },
+        { "text": "media", "isCorrect": false },
+        { "text": "images", "isCorrect": false }
+      ],
+      "explanation": "The srcset attribute provides a set of image candidates from which the browser may choose.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-041",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "The <source> element can be used inside both <picture> and media elements such as <audio> or <video>.",
+      "answers": [
+        { "text": "True", "isCorrect": true },
+        { "text": "False", "isCorrect": false }
+      ],
+      "explanation": "<source> can provide alternative resources for <picture>, <audio>, and <video>.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-042",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element supplies timed text such as subtitles or captions for <video>?",
+      "answers": [
+        { "text": "<caption>", "isCorrect": false },
+        { "text": "<subtitle>", "isCorrect": false },
+        { "text": "<track>", "isCorrect": true },
+        { "text": "<texttrack>", "isCorrect": false }
+      ],
+      "explanation": "<track> provides timed text tracks such as subtitles, captions, or descriptions for media elements.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-043",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which value of the kind attribute on <track> identifies captions intended to include dialogue and relevant sound information?",
+      "answers": [
+        { "text": "captions", "isCorrect": true },
+        { "text": "subtitles", "isCorrect": false },
+        { "text": "audio", "isCorrect": false },
+        { "text": "transcript", "isCorrect": false }
+      ],
+      "explanation": "kind='captions' identifies a track containing transcription of dialogue and other important audio information.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-044",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which attribute can make a form control receive focus automatically when the page is loaded?",
+      "answers": [
+        { "text": "focus", "isCorrect": false },
+        { "text": "selected", "isCorrect": false },
+        { "text": "autofocus", "isCorrect": true },
+        { "text": "active", "isCorrect": false }
+      ],
+      "explanation": "The autofocus attribute requests that the element receive focus when the page is loaded or when its containing dialog is shown.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-045",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "The readonly attribute and the disabled attribute have identical behavior for form submission.",
+      "answers": [
+        { "text": "True", "isCorrect": false },
+        { "text": "False", "isCorrect": true }
+      ],
+      "explanation": "Readonly controls can still participate in form submission, while disabled controls are generally excluded.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-046",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which attribute makes an <option> initially selected in a <select> control?",
+      "answers": [
+        { "text": "checked", "isCorrect": false },
+        { "text": "selected", "isCorrect": true },
+        { "text": "active", "isCorrect": false },
+        { "text": "default", "isCorrect": false }
+      ],
+      "explanation": "The selected boolean attribute marks an <option> as initially selected.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-047",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which attribute allows a <select> element to accept more than one selected option?",
+      "answers": [
+        { "text": "many", "isCorrect": false },
+        { "text": "multiple", "isCorrect": true },
+        { "text": "multiselect", "isCorrect": false },
+        { "text": "several", "isCorrect": false }
+      ],
+      "explanation": "The multiple attribute allows the user to select more than one option in a compatible selection control.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-048",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element provides predefined suggestions for a compatible <input> while still allowing other values?",
+      "answers": [
+        { "text": "<select>", "isCorrect": false },
+        { "text": "<choices>", "isCorrect": false },
+        { "text": "<datalist>", "isCorrect": true },
+        { "text": "<suggestions>", "isCorrect": false }
+      ],
+      "explanation": "<datalist> contains suggested options for an associated input without restricting the user to those suggestions.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-049",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "How does an <input> reference the <datalist> that provides its suggestions?",
+      "answers": [
+        {
+          "text": "With a list attribute matching the datalist's id",
+          "isCorrect": true
+        },
+        {
+          "text": "With a for attribute matching the datalist's name",
+          "isCorrect": false
+        },
+        {
+          "text": "With a target attribute matching the datalist's id",
+          "isCorrect": false
+        },
+        {
+          "text": "By placing the input inside the datalist",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The input's list attribute references the id of the associated <datalist>.",
+      "verified": false
+    },
+    {
+      "id": "html-medium-050",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "A heading level should be chosen mainly because of the text size a browser gives it by default.",
+      "answers": [
+        { "text": "True", "isCorrect": false },
+        { "text": "False", "isCorrect": true }
+      ],
+      "explanation": "Heading levels should reflect the logical structure of the content, while visual size should be controlled with CSS.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-001",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does loading='lazy' on an <img> primarily request?",
+      "answers": [
+        {
+          "text": "Decode the image only after all scripts finish",
+          "isCorrect": false
+        },
+        {
+          "text": "Defer fetching the image until conditions indicate it may soon be needed",
+          "isCorrect": true
+        },
+        {
+          "text": "Fetch the image with the lowest network priority",
+          "isCorrect": false
+        },
+        {
+          "text": "Prevent the image from loading until it is clicked",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "loading='lazy' allows the browser to defer fetching an image that is not currently needed. It is different from fetch priority.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-002",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which value of fetchpriority expresses that a resource should receive increased fetch priority relative to the browser's normal choice?",
+      "answers": [
+        { "text": "eager", "isCorrect": false },
+        { "text": "priority", "isCorrect": false },
+        { "text": "high", "isCorrect": true },
+        { "text": "immediate", "isCorrect": false }
+      ],
+      "explanation": "fetchpriority='high' gives the browser a hint that the resource should receive relatively high fetch priority.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-003",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What is the effect of fetchpriority='auto'?",
+      "answers": [
+        {
+          "text": "It leaves fetch priority determination to the browser",
+          "isCorrect": true
+        },
+        { "text": "It always assigns medium priority", "isCorrect": false },
+        {
+          "text": "It makes the resource load after the load event",
+          "isCorrect": false
+        },
+        {
+          "text": "It automatically switches between lazy and eager loading",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The auto value expresses no preference, allowing the browser to determine the resource's fetch priority.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-004",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which attribute on <img> provides a hint about how image decoding should be scheduled?",
+      "answers": [
+        { "text": "loading", "isCorrect": false },
+        { "text": "rendering", "isCorrect": false },
+        { "text": "fetchpriority", "isCorrect": false },
+        { "text": "decoding", "isCorrect": true }
+      ],
+      "explanation": "The decoding attribute provides a hint about whether image decoding should happen synchronously, asynchronously, or according to the browser's default behavior.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-005",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "Setting fetchpriority='high' guarantees that the resource will be downloaded before resources with lower priority.",
+      "answers": [
+        { "text": "True", "isCorrect": false },
+        { "text": "False", "isCorrect": true }
+      ],
+      "explanation": "fetchpriority is a hint rather than a guarantee. Browsers retain control over their internal resource scheduling.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-006",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does the inert attribute do to an element's subtree?",
+      "answers": [
+        { "text": "It removes the elements from the DOM", "isCorrect": false },
+        {
+          "text": "It prevents the subtree from being rendered",
+          "isCorrect": false
+        },
+        {
+          "text": "It makes the subtree non-interactive and prevents normal focus within it",
+          "isCorrect": true
+        },
+        {
+          "text": "It disables only form controls inside the subtree",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "An inert subtree cannot normally be interacted with or focused, and its content is excluded from the accessibility tree.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-007",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which statement best describes hidden='until-found'?",
+      "answers": [
+        {
+          "text": "The content remains hidden but can become revealed through find-in-page or fragment navigation",
+          "isCorrect": true
+        },
+        {
+          "text": "The element stays hidden until JavaScript removes the attribute",
+          "isCorrect": false
+        },
+        {
+          "text": "The content is completely removed from browser search and navigation",
+          "isCorrect": false
+        },
+        {
+          "text": "The element becomes visible only when it receives keyboard focus",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "hidden='until-found' hides the element while allowing browser features such as find-in-page and fragment navigation to reveal relevant content.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-008",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which attribute can make a normal HTML element behave as a browser-managed popover?",
+      "answers": [
+        { "text": "overlay", "isCorrect": false },
+        { "text": "popover", "isCorrect": true },
+        { "text": "popup", "isCorrect": false },
+        { "text": "floating", "isCorrect": false }
+      ],
+      "explanation": "The global popover attribute gives an element browser-managed popover behavior.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-009",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which button attribute can declaratively associate a button with a popover element by id?",
+      "answers": [
+        { "text": "for", "isCorrect": false },
+        { "text": "target", "isCorrect": false },
+        { "text": "popovertarget", "isCorrect": true },
+        { "text": "popoverid", "isCorrect": false }
+      ],
+      "explanation": "popovertarget references the id of the popover that the button controls.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-010",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "The inert attribute removes its element and descendants from the DOM tree.",
+      "answers": [
+        { "text": "True", "isCorrect": false },
+        { "text": "False", "isCorrect": true }
+      ],
+      "explanation": "inert changes interaction and accessibility behavior without removing nodes from the DOM.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-011",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which <dialog> method displays a dialog as modal?",
+      "answers": [
+        { "text": "showModal()", "isCorrect": true },
+        { "text": "openModal()", "isCorrect": false },
+        { "text": "show('modal')", "isCorrect": false },
+        { "text": "displayModal()", "isCorrect": false }
+      ],
+      "explanation": "Calling showModal() displays a <dialog> in the top layer as a modal dialog.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-012",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What happens to most of the document outside a <dialog> opened with showModal()?",
+      "answers": [
+        { "text": "It is deleted until the dialog closes", "isCorrect": false },
+        {
+          "text": "It becomes inert while the modal dialog is active",
+          "isCorrect": true
+        },
+        {
+          "text": "It receives aria-hidden='true' attributes in the DOM",
+          "isCorrect": false
+        },
+        {
+          "text": "It is automatically moved into the dialog",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "When a modal dialog is shown, content outside it becomes inert for interaction while the dialog remains active.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-013",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What is the purpose of method='dialog' on a form inside <dialog>?",
+      "answers": [
+        {
+          "text": "It sends the form data using a special HTTP dialog method",
+          "isCorrect": false
+        },
+        { "text": "It converts the form into a popover", "isCorrect": false },
+        {
+          "text": "It closes the dialog when the form is submitted without performing a normal network submission",
+          "isCorrect": true
+        },
+        {
+          "text": "It validates the dialog markup before closing",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "A form with method='dialog' closes its containing dialog when submitted rather than submitting data to a server.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-014",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which attribute on a submit button can bypass constraint validation for that specific submission?",
+      "answers": [
+        { "text": "novalidate", "isCorrect": false },
+        { "text": "skipvalidation", "isCorrect": false },
+        { "text": "validate='false'", "isCorrect": false },
+        { "text": "formnovalidate", "isCorrect": true }
+      ],
+      "explanation": "formnovalidate on a submit button overrides form validation for submissions initiated by that button.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-015",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "A form-associated submit button can use formaction to override the action URL of its form.",
+      "answers": [
+        { "text": "True", "isCorrect": true },
+        { "text": "False", "isCorrect": false }
+      ],
+      "explanation": "The formaction attribute lets a submit control specify a submission URL that overrides the form's action for that submission.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-016",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which attribute allows a form control to be associated with a <form> even when the control is not a descendant of that form?",
+      "answers": [
+        { "text": "owner", "isCorrect": false },
+        { "text": "form", "isCorrect": true },
+        { "text": "for", "isCorrect": false },
+        { "text": "target", "isCorrect": false }
+      ],
+      "explanation": "The form attribute can reference a form's id, allowing supported controls to belong to a form elsewhere in the document.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-017",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property of <input type='number'> is controlled by the step attribute?",
+      "answers": [
+        {
+          "text": "The permitted increment between valid numeric values",
+          "isCorrect": true
+        },
+        {
+          "text": "The number of digits displayed in the control",
+          "isCorrect": false
+        },
+        {
+          "text": "The number of times the user may modify the value",
+          "isCorrect": false
+        },
+        { "text": "The delay before validation begins", "isCorrect": false }
+      ],
+      "explanation": "The step attribute defines the allowed interval between values, based on the relevant step base.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-018",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does step='any' mean for a supported numeric input?",
+      "answers": [
+        { "text": "Only integer values are valid", "isCorrect": false },
+        { "text": "The browser chooses an arbitrary step", "isCorrect": false },
+        {
+          "text": "No step-based restriction is imposed on otherwise valid values",
+          "isCorrect": true
+        },
+        {
+          "text": "The input automatically increments itself",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "step='any' means values are not invalid merely because they fail to align with a numeric step interval.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-019",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which attribute can override the HTTP method of a form when a particular submit button is used?",
+      "answers": [
+        { "text": "formaction", "isCorrect": false },
+        { "text": "formenctype", "isCorrect": false },
+        { "text": "formmethod", "isCorrect": true },
+        { "text": "methodoverride", "isCorrect": false }
+      ],
+      "explanation": "formmethod allows a submit control to override the method specified by its associated form.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-020",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "minlength validation makes an empty optional text input invalid when the input does not have required.",
+      "answers": [
+        { "text": "True", "isCorrect": false },
+        { "text": "False", "isCorrect": true }
+      ],
+      "explanation": "An optional empty control is not invalid merely because it has minlength. required is needed when an empty value itself must be rejected.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-021",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which enctype is required when a form uploads files using <input type='file'>?",
+      "answers": [
+        { "text": "multipart/form-data", "isCorrect": true },
+        { "text": "application/json", "isCorrect": false },
+        { "text": "text/html", "isCorrect": false },
+        { "text": "application/octet-stream", "isCorrect": false }
+      ],
+      "explanation": "multipart/form-data is the appropriate form encoding when file data is submitted.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-022",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does the accept attribute on <input type='file'> do?",
+      "answers": [
+        {
+          "text": "It guarantees that the selected file is safe",
+          "isCorrect": false
+        },
+        {
+          "text": "It hints which file types should be selectable",
+          "isCorrect": true
+        },
+        {
+          "text": "It automatically converts unsupported files",
+          "isCorrect": false
+        },
+        {
+          "text": "It validates the file contents on the server",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "accept provides a hint about permitted file types to the file picker, but server-side validation is still necessary.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-023",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What effect does multiple have on <input type='email'>?",
+      "answers": [
+        {
+          "text": "It creates multiple separate input elements",
+          "isCorrect": false
+        },
+        {
+          "text": "It disables built-in email syntax validation",
+          "isCorrect": false
+        },
+        {
+          "text": "It allows a comma-separated list of email addresses",
+          "isCorrect": true
+        },
+        {
+          "text": "It submits the same email address multiple times",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "With multiple present, an email input may contain a list of email addresses separated according to the HTML input rules.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-024",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which attribute gives the browser a hint about the type of virtual keyboard appropriate for an editable element?",
+      "answers": [
+        { "text": "keyboard", "isCorrect": false },
+        { "text": "type", "isCorrect": false },
+        { "text": "enterkeyhint", "isCorrect": false },
+        { "text": "inputmode", "isCorrect": true }
+      ],
+      "explanation": "inputmode hints which kind of input interface, such as numeric or email-oriented, may be most appropriate.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-025",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "inputmode='numeric' changes a text input into an <input type='number'> for HTML constraint validation.",
+      "answers": [
+        { "text": "True", "isCorrect": false },
+        { "text": "False", "isCorrect": true }
+      ],
+      "explanation": "inputmode is an input-interface hint and does not change the element's input type or validation semantics.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-026",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What is the purpose of enterkeyhint on an editable element?",
+      "answers": [
+        {
+          "text": "It suggests how the virtual keyboard should label or present its Enter key",
+          "isCorrect": true
+        },
+        {
+          "text": "It defines which keyboard key submits the form",
+          "isCorrect": false
+        },
+        { "text": "It creates a keyboard shortcut", "isCorrect": false },
+        { "text": "It changes the element's tabindex", "isCorrect": false }
+      ],
+      "explanation": "enterkeyhint provides a hint for the action label or icon shown on a virtual keyboard's Enter key.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-027",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which tabindex value makes an element programmatically focusable while normally excluding it from sequential keyboard navigation?",
+      "answers": [
+        { "text": "0", "isCorrect": false },
+        { "text": "1", "isCorrect": false },
+        { "text": "-1", "isCorrect": true },
+        { "text": "none", "isCorrect": false }
+      ],
+      "explanation": "tabindex='-1' generally allows focus through scripting or other mechanisms while excluding the element from normal sequential focus navigation.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-028",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does tabindex='0' generally do for an element that is not otherwise sequentially focusable?",
+      "answers": [
+        { "text": "Places it first in the tab order", "isCorrect": false },
+        {
+          "text": "Makes it participate in sequential focus navigation according to document order",
+          "isCorrect": true
+        },
+        {
+          "text": "Makes it focusable only with JavaScript",
+          "isCorrect": false
+        },
+        { "text": "Removes it from keyboard navigation", "isCorrect": false }
+      ],
+      "explanation": "tabindex='0' can add an element to sequential focus navigation using the normal ordering rules rather than a positive priority.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-029",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Why are positive tabindex values generally discouraged?",
+      "answers": [
+        { "text": "They are invalid HTML", "isCorrect": false },
+        { "text": "They disable pointer interaction", "isCorrect": false },
+        {
+          "text": "They can create a focus order that differs confusingly from document order",
+          "isCorrect": true
+        },
+        { "text": "They work only on form controls", "isCorrect": false }
+      ],
+      "explanation": "Positive tabindex values impose a custom sequential focus order that can become difficult to maintain and confusing for keyboard users.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-030",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "tabindex='-1' normally prevents an element from ever receiving focus by any method.",
+      "answers": [
+        { "text": "True", "isCorrect": false },
+        { "text": "False", "isCorrect": true }
+      ],
+      "explanation": "An element with tabindex='-1' can still normally receive focus programmatically even though it is excluded from sequential keyboard navigation.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-031",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What is the main effect of aria-hidden='true' on an element?",
+      "answers": [
+        {
+          "text": "It hides the element visually using browser styling",
+          "isCorrect": false
+        },
+        {
+          "text": "It removes the element and its descendants from the accessibility tree",
+          "isCorrect": true
+        },
+        {
+          "text": "It prevents keyboard focus automatically",
+          "isCorrect": false
+        },
+        {
+          "text": "It prevents scripts from accessing the element",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "aria-hidden='true' hides content from accessibility APIs but does not itself visually hide or disable the content.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-032",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Why is aria-hidden='true' generally inappropriate on an element that can receive keyboard focus?",
+      "answers": [
+        {
+          "text": "ARIA attributes cannot be used on focusable HTML elements",
+          "isCorrect": false
+        },
+        {
+          "text": "It automatically makes the element disabled",
+          "isCorrect": false
+        },
+        {
+          "text": "A user may focus an interactive element that is hidden from assistive technology",
+          "isCorrect": true
+        },
+        {
+          "text": "It prevents the element from receiving CSS styles",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Focusable content hidden from the accessibility tree can create a serious mismatch between keyboard interaction and assistive technology.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-033",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "When a native HTML element already provides the correct semantics, what is generally preferred?",
+      "answers": [
+        {
+          "text": "Use the native element rather than recreating its semantics with ARIA",
+          "isCorrect": true
+        },
+        {
+          "text": "Replace its semantics with role='presentation'",
+          "isCorrect": false
+        },
+        { "text": "Always add a matching role attribute", "isCorrect": false },
+        {
+          "text": "Use a <div> with equivalent ARIA attributes instead",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Native HTML semantics generally provide built-in accessibility behavior and should be preferred over recreating equivalent controls with ARIA.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-034",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does aria-label primarily provide?",
+      "answers": [
+        { "text": "A tooltip displayed on hover", "isCorrect": false },
+        { "text": "A CSS label selector", "isCorrect": false },
+        {
+          "text": "An accessible name string for supported uses",
+          "isCorrect": true
+        },
+        {
+          "text": "A visible caption inserted before the element",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "aria-label can provide an accessible name when an appropriate visible naming mechanism is unavailable.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-035",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "ARIA attributes can change the visual appearance of an element without any CSS.",
+      "answers": [
+        { "text": "True", "isCorrect": false },
+        { "text": "False", "isCorrect": true }
+      ],
+      "explanation": "ARIA communicates semantics and state to accessibility APIs; it does not inherently provide visual styling.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-036",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which iframe attribute can provide an entire HTML document directly as the frame's content?",
+      "answers": [
+        { "text": "srcdoc", "isCorrect": true },
+        { "text": "content", "isCorrect": false },
+        { "text": "document", "isCorrect": false },
+        { "text": "inline", "isCorrect": false }
+      ],
+      "explanation": "The srcdoc attribute contains HTML source that is parsed as the iframe's document.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-037",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What is the primary purpose of the sandbox attribute on <iframe>?",
+      "answers": [
+        {
+          "text": "To force the iframe to load from local storage",
+          "isCorrect": false
+        },
+        {
+          "text": "To apply restrictions to the embedded browsing context",
+          "isCorrect": true
+        },
+        {
+          "text": "To cache the iframe separately from the main document",
+          "isCorrect": false
+        },
+        {
+          "text": "To prevent the iframe from being styled",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "sandbox applies a set of security restrictions to an iframe, with individual tokens able to relax specific restrictions.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-038",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does sandbox='allow-scripts' permit in an <iframe>?",
+      "answers": [
+        {
+          "text": "The framed document may execute scripts, while other sandbox restrictions still apply unless separately relaxed",
+          "isCorrect": true
+        },
+        {
+          "text": "Scripts may access every parent document regardless of origin",
+          "isCorrect": false
+        },
+        { "text": "Only external scripts may execute", "isCorrect": false },
+        {
+          "text": "Scripts may execute only after user activation",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "allow-scripts relaxes the sandbox restriction on script execution but does not remove unrelated sandbox restrictions.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-039",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does the referrerpolicy attribute on an <iframe> influence?",
+      "answers": [
+        {
+          "text": "Whether the frame may execute JavaScript",
+          "isCorrect": false
+        },
+        {
+          "text": "Which URL becomes the iframe's base URL",
+          "isCorrect": false
+        },
+        {
+          "text": "What referrer information is sent for relevant requests",
+          "isCorrect": true
+        },
+        { "text": "Which origin owns the iframe's DOM", "isCorrect": false }
+      ],
+      "explanation": "referrerpolicy controls how much referrer information is included with relevant requests associated with the iframe.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-040",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "Text placed between <iframe> and </iframe> acts as standard fallback content when the iframe URL fails to load.",
+      "answers": [
+        { "text": "True", "isCorrect": false },
+        { "text": "False", "isCorrect": true }
+      ],
+      "explanation": "Modern HTML does not treat descendants of <iframe> as fallback content when its resource fails to load.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-041",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What is the purpose of crossorigin on supported resource-loading elements?",
+      "answers": [
+        {
+          "text": "It configures whether the resource request uses CORS and which credentials mode is requested",
+          "isCorrect": true
+        },
+        {
+          "text": "It allows any document to ignore the same-origin policy",
+          "isCorrect": false
+        },
+        {
+          "text": "It automatically proxies the resource through the current origin",
+          "isCorrect": false
+        },
+        {
+          "text": "It forces the resource to be downloaded over HTTPS",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The crossorigin attribute configures CORS-related request behavior for supported external resources.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-042",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which crossorigin value requests CORS while including credentials such as cookies when allowed?",
+      "answers": [
+        { "text": "anonymous", "isCorrect": false },
+        { "text": "include", "isCorrect": false },
+        { "text": "use-credentials", "isCorrect": true },
+        { "text": "same-origin", "isCorrect": false }
+      ],
+      "explanation": "crossorigin='use-credentials' uses the CORS protocol with credentials mode set to include.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-043",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does rel='preload' on <link> indicate?",
+      "answers": [
+        {
+          "text": "The browser should fetch a resource expected to be needed soon by the current page",
+          "isCorrect": true
+        },
+        {
+          "text": "The browser should navigate to the linked document before rendering",
+          "isCorrect": false
+        },
+        {
+          "text": "The linked resource should be stored permanently",
+          "isCorrect": false
+        },
+        {
+          "text": "The linked resource should execute before all parser-blocking scripts",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "rel='preload' allows a page to request early fetching of a resource expected to be needed during the current navigation.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-044",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Why is the as attribute important on many <link rel='preload'> elements?",
+      "answers": [
+        {
+          "text": "It sets the resource's filename extension",
+          "isCorrect": false
+        },
+        {
+          "text": "It tells the browser the resource destination type so it can apply appropriate fetching behavior",
+          "isCorrect": true
+        },
+        {
+          "text": "It gives the resource an accessible name",
+          "isCorrect": false
+        },
+        {
+          "text": "It converts the resource to the specified MIME type",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The as attribute identifies the intended resource destination, which affects request handling such as prioritization and security policies.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-045",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "loading='lazy' is a guarantee that a resource will never be fetched until it enters the visible viewport.",
+      "answers": [
+        { "text": "True", "isCorrect": false },
+        { "text": "False", "isCorrect": true }
+      ],
+      "explanation": "Lazy loading allows browsers to defer a resource, but browsers determine when their loading conditions are met and may fetch before it becomes visible.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-046",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "When parsing text/html, what does the browser generally do with element names written using uppercase letters such as <DIV>?",
+      "answers": [
+        {
+          "text": "It treats them as unknown custom elements",
+          "isCorrect": false
+        },
+        {
+          "text": "It rejects the document as invalid XML",
+          "isCorrect": false
+        },
+        {
+          "text": "It handles HTML element names ASCII case-insensitively during parsing",
+          "isCorrect": true
+        },
+        {
+          "text": "It creates separate uppercase DOM element types",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "HTML syntax treats ordinary HTML element names ASCII case-insensitively, so uppercase and lowercase spellings refer to the same HTML elements.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-047",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What can the HTML parser do when markup contains invalid element nesting?",
+      "answers": [
+        { "text": "Always stop parsing immediately", "isCorrect": false },
+        {
+          "text": "Automatically repair the structure according to defined parsing rules",
+          "isCorrect": true
+        },
+        {
+          "text": "Render the source text exactly as written without creating a DOM",
+          "isCorrect": false
+        },
+        {
+          "text": "Switch the document to XML parsing mode",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The HTML parser includes error-recovery rules and may construct a DOM that differs from the literal nesting in invalid source markup.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-048",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What happens when a parser encounters another <p> start tag while a <p> element is already open in a context where the parser applies normal paragraph rules?",
+      "answers": [
+        { "text": "The two <p> elements become nested", "isCorrect": false },
+        { "text": "The second tag is ignored", "isCorrect": false },
+        {
+          "text": "The existing paragraph is closed before the new paragraph begins",
+          "isCorrect": true
+        },
+        {
+          "text": "Both paragraphs are converted into <div> elements",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "HTML parsing rules automatically close an open paragraph when another paragraph start tag is processed in the relevant parsing context.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-049",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which element causes its child markup to be stored as an inert document fragment rather than rendered normally?",
+      "answers": [
+        { "text": "<template>", "isCorrect": true },
+        { "text": "<slot>", "isCorrect": false },
+        { "text": "<script>", "isCorrect": false },
+        { "text": "<noscript>", "isCorrect": false }
+      ],
+      "explanation": "The contents of <template> are parsed into a separate template contents document fragment and are not rendered as ordinary children of the page.",
+      "verified": false
+    },
+    {
+      "id": "html-hard-050",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "Content inside a <template> element is parsed but is not rendered as normal page content simply because the template exists in the document.",
+      "answers": [
+        { "text": "True", "isCorrect": true },
+        { "text": "False", "isCorrect": false }
+      ],
+      "explanation": "<template> stores parsed markup for later use without rendering that content as part of the normal document when the template is declared.",
+      "verified": false
+    },
+    {
+      "id": "html-extreme-001",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "When HTML source contains <table><div>Text</div></table>, what can happen during parsing in text/html?",
+      "answers": [
+        {
+          "text": "The <div> is always discarded because it is invalid inside <table>",
+          "isCorrect": false
+        },
+        {
+          "text": "The parser may move the <div> outside the table through foster parenting rules",
+          "isCorrect": true
+        },
+        {
+          "text": "The browser automatically converts the <div> into a <td>",
+          "isCorrect": false
+        },
+        { "text": "The entire <table> is ignored", "isCorrect": false }
+      ],
+      "explanation": "HTML table parsing uses special error-recovery rules called foster parenting. Misplaced content may be inserted before the table rather than where it appears in the source.",
+      "verified": false
+    },
+    {
+      "id": "html-extreme-002",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Why can assigning an HTML string to innerHTML produce a different DOM structure from what a developer expects by visually reading the string?",
+      "answers": [
+        {
+          "text": "innerHTML always converts unknown elements into <span>",
+          "isCorrect": false
+        },
+        {
+          "text": "innerHTML uses XML parsing rules instead of HTML parsing rules",
+          "isCorrect": false
+        },
+        {
+          "text": "The HTML parser applies context-dependent insertion modes and error-recovery rules",
+          "isCorrect": true
+        },
+        {
+          "text": "Browsers remove all elements that are not valid children of <body>",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "HTML parsing is context-sensitive and includes defined recovery behavior for malformed or misplaced markup. The resulting DOM can therefore differ from the apparent source nesting.",
+      "verified": false
+    },
+    {
+      "id": "html-extreme-003",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What is the key difference between the contents of a normal element and the contents of a <template> element in the DOM?",
+      "answers": [
+        {
+          "text": "Template contents are stored in a separate DocumentFragment rather than as normal child nodes of the <template> element",
+          "isCorrect": true
+        },
+        {
+          "text": "Template contents are stored as plain text until JavaScript compiles them",
+          "isCorrect": false
+        },
+        {
+          "text": "Template contents exist only in the HTML source and never enter the DOM",
+          "isCorrect": false
+        },
+        {
+          "text": "Template contents are inserted directly into the shadow DOM",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "A <template> has an associated template contents DocumentFragment containing its parsed markup. Its content is inert until explicitly cloned or inserted elsewhere.",
+      "verified": false
+    },
+    {
+      "id": "html-extreme-004",
+      "difficulty": "EXTREME",
+      "type": "TRUE_FALSE",
+      "text": "When malformed HTML is parsed as text/html, the DOM produced by the browser is required to preserve the source nesting exactly as written.",
+      "answers": [
+        { "text": "True", "isCorrect": false },
+        { "text": "False", "isCorrect": true }
+      ],
+      "explanation": "The HTML parsing algorithm defines extensive error recovery. It may implicitly close, relocate, or reconstruct elements, causing the DOM tree to differ from the source nesting.",
+      "verified": false
+    },
+    {
+      "id": "html-extreme-005",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which statement best describes the adoption agency algorithm in HTML parsing?",
+      "answers": [
+        {
+          "text": "It assigns orphaned form controls to the nearest <form>",
+          "isCorrect": false
+        },
+        {
+          "text": "It repairs certain cases of misnested formatting elements such as <b> and <i>",
+          "isCorrect": true
+        },
+        {
+          "text": "It determines which custom element definition owns an unknown tag",
+          "isCorrect": false
+        },
+        {
+          "text": "It moves invalid table children into automatically generated cells",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The adoption agency algorithm is a specialized part of HTML parsing used to handle certain misnested formatting elements. It can reconstruct the DOM in ways that differ significantly from the written markup.",
+      "verified": false
+    },
+    {
+      "id": "html-extreme-006",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "A developer writes <p><b>One <i>Two</b> Three</i></p>. Why is predicting the final DOM by simply matching start and end tags unreliable?",
+      "answers": [
+        {
+          "text": "The browser treats all formatting tags as self-closing",
+          "isCorrect": false
+        },
+        {
+          "text": "End tags for formatting elements are ignored whenever they are misnested",
+          "isCorrect": false
+        },
+        {
+          "text": "Special parser rules can reconstruct misnested formatting elements",
+          "isCorrect": true
+        },
+        {
+          "text": "The parser converts misnested formatting elements into <span> elements",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Misnested formatting elements can invoke the adoption agency algorithm. This means the resulting DOM cannot always be inferred by simple stack-style tag matching.",
+      "verified": false
+    },
+    {
+      "id": "html-extreme-007",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which statement about declarative Shadow DOM markup using <template shadowrootmode='open'> is correct?",
+      "answers": [
+        {
+          "text": "The template always remains as a normal visible child of its parent",
+          "isCorrect": false
+        },
+        {
+          "text": "When processed in a supported context, it can cause a shadow root to be attached to the template's parent during parsing",
+          "isCorrect": true
+        },
+        {
+          "text": "It creates an iframe-like nested browsing context",
+          "isCorrect": false
+        },
+        {
+          "text": "It is equivalent to setting mode='open' on the parent element",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Declarative Shadow DOM can use a <template> with shadowrootmode to create a shadow root during parsing. The template's contents become the shadow root contents rather than ordinary light-DOM children.",
+      "verified": false
+    },
+    {
+      "id": "html-extreme-008",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which situation can cause a browser to ignore an ARIA role even though the role value itself is valid?",
+      "answers": [
+        { "text": "The role uses lowercase letters", "isCorrect": false },
+        {
+          "text": "The element's host-language semantics prohibit that role on that element",
+          "isCorrect": true
+        },
+        {
+          "text": "The element also has a class attribute",
+          "isCorrect": false
+        },
+        {
+          "text": "The role appears after the id attribute",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "ARIA does not permit every role on every HTML element. Host-language rules can prohibit certain role overrides even when the ARIA role itself is valid.",
+      "verified": false
+    },
+    {
+      "id": "html-extreme-009",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What is the most accurate description of what happens when a parser-inserted classic <script> without async, defer, or type='module' is encountered during initial HTML parsing?",
+      "answers": [
+        {
+          "text": "Parsing normally pauses while the script is fetched if necessary and executed",
+          "isCorrect": true
+        },
+        {
+          "text": "The script is always deferred until DOMContentLoaded",
+          "isCorrect": false
+        },
+        {
+          "text": "The browser continues parsing but delays rendering only",
+          "isCorrect": false
+        },
+        {
+          "text": "The script runs only after every stylesheet and image has loaded",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "A parser-inserted classic script without async or defer is normally parser-blocking. The parser pauses so the script can be fetched when necessary and executed before parsing continues.",
+      "verified": false
+    },
+    {
+      "id": "html-extreme-010",
+      "difficulty": "EXTREME",
+      "type": "TRUE_FALSE",
+      "text": "A <script type='module'> behaves exactly like a classic <script defer> in every respect, including dependency loading, execution model, and scope.",
+      "answers": [
+        { "text": "True", "isCorrect": false },
+        { "text": "False", "isCorrect": true }
+      ],
+      "explanation": "Module scripts are deferred by default, but they use the JavaScript module system with dependency graphs, module scope, and different loading semantics. They are therefore not identical to classic deferred scripts.",
+      "verified": false
+    }
+  ]
+}
