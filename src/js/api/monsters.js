@@ -15,7 +15,7 @@ let isRareClimb = false;
  *
  * @param {object} floor - A tier from TOWER_LAYOUTS.
  * @param {string[]} usedMonsters - Monster indexes already used in this climb.
- * @returns {Promise<object>} { index, name, maxHp, imageUrl, questionsToDefeat, monsterHitShare, isBoss }
+ * @returns {Promise<object>} { index, name, maxHp, xp, imageUrl, questionsToDefeat, monsterHitShare, isBoss, isRaid }
  * @throws {Error} If a request fails or no monster matches.
  */
 export async function getMonsterForFloor(floor, usedMonsters) {
@@ -26,7 +26,7 @@ export async function getMonsterForFloor(floor, usedMonsters) {
 
   if (isRareClimb) {
     const monster = await fetchJson(`/api/2014/monsters/${RARE_CLIMB_MONSTER}`);
-    return toMonster(monster, floor);
+    return { ...toMonster(monster, floor), isRaid: true }; // ui/goblin-raid.js
   }
 
   const list = await fetchJson(
@@ -86,9 +86,11 @@ function toMonster(monster, floor) {
     index: monster.index,
     name: monster.name,
     maxHp: monster.hit_points,
+    xp: monster.xp ?? 0, // D&D XP for slaying it (scaled in game/progress.js)
     imageUrl: monster.image ? `${DND_API_URL}${monster.image}` : null,
     questionsToDefeat: floor.questionsToDefeat,
     monsterHitShare: floor.monsterHitShare,
     isBoss: Boolean(floor.isBoss),
+    isRaid: false,
   };
 }

@@ -14,7 +14,7 @@ export const DEFENSE_REDUCTION_PER_POINT = 0.01;
 // #endregion Damage
 // ========================================
 // #region Questions
-export const QUESTION_DIFFICULTY = "EASY";
+// The questions' difficulty is the tower's difficulty (from the lobby)
 export const QUESTIONS_PER_RUN = 33; // picked from the pool and shuffled for each climb
 // #endregion Questions
 // ========================================
@@ -23,8 +23,7 @@ export const QUESTIONS_PER_RUN = 33; // picked from the pool and shuffled for ea
 //   challengeRatings / minHp / maxHp: which D&D monsters can appear
 //   questionsToDefeat: right answers needed to beat it (fewer with crits)
 //   monsterHitShare: how much of the player's max HP one wrong answer costs
-export const TOWER_NAME = "HTML";
-export const TOWER_DIFFICULTY = "EASY";
+// One layout per difficulty (the lobby sends EASY, MEDIUM or HARD)
 export const TOWER_LAYOUTS = {
   EASY: [
     {
@@ -58,6 +57,41 @@ export const TOWER_LAYOUTS = {
       challengeRatings: [8, 9, 10, 11, 12, 13, 14, 15, 16],
       questionsToDefeat: 5,
       monsterHitShare: 0.3,
+      isBoss: true,
+    },
+  ],
+  MEDIUM: [
+    {
+      count: 2,
+      minHp: 15,
+      maxHp: 50,
+      challengeRatings: [0.5, 1, 2],
+      questionsToDefeat: 1,
+      monsterHitShare: 0.17,
+    },
+    {
+      count: 2,
+      minHp: 50,
+      maxHp: 110,
+      challengeRatings: [2, 3, 4],
+      questionsToDefeat: 2,
+      monsterHitShare: 0.21,
+    },
+    {
+      count: 1,
+      minHp: 110,
+      maxHp: 200,
+      challengeRatings: [5, 6, 7, 8, 9],
+      questionsToDefeat: 3,
+      monsterHitShare: 0.25,
+    },
+    {
+      count: 1,
+      minHp: 200,
+      maxHp: 350,
+      challengeRatings: [11, 12, 13, 14, 15, 16, 17],
+      questionsToDefeat: 5,
+      monsterHitShare: 0.32,
       isBoss: true,
     },
   ],
@@ -98,8 +132,3 @@ export const TOWER_LAYOUTS = {
   ],
 };
 // #endregion Tower
-// ========================================
-// #region Test player
-// Used when there is no saved player yet (until character creation saves one)
-export const TEST_PLAYER = { name: "Hero", heroClass: "warrior" };
-// #endregion Test player

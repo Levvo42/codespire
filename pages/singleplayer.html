@@ -67,7 +67,7 @@
           height="128"
         />
         <!-- Stone frame around the monster (drawn in CSS, so it can be tinted) -->
-        <div class="site-singleplayer__frame">
+        <div class="site-singleplayer__frame" data-js="monster-frame">
           <img
             class="site-singleplayer__monster"
             src="/src/assets/images/placeholderlogo.png"
@@ -143,7 +143,11 @@
         </button>
       </section>
 
-      <section class="site-singleplayer__answers" aria-label="Answers">
+      <section
+        class="site-singleplayer__answers"
+        aria-label="Answers"
+        data-js="answers"
+      >
         <button
           class="site-singleplayer__answer"
           type="button"
@@ -207,14 +211,27 @@
           </button>
           <div class="site-singleplayer__player-content">
             <h2>Player</h2>
-            <dl class="site-singleplayer__info">
-              <dt>Name</dt>
-              <dd data-js="player-name">-</dd>
-              <dt>Class</dt>
-              <dd data-js="player-class">-</dd>
-              <dt>Level</dt>
-              <dd data-js="player-level">-</dd>
-            </dl>
+            <!-- Avatar next to name/class/level/XP, like the lobby -->
+            <div class="site-singleplayer__player-details">
+              <img
+                class="site-singleplayer__avatar"
+                src="/avatars/default.webp"
+                alt="Player avatar"
+                width="128"
+                height="128"
+                data-js="player-avatar"
+              />
+              <dl class="site-singleplayer__info">
+                <dt>Name</dt>
+                <dd data-js="player-name">-</dd>
+                <dt>Class</dt>
+                <dd data-js="player-class">-</dd>
+                <dt>Level</dt>
+                <dd data-js="player-level">-</dd>
+                <dt>XP</dt>
+                <dd data-js="player-xp">-</dd>
+              </dl>
+            </div>
             <!-- JS adds site-singleplayer__player-health--low at 1 heart or less -->
             <p class="site-singleplayer__player-health" data-js="player-health">
               <span>Player health</span>
