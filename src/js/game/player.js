@@ -33,10 +33,25 @@ export const ITEM_INFO = {
 };
 export const CLASSES = Object.keys(CLASS_STATS);
 export const ITEMS = Object.keys(ITEM_INFO);
+export const NAME_MAX_LENGTH = 20;
 
 // #endregion Data
 // ========================================
 // #region Player creation / loading
+
+// Checks a player name. Returns an error message, or "" if the name is OK.
+export function checkName(name) {
+  const trimmed = name.trim();
+
+  if (trimmed.length < 1) return "Please enter a name.";
+  if (trimmed.length > NAME_MAX_LENGTH)
+    return `Max ${NAME_MAX_LENGTH} characters.`;
+  if (!/^[\p{L}0-9 _'-]+$/u.test(trimmed))
+    return "Only letters, numbers, spaces, - _ and '.";
+
+  return "";
+}
+
 export function createPlayer(name, heroClass) {
   const clearedLevels = {};
   TOWERS.forEach((tower) => (clearedLevels[tower] = null));
@@ -70,8 +85,8 @@ export function parsePlayer(data) {
   // Gate 3: Make sure the name is an actual string (text) then trim spaces.
   if (typeof data.name !== "string") return null;
   const name = data.name.trim();
-  // Gate 4: Ignore names that are 0 or over 20 characters long.
-  if (name.length < 1 || name.length > 20) return null;
+  // Gate 4: Name must follow the same rules as character creation (checkName).
+  if (checkName(data.name) !== "") return null;
   // Gate 5: Check so that level and xp are numbers and not below 1 or above 99. Or xp less than 0.
   if (!Number.isInteger(data.level) || data.level < 1 || data.level > 99)
     return null;
@@ -113,8 +128,10 @@ export function parsePlayer(data) {
 
   return player;
 }
+
 // #endregion Player creation / loading
 // ========================================
+
 // #region Stats
 // Calculates a stat (e.g. "hp") from the player's class and level.
 export function getStat(player, stat) {
