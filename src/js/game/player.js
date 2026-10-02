@@ -1,10 +1,42 @@
 // player.js
+
+// ========================================
+// #region Data
 export const SAVE_VERSION = 1;
 export const TOWERS = ["html", "css", "javascript", "python", "csharp"];
-export const ITEMS = ["healthPotion"];
-export const CLASSES = ["warrior", "mage", "rogue"];
 export const DIFFICULTIES = ["EASY", "MEDIUM", "HARD"];
+export const AVATARS = ["warrior", "mage", "rogue"];
 
+// Base stats + growth
+export const CLASS_STATS = {
+  warrior: {
+    base: { hp: 120, attack: 10, defense: 6 },
+    perLevel: { hp: 12, attack: 2, defense: 1 },
+    startPotions: 3,
+    critChance: 0.05,
+  },
+  mage: {
+    base: { hp: 80, attack: 14, defense: 2 },
+    perLevel: { hp: 8, attack: 3, defense: 0.5 },
+    startPotions: 3,
+    critChance: 0.05,
+  },
+  rogue: {
+    base: { hp: 95, attack: 12, defense: 4 },
+    perLevel: { hp: 10, attack: 2.5, defense: 1 },
+    startPotions: 5,
+    critChance: 0.2,
+  },
+};
+export const ITEM_INFO = {
+  healthPotion: { name: "Health Potion" },
+};
+export const CLASSES = Object.keys(CLASS_STATS);
+export const ITEMS = Object.keys(ITEM_INFO);
+
+// #endregion Data
+// ========================================
+// #region Player creation / loading
 export function createPlayer(name, heroClass) {
   const clearedLevels = {};
   TOWERS.forEach((tower) => (clearedLevels[tower] = null));
@@ -13,10 +45,12 @@ export function createPlayer(name, heroClass) {
   for (const item of ITEMS) {
     inventory[item] = 0;
   }
+  inventory.healthPotion = CLASS_STATS[heroClass].startPotions;
   return {
     version: SAVE_VERSION,
     name,
     heroClass,
+    avatar: heroClass,
     level: 1,
     xp: 0,
     inventory,
@@ -62,11 +96,14 @@ export function parsePlayer(data) {
   }
   // Gate 9: Check so the heroClass actually exists.
   if (!CLASSES.includes(data.heroClass)) return null;
+  // Gate 10: Check so that the avatar actually exists.
+  if (!AVATARS.includes(data.avatar)) return null;
 
-  // Build a fresh player or build a player from save file.
+  // Build a fresh blank player, then copy in the checked values.
   const player = createPlayer(name, data.heroClass);
   player.level = data.level;
   player.xp = data.xp;
+  player.avatar = data.avatar;
   player.storyFlags = [...data.storyFlags];
   TOWERS.forEach((tower) => (player.clearedLevels[tower] = cleared[tower]));
   if (Number.isFinite(data.createdAt)) player.createdAt = data.createdAt;
@@ -76,3 +113,16 @@ export function parsePlayer(data) {
 
   return player;
 }
+// #endregion Player creation / loading
+// ========================================
+// #region Stats
+// Calculates a stat (e.g. "hp") from the player's class and level.
+export function getStat(player, stat) {
+  const classStats = CLASS_STATS[player.heroClass];
+  const levelsGained = player.level - 1;
+  return Math.floor(
+    classStats.base[stat] + classStats.perLevel[stat] * levelsGained,
+  );
+}
+// #endregion Stats
+// ========================================
