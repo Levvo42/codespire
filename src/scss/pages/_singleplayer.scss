@@ -1,16 +1,30 @@
 // ========================================
 // SINGLEPLAYER
 // ========================================
-// 1. Mobile main layout
+// 1. Mobile main layout (stats + inventory slide in over the player)
 // 2. Tablet layout
-// 3. Desktop layout
+// 3. Desktop layout (all three panels visible)
+// ========================================
+// #region Import variables
+@use "../base/variables" as *;
+
+// same gold + glow as the header/footer
+$gold-border: rgb(218 165 32 / 64.4%);
+$panel-bg: rgb(0 0 0 / 60%);
+$glow:
+  0 0 6px #f7f200,
+  0 0 14px #704900a1;
+
+// #endregion Import variables
 // ========================================
 // #region Mobile
 
+// The page is exactly one screen tall (like the lobby): sections share the
+// height instead of pushing the panels below the screen.
 .page-singleplayer {
   display: flex;
   flex-direction: column;
-  min-height: 100dvh;
+  height: 100dvh;
   background-color: #1e1e1e;
   background-image: url("../../assets/images/placeholder-singleplayer-bg-image.jpg");
   background-size: cover;
@@ -20,67 +34,145 @@
 // Making it so that buttons, text, text frames etc take up much less space in the screen.
 // and would fit the screens better based on wireframe reference.
 .site-singleplayer {
+  // Tuning knobs, changed per breakpoint
+  --pad: 1rem; // side padding of main
+
+  // height of the stats, player and inventory row: about a third of the screen
+  --panel-h: clamp(9rem, 26dvh, 16rem);
+  --gap: 0.5rem; // space between the sections
+  --scene-min: 4rem; // smallest the monster scene may get
+  --tab-w: 2.75rem; // width of the side tabs (same as lobby)
+
   // flex 1 fills the space under the header
   flex: 1;
+  min-height: 0; // lets main shrink to the space left in the body
   display: grid;
-  grid-template:
-    "status" auto
-    "scene" minmax(8rem, 1fr)
-    "dialog" auto
-    "answers" auto
-    / 1fr;
-  gap: 1rem;
-  padding: 1rem;
+  grid-template-areas:
+    "boss"
+    "scene"
+    "dialog"
+    "answers"
+    "panels";
 
-  // Visually hidden
-  &__title {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
+  // answers row: as tall as its content, but shrinks (and scrolls) when space runs out
+  grid-template-rows:
+    auto minmax(var(--scene-min), 1fr) auto minmax(0, auto)
+    var(--panel-h);
+  gap: var(--gap);
+  padding: var(--gap) var(--pad) 1.6rem;
+  overflow: hidden auto; // x: hide panels off screen, y: last resort on tiny screens
+
+  // difficulty, tower level, boss name, boss health
+  &__boss {
+    grid-area: boss;
+    display: grid;
+    grid-template:
+      "encounter name" auto
+      "encounter health" auto
+      / auto 1fr;
+    gap: 0.25rem;
+    justify-self: center;
+    width: min(100%, 40rem);
   }
 
-  // Hearts + level banner (4 hearts + CSS LvL 8)
-  &__status {
-    grid-area: status;
-    justify-self: center;
-    min-width: min(100%, 16rem);
-    padding: 0.5rem 1.5rem;
-    border: 2px solid black;
+  &__encounter,
+  &__boss-name,
+  &__boss-health {
+    margin: 0;
+    padding: 0.25rem 0.75rem;
+    border: 2px groove $gold-border;
     border-radius: 0.5rem;
-    background-color: #e5e5e5;
-    color: black;
+    background-color: $panel-bg;
+    color: $navlinkcolor;
     text-align: center;
   }
 
-  &__hearts {
-    margin: 0;
-    font-size: 1.75rem;
-    letter-spacing: 0.25rem;
+  &__encounter {
+    grid-area: encounter;
+    display: grid;
+    align-content: center;
   }
 
-  // Would be cool if JS could use scss heart--lost re-coloring, else remove.
-  &__heart--lost {
-    color: #ff6060;
+  &__difficulty,
+  &__tower-level {
+    margin: 0;
+    padding-block: 0.25rem;
+    font-family: rpgFont, sans-serif;
+    font-size: 0.95rem;
+    text-shadow: $glow;
   }
 
-  &__level {
-    margin: 0;
+  // divider between difficulty and tower level
+  &__tower-level {
+    border-top: 2px solid $gold-border;
+  }
+
+  // the number in the custom font looks like an S, so it uses the normal font
+  &__level-number {
+    font-family: system-ui, sans-serif;
+    font-weight: bold;
+    text-shadow: none;
+  }
+
+  &__boss-name {
+    grid-area: name;
+    font-family: rpgFont, sans-serif;
+    font-weight: lighter;
+    font-size: 1.2rem;
+    color: goldenrod;
+  }
+
+  &__boss-health {
+    grid-area: health;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // Hearts/HP for boss and player
+  &__health-value {
     font-weight: bold;
   }
 
+  &__hearts {
+    font-size: 1.5rem;
+    letter-spacing: 0.15rem;
+    white-space: nowrap;
+  }
+
+  // Each heart fills left to right by --fill.
+  // JS: heart.style.setProperty("--fill", "60%")
+  &__heart {
+    --fill: 100%;
+
+    background: linear-gradient(
+      90deg,
+      #d10000 var(--fill),
+      #5a5a5a var(--fill)
+    );
+    background-clip: text;
+    color: transparent;
+  }
+
+  // Scene
   &__scene {
     grid-area: scene;
     display: flex;
     justify-content: center;
     align-items: end;
+    min-height: 0;
+    container-type: size; // lets the images below use cqh (% of the scene height)
   }
 
+  // API images come in different sizes and shapes:
+  // shrink to fit the scene, never stretch or crop
   &__monster {
-    max-width: 100%;
+    width: auto;
     height: auto;
+    max-width: 100%;
+    max-height: 100cqh;
+    object-fit: contain;
   }
 
   // torches only show on desktop
@@ -88,60 +180,96 @@
     display: none;
   }
 
+  // Dialog
+  // questions and answers will stay default font so code texts becomes easier to read
   &__dialog {
     grid-area: dialog;
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    background-color: black;
-    color: white;
+    padding: 0.75rem;
+    border: 2px groove $gold-border;
+    border-radius: 0.5rem;
+    background-color: rgb(0 0 0 / 85%);
+    color: $navlinkcolor;
     text-align: center;
+
+    // room under the box only while Next / Try again is showing
+    &:has(.site-singleplayer__button:not([hidden])) {
+      margin-bottom: 1.5rem;
+    }
   }
 
   &__feedback {
     margin-block: 0 0.25rem;
-    font-weight: bold;
+    font-family: rpgFont, sans-serif;
+    font-size: 1.25rem;
   }
 
+  &__roll {
+    margin: 0 0 0.25rem;
+  }
+
+  // long questions scroll inside the box instead of pushing the page down,
+  // and long code (no spaces) can break anywhere instead of overflowing
   &__explanation,
   &__question {
+    max-height: 18dvh; // phones: bigger on tablet/desktop
     margin: 0;
+    overflow-y: auto;
+    overflow-wrap: anywhere;
+  }
+
+  &__question {
+    font-size: 0.95rem;
   }
 
   // sits on the bottom edge of the dialog, similar to the wireframes (currently hidden)
   &__button {
     position: relative;
     top: 2rem;
-    padding: 0.5rem 2rem;
-    border: 1px solid black;
-    border-radius: 0.5rem;
-    background-color: white;
-    color: black;
-    font: inherit;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  &__answers {
-    grid-area: answers;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  &__answer {
-    padding: 0.75rem 1rem;
-    border: 2px solid transparent;
-    border-radius: 0.5rem;
+    padding: 0.4rem 2rem;
+    border: 2px groove $gold-border;
+    border-radius: 0.5rem 0.7rem 1.6rem;
     background-color: #1e1e1e;
-    color: white;
-    font: inherit;
-    font-weight: bold;
-    text-align: start;
+    color: $navlinkcolor;
+    font-family: rpgFont, sans-serif;
+    font-size: 1.25rem;
+    text-shadow: $glow;
     cursor: pointer;
 
     &:hover,
     &:focus-visible {
-      border-color: #fb0;
+      background-color: #704900b9;
+    }
+  }
+
+  // Answers
+  &__answers {
+    grid-area: answers;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--gap);
+    min-height: 0;
+    overflow-y: auto; // long answers scroll here, the panels stay visible
+    scrollbar-color: goldenrod transparent;
+    scrollbar-width: thin;
+    font-size: 0.95rem;
+  }
+
+  &__answer {
+    padding: 0.5rem 1rem;
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+    background-color: rgb(20 20 20 / 90%);
+    color: $navlinkcolor;
+    font: inherit;
+    font-weight: bold;
+    line-height: 1.3;
+    text-align: start;
+    overflow-wrap: anywhere;
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+      border-color: goldenrod;
     }
 
     &--correct {
@@ -154,44 +282,247 @@
       color: black;
     }
   }
+
+  // Panels, stats, player, inventory
+  // same pattern as the lobby
+  &__panels {
+    grid-area: panels;
+    display: grid;
+    grid-template: "panel" minmax(0, 1fr) / 1fr;
+    min-height: 0;
+    margin-inline: calc(-1 * var(--pad)); // full width, edge to edge
+    overflow: hidden;
+  }
+
+  &__panel {
+    grid-area: panel;
+    min-height: 0;
+    padding: 1rem;
+    overflow-y: auto;
+    color: #f2e9d8;
+    background-color: rgb(18 16 12);
+    border-top: 2px solid rgb(255 174 0);
+
+    h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.25rem;
+    }
+
+    // Mobile player section
+    // visibility hidden keeps a closed panel out of the tab order
+    &--stats,
+    &--inventory {
+      z-index: 1;
+      padding-inline: calc(var(--tab-w) + 1rem);
+      visibility: hidden;
+      transition:
+        translate 0.4s ease,
+        visibility 0.4s;
+
+      &.is-open {
+        translate: 0;
+        visibility: visible;
+      }
+    }
+
+    &--stats {
+      translate: -100% 0; // waits off-screen to the left
+    }
+
+    &--inventory {
+      translate: 100% 0; // waits off-screen to the right
+    }
+
+    &--player {
+      display: grid;
+      grid-template: minmax(0, 1fr) / auto 1fr auto; // tab | content | tab
+      padding: 0;
+      overflow: hidden; // the content scrolls, not the whole panel
+    }
+  }
+
+  &__player-content {
+    grid-area: 1 / 2;
+    min-height: 0;
+    padding: 1rem;
+    overflow-y: auto;
+  }
+
+  // Side tabs on the player. z-index 2 keeps them above the
+  // sliding panels, so the same tab also closes its panel.
+  &__toggle {
+    grid-row: 1;
+    z-index: 2;
+    width: var(--tab-w);
+    padding: 0.5rem 0;
+    border: 0;
+    writing-mode: vertical-rl; // text runs top to bottom
+    font: inherit;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: #f2e9d8;
+    background-color: rgb(255 174 0 / 15%);
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover,
+    &[aria-expanded="true"] {
+      background-color: rgb(255 174 0 / 35%);
+    }
+
+    &--stats {
+      rotate: 180deg; // reads bottom to top on the left edge
+    }
+  }
+
+  // Player health card inside the player panel
+  &__player-health {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0.25rem 1rem;
+    border: 2px groove $gold-border;
+    border-radius: 0.5rem;
+    background-color: rgb(0 0 0 / 60%);
+    color: $navlinkcolor;
+  }
 }
 
 // #endregion Mobile
 // ========================================
 // #region Tablet
+// Panels: two columns, a side panel (inventory slides over stats) + player.
+@media (width >= #{$breakpoint-tablet}) {
+  .site-singleplayer {
+    --panel-h: 15rem;
+    --gap: 1rem;
+    --scene-min: 5rem;
 
-@media (width >= 48rem) {
-  .site-singleplayer__answers {
-    grid-template-columns: 1fr 1fr;
+    &__boss-name {
+      font-size: 1.5rem;
+    }
+
+    &__difficulty,
+    &__tower-level {
+      font-size: 1.1rem;
+    }
+
+    &__explanation,
+    &__question {
+      max-height: 30dvh;
+    }
+
+    &__question {
+      font-size: 1rem;
+    }
+
+    &__answers {
+      font-size: 1rem;
+    }
+
+    &__answer {
+      padding-block: 0.75rem;
+    }
+
+    &__answers {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &__panels {
+      grid-template: "side player" minmax(0, 1fr) / 1fr 1fr;
+    }
+
+    &__panel {
+      &--stats,
+      &--inventory {
+        grid-area: side;
+        padding-inline: 1rem;
+      }
+
+      &--stats {
+        translate: 0;
+        visibility: visible; // always there, underneath the inventory
+      }
+
+      &--inventory {
+        translate: -100% 0; // slides in from the left
+      }
+
+      &--player {
+        grid-area: player;
+        border-left: 2px solid rgb(255 174 0); // divider
+      }
+    }
+
+    // One switch, on the edge next to the side panel
+    &__toggle {
+      &--stats {
+        display: none;
+      }
+
+      &--inventory {
+        grid-column: 1;
+      }
+    }
   }
 }
 
 // #endregion Tablet
 // ========================================
 // #region Desktop
-
-@media (width >= 64rem) {
+// Three panel columns, everything visible, no tabs.
+@media (width >= #{$breakpoint-desktop}) {
   .site-singleplayer {
-    padding-inline: 3rem;
-  }
+    --pad: 3rem;
+    --panel-h: clamp(9rem, 24dvh, 13rem);
 
-  // Making sure dialog and answers don't strech across wide screens
-  .site-singleplayer__dialog,
-  .site-singleplayer__answers {
-    justify-self: center;
-    width: min(100%, 60rem);
-  }
+    // Making sure dialog and answers don't strech across wide screens
+    &__dialog,
+    &__answers {
+      justify-self: center;
+      width: min(100%, 60rem);
+    }
 
-  .site-singleplayer__scene {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    place-items: center;
-  }
+    &__scene {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      place-items: center;
+    }
 
-  .site-singleplayer__torch {
-    display: block;
-    width: 5rem;
-    height: auto;
+    &__torch {
+      display: block;
+      width: 5rem;
+      height: auto;
+      max-height: 100cqh;
+      object-fit: contain;
+    }
+
+    &__panels {
+      grid-template: "stats player inventory" minmax(0, 1fr) / 1fr 1fr 1fr;
+    }
+
+    &__panel {
+      &--stats {
+        grid-area: stats;
+      }
+
+      &--inventory {
+        grid-area: inventory;
+        translate: 0;
+        visibility: visible;
+      }
+
+      &--player {
+        border-inline: 2px solid rgb(255 174 0); // dividers on both sides
+      }
+    }
+
+    &__toggle {
+      display: none;
+    }
   }
 }
 
