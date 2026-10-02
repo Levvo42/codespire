@@ -1,13 +1,13 @@
 const headerTemplate = `
   <header class="site-header">
-    <img
+    <a href="/index.html" class="site-header__logo-link"><img
       src="/src/assets/images/codespire-logo.png"
       loading="eager"
       class="site-header__logo"
       alt=".codeSpire"
       width="60"
       height="30"
-    />
+    /></a>
     <nav class="site-header__nav" id="header-navigation">
       <a href="/index.html">Main Menu</a>
       <a href="/pages/createplayer.html">Play</a>

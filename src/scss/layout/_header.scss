@@ -50,6 +50,10 @@
     height: 3.5rem;
     filter: drop-shadow(0 8px 4px rgb(0 0 0))
       drop-shadow(3px -3px 25px rgb(102 134 80)) sepia(0.6) saturate(1.5);
+
+    &-link {
+      justify-self: start;
+    }
   }
 
   // Menu button styling for hamburger menu
