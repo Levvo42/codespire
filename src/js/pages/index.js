@@ -11,14 +11,32 @@ const storyButtons = document.querySelectorAll(
 
 // #endregion constants
 // #region functions
+function updateCurrentStoryButton(page) {
+  const currentPage = new URL(page, document.baseURI).pathname;
+
+  storyButtons.forEach((button) => {
+    const isCurrent = button.getAttribute("data-story-page") === currentPage;
+    button.classList.toggle("is-current", isCurrent);
+    button.setAttribute("aria-pressed", String(isCurrent));
+  });
+}
+
 function changePage(page) {
   if (storyIframe) {
     storyIframe.src = page;
+    updateCurrentStoryButton(page);
   }
 }
 
 // #endregion functions
 // #region event listeners
+if (storyIframe) {
+  updateCurrentStoryButton(storyIframe.src);
+  storyIframe.addEventListener("load", () => {
+    updateCurrentStoryButton(storyIframe.src);
+  });
+}
+
 storyButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const page = button.getAttribute("data-story-page");
