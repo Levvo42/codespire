@@ -6,11 +6,11 @@
 // 3. Desktop layout
 // ========================================
 // #region Import variables
-@use "../base/variables" as *;
+@use "/src/scss/base/variables" as *;
 
 @font-face {
   font-family: rpgFont;
-  src: url("../../assets/fonts/TWBOZ.ttf");
+  src: url("/src/assets/fonts/TWBOZ.ttf");
 }
 
 // #endregion Import variables
@@ -18,7 +18,7 @@
 // #region Mobile
 .site-footer {
   // styling
-  background-image: url("../../assets/images/header-banner.jpg");
+  background-image: url("/src/assets/images/header-banner.jpg");
   background-size: 100% 100%;
   opacity: 0.9;
   display: flex;

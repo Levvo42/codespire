@@ -8,20 +8,7 @@
   </head>
 
   <body>
-    <header class="site-header">
-      <img
-        src="/src/assets/images/placeholderlogo.png"
-        loading="eager"
-        class="site-header__logo"
-        alt=""
-      />
-      <nav class="site-header__menu">
-        <a href="pages/createplayer.html">Play</a>
-        <a href="http://localhost:5173/">Story</a>
-        <a href="http://localhost:5173/">Shop</a>
-        <a href="pages/tutorial.html">Tutorial</a>
-      </nav>
-    </header>
+    <header data-site-header></header>
 
     <main class="site-credits">
       <section class="site-credits__viewport">
@@ -69,11 +56,11 @@
       <section class="back__nav">
         <a href="#credits" class="back__btn">BACK</a>
       </section>
-      <audio id="music" src="src/assets/music/Labyrinth.mp3 "></audio>
-      <button id="playBtn" class="play-btn" type="button">🎵</button>
+      <audio id="music" src="/src/assets/music/Labyrinth.mp3"></audio>
+      <button id="play-btn" class="play-btn" type="button">🎵</button>
     </main>
 
-    <footer></footer>
+    <footer data-site-footer></footer>
 
     <script type="module" src="/src/js/pages/credits.js"></script>
   </body>

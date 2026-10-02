@@ -8,35 +8,7 @@
   </head>
 
   <body class="page-lobby">
-    <!-- Header (same as index.html, main.js needs the menu button) -->
-    <header class="site-header">
-      <img
-        src="/src/assets/images/placeholderlogo.png"
-        loading="eager"
-        class="site-header__logo"
-        alt=""
-      />
-      <nav class="site-header__nav" id="header-navigation">
-        <a href="/pages/createplayer.html">Play</a>
-        <a href="/index.html">Menu</a>
-        <a href="/pages/lobby.html">Lobby</a>
-        <a href="/pages/tutorial.html">Tutorial</a>
-      </nav>
-      <button
-        class="site-header__menu-button"
-        type="button"
-        aria-expanded="false"
-        aria-controls="header-navigation"
-      >
-        <img
-          src="/src/assets/images/hamburger-menu.png"
-          alt=""
-          height="20"
-          width="20"
-        />
-        <span class="visually-hidden">Menu</span>
-      </button>
-    </header>
+    <header data-site-header></header>
 
     <main class="site-lobby">
       <h1 class="site-lobby__title">Lobby</h1>
@@ -120,7 +92,7 @@
       </article>
     </main>
 
-    <footer class="site-footer"></footer>
+    <footer data-site-footer></footer>
 
     <script type="module" src="/src/js/pages/lobby.js"></script>
   </body>

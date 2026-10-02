@@ -4,107 +4,84 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>.codeSpire</title>
-    <meta name="Code your way to victory." content="" />
   </head>
   <body class="index-body">
-    <header class="site-header">
-      <img
-        src="/src/assets/images/codespire-logo.png"
-        loading="eager"
-        class="site-header__logo"
-        alt=".codeSpire"
-        width="60"
-        height="30"
-      />
-      <nav class="site-header__nav" id="header-navigation">
-        <a href="/index.html">Main Menu</a>
-        <a href="/pages/lobby.html">Lobby</a>
-        <a href="/pages/tutorial.html">Tutorial</a>
-      </nav>
-
-      <button
-        class="site-header__menu-button"
-        type="button"
-        aria-expanded="false"
-        aria-controls="header-navigation"
-      >
-        <span>Menu</span>
-      </button>
-    </header>
+    <header data-site-header></header>
     <main class="index-main">
       <aside class="index-main__aside">
         <img
-          src="src/assets/images/storybanner.png"
+          src="/src/assets/images/storybanner.png"
           alt="Banner with story elements"
           loading="lazy"
           width="100"
           height="100"
         />
         <button
-          class="index-main__aside-storyButton index-main__aside-introButton"
+          class="index-main__aside-story-button index-main__aside-intro-button"
           type="button"
-          aria-expanded="false"
+          data-story-page="/pages/story/intro.html"
         >
           <span>Intro</span>
         </button>
         <button
-          class="index-main__aside-storyButton index-main__aside-prologueButton"
+          class="index-main__aside-story-button index-main__aside-prologue-button"
           type="button"
-          aria-expanded="false"
+          data-story-page="/pages/story/prologue.html"
         >
           <span>Prologue</span>
         </button>
         <button
-          class="index-main__aside-storyButton index-main__aside-chapter1Button"
+          class="index-main__aside-story-button index-main__aside-chapter1-button"
           type="button"
-          aria-expanded="false"
+          data-story-page="/pages/story/chapter1.html"
         >
           <span>Chapter 1</span>
         </button>
         <button
-          class="index-main__aside-storyButton index-main__aside-chapter2Button"
+          class="index-main__aside-story-button index-main__aside-chapter2-button"
           type="button"
-          aria-expanded="false"
+          data-story-page="/pages/story/chapter2.html"
         >
           <span>Chapter 2</span>
         </button>
         <button
-          class="index-main__aside-storyButton index-main__aside-chapter3Button"
+          class="index-main__aside-story-button index-main__aside-chapter3-button"
           type="button"
-          aria-expanded="false"
+          data-story-page="/pages/story/chapter3.html"
         >
           <span>Chapter 3</span>
         </button>
         <button
-          class="index-main__aside-storyButton index-main__aside-chapter4Button"
+          class="index-main__aside-story-button index-main__aside-chapter4-button"
           type="button"
-          aria-expanded="false"
+          data-story-page="/pages/story/chapter4.html"
         >
           <span>Chapter 4</span>
         </button>
         <button
-          class="index-main__aside-storyButton index-main__aside-chapter5Button"
+          class="index-main__aside-story-button index-main__aside-chapter5-button"
           type="button"
-          aria-expanded="false"
+          data-story-page="/pages/story/chapter5.html"
         >
           <span>Chapter 5</span>
         </button>
       </aside>
       <iframe
+        id="story-iframe"
         class="index-main__story"
-        src="pages/story/prologue.html"
+        src="/pages/story/prologue.html"
         title="Story"
       >
       </iframe>
       <article class="index-main__intro">
-        <!-- <iframe class="index-main__intro" src="pages/story/prologue.html" src="pages/story/intro.html" title="Story"></iframe> -->
-        <a href="pages/createplayer.html" class="index-main__pressplay"
+        <!-- <iframe class="index-main__intro" src="/pages/story/prologue.html" src="/pages/story/intro.html" title="Story"></iframe> -->
+        <a href="/pages/createplayer.html" class="index-main__pressplay"
           >Press to play</a
         >
 
         <img
           class="index-main__tombstone"
-          src="src/assets/images/tombstone.png"
+          src="/src/assets/images/tombstone.png"
           alt="overgrown tombstone"
           loading="lazy"
           height="100"
@@ -113,15 +90,7 @@
       </article>
     </main>
 
-    <footer class="site-footer">
-      <span class="site-footer__info">
-        <a href="/pages/credits.html">About</a>
-        <a href="/pages/credits.html">Credits</a>
-        <a href="pages/story/prologue.html">Extra</a>
-        <a href="/pages/singleplayer.html">Bug Report</a>
-        <a href="/pages/createplayer.html">Socials</a>
-      </span>
-    </footer>
+    <footer data-site-footer></footer>
 
     <script type="module" src="/src/js/pages/index.js"></script>
   </body>

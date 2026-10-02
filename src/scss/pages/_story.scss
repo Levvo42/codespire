@@ -68,6 +68,10 @@
       font-size: 4rem;
       position: relative;
       top: 0.3rem;
+
+      &.story-smaller {
+        font-size: 3.2rem;
+      }
     }
 
     h2 {
