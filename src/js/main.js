@@ -8,14 +8,16 @@ import "../scss/style.scss";
 // #region Variables
 const menuButton = document.querySelector(".site-header__menu-button");
 const navigation = document.querySelector(".site-header__nav");
-const menuText = menuButton.querySelector("span");
+const menuText = menuButton?.querySelector("span");
 const desktopMedia = window.matchMedia("(min-width: 53rem)");
 // #endregion Variables
 // ========================================
 // #region Event listeners
-menuButton.addEventListener("click", toggleNavMenu); // decides if the mobile nav menu is open
-document.addEventListener("click", closeMenuOnOutsideClick); // closes menu if you click outside the box
-desktopMedia.addEventListener("change", closeMenuOnDesktop); // closes auto if you resize to big window
+if (menuButton && navigation) {
+  menuButton.addEventListener("click", toggleNavMenu); // decides if the mobile nav menu is open
+  document.addEventListener("click", closeMenuOnOutsideClick); // closes menu if you click outside the box
+  desktopMedia.addEventListener("change", closeMenuOnDesktop); // closes auto if you resize to big window
+}
 // #endregion Event listeners
 // ========================================
 // #region Functions

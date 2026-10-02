@@ -18,23 +18,19 @@
       />
       <nav class="site-header__nav" id="header-navigation">
         <a href="/pages/createplayer.html">Play</a>
+        <a href="/pages/singleplayer.html">Battle</a>
         <a href="/index.html">Menu</a>
         <a href="/pages/lobby.html">Lobby</a>
         <a href="/pages/tutorial.html">Tutorial</a>
       </nav>
+
       <button
         class="site-header__menu-button"
         type="button"
         aria-expanded="false"
         aria-controls="header-navigation"
       >
-        <img
-          src="/src/assets/images/hamburger-menu.png"
-          alt=""
-          height="20"
-          width="20"
-        />
-        <span class="visually-hidden">Menu</span>
+        <span>Menu</span>
       </button>
     </header>
 
@@ -88,6 +84,16 @@
         id="panel-stats"
       >
         <h2>Stats</h2>
+        <dl class="site-lobby__info">
+          <dt>HP</dt>
+          <dd id="stat-hp">-</dd>
+          <dt>Attack</dt>
+          <dd id="stat-attack">-</dd>
+          <dt>Defense</dt>
+          <dd id="stat-defense">-</dd>
+          <dt>Crit</dt>
+          <dd id="stat-crit">-</dd>
+        </dl>
       </article>
 
       <article class="site-lobby__panel site-lobby__panel--player">
@@ -101,6 +107,24 @@
         </button>
         <div class="site-lobby__player-content">
           <h2>Player</h2>
+          <img
+            id="player-avatar"
+            class="site-lobby__avatar"
+            src="/avatars/default.webp"
+            alt="Player avatar"
+            width="128"
+            height="128"
+          />
+          <dl class="site-lobby__info">
+            <dt>Name</dt>
+            <dd id="player-name">-</dd>
+            <dt>Class</dt>
+            <dd id="player-class">-</dd>
+            <dt>Level</dt>
+            <dd id="player-level">-</dd>
+            <dt>XP</dt>
+            <dd id="player-xp">-</dd>
+          </dl>
         </div>
         <button
           class="site-lobby__toggle site-lobby__toggle--inventory"
@@ -117,6 +141,7 @@
         id="panel-inventory"
       >
         <h2>Inventory</h2>
+        <dl class="site-lobby__info" id="inventory-list"></dl>
       </article>
     </main>
 
