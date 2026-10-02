@@ -15,16 +15,87 @@
         class="site-header__logo"
         alt=""
       />
-      <nav class="site-header__menu">
+      <nav class="site-header__nav" id="header-navigation">
         <a href="pages/createplayer.html">Play</a>
         <a href="http://localhost:5173/">Story</a>
         <a href="http://localhost:5173/">Shop</a>
         <a href="pages/tutorial.html">Tutorial</a>
       </nav>
+      <button
+        class="site-header__menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="header-navigation"
+      >
+        <img
+          src="/src/assets/images/hamburger-menu.png"
+          alt=""
+          height="20"
+          width="20"
+        />
+        <span class="visually-hidden">Menu</span>
+      </button>
     </header>
 
-    <main>
-      <h1>Character Creation</h1>
+    <main class="site-createplayer">
+      <p class="site-createplayer__subtitle">Code! Fight! Up!</p>
+      <section class="site-createplayer-container">
+        <h1 class="site-createplayer-container__title">
+          Create your character
+        </h1>
+        <form class="site-createplayer-container__form">
+          <label class="site-createplayer-container__label" for="player-name">
+            Name
+          </label>
+          <input
+            class="site-createplayer-container__input"
+            id="player-name"
+            type="text"
+            name="player-name"
+          />
+          <p class="site-createplayer-container__label character-class">
+            Class: Warrior
+          </p>
+          <div class="site-createplayer-container__avatar">
+            <button
+              type="button"
+              class="site-createplayer-container__arrow"
+              aria-label="Previous avatar"
+            >
+              &lt;
+            </button>
+            <img
+              class="site-createplayer-container__image"
+              src="/src/assets/images/av1.png"
+              alt="Selected Avatar"
+            />
+            <button
+              type="button"
+              class="site-createplayer-container__arrow"
+              aria-label="Next avatar"
+            >
+              &gt;
+            </button>
+            <button type="submit" hidden aria-hidden="true"></button>
+          </div>
+          <button type="button" class="site-createplayer-container__play-btn">
+            Play
+          </button>
+        </form>
+      </section>
+      <section class="site-createplayer-lore">
+        <div class="site-createplayer-lore__divider">
+          <span></span>
+          <div class="site-createplayer-lore__diamond"></div>
+          <span></span>
+        </div>
+        <h2 class="site-createplayer-lore__title">HERE BEGINS THE CLIMB</h2>
+        <p>
+          Ancient towers guard forgotten knowledge. Strong monsters stand
+          between each floor.
+        </p>
+        <p>Solve coding challenges to advance higher into the tower.</p>
+      </section>
     </main>
 
     <footer></footer>

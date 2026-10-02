@@ -10,75 +10,297 @@
 
 // #endregion Import variables
 // ========================================
-// #region grid layout
 .index-main {
+  // #region grid layout
   display: grid;
+  flex: 1;
+  min-height: 0;
   grid-template-areas:
-    "indexA indexB indexC"
-    "indexA indexB indexC"
-    "indexA indexB indexC";
-  grid-template-columns: 1fr 1fr 1fr;
+    "indexB indexB"
+    "indexB indexB"
+    "indexB indexB"
+    "indexB indexB"
+    "indexB indexB"
+    "indexB indexB"
+    "indexA indexC"
+    "indexA indexC"
+    "indexA indexC";
+  grid-template-rows: repeat(9, minmax(0, 1fr));
+
+  &__select {
+    grid-area: indexA;
+  }
+
+  &__intro {
+    grid-area: indexC;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
   &__story {
-    grid-area: "indexA";
+    grid-area: indexB;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  &__aside {
+    grid-area: indexA;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  // #endregion grid layout
+  // #region text styling
+  text-shadow:
+    2px 2px black,
+    0 0 5px black;
+  color: rgb(255 255 255);
+
+  .sickness {
+    color: rgb(146 250 137);
     text-shadow:
-      0 0 6px #010200,
-      0 0 7px #030500;
+      2px 2px rgb(2 0 0),
+      0 0 10px #15ff00;
+  }
+
+  .golden {
+    color: rgb(250 229 134);
+    text-shadow:
+      2px 2px rgb(0 0 0),
+      0 0 7px #fac001;
+  }
+
+  .warning {
+    color: rgb(196 0 0);
+    text-shadow:
+      2px 2px rgb(0 0 0),
+      3px 1px rgb(128 0 0);
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  strong {
+    font-family: rpgFont, sans-serif;
+    font-weight: lighter;
+    font-size: 1.4rem;
+    position: relative;
+    top: 0.3rem;
+  }
+
+  h1 {
+    font-family: rpgFont, sans-serif;
+    font-weight: lighter;
+    color: goldenrod;
+    font-size: 4rem;
+    position: relative;
+    top: 0.3rem;
+  }
+
+  h2 {
+    font-family: rpgFont, sans-serif;
+    font-weight: lighter;
+    color: rgb(160 91 0);
+    font-size: 2.5rem;
+    position: relative;
+    top: 0.3rem;
+  }
+
+  a:hover,
+  a:visited:hover,
+  a:focus-visible {
     color: rgb(255 255 255);
+    text-shadow:
+      0 0 6px #050505,
+      0 0 14px #7e7e7df8;
+  }
 
-    .sickness {
-      color: black;
+  // #endregion text styling
+  // #region The Journey Begins style
+  &__intro {
+    /* background-color: rgb(0 0 0 / 80%);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 0.5rem 0.7rem 1.6rem;
+    border: 0.3rem;
+    border-style: groove;
+    border-color: rgb(218 165 32 / 64.4%);
+    border-inline-end-width: 0.2rem;
+    border-inline-start-width: 0.2rem; */
+  }
+
+  &__aside {
+    img {
+      position: absolute;
+      left: 110%;
+      bottom: -3.2rem;
+      transform: translateX(-50%);
+      width: clamp(8rem, 45dvh, 30rem);
+      max-width: 40rem;
+      min-width: 20rem;
+      height: calc(75% + 10rem);
+      display: block;
+      object-position: center bottom;
+      z-index: 0;
+    }
+
+    &-storyButton {
+      cursor: pointer;
+      position: relative;
+      top: 0;
+      z-index: 1;
+      font-family: rpgFont, sans-serif;
+      color: #f5e8c5;
+      font-size: 1.25rem;
       text-shadow:
-        0 0 6px #468b00,
-        0 0 7px #60a000;
-    }
-
-    .golden {
-      color: black;
-      text-shadow:
-        0 0 6px #c2ae00,
-        0 0 7px #ffe600;
-    }
-
-    p {
-      font-size: 0.85rem;
-    }
-
-    strong {
-      font-family: rpgFont, sans-serif;
-      font-weight: lighter;
-      font-size: 1.1rem;
-    }
-
-    h1 {
-      font-family: rpgFont, sans-serif;
-      font-weight: lighter;
-      color: goldenrod;
-      font-size: 3rem;
-    }
-
-    h2 {
-      font-family: rpgFont, sans-serif;
-      font-weight: lighter;
-      color: rgb(160 91 0);
+        1px 1px #20170f,
+        0 0 3px #20170f;
+      background-color: transparent;
+      border: 0;
     }
   }
+
+  // #endregion The Journey Begins
 }
 
-// #endregion grid layout
 // ========================================
 .index-body {
-  background-image: url("../../assets/images/FranzStieberich.jpg");
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+
+  // #region mainpage background
+  background-image: url("../../assets/images/lobby-bg.webp");
 
   /* background-size: 200dvh; */
   background-position: top;
-  background-size: cover;
+  background-size: auto;
+
+  // #endregion mainpage background
+}
+
+p.index-main__pressplay {
+  font-size: 1.5rem;
 }
 
 .index-main {
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 2rem; // spacing for page elements and fixed footer
 
-  &hr {
-    // placeholder
+  &__pressplay {
+    text-decoration: none;
+    font-family: rpgFont, sans-serif;
+    position: relative;
+    max-width: 4rem;
+    top: calc(40% + 10rem);
+    left: 4.5rem;
+    color: rgb(218 218 218);
+    font-size: 2rem;
+    text-shadow:
+      2px 2px rgb(2 0 0),
+      0 0 10px #050505;
+    transform: translateY(-50%);
+    z-index: 100;
+    margin: 0;
+    text-align: center;
+  }
+
+  // #region Tombstone+hover effect
+  &__pressplay::after {
+    content: "";
+    position: absolute;
+    inset: -4.5rem -3rem; // hitbox size for hover effect
+  }
+
+  &__tombstone {
+    // tombstone image
+    z-index: 10;
+    width: auto;
+    max-height: calc(100% + 10rem);
+    min-height: calc(80% + 15rem);
+    object-fit: contain;
+    position: relative;
+    bottom: 2rem;
+    right: -4rem;
+    transition: transform 180ms ease;
+  }
+
+  &__pressplay:hover + &__tombstone,  // tombstone hover effect
+  &__pressplay:focus-visible + &__tombstone {
+    transform: scale(1.1);
+    filter: drop-shadow(0 -1em 1em rgb(210 144 0));
+  }
+
+  // #endregion Tombstone hover effect
+
+  &__story {
+    // #region iframe story box
+    border: 0;
+
+    // #endregion iframe story box
+  }
+}
+
+@media (width >= $breakpoint-desktop) {
+  .index-main {
+    grid-template-areas:
+      "indexA indexA indexB indexB indexB indexB"
+      "indexA indexA indexB indexB indexB indexB"
+      "indexA indexA indexB indexB indexB indexB"
+      "indexA indexA indexC indexC indexC indexC";
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+  }
+
+  .index-main__aside {
+    img {
+      position: absolute;
+      left: 69%;
+      bottom: -1rem;
+      min-width: 40rem;
+      max-width: 20rem;
+      display: block;
+      max-height: 50rem;
+      min-height: 50rem;
+      object-position: center bottom;
+      z-index: 0;
+    }
+
+    &-storyButton {
+      cursor: pointer;
+      position: relative;
+      top: -17rem;
+      left: 20%;
+      z-index: 1;
+      font-family: rpgFont, sans-serif;
+      color: #f5e8c5;
+      font-size: 2rem;
+      padding: 0.5rem 1rem;
+      text-shadow:
+        1px 1px #20170f,
+        0 0 3px #20170f;
+      background-color: transparent;
+      border: 0;
+
+      :focus-visible,
+      :hover {
+        color: rgb(255 196 0);
+        text-shadow:
+          1px 1px #000,
+          0 0 6px #fcfbfb,
+          0 0 14px #7e7e7df8;
+      }
+    }
   }
 }
