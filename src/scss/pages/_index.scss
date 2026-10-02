@@ -142,6 +142,7 @@
   }
 
   &__aside {
+    // banner image
     img {
       position: absolute;
       left: 110%;
@@ -157,9 +158,14 @@
     }
 
     &-story-button {
+      // chapter selection buttons
       cursor: pointer;
       position: relative;
-      top: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      top: -20%;
+      right: -60%;
       z-index: 1;
       font-family: rpgFont, sans-serif;
       color: #f5e8c5;
@@ -169,6 +175,24 @@
         0 0 3px #20170f;
       background-color: transparent;
       border: 0;
+
+      &::before, // chapter indicator hidden by default
+      &::after {
+        content: "";
+        flex: 0 0 0.45rem;
+        width: 0.45rem;
+        height: 0.45rem;
+        border-radius: 50%;
+        background-color: #ffe68a;
+        box-shadow: 0 0 0.4rem 0.12rem rgb(255 230 138 / 75%);
+        opacity: 0;
+        transition: opacity 160ms ease;
+      }
+
+      &.is-current::before, // active chapter indicator
+      &.is-current::after {
+        opacity: 1;
+      }
     }
   }
 
@@ -265,28 +289,29 @@ p.index-main__pressplay {
 
   .index-main__aside {
     img {
+      // banner image
       position: absolute;
       left: 69%;
       bottom: -1rem;
       min-width: 40rem;
       max-width: 20rem;
       display: block;
-      max-height: 50rem;
-      min-height: 50rem;
+      height: calc(75% + 10rem);
       object-position: center bottom;
       z-index: 0;
     }
 
+    // chapter selection buttons
     &-story-button {
       cursor: pointer;
       position: relative;
-      top: -17rem;
+      top: -26%;
       left: 20%;
       z-index: 1;
       font-family: rpgFont, sans-serif;
       color: #f5e8c5;
       font-size: 2rem;
-      padding: 0.5rem 1rem;
+      padding: calc(2vh - 0.5rem);
       text-shadow:
         1px 1px #20170f,
         0 0 3px #20170f;
