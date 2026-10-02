@@ -31,7 +31,10 @@
   // styling
 
   & a {
-    color: $navlinkcolor;
+    color: #f5e8c5;
+    text-shadow:
+      1px 1px #20170f,
+      0 0 3px #20170f;
     text-decoration: none; // removes underlines on links
   }
 
@@ -65,26 +68,24 @@
     right: 1rem;
     bottom: 0.2rem;
     text-shadow:
-      0 0 6px #f7f200,
-      0 0 14px #704900a1;
+      1px 1px #20170f,
+      0 0 3px #20170f;
     translate: 0 5px;
-
-    // makes open/close button hoverable
-    &:hover,
-    &:focus-visible {
-      background-color: #583a0093;
-    }
 
     // makes open/close text hoverable
     &:hover span,
     &:focus-visible span {
+      cursor: pointer;
       color: rgb(10 71 21 / 64.4%);
+      text-shadow:
+        0 0 6px #fcfbfb,
+        0 0 14px #7e7e7df8;
     }
 
     // sets fontstyle and sizing of open/close
     & span {
       font-family: rpgFont, sans-serif;
-      color: $navlinkcolor;
+      color: #f5e8c5;
       display: grid;
       place-items: center;
       font-size: 2.25rem;
@@ -130,16 +131,18 @@
         border-inline-end-width: 0.2rem;
         border-inline-start-width: 0.2rem;
         text-shadow:
-          0 0 6px #f7f200,
-          0 0 14px #704900a1;
+          1px 1px #20170f,
+          0 0 3px #20170f;
         translate: 0 5px;
       }
 
       // makes navmenu links hoverable
       a:hover,
       a:focus-visible {
-        color: rgb(29 85 38);
-        background-color: #704900b9;
+        color: rgb(10 71 21 / 64.4%);
+        text-shadow:
+          0 0 6px #fcfbfb,
+          0 0 14px #7e7e7df8;
       }
     }
   }
@@ -167,7 +170,6 @@
       grid-area: nav;
       display: flex;
       justify-content: space-evenly;
-      color: $navlinkcolor;
       font-family: rpgFont, sans-serif;
       font-size: 1.7rem;
       background-color: rgb(0 0 0 / 50.7%);
@@ -178,11 +180,13 @@
       border-color: rgb(218 165 32 / 64.4%);
       border-inline-end-width: 0.2rem;
       border-inline-start-width: 0.2rem;
+      color: #f5e8c5;
       text-shadow:
-        0 0 6px #f7f200,
-        0 0 14px #704900a1;
+        1px 1px #20170f,
+        0 0 3px #20170f;
       translate: 0 5px;
 
+      a:hover,
       a:visited:hover,
       a:focus-visible {
         color: rgb(29 85 38);
