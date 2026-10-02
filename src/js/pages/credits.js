@@ -2,15 +2,28 @@
 // Wiring only: import from game/, ui/ and api/, then start. No rules here.
 import "../main.js";
 
-window.addEventListener("load", () => {
-  const music = document.getElementById("music");
-  const playBtn = document.getElementById("play-btn");
-  music.volume = 0.4;
+// #region Elements
+const music = document.getElementById("music");
+const playBtn = document.getElementById("play-btn");
+music.volume = 0.4;
+// #endregion Elements
 
-  music.play().catch(() => {
-    document.addEventListener("click", () => music.play(), { once: true });
-  });
-  playBtn.addEventListener("click", () => {
-    music.play();
-  });
+// #region Autoplay
+music.play().catch(() => {
+  document.addEventListener("click", () => music.play(), { once: true });
 });
+// #endregion Autoplay
+
+// #region Play/Pause button
+playBtn.addEventListener("click", () => {
+  if (music.paused) {
+    music.play();
+    playBtn.textContent = "||";
+    playBtn.setAttribute("aria-label", "Pause music");
+  } else {
+    music.pause();
+    playBtn.textContent = "▷";
+    playBtn.setAttribute("aria-label", "Play music");
+  }
+});
+// #endregion Play/Pause button
