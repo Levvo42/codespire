@@ -4,9 +4,9 @@ import "../main.js";
 
 // Avatar name and classes
 const avatars = [
-  { image: "/src/assets/images/av1.png", class: "Warrior" },
-  { image: "/src/assets/images/av2.png", class: "Mage" },
-  { image: "/src/assets/images/av3.png", class: "Rogue" },
+  { image: "/avatars/warrior.webp", class: "Warrior" },
+  { image: "/avatars/mage.webp", class: "Mage" },
+  { image: "/avatars/rogue.webp", class: "Rogue" },
 ];
 let currentAvatar = 0;
 

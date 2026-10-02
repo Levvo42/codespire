@@ -7,7 +7,7 @@
     <meta name="description" content="" />
   </head>
 
-  <body>
+  <body class="page-createplayer">
     <header data-site-header></header>
 
     <main class="site-createplayer">
@@ -25,33 +25,46 @@
             id="player-name"
             type="text"
             name="player-name"
+            maxlength="20"
+            required
+            autocomplete="off"
+            aria-describedby="name-error"
           />
-          <p class="site-createplayer-container__label character-class">
+          <p
+            class="site-createplayer-container__error"
+            id="name-error"
+            aria-live="polite"
+          ></p>
+          <p class="site-createplayer-container__label" id="player-class">
             Class: Warrior
           </p>
           <div class="site-createplayer-container__avatar">
             <button
               type="button"
               class="site-createplayer-container__arrow"
+              id="avatar-prev"
               aria-label="Previous avatar"
             >
               &lt;
             </button>
             <img
               class="site-createplayer-container__image"
-              src="/src/assets/images/av1.png"
-              alt="Selected Avatar"
+              id="avatar-image"
+              src="/avatars/warrior.webp"
+              alt="Warrior avatar"
+              width="150"
+              height="150"
             />
             <button
               type="button"
               class="site-createplayer-container__arrow"
+              id="avatar-next"
               aria-label="Next avatar"
             >
               &gt;
             </button>
-            <button type="submit" hidden aria-hidden="true"></button>
           </div>
-          <button type="button" class="site-createplayer-container__play-btn">
+          <button type="submit" class="site-createplayer-container__play-btn">
             Play
           </button>
         </form>
