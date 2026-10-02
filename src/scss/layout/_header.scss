@@ -6,7 +6,7 @@
 // 3. Desktop layout
 // ========================================
 // #region Import variables
-@use "../base/variables" as *;
+@use "/src/scss/base/variables" as *;
 
 // #endregion Import variables
 // ========================================
@@ -39,7 +39,7 @@
   }
 
   // banner overall background
-  background-image: url("../../assets/images/header-banner.jpg");
+  background-image: url("/src/assets/images/header-banner.jpg");
   background-size: 100% 100%;
   opacity: 0.99;
 
@@ -114,7 +114,7 @@
       padding-block: 0.5rem;
       padding-bottom: 1rem;
       padding-inline: 0.1rem;
-      background-image: url("../../assets/images/header-banner.jpg");
+      background-image: url("/src/assets/images/header-banner.jpg");
       opacity: 0.975;
       border-radius: 0.35rem;
 

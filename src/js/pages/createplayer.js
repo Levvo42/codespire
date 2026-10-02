@@ -22,7 +22,7 @@ function updateAvatar() {
 // Save selected avatar on form submit
 const form = document.querySelector(".site-createplayer-container__form");
 form.addEventListener("submit", () => {
-  localStorage.setItem("selectedAvatar", avatars[currentAvatar]);
+  localStorage.setItem("selected-avatar", avatars[currentAvatar]);
 });
 // Loop avatars
 const nextButton = document.querySelector("[aria-label = 'Next avatar']");
@@ -38,7 +38,7 @@ const playButton = document.querySelector(
   ".site-createplayer-container__play-btn",
 );
 playButton.addEventListener("click", () => {
-  localStorage.setItem("selectedAvatar", avatars[currentAvatar]);
+  localStorage.setItem("selected-avatar", avatars[currentAvatar]);
   // Next: singleplayer
-  window.location.href = "./singleplayer.html";
+  window.location.href = "/pages/singleplayer.html";
 });

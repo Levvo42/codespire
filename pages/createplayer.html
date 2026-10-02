@@ -8,34 +8,7 @@
   </head>
 
   <body>
-    <header class="site-header">
-      <img
-        src="/src/assets/images/placeholderlogo.png"
-        loading="eager"
-        class="site-header__logo"
-        alt=""
-      />
-      <nav class="site-header__nav" id="header-navigation">
-        <a href="pages/createplayer.html">Play</a>
-        <a href="http://localhost:5173/">Story</a>
-        <a href="http://localhost:5173/">Shop</a>
-        <a href="pages/tutorial.html">Tutorial</a>
-      </nav>
-      <button
-        class="site-header__menu-button"
-        type="button"
-        aria-expanded="false"
-        aria-controls="header-navigation"
-      >
-        <img
-          src="/src/assets/images/hamburger-menu.png"
-          alt=""
-          height="20"
-          width="20"
-        />
-        <span class="visually-hidden">Menu</span>
-      </button>
-    </header>
+    <header data-site-header></header>
 
     <main class="site-createplayer">
       <p class="site-createplayer__subtitle">Code! Fight! Up!</p>
@@ -98,7 +71,7 @@
       </section>
     </main>
 
-    <footer></footer>
+    <footer data-site-footer></footer>
 
     <script type="module" src="/src/js/pages/createplayer.js"></script>
   </body>

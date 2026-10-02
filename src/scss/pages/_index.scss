@@ -6,7 +6,7 @@
 // 3. Desktop layout
 // ========================================
 // #region Import variables
-@use "../base/variables" as *;
+@use "/src/scss/base/variables" as *;
 
 // #endregion Import variables
 // ========================================
@@ -156,7 +156,7 @@
       z-index: 0;
     }
 
-    &-storyButton {
+    &-story-button {
       cursor: pointer;
       position: relative;
       top: 0;
@@ -277,7 +277,7 @@ p.index-main__pressplay {
       z-index: 0;
     }
 
-    &-storyButton {
+    &-story-button {
       cursor: pointer;
       position: relative;
       top: -17rem;
