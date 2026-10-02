@@ -72,7 +72,7 @@ export function parsePlayer(data) {
   const name = data.name.trim();
   // Gate 4: Ignore names that are 0 or over 20 characters long.
   if (name.length < 1 || name.length > 20) return null;
-  // Gate 5: Check so that level and xp are numbers and not below 1 or above 99. Or xp less then 0.
+  // Gate 5: Check so that level and xp are numbers and not below 1 or above 99. Or xp less than 0.
   if (!Number.isInteger(data.level) || data.level < 1 || data.level > 99)
     return null;
   if (!Number.isInteger(data.xp) || data.xp < 0) return null;
