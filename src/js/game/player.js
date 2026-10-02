@@ -3,7 +3,6 @@
 // ========================================
 // #region Data
 export const SAVE_VERSION = 1;
-export const TOWERS = ["html", "css", "javascript", "python", "csharp"];
 export const DIFFICULTIES = ["EASY", "MEDIUM", "HARD"];
 export const AVATARS = ["warrior", "mage", "rogue"];
 
@@ -38,6 +37,7 @@ export const TOWER_INFO = {
   python: { name: "Python", available: false },
   csharp: { name: "C#", available: false },
 };
+export const TOWERS = Object.keys(TOWER_INFO);
 export const CLASSES = Object.keys(CLASS_STATS);
 export const ITEMS = Object.keys(ITEM_INFO);
 export const NAME_MAX_LENGTH = 20;

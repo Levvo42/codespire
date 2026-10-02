@@ -134,5 +134,5 @@ if (player) {
   showPlayer(player);
   showStats(player);
   showInventory(player);
-  showTower(player);
+  showTower();
 }
