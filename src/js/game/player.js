@@ -3,7 +3,6 @@
 // ========================================
 // #region Data
 export const SAVE_VERSION = 1;
-export const TOWERS = ["html", "css", "javascript", "python", "csharp"];
 export const DIFFICULTIES = ["EASY", "MEDIUM", "HARD"];
 export const AVATARS = ["warrior", "mage", "rogue"];
 
@@ -31,6 +30,14 @@ export const CLASS_STATS = {
 export const ITEM_INFO = {
   healthPotion: { name: "Health Potion" },
 };
+export const TOWER_INFO = {
+  html: { name: "HTML", available: true },
+  css: { name: "CSS", available: false },
+  javascript: { name: "JavaScript", available: false },
+  python: { name: "Python", available: false },
+  csharp: { name: "C#", available: false },
+};
+export const TOWERS = Object.keys(TOWER_INFO);
 export const CLASSES = Object.keys(CLASS_STATS);
 export const ITEMS = Object.keys(ITEM_INFO);
 export const NAME_MAX_LENGTH = 20;
@@ -128,7 +135,15 @@ export function parsePlayer(data) {
 
   return player;
 }
+// Returns the next difficulty to play in a tower, or null if all are cleared.
+export function getNextDifficulty(player, tower) {
+  const cleared = player.clearedLevels[tower];
+  if (cleared === null) return DIFFICULTIES[0]; // nothing cleared → EASY
 
+  const nextIndex = DIFFICULTIES.indexOf(cleared) + 1;
+  if (nextIndex >= DIFFICULTIES.length) return null; // HARD cleared → done
+  return DIFFICULTIES[nextIndex];
+}
 // #endregion Player creation / loading
 // ========================================
 
