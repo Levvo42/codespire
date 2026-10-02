@@ -3,6 +3,9 @@
 // The stylesheet is imported here, not in each page script, so that no page
 // can forget it. Vite compiles the SCSS it finds through JS imports.
 import "../scss/style.scss";
+import { templateHeaderFooter } from "./components/headerFooter.js";
+
+templateHeaderFooter();
 
 // ========================================
 // #region Variables

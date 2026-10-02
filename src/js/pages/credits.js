@@ -4,7 +4,7 @@ import "../main.js";
 
 window.addEventListener("load", () => {
   const music = document.getElementById("music");
-  const playBtn = document.getElementById("playBtn");
+  const playBtn = document.getElementById("play-btn");
   music.volume = 0.4;
 
   music.play().catch(() => {
