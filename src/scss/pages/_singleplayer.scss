@@ -8,12 +8,44 @@
 // #region Import variables
 @use "../base/variables" as *;
 
+// 1 = normal speed, 1.2 = 20% slower, 0.8 = 20% faster.
+// Change ANIMATION_SPEED in battle-screen.js to the same number.
+$animation-speed: 1.5;
+
+// Stone frame around the monster
+// monster_border_square.png: the outlines (a square version of monster_border.png)
+// monster_border_mask.png: the same stones filled in, so the colour stays inside them
+$frame-image: url("../../assets/images/monster_border_square.png");
+$frame-mask: url("../../assets/images/monster_border_mask.png");
+$frame-size: min(100cqh, 100cqw); // as big as the scene allows, always square
+// the stones' inner edge is at 13–15% of the frame, so the picture tucks under them
+$frame-picture-inset: calc(#{$frame-size} * 0.125);
+$frame-stone-color: #a8844e; // antique bronze
+// other colours to try: #8a8f96 grey stone, #7a2e24 blood red, #4f6b3a mossy green
+
+// phones shorter than this (iPhone SE, small Androids) get the compact layout
+$short-screen: 45rem;
+$very-short-screen: 41rem;
+
+// goblin raid colours
+$raid-green: #8be04e;
+$raid-green-dark: #5f8a3a;
+$raid-glow: rgb(90 200 60);
+
 // same gold + glow as the header/footer
 $gold-border: rgb(218 165 32 / 64.4%);
 $panel-bg: rgb(0 0 0 / 60%);
 $glow:
   0 0 6px #f7f200,
   0 0 14px #704900a1;
+
+// Lets the heart fill slide instead of jump.
+// (Browsers without @property support simply jump.)
+@property --fill {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
 
 // #endregion Import variables
 // ========================================
@@ -39,8 +71,12 @@ $glow:
 
   // height of the stats, player and inventory row: about a third of the screen
   --panel-h: clamp(9rem, 26dvh, 16rem);
+  --panel-min: 5.5rem; // the panels never get smaller than the health card
   --gap: 0.5rem; // space between the sections
   --scene-min: 4rem; // smallest the monster scene may get
+  --dialog-h: 3.5rem; // question box: two lines (longer questions get smaller text)
+  --button-hang: 1.25rem; // result only: room for the button that hangs over the box edge
+  --answer-h: 2.9rem; // every answer button is this tall (two lines), so they all match
   --tab-w: 2.75rem; // width of the side tabs (same as lobby)
 
   // flex 1 fills the space under the header
@@ -54,16 +90,71 @@ $glow:
     "answers"
     "panels";
 
-  // answers row: as tall as its content, but shrinks (and scrolls) when space runs out
+  // dialog row: a fixed height, so showing the result never moves the monster
+  // answers row: always as tall as all its answers (never scrolls)
+  // panels row: up to --panel-h, but gives way down to --panel-min when space
+  // runs out (the health card stays visible, the rest scrolls inside the panel)
   grid-template-rows:
-    auto minmax(var(--scene-min), 1fr) auto minmax(0, auto)
-    var(--panel-h);
+    auto minmax(var(--scene-min), 1fr) var(--dialog-h)
+    auto minmax(var(--panel-min), var(--panel-h));
   gap: var(--gap);
   padding: var(--gap) var(--pad) 1.6rem;
   overflow: hidden auto; // x: hide panels off screen, y: last resort on tiny screens
+  position: relative; // for the red "hurt" flash below
+
+  // The hidden attribute always wins. Without this, a class with a display
+  // rule (like the answer buttons' flex) would still show what JS hides,
+  // e.g. empty [C] and [D] buttons on a true/false question.
+  [hidden] {
+    display: none !important;
+  }
+
+  // Red flash over the page when the player is hit (JS adds --hurt)
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    background: radial-gradient(transparent 45%, rgb(200 0 0 / 55%));
+    opacity: 0;
+  }
+
+  // Result showing: the (locked) answers are hidden and the box shrinks to fit
+  // its text, so the monster gets the freed space. Long explanations scroll.
+  // (two classes, so it also beats --dialog-h in the media queries below)
+  &.site-singleplayer--result {
+    --dialog-h: auto;
+  }
+
+  &--result &__dialog {
+    grid-row: dialog-start / answers-end; // takes over the empty answers row and its gap
+    margin-bottom: var(--button-hang); // room for the button that hangs below
+  }
+
+  &--result &__dialog-text {
+    max-height: 25dvh;
+  }
+
+  &--result &__answers {
+    display: none;
+  }
+
+  &--hurt {
+    animation: screen-shake 0.45s * $animation-speed ease-out;
+
+    &::after {
+      animation: hurt-flash 0.45s * $animation-speed ease-out;
+    }
+  }
 
   // difficulty, tower level, boss name, boss health
   &__boss {
+    // new monster: the banner drops in
+    &--enter {
+      animation: drop-in 0.5s * $animation-speed ease-out;
+    }
+
     grid-area: boss;
     display: grid;
     grid-template:
@@ -120,6 +211,11 @@ $glow:
     font-weight: lighter;
     font-size: 1.2rem;
     color: goldenrod;
+
+    &--loading {
+      animation: loading-pulse 0.8s * $animation-speed ease-in-out infinite
+        alternate;
+    }
   }
 
   &__boss-health {
@@ -153,6 +249,17 @@ $glow:
     );
     background-clip: text;
     color: transparent;
+    display: inline-block; // so it can scale when it pops
+    transition: --fill 0.6s * $animation-speed ease;
+
+    // JS adds these when a heart loses or gains health
+    &--lost {
+      animation: heart-lost 0.6s * $animation-speed ease;
+    }
+
+    &--gained {
+      animation: heart-gained 0.6s * $animation-speed ease;
+    }
   }
 
   // Scene
@@ -163,16 +270,184 @@ $glow:
     align-items: end;
     min-height: 0;
     container-type: size; // lets the images below use cqh (% of the scene height)
+    position: relative; // for the goblin raid banner and speech bubbles
+    transition: filter 0.8s * $animation-speed ease; // greys out when the player falls
   }
 
-  // API images come in different sizes and shapes:
-  // shrink to fit the scene, never stretch or crop
+  // ---- Goblin raid (the rare all-goblin climb, see ui/goblin-raid.js) ----
+  // JS adds --raid to main: mossy stones with a pulsing green glow, green names
+  &--raid &__frame {
+    filter: drop-shadow(0 0 0.5rem $raid-glow);
+    animation: raid-glow 1.6s ease-in-out infinite alternate;
+  }
+
+  &--raid &__frame::before {
+    background-color: $raid-green-dark;
+  }
+
+  &--raid &__boss-name {
+    color: $raid-green;
+  }
+
+  // "Goblin raid!" warning over the scene (JS removes it after a few seconds)
+  &__raid-banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 6;
+    display: grid;
+    gap: 0.25rem;
+    width: max-content;
+    max-width: 90%;
+    margin: 0;
+    padding: 0.5rem 1.25rem;
+    border: 2px solid $raid-green;
+    border-radius: 0.5rem;
+    background-color: rgb(10 30 5 / 92%);
+    color: #e2ffd0;
+    text-align: center;
+    translate: -50% -50%;
+    animation: raid-banner 2.8s ease forwards;
+
+    strong {
+      font-family: rpgFont, sans-serif;
+      font-size: 1.75rem;
+      color: $raid-green;
+      text-shadow:
+        0 0 6px $raid-green,
+        2px 2px black;
+    }
+
+    span {
+      font-size: 0.85rem;
+    }
+  }
+
+  // Comic speech bubble over the goblin (JS removes it after a few seconds)
+  &__goblin-talk {
+    position: absolute;
+    top: 0.25rem;
+    left: 50%;
+    z-index: 5;
+    width: max-content;
+    max-width: min(80%, 16rem);
+    margin: 0;
+    padding: 0.35rem 0.7rem;
+    border: 2px solid #1a1a1a;
+    border-radius: 1rem;
+    background-color: #f5f1e0;
+    color: #1a1a1a;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+    translate: -50% 0;
+    pointer-events: none;
+    animation: goblin-talk 4.5s ease forwards; // same as TALK_MS in goblin-raid.js
+
+    // the little tail pointing down at the goblin
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      border: 0.45rem solid transparent;
+      border-top-color: #1a1a1a;
+      translate: -50% 0;
+    }
+  }
+
+  // Square stone frame; the monster picture sits inside it.
+  // Both layers stretch over the whole frame, so they always line up.
+  &__frame {
+    position: relative;
+    width: $frame-size;
+    aspect-ratio: 1; // D&D monster pictures are square
+    padding: $frame-picture-inset; // keeps the picture inside the stones
+    overflow: hidden; // the monster's animations stay inside the frame
+    isolation: isolate; // the z-index below only counts inside the frame
+    transition: width 0.4s * $animation-speed ease; // grows/shrinks smoothly with the result box
+
+    // stone colour: the mask lets the colour through only where there are stones
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1; // always above the picture, also while it animates
+      background-color: $frame-stone-color;
+      mask: $frame-mask center / 100% 100% no-repeat;
+      pointer-events: none;
+    }
+
+    // the outlines and shading, on top of the colour
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: $frame-image center / 100% 100% no-repeat;
+      pointer-events: none;
+    }
+  }
+
   &__monster {
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 100cqh;
-    object-fit: contain;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // fills the frame (non-square pictures lose a little edge)
+
+    // JS adds these: a new monster appears, gets hit, gets a crit, is defeated
+    &--enter {
+      animation: monster-enter 0.5s * $animation-speed ease-out;
+    }
+
+    &--hit {
+      animation: monster-hit 0.4s * $animation-speed ease-out;
+    }
+
+    &--crit {
+      animation: monster-crit 0.55s * $animation-speed ease-out;
+    }
+
+    &--defeated {
+      opacity: 0.15;
+      filter: grayscale(1);
+      animation: monster-defeated 0.8s * $animation-speed ease-in;
+    }
+
+    // while the next monster loads (keeps its space so nothing jumps)
+    &--hidden {
+      visibility: hidden;
+    }
+  }
+
+  // "-34" floating up from the hit (created by JS, removed when done)
+  // (on the monster it sits inside the frame, above the stone layers)
+  &__damage {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    z-index: 4;
+    font-family: rpgFont, sans-serif;
+    font-size: 2rem;
+    color: #d10000;
+    text-shadow:
+      2px 2px black,
+      0 0 6px black;
+    pointer-events: none;
+    animation: damage-float 0.9s * $animation-speed ease-out forwards;
+
+    &--crit {
+      font-size: 2.75rem;
+      color: gold;
+      text-shadow:
+        2px 2px black,
+        0 0 12px #f7f200;
+    }
+
+    &--player {
+      top: -0.5rem;
+      color: #ff6060;
+    }
   }
 
   // torches only show on desktop
@@ -182,58 +457,114 @@ $glow:
 
   // Dialog
   // questions and answers will stay default font so code texts becomes easier to read
+  // Question box. After answering it grows over the (locked) answers to show
+  // the whole result (JS adds --result to main), so nothing else moves.
   &__dialog {
     grid-area: dialog;
-    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; // a short question sits in the middle
+    height: var(--dialog-h);
+    padding: 0.5rem 0.75rem;
     border: 2px groove $gold-border;
     border-radius: 0.5rem;
     background-color: rgb(0 0 0 / 85%);
     color: $navlinkcolor;
     text-align: center;
-
-    // room under the box only while Next / Try again is showing
-    &:has(.site-singleplayer__button:not([hidden])) {
-      margin-bottom: 1.5rem;
-    }
   }
 
-  &__feedback {
-    margin-block: 0 0.25rem;
-    font-family: rpgFont, sans-serif;
-    font-size: 1.25rem;
+  // Each line fades in when it appears (also when it is shown again)
+  &__feedback,
+  &__roll,
+  &__explanation,
+  &__question {
+    animation: line-in 0.3s * $animation-speed ease-out both;
   }
 
   &__roll {
-    margin: 0 0 0.25rem;
+    animation-delay: 0.1s * $animation-speed;
   }
 
-  // long questions scroll inside the box instead of pushing the page down,
-  // and long code (no spaces) can break anywhere instead of overflowing
+  &__explanation {
+    animation-delay: 0.2s * $animation-speed;
+  }
+
+  &__feedback {
+    margin-block: 0 0.15rem;
+    font-family: rpgFont, sans-serif;
+    font-size: 1.1rem;
+
+    &--cleared {
+      animation: cleared-glow 1.2s * $animation-speed ease-in-out infinite
+        alternate;
+    }
+
+    &--correct {
+      color: #b6ff6e;
+    }
+
+    &--wrong {
+      color: #ff6060;
+    }
+  }
+
+  // damage line for this turn
+  &__roll {
+    margin: 0 0 0.15rem;
+    font-weight: bold;
+  }
+
+  &__roll,
+  &__explanation {
+    font-size: 0.85rem;
+  }
+
+  // Damage line, explanation and question scroll together inside the box,
+  // so long text never pushes the page down. "Correct!" and the button stay put.
+  &__dialog-text {
+    flex: 0 1 auto; // shrinks to the space left, then scrolls
+    min-height: 0;
+    overflow-y: auto;
+    overflow-wrap: anywhere; // long code (no spaces) breaks instead of overflowing
+    scrollbar-color: goldenrod transparent;
+    scrollbar-width: thin;
+    line-height: 1.4;
+
+    // JS adds --more while there is text below (phones hide scrollbars):
+    // a soft gold glow along the bottom edge
+    &--more {
+      box-shadow: inset 0 -0.6rem 0.5rem -0.5rem goldenrod;
+    }
+  }
+
   &__explanation,
   &__question {
-    max-height: 18dvh; // phones: bigger on tablet/desktop
     margin: 0;
-    overflow-y: auto;
-    overflow-wrap: anywhere;
   }
 
   &__question {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    line-height: 1.25; // three lines fit in the phone box
   }
 
   // sits on the bottom edge of the dialog, similar to the wireframes (currently hidden)
   &__button {
-    position: relative;
-    top: 2rem;
-    padding: 0.4rem 2rem;
+    display: block;
+    width: fit-content;
+
+    // hangs half over the bottom edge without taking up space inside the box
+    margin: auto auto -1.75rem; // auto top: always at the bottom edge
+    padding: 0.3rem 1.5rem;
+    min-width: 9.5rem; // Next question / Next monster / Try again: all the same size
     border: 2px groove $gold-border;
-    border-radius: 0.5rem 0.7rem 1.6rem;
+    border-radius: 0.5rem; // same rounding as the answer buttons
     background-color: #1e1e1e;
     color: $navlinkcolor;
     font-family: rpgFont, sans-serif;
-    font-size: 1.25rem;
+    font-size: 1.05rem;
     text-shadow: $glow;
     cursor: pointer;
+    animation: button-pop 0.35s * $animation-speed ease-out; // plays every time it appears
 
     &:hover,
     &:focus-visible {
@@ -245,41 +576,75 @@ $glow:
   &__answers {
     grid-area: answers;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr; // 2 × 2 on every screen size
     gap: var(--gap);
-    min-height: 0;
-    overflow-y: auto; // long answers scroll here, the panels stay visible
-    scrollbar-color: goldenrod transparent;
-    scrollbar-width: thin;
-    font-size: 0.95rem;
+    grid-auto-rows: 1fr; // every answer in a question gets the same height
+    font-size: 0.85rem;
+
+    // JS adds --list when an answer is a whole sentence: one answer per row,
+    // and rows only as tall as their own text
+    // (smaller text and padding: four rows must still leave room for the monster)
+    &--list {
+      --answer-h: 1.6rem;
+
+      grid-template-columns: 1fr;
+      grid-auto-rows: auto;
+      font-size: 0.8rem;
+
+      .site-singleplayer__answer {
+        padding-block: 0.2rem;
+        line-height: 1.2;
+      }
+    }
   }
 
+  // JS shrinks the text of long answers (fit-text.js), so a button never needs
+  // more than two lines and all buttons look the same
   &__answer {
-    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center; // one-line answers sit in the middle of the button
+    min-height: var(--answer-h);
+    padding: 0.3rem 0.6rem;
     border: 2px solid transparent;
     border-radius: 0.5rem;
     background-color: rgb(20 20 20 / 90%);
     color: $navlinkcolor;
     font: inherit;
     font-weight: bold;
-    line-height: 1.3;
+    line-height: 1.25;
     text-align: start;
     overflow-wrap: anywhere;
     cursor: pointer;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease;
 
     &:hover,
     &:focus-visible {
       border-color: goldenrod;
     }
 
+    // new question: answers slide in one after another (JS sets --i)
+    &--enter {
+      animation: answer-enter 0.35s * $animation-speed ease-out both;
+      animation-delay: calc(var(--i, 0) * #{60ms * $animation-speed});
+    }
+
+    // locked after answering, until the next question
+    &:disabled {
+      cursor: default;
+    }
+
     &--correct {
       background-color: #b6ff6e;
       color: black;
+      animation: answer-correct 0.4s * $animation-speed ease-out;
     }
 
     &--wrong {
       background-color: #ff6060;
       color: black;
+      animation: answer-wrong 0.4s * $animation-speed ease-out;
     }
   }
 
@@ -341,11 +706,80 @@ $glow:
     }
   }
 
+  // Health first (it matters most in a fight), then avatar and name/class/level.
+  // When the panel is squeezed, the part below the health card scrolls.
   &__player-content {
     grid-area: 1 / 2;
+    display: flex;
+    flex-direction: column;
     min-height: 0;
     padding: 1rem;
     overflow-y: auto;
+
+    h2 {
+      order: -2;
+    }
+  }
+
+  // avatar | name, class, level, XP (same look as the lobby)
+  &__player-details {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+
+    .site-singleplayer__info {
+      margin: 0;
+    }
+  }
+
+  &__avatar {
+    width: 6rem;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 2px solid rgb(255 174 0);
+    border-radius: 0.5rem;
+  }
+
+  // label | value lists (stats, player, inventory), same look as the lobby
+  &__info {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr); // values may shrink (and wrap)
+    gap: 0.25rem 1rem;
+    margin: 0 0 0.5rem;
+
+    dt {
+      color: rgb(242 233 216 / 70%); // dimmer, so the values stand out
+    }
+
+    dd {
+      margin: 0; // removes the browser's 40px indent
+      font-weight: 600;
+      text-transform: capitalize;
+
+      // long hero names end in "…" instead of hiding under the tab
+      // (one line, so the panel keeps its height; JS puts the full name in title)
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  // Usable items in the inventory (health potion)
+  &__item-button {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:disabled {
+      text-decoration: none;
+      cursor: default;
+    }
   }
 
   // Side tabs on the player. z-index 2 keeps them above the
@@ -382,16 +816,403 @@ $glow:
     gap: 0.5rem;
     justify-content: center;
     align-items: center;
-    margin: 0;
+    order: -1; // first in the panel (see __player-content)
+    flex-shrink: 0; // never squeezed when the panel gives way
+    margin: 0 0 0.5rem;
     padding: 0.25rem 1rem;
     border: 2px groove $gold-border;
     border-radius: 0.5rem;
     background-color: rgb(0 0 0 / 60%);
     color: $navlinkcolor;
+    position: relative; // for the floating damage number
+
+    // JS adds --low at 30% health or less
+    &--low {
+      border-color: #ff6060;
+      animation: low-health-pulse 1s * $animation-speed ease-in-out infinite
+        alternate;
+    }
+
+    // JS adds --hit when a wrong answer hurts the player
+    &--hit {
+      animation: shake 0.4s * $animation-speed ease-out;
+    }
   }
 }
 
+// Player fell: the scene greys out until the next climb
+.site-singleplayer--defeated .site-singleplayer__scene {
+  filter: grayscale(1) brightness(0.6);
+}
+
 // #endregion Mobile
+// ========================================
+// #region Short phones
+// iPhone SE and other short screens: everything a bit tighter and the answers
+// in a 2 × 2 grid, so all four fit and the monster keeps some room.
+@media (width < #{$breakpoint-tablet}) and (height < #{$short-screen}) {
+  .site-singleplayer {
+    --panel-h: 12rem; // enough for the health card, avatar and name/class/level/XP
+    --gap: 0.4rem;
+
+    &__encounter,
+    &__boss-name,
+    &__boss-health {
+      padding-block: 0.1rem;
+    }
+
+    &__difficulty,
+    &__tower-level {
+      padding-block: 0.1rem;
+      font-size: 0.85rem;
+    }
+
+    &__boss-name {
+      font-size: 1.05rem;
+    }
+
+    &__hearts {
+      font-size: 1.2rem;
+    }
+
+    &__dialog {
+      padding: 0.5rem;
+    }
+
+    &__panel,
+    &__player-content {
+      padding-block: 0.5rem;
+
+      h2 {
+        margin-bottom: 0.25rem;
+        font-size: 1.1rem;
+      }
+    }
+
+    &__player-content {
+      // "Player" is only hidden on screen (screen readers still read it),
+      // the panel is obviously the player's and the monster needs the room
+      h2 {
+        // same as .visually-hidden in base/_accessibility.scss
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip-path: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    }
+
+    &__avatar {
+      width: 4.5rem;
+    }
+
+    &__player-details {
+      gap: 0.5rem;
+
+      .site-singleplayer__info {
+        gap: 0 0.5rem; // narrow panel: more room for long hero names
+      }
+    }
+  }
+}
+
+// Very short screens (iPhone SE in Safari, ~550px): the player panel keeps
+// only the health card, so the answers and the monster still fit.
+// Name, class, level and XP stay on taller phones (and in the lobby).
+@media (width < #{$breakpoint-tablet}) and (height < #{$very-short-screen}) {
+  .site-singleplayer {
+    --panel-h: 5rem;
+    --panel-min: 5rem;
+
+    padding-bottom: var(--gap);
+
+    &__player-details {
+      display: none;
+    }
+
+    &__player-health {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Narrow phones (about 350px and less): questions wrap sooner, so the
+// question box gets a third line (JS reads the box height to fit the text)
+@media (width < 22rem) {
+  .site-singleplayer {
+    --dialog-h: 4.75rem;
+  }
+}
+
+// #endregion Short phones
+// ========================================
+// #region Animations
+
+@keyframes low-health-pulse {
+  to {
+    box-shadow: 0 0 0.75rem #ff6060;
+  }
+}
+
+@keyframes heart-lost {
+  40% {
+    transform: scale(1.4);
+    filter: drop-shadow(0 0 0.3rem #ff2020);
+  }
+}
+
+@keyframes heart-gained {
+  40% {
+    transform: scale(1.4);
+    filter: drop-shadow(0 0 0.3rem #6eff6e);
+  }
+}
+
+@keyframes monster-enter {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem) scale(0.85);
+  }
+}
+
+@keyframes monster-hit {
+  10% {
+    filter: brightness(2.5);
+  }
+
+  20%,
+  60% {
+    transform: translateX(-0.5rem);
+  }
+
+  40%,
+  80% {
+    transform: translateX(0.5rem);
+  }
+}
+
+@keyframes monster-crit {
+  10% {
+    filter: brightness(3) drop-shadow(0 0 1rem gold);
+    transform: scale(1.12);
+  }
+
+  30%,
+  70% {
+    transform: translateX(-0.8rem) rotate(-3deg);
+  }
+
+  50%,
+  90% {
+    transform: translateX(0.8rem) rotate(3deg);
+  }
+}
+
+@keyframes monster-defeated {
+  from {
+    opacity: 1;
+    filter: none;
+  }
+
+  to {
+    opacity: 0.15;
+    transform: translateY(1.5rem) scale(0.85);
+    filter: grayscale(1);
+  }
+}
+
+@keyframes damage-float {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(0.8);
+  }
+
+  20% {
+    transform: translate(-50%, -0.5rem) scale(1.2);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -3rem) scale(1);
+  }
+}
+
+@keyframes screen-shake {
+  20%,
+  60% {
+    transform: translateX(-0.3rem);
+  }
+
+  40%,
+  80% {
+    transform: translateX(0.3rem);
+  }
+}
+
+@keyframes hurt-flash {
+  15% {
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  25%,
+  75% {
+    transform: translateX(-0.4rem);
+  }
+
+  50% {
+    transform: translateX(0.4rem);
+  }
+}
+
+@keyframes drop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.75rem);
+  }
+}
+
+@keyframes loading-pulse {
+  to {
+    opacity: 0.4;
+  }
+}
+
+@keyframes line-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+}
+
+@keyframes cleared-glow {
+  to {
+    text-shadow:
+      0 0 0.5rem gold,
+      0 0 1.25rem #f7f200;
+  }
+}
+
+@keyframes button-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+
+  70% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes answer-enter {
+  from {
+    opacity: 0;
+    transform: translateX(-1rem);
+  }
+}
+
+@keyframes answer-correct {
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes answer-wrong {
+  25%,
+  75% {
+    transform: translateX(-0.3rem);
+  }
+
+  50% {
+    transform: translateX(0.3rem);
+  }
+}
+
+@keyframes raid-banner {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-8deg);
+  }
+
+  12% {
+    opacity: 1;
+    transform: scale(1.15) rotate(3deg);
+  }
+
+  18%,
+  30% {
+    transform: scale(1) rotate(-2deg);
+  }
+
+  24%,
+  36% {
+    transform: scale(1) rotate(2deg);
+  }
+
+  42%,
+  85% {
+    opacity: 1;
+    transform: none;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+}
+
+@keyframes raid-glow {
+  to {
+    filter: drop-shadow(0 0 1.1rem $raid-glow);
+  }
+}
+
+@keyframes goblin-talk {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  10% {
+    opacity: 1;
+    transform: scale(1.1) rotate(-3deg);
+  }
+
+  16%,
+  85% {
+    opacity: 1;
+    transform: none;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes torch-flicker {
+  to {
+    filter: brightness(1.25) drop-shadow(0 0 0.5rem orange);
+  }
+}
+
+// People who turned off animations in their system settings get none
+// (JS also skips its pauses and number counting for them)
+@media (prefers-reduced-motion: reduce) {
+  .site-singleplayer,
+  .site-singleplayer *,
+  .site-singleplayer::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+// #endregion Animations
+// ========================================
 // ========================================
 // #region Tablet
 // Panels: two columns, a side panel (inventory slides over stats) + player.
@@ -400,6 +1221,9 @@ $glow:
     --panel-h: 15rem;
     --gap: 1rem;
     --scene-min: 5rem;
+    --dialog-h: 4.25rem;
+    --button-hang: 1.5rem; // the bigger button hangs a bit further
+    --panel-min: 8.5rem; // heading + health card
 
     &__boss-name {
       font-size: 1.5rem;
@@ -410,13 +1234,27 @@ $glow:
       font-size: 1.1rem;
     }
 
-    &__explanation,
-    &__question {
-      max-height: 30dvh;
+    // more room on tablet/desktop: back to full size
+    &__dialog {
+      padding: 0.75rem;
     }
 
+    &__feedback {
+      margin-bottom: 0.25rem;
+      font-size: 1.25rem;
+    }
+
+    &__roll,
+    &__explanation,
     &__question {
       font-size: 1rem;
+    }
+
+    &__button {
+      min-width: 11rem;
+      margin: auto auto -2rem;
+      padding: 0.4rem 2rem;
+      font-size: 1.25rem;
     }
 
     &__answers {
@@ -424,7 +1262,9 @@ $glow:
     }
 
     &__answer {
-      padding-block: 0.75rem;
+      --answer-h: 3rem;
+
+      padding-block: 0.6rem;
     }
 
     &__answers {
@@ -477,13 +1317,26 @@ $glow:
 @media (width >= #{$breakpoint-desktop}) {
   .site-singleplayer {
     --pad: 3rem;
-    --panel-h: clamp(9rem, 24dvh, 13rem);
+    --panel-h: clamp(11rem, 28dvh, 15rem); // room for the avatar row
 
     // Making sure dialog and answers don't strech across wide screens
     &__dialog,
     &__answers {
       justify-self: center;
       width: min(100%, 60rem);
+    }
+
+    // Wide enough for all answers in one row (one column per answer shown)
+    &__answers {
+      grid-template-columns: none;
+      grid-auto-columns: 1fr;
+      grid-auto-flow: column;
+
+      // whole-sentence answers: two per row instead
+      &--list {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-flow: row;
+      }
     }
 
     &__scene {
@@ -498,6 +1351,8 @@ $glow:
       height: auto;
       max-height: 100cqh;
       object-fit: contain;
+      animation: torch-flicker 1.8s * $animation-speed ease-in-out infinite
+        alternate;
     }
 
     &__panels {

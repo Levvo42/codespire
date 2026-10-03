@@ -3,7 +3,6 @@
 // ========================================
 // #region Data
 export const SAVE_VERSION = 1;
-export const TOWERS = ["html", "css", "javascript", "python", "csharp"];
 export const DIFFICULTIES = ["EASY", "MEDIUM", "HARD"];
 export const AVATARS = ["warrior", "mage", "rogue"];
 
@@ -29,11 +28,29 @@ export const CLASS_STATS = {
   },
 };
 export const ITEM_INFO = {
-  healthPotion: { name: "Health Potion" },
+  healthPotion: { name: "Health Potion", healShare: 0.3 },
 };
+export const TOWER_INFO = {
+  html: { name: "HTML", available: true },
+  css: { name: "CSS", available: false },
+  javascript: { name: "JavaScript", available: false },
+  python: { name: "Python", available: false },
+  csharp: { name: "C#", available: false },
+};
+export const TOWERS = Object.keys(TOWER_INFO);
 export const CLASSES = Object.keys(CLASS_STATS);
 export const ITEMS = Object.keys(ITEM_INFO);
+
+// Loot: drop chance per kill (0.1 = 10%), multiplied by the floor's lootMultiplier
+export const LOOT_TABLE = {
+  healthPotion: 0.1,
+};
 export const NAME_MAX_LENGTH = 20;
+
+// XP and levels
+const XP_SCALE = 0.1;
+const XP_PER_LEVEL = 1000;
+const MAX_LEVEL = 99;
 
 // #endregion Data
 // ========================================
@@ -128,7 +145,15 @@ export function parsePlayer(data) {
 
   return player;
 }
+// Returns the next difficulty to play in a tower, or null if all are cleared.
+export function getNextDifficulty(player, tower) {
+  const cleared = player.clearedLevels[tower];
+  if (cleared === null) return DIFFICULTIES[0]; // nothing cleared → EASY
 
+  const nextIndex = DIFFICULTIES.indexOf(cleared) + 1;
+  if (nextIndex >= DIFFICULTIES.length) return null; // HARD cleared → done
+  return DIFFICULTIES[nextIndex];
+}
 // #endregion Player creation / loading
 // ========================================
 
@@ -142,4 +167,67 @@ export function getStat(player, stat) {
   );
 }
 // #endregion Stats
+// ========================================
+// #region Progress
+// Monster XP (D&D scale) to player XP.
+export function toPlayerXp(monsterXp) {
+  return Math.max(Math.round(monsterXp * XP_SCALE), 1);
+}
+
+// Adds XP, levels up, returns how many levels were gained.
+export function addXp(player, monsterXp) {
+  player.xp += toPlayerXp(monsterXp);
+  let levelsGained = 0;
+
+  while (player.level < MAX_LEVEL && player.xp >= player.level * XP_PER_LEVEL) {
+    player.xp -= player.level * XP_PER_LEVEL;
+    player.level += 1;
+    levelsGained += 1;
+  }
+
+  return levelsGained;
+}
+
+// XP needed for the next level, or null at max level.
+export function getXpToNextLevel(player) {
+  if (player.level >= MAX_LEVEL) return null;
+  return player.level * XP_PER_LEVEL;
+}
+
+// Saves the highest cleared difficulty of a tower (never goes down).
+export function markCleared(player, tower, difficulty) {
+  const current = player.clearedLevels[tower];
+
+  if (
+    current === null ||
+    DIFFICULTIES.indexOf(difficulty) > DIFFICULTIES.indexOf(current)
+  ) {
+    player.clearedLevels[tower] = difficulty;
+  }
+}
+// #endregion Progress
+// ========================================
+// #region Items
+// Uses one potion. Returns false if there are none left.
+export function usePotion(player) {
+  if (player.inventory.healthPotion < 1) return false;
+
+  player.inventory.healthPotion -= 1;
+  return true;
+}
+
+// Rolls each item in the loot table, adds the drops, returns the dropped items.
+export function rollLoot(player, lootMultiplier) {
+  const loot = [];
+
+  for (const item of Object.keys(LOOT_TABLE)) {
+    if (Math.random() < LOOT_TABLE[item] * lootMultiplier) {
+      player.inventory[item] += 1;
+      loot.push(item);
+    }
+  }
+
+  return loot;
+}
+// #endregion Items
 // ========================================

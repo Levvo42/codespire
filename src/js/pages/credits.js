@@ -1,6 +1,7 @@
 // Entry script for pages/credits.html.
 // Wiring only: import from game/, ui/ and api/, then start. No rules here.
 import "../main.js";
+import { loadSettings } from "../game/settings.js";
 
 import playIcon from "../../assets/icons/sound-on.svg";
 import pauseIcon from "../../assets/icons/sound-off.svg";
@@ -8,7 +9,11 @@ import pauseIcon from "../../assets/icons/sound-off.svg";
 // #region Elements
 const music = document.getElementById("music");
 const playBtn = document.getElementById("play-btn");
-music.volume = 0.4;
+music.volume = loadSettings().volume;
+document.addEventListener(
+  "volume-change",
+  (event) => (music.volume = event.detail),
+);
 // #endregion Elements
 
 // #region Sound toggle icon

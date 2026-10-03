@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Dark default page until the SCSS loads (no white flash on refresh) -->
+    <meta name="color-scheme" content="dark" />
     <title>CodeSpire — Singleplayer</title>
     <meta
       name="description"
@@ -64,15 +66,17 @@
           width="64"
           height="128"
         />
-        <!-- Replace PLACEHOLDER image with better monster image -->
-        <img
-          class="site-singleplayer__monster"
-          src="/src/assets/images/placeholderlogo.png"
-          alt="Monster"
-          data-js="monster-image"
-          width="158"
-          height="50"
-        />
+        <!-- Stone frame around the monster (drawn in CSS, so it can be tinted) -->
+        <div class="site-singleplayer__frame" data-js="monster-frame">
+          <img
+            class="site-singleplayer__monster"
+            src="/src/assets/images/placeholderlogo.png"
+            alt="Monster"
+            data-js="monster-image"
+            width="158"
+            height="50"
+          />
+        </div>
         <img
           class="site-singleplayer__torch site-singleplayer__torch--right"
           src="/src/assets/images/placeholder_torch.png"
@@ -84,21 +88,33 @@
 
       <!-- Question, feedback answers (correct / wrong) and next button -->
       <!-- Aria-live polite tells a screen reader to wait until the user pauses their current task before announcing dynamic content updates -->
-      <section class="site-singleplayer__dialog" aria-live="polite">
+      <!-- tabindex="-1": JS can keep keyboard focus here while an answer plays out -->
+      <section
+        class="site-singleplayer__dialog"
+        aria-live="polite"
+        tabindex="-1"
+      >
         <p class="site-singleplayer__feedback" data-js="feedback" hidden>
           CORRECT!
         </p>
-        <!-- This turn's D20 roll and damage, e.g. "D20: 14 → You hit for 42 damage" -->
-        <p class="site-singleplayer__roll" data-js="roll" hidden>
-          D20: 14 → You hit the boss for 42 damage.
-        </p>
-        <p class="site-singleplayer__explanation" data-js="explanation" hidden>
-          The :focus pseudo-class applies styles when an element has focus (for
-          example, via keyboard navigation).
-        </p>
-        <p class="site-singleplayer__question" data-js="question">
-          Which of the following are valid CSS pseudo-classes?
-        </p>
+        <!-- Everything between the feedback and the button scrolls inside the box -->
+        <div class="site-singleplayer__dialog-text" data-js="dialog-text">
+          <!-- This turn's damage, e.g. "You hit Goblin for 7 damage." -->
+          <p class="site-singleplayer__roll" data-js="roll" hidden>
+            You hit the boss for 42 damage.
+          </p>
+          <p
+            class="site-singleplayer__explanation"
+            data-js="explanation"
+            hidden
+          >
+            The :focus pseudo-class applies styles when an element has focus
+            (for example, via keyboard navigation).
+          </p>
+          <p class="site-singleplayer__question" data-js="question">
+            Which of the following are valid CSS pseudo-classes?
+          </p>
+        </div>
         <!-- One button per outcome, JS shows only one of them:
              both alive → Next question, monster dead → Continue, player dead → Try again -->
         <button
@@ -127,7 +143,11 @@
         </button>
       </section>
 
-      <section class="site-singleplayer__answers" aria-label="Answers">
+      <section
+        class="site-singleplayer__answers"
+        aria-label="Answers"
+        data-js="answers"
+      >
         <button
           class="site-singleplayer__answer"
           type="button"
@@ -165,6 +185,16 @@
           id="panel-stats"
         >
           <h2>Stats</h2>
+          <dl class="site-singleplayer__info">
+            <dt>HP</dt>
+            <dd data-js="stat-hp">-</dd>
+            <dt>Attack</dt>
+            <dd data-js="stat-attack">-</dd>
+            <dt>Defense</dt>
+            <dd data-js="stat-defense">-</dd>
+            <dt>Crit</dt>
+            <dd data-js="stat-crit">-</dd>
+          </dl>
         </article>
 
         <article
@@ -181,6 +211,27 @@
           </button>
           <div class="site-singleplayer__player-content">
             <h2>Player</h2>
+            <!-- Avatar next to name/class/level/XP, like the lobby -->
+            <div class="site-singleplayer__player-details">
+              <img
+                class="site-singleplayer__avatar"
+                src="/avatars/default.webp"
+                alt="Player avatar"
+                width="128"
+                height="128"
+                data-js="player-avatar"
+              />
+              <dl class="site-singleplayer__info">
+                <dt>Name</dt>
+                <dd data-js="player-name">-</dd>
+                <dt>Class</dt>
+                <dd data-js="player-class">-</dd>
+                <dt>Level</dt>
+                <dd data-js="player-level">-</dd>
+                <dt>XP</dt>
+                <dd data-js="player-xp">-</dd>
+              </dl>
+            </div>
             <!-- JS adds site-singleplayer__player-health--low at 1 heart or less -->
             <p class="site-singleplayer__player-health" data-js="player-health">
               <span>Player health</span>
@@ -217,6 +268,7 @@
           id="panel-inventory"
         >
           <h2>Inventory</h2>
+          <dl class="site-singleplayer__info" data-js="inventory-list"></dl>
         </article>
       </div>
     </main>

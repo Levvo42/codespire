@@ -1,44 +1,64 @@
 // Entry script for pages/createplayer.html.
 // Wiring only: import from game/, ui/ and api/, then start. No rules here.
 import "../main.js";
+import { CLASSES, createPlayer, checkName } from "../game/player.js";
+import { saveGame, loadGame } from "../game/save.js";
 
-// Avatar name and classes
-const avatars = [
-  { image: "/avatars/warrior.webp", class: "Warrior" },
-  { image: "/avatars/mage.webp", class: "Mage" },
-  { image: "/avatars/rogue.webp", class: "Rogue" },
-];
-let currentAvatar = 0;
+// ========================================
+// #region Variables
+let classIndex = 0; // which class in CLASSES is shown (0 = warrior)
 
-// UI for avatar/form selection
-const avatarImage = document.querySelector(
-  ".site-createplayer-container__image",
-);
-const classText = document.querySelector(".character-class");
-function updateAvatar() {
-  avatarImage.src = avatars[currentAvatar].image;
-  classText.textContent = `Class: ${avatars[currentAvatar].class}`;
-}
-// Save selected avatar on form submit
 const form = document.querySelector(".site-createplayer-container__form");
-form.addEventListener("submit", () => {
-  localStorage.setItem("selected-avatar", avatars[currentAvatar]);
-});
-// Loop avatars
-const nextButton = document.querySelector("[aria-label = 'Next avatar']");
-nextButton.addEventListener("click", () => {
-  currentAvatar++;
-  if (currentAvatar > 2) {
-    currentAvatar = 0;
+const nameInput = document.getElementById("player-name");
+const nameError = document.getElementById("name-error");
+const classText = document.getElementById("player-class");
+const avatarImage = document.getElementById("avatar-image");
+const prevButton = document.getElementById("avatar-prev");
+const nextButton = document.getElementById("avatar-next");
+// #endregion Variables
+// ========================================
+// #region Event listeners
+prevButton.addEventListener("click", () => changeClass(-1));
+nextButton.addEventListener("click", () => changeClass(1));
+form.addEventListener("submit", startGame);
+// #endregion Event listeners
+// ========================================
+// #region Functions
+// Moves one step back (-1) or forward (1) and wraps around at the ends.
+function changeClass(step) {
+  classIndex = classIndex + step;
+  if (classIndex < 0) classIndex = CLASSES.length - 1; // before first → last
+  if (classIndex >= CLASSES.length) classIndex = 0; // after last → first
+  showClass();
+}
+
+// Shows the selected class name and its avatar.
+function showClass() {
+  const heroClass = CLASSES[classIndex];
+  classText.textContent = `Class: ${heroClass}`;
+  avatarImage.src = `/avatars/${heroClass}.webp`;
+  avatarImage.alt = `${heroClass} avatar`;
+}
+
+// Checks the name, creates and saves the player, then goes to the lobby.
+function startGame(event) {
+  event.preventDefault();
+
+  const error = checkName(nameInput.value);
+  nameError.textContent = error;
+  if (error) return;
+
+  if (loadGame() && !confirm("This replaces your current hero. Continue?")) {
+    return;
   }
-  updateAvatar();
-});
-// Start playing with selected avatar
-const playButton = document.querySelector(
-  ".site-createplayer-container__play-btn",
-);
-playButton.addEventListener("click", () => {
-  localStorage.setItem("selected-avatar", avatars[currentAvatar]);
-  // Next: singleplayer
-  window.location.href = "/pages/singleplayer.html";
-});
+
+  const player = createPlayer(nameInput.value.trim(), CLASSES[classIndex]);
+  if (!saveGame(player)) {
+    nameError.textContent = "Could not save your hero.";
+    return;
+  }
+
+  window.location.href = "/pages/lobby.html";
+}
+// #endregion Functions
+// ========================================
