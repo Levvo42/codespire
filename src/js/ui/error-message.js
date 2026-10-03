@@ -1,5 +1,4 @@
-// Same as the example in docs/tutorials/javascript.md.
-// If the team already has this file, keep theirs and delete this one.
+// Shows an error to the player.
 
 /**
  * Tells the player that something went wrong, and logs it for us.

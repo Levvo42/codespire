@@ -93,6 +93,19 @@
     }
   }
 
+  // Settings looks like the nav links
+  &__settings-button {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: #f5e8c5;
+    font: inherit;
+    text-shadow:
+      1px 1px #20170f,
+      0 0 3px #20170f;
+    cursor: pointer;
+  }
+
   // navigation burger
   &__nav {
     grid-area: nav;
@@ -119,7 +132,8 @@
       border-radius: 0.35rem;
 
       // link styling in nav menu
-      a {
+      a,
+      button {
         font-family: rpgFont, sans-serif;
         background-color: rgb(0 0 0 / 50.7%);
         border-radius: 0.5rem 0.7rem 1.6rem;
@@ -138,7 +152,9 @@
 
       // makes navmenu links hoverable
       a:hover,
-      a:focus-visible {
+      a:focus-visible,
+      button:hover,
+      button:focus-visible {
         color: rgb(10 71 21 / 64.4%);
         text-shadow:
           0 0 6px #fcfbfb,
@@ -188,7 +204,9 @@
 
       a:hover,
       a:visited:hover,
-      a:focus-visible {
+      a:focus-visible,
+      button:hover,
+      button:focus-visible {
         color: rgb(29 85 38);
       }
     }

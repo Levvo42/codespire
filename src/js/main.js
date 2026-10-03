@@ -4,8 +4,10 @@
 // can forget it. Vite compiles the SCSS it finds through JS imports.
 import "../scss/style.scss";
 import { templateHeaderFooter } from "./components/headerFooter.js";
+import { initSettings } from "./ui/settings.js";
 
 templateHeaderFooter();
+initSettings();
 
 // ========================================
 // #region Variables
