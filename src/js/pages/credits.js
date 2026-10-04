@@ -3,6 +3,9 @@
 import "../main.js";
 import { loadSettings } from "../game/settings.js";
 
+import playIcon from "../../assets/icons/sound-on.svg";
+import pauseIcon from "../../assets/icons/sound-off.svg";
+
 // #region Elements
 const music = document.getElementById("music");
 const playBtn = document.getElementById("play-btn");
@@ -13,22 +16,31 @@ document.addEventListener(
 );
 // #endregion Elements
 
-// #region Autoplay
+// #region Sound toggle icon
+const icon = document.createElement("img");
+icon.src = pauseIcon;
+icon.alt = "sound off";
+playBtn.appendChild(icon);
+// #endregion Sound toggle icon
+
+// #region Autoplay music
 music.play().catch(() => {
   document.addEventListener("click", () => music.play(), { once: true });
 });
-// #endregion Autoplay
+// #endregion Autoplay music
 
-// #region Play/Pause button
+// #region Sound controls
 playBtn.addEventListener("click", () => {
   if (music.paused) {
     music.play();
-    playBtn.textContent = "||";
-    playBtn.setAttribute("aria-label", "Pause music");
+    icon.src = pauseIcon;
+    icon.alt = "sound off";
+    playBtn.setAttribute("aria-label", "Turn sound off");
   } else {
     music.pause();
-    playBtn.textContent = "▷";
-    playBtn.setAttribute("aria-label", "Play music");
+    icon.src = playIcon;
+    icon.alt = "sound on";
+    playBtn.setAttribute("aria-label", "Turn sound on");
   }
 });
-// #endregion Play/Pause button
+// #endregion Sound controls
