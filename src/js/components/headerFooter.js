@@ -1,7 +1,8 @@
+import logo from "../../assets/images/codespire-logo.png";
 const headerTemplate = `
   <header class="site-header">
     <img
-      src="/src/assets/images/codespire-logo.png"
+      src="${logo}"
       loading="eager"
       class="site-header__logo"
       alt=".codeSpire"
