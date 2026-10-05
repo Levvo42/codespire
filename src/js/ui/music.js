@@ -54,10 +54,12 @@ export function startMusic(playlistName) {
   track = position.track;
 
   audio = new Audio(playlist[track]);
-  // Body
+
+  // #region Add music button to page
   if (!document.body.contains(playBtn)) {
     document.body.appendChild(playBtn);
   }
+  // #endregion Add music button to page
 
   audio.volume = loadSettings().volume;
   audio.addEventListener(
