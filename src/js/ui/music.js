@@ -11,8 +11,8 @@ import theLossOfANewfoundFriend from "../../assets/music/the_loss_of_a_newfound_
 import theTrickstersPath from "../../assets/music/the_tricksters_path.ogg";
 import voidOfThought from "../../assets/music/void_of_thought.ogg";
 import { loadSettings } from "../game/settings.js";
-import playIcon from "../../assets/icons/sound-on.svg";
-import pauseIcon from "../../assets/icons/sound-off.svg";
+import playIcon from "../../assets/icons/sound-off.svg";
+import pauseIcon from "../../assets/icons/sound-on.svg";
 // ========================================
 // #region Variables
 const PLAYLISTS = {
@@ -36,7 +36,7 @@ let musicKey = "";
 let track = 0;
 let targetVolume = 0;
 let fadeFrame = 0;
-const isLeaving = false;
+let isLeaving = false;
 
 // #region Music-button
 const playBtn = document.createElement("button");
@@ -58,11 +58,12 @@ export function startMusic(playlistName) {
   musicKey = `codespire-music-${playlistName}`;
 
   const position = loadPosition();
+
   track = position.track;
 
   targetVolume = loadSettings().volume;
   audio = new Audio(playlist[track]);
-  audio.volume = loadSettings().volume;
+  audio.volume = 0;
   audio.addEventListener(
     "loadedmetadata",
     () => (audio.currentTime = position.time),
@@ -72,7 +73,11 @@ export function startMusic(playlistName) {
   document.addEventListener("volume-change", changeVolume);
   window.addEventListener("pagehide", savePosition);
   window.addEventListener("pageshow", returnToPage);
-
+  // #region Add music button to page
+  if (!document.body.contains(playBtn)) {
+    document.body.appendChild(playBtn);
+  }
+  // #endregion Add music button to page
   playMusic();
 }
 
@@ -104,7 +109,37 @@ function fadeTo(volume, duration) {
   }
   fadeFrame = requestAnimationFrame(step);
 }
+// Fades the screen to black and the music to silent, then opens the url.
+export function leaveGamePage(url) {
+  isLeaving = true;
+  document.querySelector("main").classList.add("is-leaving");
+  fadeTo(0, FADE_OUT_MS);
+  setTimeout(() => (window.location.href = url), FADE_OUT_MS);
+}
 
+// Back button: the browser can show the old page from memory, still faded out.
+function returnToPage(event) {
+  if (!event.persisted) return;
+
+  isLeaving = false;
+  document.querySelector("main").classList.remove("is-leaving");
+  playMusic();
+}
+// #region Sound controls
+playBtn.addEventListener("click", () => {
+  if (audio.paused) {
+    audio.play();
+    icon.src = pauseIcon;
+    icon.alt = "sound off";
+    playBtn.setAttribute("aria-label", "Turn sound off");
+  } else {
+    audio.pause();
+    icon.src = playIcon;
+    icon.alt = "sound on";
+    playBtn.setAttribute("aria-label", "Turn sound on");
+  }
+});
+// #endregion Sound controls
 // Browsers block sound until the player clicks or presses a key.
 function waitForClick() {
   document.addEventListener("pointerdown", playMusic, { once: true });
