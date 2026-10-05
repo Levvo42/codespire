@@ -170,6 +170,7 @@
     aspect-ratio: 8 / 5; // a bit taller than the photo (2.14 / 1)
     padding: 0;
     border: 0;
+    -webkit-tap-highlight-color: transparent;
     background: none;
     cursor: pointer;
     container-type: inline-size; // cqi inside = % of the stone's width

@@ -3,8 +3,8 @@
 import "../main.js";
 import { loadSettings } from "../game/settings.js";
 
-import playIcon from "../../assets/icons/sound-on.svg";
-import pauseIcon from "../../assets/icons/sound-off.svg";
+import playIcon from "../../assets/icons/sound-off.svg";
+import pauseIcon from "../../assets/icons/sound-on.svg";
 
 // #region Elements
 const music = document.getElementById("music");
