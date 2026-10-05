@@ -41,11 +41,11 @@ let isLeaving = false;
 // #region Music-button
 const playBtn = document.createElement("button");
 playBtn.className = "music-btn";
-playBtn.setAttribute("aria-label", "Turn sound on");
+playBtn.setAttribute("aria-label", "Turn sound off");
 
 const icon = document.createElement("img");
-icon.src = playIcon;
-icon.alt = "sound on";
+icon.src = pauseIcon;
+icon.alt = "sound off";
 playBtn.appendChild(icon);
 // #endregion Music-button
 
@@ -129,14 +129,14 @@ function returnToPage(event) {
 playBtn.addEventListener("click", () => {
   if (audio.paused) {
     audio.play();
-    icon.src = playIcon;
-    icon.alt = "sound on";
-    playBtn.setAttribute("aria-label", "Turn sound on");
-  } else {
-    audio.pause();
     icon.src = pauseIcon;
     icon.alt = "sound off";
     playBtn.setAttribute("aria-label", "Turn sound off");
+  } else {
+    audio.pause();
+    icon.src = playIcon;
+    icon.alt = "sound on";
+    playBtn.setAttribute("aria-label", "Turn sound on");
   }
 });
 // #endregion Sound controls
