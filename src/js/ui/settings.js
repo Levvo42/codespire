@@ -1,7 +1,18 @@
 // Settings dialog: music volume and new / save / load game.
 import { parsePlayer } from "../game/player.js";
-import { deleteSave, downloadSave, loadGame, saveGame } from "../game/save.js";
-import { loadSettings, saveSettings } from "../game/settings.js";
+import {
+  decodeSave,
+  deleteSave,
+  downloadSave,
+  loadGame,
+  saveGame,
+} from "../game/save.js";
+import {
+  loadSettings,
+  saveSettings,
+  toSlider,
+  toVolume,
+} from "../game/settings.js";
 
 // ========================================
 // #region Variables
@@ -27,7 +38,7 @@ export function initSettings() {
   fileInput = document.getElementById("settings-file");
   message = document.getElementById("settings-message");
 
-  volumeInput.value = Math.round(loadSettings().volume * 100);
+  volumeInput.value = Math.round(toSlider(loadSettings().volume) * 100);
   showVolume();
 
   openButton.addEventListener("click", openSettings);
@@ -55,7 +66,7 @@ function showVolume() {
 }
 
 function changeVolume() {
-  const volume = volumeInput.value / 100;
+  const volume = toVolume(volumeInput.value / 100);
   saveSettings({ volume });
   document.dispatchEvent(new CustomEvent("volume-change", { detail: volume }));
   showVolume();
@@ -91,7 +102,7 @@ async function loadFromFile() {
 
   let player;
   try {
-    player = parsePlayer(JSON.parse(await file.text()));
+    player = parsePlayer(decodeSave(await file.text()));
   } catch {
     player = null;
   }

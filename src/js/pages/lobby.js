@@ -12,7 +12,7 @@ import {
   TOWER_INFO,
 } from "../game/player.js";
 import { loadGame } from "../game/save.js";
-import { startMusic } from "../ui/music.js";
+import { leaveGamePage, startMusic } from "../ui/music.js";
 import { togglePanel } from "../ui/panels.js";
 
 // ========================================
@@ -118,7 +118,7 @@ function startClimb() {
   const tower = TOWERS[towerIndex];
   const difficulty = getNextDifficulty(player, tower);
   const params = new URLSearchParams({ tower, difficulty });
-  window.location.href = `/pages/singleplayer.html?${params}`;
+  leaveGamePage(`/pages/singleplayer.html?${params}`);
 }
 // #endregion Functions
 // ========================================
