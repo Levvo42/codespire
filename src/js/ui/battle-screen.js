@@ -1,13 +1,18 @@
 // Battle screen: reads the page, renders the climb, handles clicks and
 // plays the animations in order (hit → result → button) so each step is visible.
 // The rules (damage, floors) live in game/battle.js and game/tower.js.
-import { ITEMS, ITEM_INFO } from "../game/player.js";
-import { applyAnswer, createBattle, rollCrit } from "../game/battle.js";
+import { ITEMS, ITEM_INFO, getXpToNextLevel } from "../game/player.js";
+import {
+  applyAnswer,
+  createBattle,
+  healPlayer,
+  rollCrit,
+} from "../game/battle.js";
 import { createClimb, isLastFloor } from "../game/tower.js";
 import { showError } from "./error-message.js";
 import { fitText } from "./fit-text.js";
 import { endRaid, getRaidName, goblinSays, startRaid } from "./goblin-raid.js";
-import fallbackMonsterImage from "../../assets/images/placeholderlogo.png";
+import fallbackMonsterImage from "../../assets/images/codespire-logo.webp";
 
 // ========================================
 // #region Variables
@@ -97,8 +102,9 @@ let retryAction = null; // what "Try again" does: restart the climb, or retry a 
  * @param {string} options.difficulty - e.g. "EASY"
  * @param {Function} options.loadMonster - (floor, usedMonsters) → Promise<monster>
  * @param {Function} options.loadQuestions - () → Promise<question[]>
- * @param {Function} options.onMonsterSlain - (monster, isTowerCleared) → { xpGained, levelsGained, level, isSaved }, called on every kill
+ * @param {Function} options.onMonsterSlain - (monster, isTowerCleared) → { xpGained, levelsGained, level, loot, isSaved }, called on every kill
  * @param {Function} options.onLeaveTower - Called when the player continues after the boss
+ * @param {Function} options.onUsePotion - () → true if a potion was used (and saved)
  */
 export function startGame(options) {
   game = options;
@@ -133,6 +139,7 @@ export function startGame(options) {
 async function startClimb({ moveFocus = true } = {}) {
   showOutcomeButton(null);
   climb = createClimb(game.layout, game.stats);
+  battle = null;
   questionIndex = -1; // showNewQuestion() moves it to 0 for the first question
   elements.main.classList.remove(`${BLOCK}--defeated`, `${BLOCK}--raid`);
   endRaid(elements.scene);
@@ -163,6 +170,7 @@ async function goToNextFloor() {
     floorIndex: climb.floorIndex + 1,
     player: battle.player, // HP carries over between floors
   };
+  battle = null;
 
   await loadFloor();
 }
@@ -329,6 +337,23 @@ async function handleAnswer(chosenIndex) {
   // 5. The button for what happens next
   showOutcomeButton(battle.outcome);
 }
+// Only during a fight, while alive and not at full HP
+function canDrinkPotion() {
+  return (
+    battle !== null &&
+    battle.player.hp > 0 &&
+    battle.player.hp < battle.player.maxHp &&
+    game.player.inventory.healthPotion > 0
+  );
+}
+
+function drinkPotion() {
+  if (!canDrinkPotion() || !game.onUsePotion()) return;
+
+  const { healShare } = ITEM_INFO.healthPotion;
+  battle = healPlayer(battle, Math.round(battle.player.maxHp * healShare));
+  renderHealth();
+}
 // #endregion Climb flow
 // ========================================
 // #region Rendering
@@ -341,7 +366,9 @@ function renderPlayer() {
   elements.playerName.title = player.name; // full name on hover if it is cut off
   elements.playerClass.textContent = player.heroClass;
   elements.playerLevel.textContent = player.level;
-  elements.playerXp.textContent = player.xp;
+  const nextLevelXp = getXpToNextLevel(player);
+  elements.playerXp.textContent =
+    nextLevelXp === null ? "Max" : `${player.xp} / ${nextLevelXp}`;
   elements.playerAvatar.src = `/avatars/${player.avatar}.webp`; // same images as the lobby
   elements.playerAvatar.alt = `${player.name}'s avatar`;
   elements.statHp.textContent = stats.maxHp;
@@ -349,11 +376,29 @@ function renderPlayer() {
   elements.statDefense.textContent = stats.defense;
   elements.statCrit.textContent = `${Math.round(stats.critChance * 100)}%`;
 
+  renderInventory();
+}
+
+// Items with a use (potions) are buttons
+function renderInventory() {
+  const { player } = game;
+
   elements.inventoryList.replaceChildren();
 
   for (const item of ITEMS) {
     const label = document.createElement("dt");
-    label.textContent = ITEM_INFO[item].name;
+
+    if (item === "healthPotion") {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = `${BLOCK}__item-button`;
+      button.textContent = ITEM_INFO[item].name;
+      button.disabled = !canDrinkPotion();
+      button.addEventListener("click", drinkPotion);
+      label.append(button);
+    } else {
+      label.textContent = ITEM_INFO[item].name;
+    }
 
     const count = document.createElement("dd");
     count.textContent = player.inventory[item];
@@ -471,6 +516,7 @@ function renderHealth() {
     `${BLOCK}__player-health--low`,
     player.hp > 0 && player.hp / player.maxHp <= LOW_HEALTH_SHARE,
   );
+  renderInventory();
 }
 
 // Each heart fills by --fill (0%–100%), left to right. The fill slides
@@ -559,13 +605,16 @@ function getDamageText(isCorrect, correctAnswerText) {
   return isCorrect ? crit : `Correct answer: ${correctAnswerText}`;
 }
 
-// "+150 XP · Level up! You are level 2."
-function getRewardText({ xpGained, levelsGained, level, isSaved }) {
+// "+150 XP · Level up! You are level 2. · Found: Health Potion!"
+function getRewardText({ xpGained, levelsGained, level, loot, isSaved }) {
   const levelUp =
     levelsGained > 0 ? ` · Level up! You are level ${level}.` : "";
+  const found = loot.length
+    ? ` · Found: ${loot.map((item) => ITEM_INFO[item].name).join(", ")}!`
+    : "";
   const saveProblem = isSaved ? "" : " (Could not save your progress.)";
 
-  return `+${xpGained} XP${levelUp}${saveProblem}`;
+  return `+${xpGained} XP${levelUp}${found}${saveProblem}`;
 }
 
 // Gold glow under the text while more is hidden below (removed at the end)

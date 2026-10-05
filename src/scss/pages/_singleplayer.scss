@@ -766,6 +766,22 @@ $glow:
     }
   }
 
+  // Usable items in the inventory (health potion)
+  &__item-button {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:disabled {
+      text-decoration: none;
+      cursor: default;
+    }
+  }
+
   // Side tabs on the player. z-index 2 keeps them above the
   // sliding panels, so the same tab also closes its panel.
   &__toggle {
@@ -828,6 +844,15 @@ $glow:
 .site-singleplayer--defeated .site-singleplayer__scene {
   filter: grayscale(1) brightness(0.6);
 }
+
+// #region Music button position
+.page-singleplayer {
+  .music-btn {
+    top: 11rem;
+  }
+}
+
+// #endregion Music button position
 
 // #endregion Mobile
 // ========================================
@@ -1363,6 +1388,15 @@ $glow:
       display: none;
     }
   }
+
+  // #region Music button position
+  .page-singleplayer {
+    .music-btn {
+      top: 5rem;
+    }
+  }
+
+  // #endregion Music button position
 }
 
 // #endregion Desktop

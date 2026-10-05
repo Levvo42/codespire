@@ -1,0 +1,3926 @@
+{
+  "topic": "javascript",
+  "version": 1,
+  "questions": [
+    {
+      "id": "javascript-easy-001",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which keyword declares a block-scoped variable whose value can be reassigned?",
+      "answers": [
+        {
+          "text": "let",
+          "is-correct": true
+        },
+        {
+          "text": "const",
+          "is-correct": false
+        },
+        {
+          "text": "static",
+          "is-correct": false
+        },
+        {
+          "text": "define",
+          "is-correct": false
+        }
+      ],
+      "explanation": "let creates a block-scoped binding that can be reassigned. const is also block-scoped, but its binding cannot be reassigned.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-002",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which keyword declares a variable binding that cannot be reassigned?",
+      "answers": [
+        {
+          "text": "let",
+          "is-correct": false
+        },
+        {
+          "text": "const",
+          "is-correct": true
+        },
+        {
+          "text": "var",
+          "is-correct": false
+        },
+        {
+          "text": "fixed",
+          "is-correct": false
+        }
+      ],
+      "explanation": "const prevents reassignment of the binding. It does not make an object stored in that binding immutable.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-003",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "JavaScript is case-sensitive, so userName and username can refer to different variables.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "JavaScript identifiers are case-sensitive. userName and username are different names.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-004",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which value represents the intentional absence of an object value?",
+      "answers": [
+        {
+          "text": "undefined",
+          "is-correct": false
+        },
+        {
+          "text": "NaN",
+          "is-correct": false
+        },
+        {
+          "text": "null",
+          "is-correct": true
+        },
+        {
+          "text": "false",
+          "is-correct": false
+        }
+      ],
+      "explanation": "null is commonly used to represent an intentional absence of a value. undefined usually means a value has not been assigned.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-005",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What is the result of typeof 42?",
+      "answers": [
+        {
+          "text": "\"integer\"",
+          "is-correct": false
+        },
+        {
+          "text": "\"float\"",
+          "is-correct": false
+        },
+        {
+          "text": "\"numeric\"",
+          "is-correct": false
+        },
+        {
+          "text": "\"number\"",
+          "is-correct": true
+        }
+      ],
+      "explanation": "JavaScript uses the number type for ordinary numeric values, so typeof 42 returns \"number\".",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-006",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which operator checks both value and type equality without coercion?",
+      "answers": [
+        {
+          "text": "===",
+          "is-correct": true
+        },
+        {
+          "text": "==",
+          "is-correct": false
+        },
+        {
+          "text": "=",
+          "is-correct": false
+        },
+        {
+          "text": "!=",
+          "is-correct": false
+        }
+      ],
+      "explanation": "=== performs strict equality without type coercion. == may coerce values before comparing them.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-007",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which syntax creates a single-line comment?",
+      "answers": [
+        {
+          "text": "<!-- comment -->",
+          "is-correct": false
+        },
+        {
+          "text": "// comment",
+          "is-correct": true
+        },
+        {
+          "text": "# comment",
+          "is-correct": false
+        },
+        {
+          "text": "/* comment */",
+          "is-correct": false
+        }
+      ],
+      "explanation": "// starts a single-line JavaScript comment. /* ... */ is used for block comments.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-008",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which syntax creates an array with three numbers?",
+      "answers": [
+        {
+          "text": "{1, 2, 3}",
+          "is-correct": false
+        },
+        {
+          "text": "(1, 2, 3)",
+          "is-correct": false
+        },
+        {
+          "text": "[1, 2, 3]",
+          "is-correct": true
+        },
+        {
+          "text": "<1, 2, 3>",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Array literals use square brackets, so [1, 2, 3] creates an array containing three numbers.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-009",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "Array indexes in JavaScript start at 0.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "The first array element is at index 0, the second at index 1, and so on.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-010",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property gives the number of elements in an array?",
+      "answers": [
+        {
+          "text": "size",
+          "is-correct": false
+        },
+        {
+          "text": "count",
+          "is-correct": false
+        },
+        {
+          "text": "items",
+          "is-correct": false
+        },
+        {
+          "text": "length",
+          "is-correct": true
+        }
+      ],
+      "explanation": "The length property reports an array's length. Arrays do not have built-in size or count properties.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-011",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which method adds an item to the end of an array?",
+      "answers": [
+        {
+          "text": "push()",
+          "is-correct": true
+        },
+        {
+          "text": "pop()",
+          "is-correct": false
+        },
+        {
+          "text": "shift()",
+          "is-correct": false
+        },
+        {
+          "text": "slice()",
+          "is-correct": false
+        }
+      ],
+      "explanation": "push() appends one or more items to an array and returns the new length.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-012",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which method removes and returns the last item of an array?",
+      "answers": [
+        {
+          "text": "shift()",
+          "is-correct": false
+        },
+        {
+          "text": "pop()",
+          "is-correct": true
+        },
+        {
+          "text": "splice()",
+          "is-correct": false
+        },
+        {
+          "text": "push()",
+          "is-correct": false
+        }
+      ],
+      "explanation": "pop() removes and returns the final array element. shift() does the same at the beginning.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-013",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which keyword begins a basic conditional statement?",
+      "answers": [
+        {
+          "text": "when",
+          "is-correct": false
+        },
+        {
+          "text": "switch",
+          "is-correct": false
+        },
+        {
+          "text": "if",
+          "is-correct": true
+        },
+        {
+          "text": "check",
+          "is-correct": false
+        }
+      ],
+      "explanation": "if starts a conditional branch that runs when its condition is truthy.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-014",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which operator means logical AND?",
+      "answers": [
+        {
+          "text": "||",
+          "is-correct": false
+        },
+        {
+          "text": "!",
+          "is-correct": false
+        },
+        {
+          "text": "??",
+          "is-correct": false
+        },
+        {
+          "text": "&&",
+          "is-correct": true
+        }
+      ],
+      "explanation": "&& is the logical AND operator. It evaluates to the first falsy operand, or the last operand if all are truthy.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-015",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which operator means logical NOT?",
+      "answers": [
+        {
+          "text": "!",
+          "is-correct": true
+        },
+        {
+          "text": "!!",
+          "is-correct": false
+        },
+        {
+          "text": "!=",
+          "is-correct": false
+        },
+        {
+          "text": "~",
+          "is-correct": false
+        }
+      ],
+      "explanation": "! negates the truthiness of a value. For example, !true evaluates to false.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-016",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "The string \"5\" and the number 5 are strictly equal with ===.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": false
+        },
+        {
+          "text": "False",
+          "is-correct": true
+        }
+      ],
+      "explanation": "=== does not coerce types. A string and a number are not strictly equal even when their displayed values look the same.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-017",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which syntax creates a string value?",
+      "answers": [
+        {
+          "text": "\"Hello\"",
+          "is-correct": false
+        },
+        {
+          "text": "All three",
+          "is-correct": true
+        },
+        {
+          "text": "`Hello`",
+          "is-correct": false
+        },
+        {
+          "text": "'Hello'",
+          "is-correct": false
+        }
+      ],
+      "explanation": "JavaScript strings can use double quotes, single quotes, or backticks. Backticks create a template literal, which is still a string value.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-018",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which operator joins strings together in a basic expression?",
+      "answers": [
+        {
+          "text": "&",
+          "is-correct": false
+        },
+        {
+          "text": ".",
+          "is-correct": false
+        },
+        {
+          "text": "+",
+          "is-correct": true
+        },
+        {
+          "text": "::",
+          "is-correct": false
+        }
+      ],
+      "explanation": "The + operator concatenates strings when at least one operand is a string.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-019",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which expression converts the string \"42\" to a number?",
+      "answers": [
+        {
+          "text": "String(\"42\")",
+          "is-correct": false
+        },
+        {
+          "text": "Boolean(\"42\")",
+          "is-correct": false
+        },
+        {
+          "text": "Array(\"42\")",
+          "is-correct": false
+        },
+        {
+          "text": "Number(\"42\")",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Number(\"42\") converts the numeric string to the number 42.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-020",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does console.log() primarily do in a browser?",
+      "answers": [
+        {
+          "text": "Writes to the console",
+          "is-correct": true
+        },
+        {
+          "text": "Shows a popup",
+          "is-correct": false
+        },
+        {
+          "text": "Edits the page",
+          "is-correct": false
+        },
+        {
+          "text": "Stops the script",
+          "is-correct": false
+        }
+      ],
+      "explanation": "console.log() writes a value or message to the browser's developer console, which is useful for debugging.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-021",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which statement immediately exits a loop?",
+      "answers": [
+        {
+          "text": "skip",
+          "is-correct": false
+        },
+        {
+          "text": "break",
+          "is-correct": true
+        },
+        {
+          "text": "return",
+          "is-correct": false
+        },
+        {
+          "text": "stop",
+          "is-correct": false
+        }
+      ],
+      "explanation": "break exits the nearest loop or switch statement. continue skips to the next loop iteration instead.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-022",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which statement skips the rest of the current loop iteration?",
+      "answers": [
+        {
+          "text": "break",
+          "is-correct": false
+        },
+        {
+          "text": "pass",
+          "is-correct": false
+        },
+        {
+          "text": "continue",
+          "is-correct": true
+        },
+        {
+          "text": "next",
+          "is-correct": false
+        }
+      ],
+      "explanation": "continue ends the current iteration and proceeds with the next loop check.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-023",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "A function can return a value with the return statement.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "return ends the current function call and can provide a value back to the caller.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-024",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which is a valid function declaration?",
+      "answers": [
+        {
+          "text": "func greet() {}",
+          "is-correct": false
+        },
+        {
+          "text": "def greet() {}",
+          "is-correct": false
+        },
+        {
+          "text": "function = greet() {}",
+          "is-correct": false
+        },
+        {
+          "text": "function greet() {}",
+          "is-correct": true
+        }
+      ],
+      "explanation": "A function declaration uses the function keyword followed by a name, parentheses, and a body.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-025",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What are the names inside a function definition's parentheses called?",
+      "answers": [
+        {
+          "text": "Parameters",
+          "is-correct": true
+        },
+        {
+          "text": "Arguments",
+          "is-correct": false
+        },
+        {
+          "text": "Properties",
+          "is-correct": false
+        },
+        {
+          "text": "Members",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Parameters are names declared by the function. Arguments are the actual values supplied when the function is called.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-026",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which syntax calls a function named greet?",
+      "answers": [
+        {
+          "text": "call greet",
+          "is-correct": false
+        },
+        {
+          "text": "greet()",
+          "is-correct": true
+        },
+        {
+          "text": "greet[]",
+          "is-correct": false
+        },
+        {
+          "text": "greet{}",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Parentheses invoke a function, so greet() calls the function named greet.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-027",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which loop is commonly used when you know the number of iterations?",
+      "answers": [
+        {
+          "text": "switch",
+          "is-correct": false
+        },
+        {
+          "text": "if",
+          "is-correct": false
+        },
+        {
+          "text": "for",
+          "is-correct": true
+        },
+        {
+          "text": "try",
+          "is-correct": false
+        }
+      ],
+      "explanation": "A for loop is commonly used when initialization, condition, and update logic fit naturally together.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-028",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which comparison operator means greater than or equal to?",
+      "answers": [
+        {
+          "text": ">",
+          "is-correct": false
+        },
+        {
+          "text": "=>",
+          "is-correct": false
+        },
+        {
+          "text": "=<",
+          "is-correct": false
+        },
+        {
+          "text": ">=",
+          "is-correct": true
+        }
+      ],
+      "explanation": ">= tests whether the left operand is greater than or equal to the right operand.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-029",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which operator returns the remainder after division?",
+      "answers": [
+        {
+          "text": "%",
+          "is-correct": true
+        },
+        {
+          "text": "/",
+          "is-correct": false
+        },
+        {
+          "text": "//",
+          "is-correct": false
+        },
+        {
+          "text": "**",
+          "is-correct": false
+        }
+      ],
+      "explanation": "% is the remainder operator. For example, 7 % 3 evaluates to 1.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-030",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "NaN stands for a special numeric value meaning Not-a-Number.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "NaN is a special number value used for invalid numeric results, even though typeof NaN is \"number\".",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-031",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which syntax creates an object with a name property?",
+      "answers": [
+        {
+          "text": "[name: \"Ada\"]",
+          "is-correct": false
+        },
+        {
+          "text": "{name: \"Ada\"}",
+          "is-correct": true
+        },
+        {
+          "text": "(name = \"Ada\")",
+          "is-correct": false
+        },
+        {
+          "text": "<name: \"Ada\">",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Object literals use curly braces with key-value pairs, such as {name: \"Ada\"}.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-032",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "How can you read the name property from an object called user?",
+      "answers": [
+        {
+          "text": "user->name",
+          "is-correct": false
+        },
+        {
+          "text": "user::name",
+          "is-correct": false
+        },
+        {
+          "text": "user.name",
+          "is-correct": true
+        },
+        {
+          "text": "user/name",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Dot notation reads a property by name, so user.name accesses the name property.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-033",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which value is falsy?",
+      "answers": [
+        {
+          "text": "\"0\"",
+          "is-correct": false
+        },
+        {
+          "text": "[]",
+          "is-correct": false
+        },
+        {
+          "text": "{}",
+          "is-correct": false
+        },
+        {
+          "text": "0",
+          "is-correct": true
+        }
+      ],
+      "explanation": "The number 0 is falsy. The non-empty string \"0\", arrays, and objects are truthy.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-034",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which value is a boolean?",
+      "answers": [
+        {
+          "text": "true",
+          "is-correct": true
+        },
+        {
+          "text": "\"true\"",
+          "is-correct": false
+        },
+        {
+          "text": "1",
+          "is-correct": false
+        },
+        {
+          "text": "yes",
+          "is-correct": false
+        }
+      ],
+      "explanation": "true and false are the two boolean values in JavaScript. \"true\" is a string.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-035",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "An empty string \"\" is falsy in JavaScript.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "The empty string is one of JavaScript's falsy values.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-036",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which expression increases x by 1?",
+      "answers": [
+        {
+          "text": "x =+ 1",
+          "is-correct": false
+        },
+        {
+          "text": "x += 1",
+          "is-correct": true
+        },
+        {
+          "text": "x +== 1",
+          "is-correct": false
+        },
+        {
+          "text": "x := 1",
+          "is-correct": false
+        }
+      ],
+      "explanation": "x += 1 adds 1 to x and assigns the result back to x. x++ would also increment by 1.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-037",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which expression creates a template literal?",
+      "answers": [
+        {
+          "text": "'Hello ${name}'",
+          "is-correct": false
+        },
+        {
+          "text": "\"Hello ${name}\"",
+          "is-correct": false
+        },
+        {
+          "text": "`Hello ${name}`",
+          "is-correct": true
+        },
+        {
+          "text": "<Hello ${name}>",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Template literals use backticks and can interpolate expressions with ${...}.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-038",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which keyword provides an alternative branch after if?",
+      "answers": [
+        {
+          "text": "otherwise",
+          "is-correct": false
+        },
+        {
+          "text": "then",
+          "is-correct": false
+        },
+        {
+          "text": "default",
+          "is-correct": false
+        },
+        {
+          "text": "else",
+          "is-correct": true
+        }
+      ],
+      "explanation": "else runs when the preceding if condition is not truthy.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-039",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which statement is useful for comparing one expression against several case values?",
+      "answers": [
+        {
+          "text": "switch",
+          "is-correct": true
+        },
+        {
+          "text": "while",
+          "is-correct": false
+        },
+        {
+          "text": "try",
+          "is-correct": false
+        },
+        {
+          "text": "for",
+          "is-correct": false
+        }
+      ],
+      "explanation": "switch compares one expression with case labels and can be clearer than a long chain of equality checks.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-040",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which loop keeps running while its condition remains truthy?",
+      "answers": [
+        {
+          "text": "if",
+          "is-correct": false
+        },
+        {
+          "text": "while",
+          "is-correct": true
+        },
+        {
+          "text": "switch",
+          "is-correct": false
+        },
+        {
+          "text": "case",
+          "is-correct": false
+        }
+      ],
+      "explanation": "A while loop repeats as long as its condition evaluates to a truthy value.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-041",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which expression reads the first character of a string named text?",
+      "answers": [
+        {
+          "text": "text.first()",
+          "is-correct": false
+        },
+        {
+          "text": "text.char",
+          "is-correct": false
+        },
+        {
+          "text": "text[0]",
+          "is-correct": true
+        },
+        {
+          "text": "text(0)",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Strings support indexed access, so text[0] reads the first character.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-042",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "const means the value stored inside an object can never change.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": false
+        },
+        {
+          "text": "False",
+          "is-correct": true
+        }
+      ],
+      "explanation": "const prevents reassignment of the binding. Properties of a const object can still be changed unless the object is otherwise restricted.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-043",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which array method removes the first element and returns it?",
+      "answers": [
+        {
+          "text": "pop()",
+          "is-correct": false
+        },
+        {
+          "text": "unshift()",
+          "is-correct": false
+        },
+        {
+          "text": "slice()",
+          "is-correct": false
+        },
+        {
+          "text": "shift()",
+          "is-correct": true
+        }
+      ],
+      "explanation": "shift() removes and returns the first array element. unshift() adds items to the beginning.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-044",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which array method adds an item to the beginning?",
+      "answers": [
+        {
+          "text": "unshift()",
+          "is-correct": true
+        },
+        {
+          "text": "push()",
+          "is-correct": false
+        },
+        {
+          "text": "shift()",
+          "is-correct": false
+        },
+        {
+          "text": "concat()",
+          "is-correct": false
+        }
+      ],
+      "explanation": "unshift() inserts one or more items at the start of an array and returns the new length.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-045",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does typeof \"hello\" return?",
+      "answers": [
+        {
+          "text": "\"text\"",
+          "is-correct": false
+        },
+        {
+          "text": "\"string\"",
+          "is-correct": true
+        },
+        {
+          "text": "\"char\"",
+          "is-correct": false
+        },
+        {
+          "text": "\"object\"",
+          "is-correct": false
+        }
+      ],
+      "explanation": "typeof returns \"string\" for string primitive values.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-046",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which keyword declares a variable using older function-scoped syntax?",
+      "answers": [
+        {
+          "text": "let",
+          "is-correct": false
+        },
+        {
+          "text": "const",
+          "is-correct": false
+        },
+        {
+          "text": "var",
+          "is-correct": true
+        },
+        {
+          "text": "old",
+          "is-correct": false
+        }
+      ],
+      "explanation": "var is the older variable declaration form. Unlike let and const, it is function-scoped rather than block-scoped.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-047",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "The expression 2 ** 3 evaluates to 8.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "** is the exponentiation operator, so 2 ** 3 means 2 to the power of 3.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-048",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which expression tests whether x is less than 10?",
+      "answers": [
+        {
+          "text": "x => 10",
+          "is-correct": false
+        },
+        {
+          "text": "x =< 10",
+          "is-correct": false
+        },
+        {
+          "text": "x << 10",
+          "is-correct": false
+        },
+        {
+          "text": "x < 10",
+          "is-correct": true
+        }
+      ],
+      "explanation": "The < operator tests whether the left operand is less than the right operand.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-049",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which built-in function parses an integer from the start of a string?",
+      "answers": [
+        {
+          "text": "parseInt()",
+          "is-correct": true
+        },
+        {
+          "text": "Number.isInteger()",
+          "is-correct": false
+        },
+        {
+          "text": "toString()",
+          "is-correct": false
+        },
+        {
+          "text": "Math.floor()",
+          "is-correct": false
+        }
+      ],
+      "explanation": "parseInt() parses an integer from the beginning of a string, stopping when parsing can no longer continue.",
+      "verified": false
+    },
+    {
+      "id": "javascript-easy-050",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which Math method rounds a number down to the nearest integer?",
+      "answers": [
+        {
+          "text": "Math.round()",
+          "is-correct": false
+        },
+        {
+          "text": "Math.floor()",
+          "is-correct": true
+        },
+        {
+          "text": "Math.ceil()",
+          "is-correct": false
+        },
+        {
+          "text": "Math.trunc()",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Math.floor() returns the greatest integer less than or equal to the input. For negative values, this differs from truncation.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-001",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What is the scope of a variable declared with let inside a block?",
+      "answers": [
+        {
+          "text": "Global scope",
+          "is-correct": false
+        },
+        {
+          "text": "Function scope only",
+          "is-correct": false
+        },
+        {
+          "text": "Block scope",
+          "is-correct": true
+        },
+        {
+          "text": "Module scope only",
+          "is-correct": false
+        }
+      ],
+      "explanation": "let is block-scoped, so the binding exists only within the surrounding block and nested blocks.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-002",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does Array.prototype.map() return?",
+      "answers": [
+        {
+          "text": "The original array",
+          "is-correct": false
+        },
+        {
+          "text": "A boolean",
+          "is-correct": false
+        },
+        {
+          "text": "The first matching item",
+          "is-correct": false
+        },
+        {
+          "text": "A new transformed array",
+          "is-correct": true
+        }
+      ],
+      "explanation": "map() calls a function for each element and returns a new array containing the returned values.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-003",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "Array.prototype.filter() returns a new array and does not remove items from the original array by itself.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "filter() creates a new array containing elements whose callback result is truthy. It does not mutate the source array by itself.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-004",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which array method returns the first element whose callback is truthy?",
+      "answers": [
+        {
+          "text": "find()",
+          "is-correct": true
+        },
+        {
+          "text": "filter()",
+          "is-correct": false
+        },
+        {
+          "text": "some()",
+          "is-correct": false
+        },
+        {
+          "text": "map()",
+          "is-correct": false
+        }
+      ],
+      "explanation": "find() returns the first matching element, or undefined if no element matches.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-005",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which array method checks whether at least one element passes a test?",
+      "answers": [
+        {
+          "text": "every()",
+          "is-correct": false
+        },
+        {
+          "text": "some()",
+          "is-correct": true
+        },
+        {
+          "text": "findIndex()",
+          "is-correct": false
+        },
+        {
+          "text": "reduce()",
+          "is-correct": false
+        }
+      ],
+      "explanation": "some() returns true if at least one element makes the callback truthy.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-006",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which array method checks whether every element passes a test?",
+      "answers": [
+        {
+          "text": "some()",
+          "is-correct": false
+        },
+        {
+          "text": "filter()",
+          "is-correct": false
+        },
+        {
+          "text": "every()",
+          "is-correct": true
+        },
+        {
+          "text": "includes()",
+          "is-correct": false
+        }
+      ],
+      "explanation": "every() returns true only if the callback is truthy for every element, with the usual empty-array behavior of true.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-007",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does destructuring allow you to do?",
+      "answers": [
+        {
+          "text": "Freeze objects",
+          "is-correct": false
+        },
+        {
+          "text": "Rename a function call",
+          "is-correct": false
+        },
+        {
+          "text": "Change prototype chains",
+          "is-correct": false
+        },
+        {
+          "text": "Extract values into bindings",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Destructuring syntax extracts values from arrays or properties from objects into variables or parameters.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-008",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "Object destructuring can assign a property to a variable with a different name.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Object destructuring supports renaming, such as const {name: userName} = user.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-009",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does ...items mean in a function parameter list?",
+      "answers": [
+        {
+          "text": "A rest parameter",
+          "is-correct": true
+        },
+        {
+          "text": "Spread syntax",
+          "is-correct": false
+        },
+        {
+          "text": "Optional parameters",
+          "is-correct": false
+        },
+        {
+          "text": "A generator marker",
+          "is-correct": false
+        }
+      ],
+      "explanation": "In a parameter list, ...items is a rest parameter that collects remaining arguments into an array.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-010",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does ...arr do inside an array literal?",
+      "answers": [
+        {
+          "text": "Makes arr immutable",
+          "is-correct": false
+        },
+        {
+          "text": "Copies iterable elements in place",
+          "is-correct": true
+        },
+        {
+          "text": "Creates a reference only",
+          "is-correct": false
+        },
+        {
+          "text": "Sorts arr",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Spread syntax expands iterable values into the surrounding array literal.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-011",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which operator provides a fallback only when the left side is null or undefined?",
+      "answers": [
+        {
+          "text": "||",
+          "is-correct": false
+        },
+        {
+          "text": "&&",
+          "is-correct": false
+        },
+        {
+          "text": "??",
+          "is-correct": true
+        },
+        {
+          "text": "?.",
+          "is-correct": false
+        }
+      ],
+      "explanation": "?? is the nullish coalescing operator. Unlike ||, it does not replace other falsy values such as 0 or \"\".",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-012",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does user?.profile do when user is null?",
+      "answers": [
+        {
+          "text": "Throws a TypeError",
+          "is-correct": false
+        },
+        {
+          "text": "Returns null",
+          "is-correct": false
+        },
+        {
+          "text": "Creates profile",
+          "is-correct": false
+        },
+        {
+          "text": "Returns undefined",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Optional chaining short-circuits and returns undefined when the value before ?. is null or undefined.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-013",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which syntax exports a named binding from an ES module?",
+      "answers": [
+        {
+          "text": "export const x = 1",
+          "is-correct": true
+        },
+        {
+          "text": "public const x = 1",
+          "is-correct": false
+        },
+        {
+          "text": "module x = 1",
+          "is-correct": false
+        },
+        {
+          "text": "exports(x)",
+          "is-correct": false
+        }
+      ],
+      "explanation": "The export keyword exposes a named binding from an ES module.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-014",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "ES module import declarations are only allowed in module code, not ordinary classic scripts.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Static import declarations are part of ES module syntax. Classic scripts cannot contain them.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-015",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which syntax imports a named export called sum?",
+      "answers": [
+        {
+          "text": "import sum from \"./math.js\"",
+          "is-correct": false
+        },
+        {
+          "text": "import { sum } from \"./math.js\"",
+          "is-correct": true
+        },
+        {
+          "text": "require(\"./math.js\").sum",
+          "is-correct": false
+        },
+        {
+          "text": "include { sum }",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Named exports are imported with braces, such as import { sum } from \"./math.js\".",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-016",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which method selects the first DOM element matching a CSS selector?",
+      "answers": [
+        {
+          "text": "getElement()",
+          "is-correct": false
+        },
+        {
+          "text": "querySelectorAll()",
+          "is-correct": false
+        },
+        {
+          "text": "querySelector()",
+          "is-correct": true
+        },
+        {
+          "text": "findElement()",
+          "is-correct": false
+        }
+      ],
+      "explanation": "querySelector() returns the first element matching the given CSS selector, or null if none matches.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-017",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which method returns a static NodeList of all DOM elements matching a CSS selector?",
+      "answers": [
+        {
+          "text": "getElements()",
+          "is-correct": false
+        },
+        {
+          "text": "querySelector()",
+          "is-correct": false
+        },
+        {
+          "text": "matchAll()",
+          "is-correct": false
+        },
+        {
+          "text": "querySelectorAll()",
+          "is-correct": true
+        }
+      ],
+      "explanation": "querySelectorAll() returns a static NodeList containing all matching elements.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-018",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which method adds an event listener without replacing existing listeners of the same type?",
+      "answers": [
+        {
+          "text": "addEventListener()",
+          "is-correct": true
+        },
+        {
+          "text": "on()",
+          "is-correct": false
+        },
+        {
+          "text": "listen()",
+          "is-correct": false
+        },
+        {
+          "text": "attach()",
+          "is-correct": false
+        }
+      ],
+      "explanation": "addEventListener() registers a listener and can coexist with other listeners for the same event type.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-019",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "event.preventDefault() always stops the event from bubbling.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": false
+        },
+        {
+          "text": "False",
+          "is-correct": true
+        }
+      ],
+      "explanation": "preventDefault() cancels the event's default action when cancelable. stopPropagation() is used to stop propagation.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-020",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which method stops an event from continuing through the propagation path?",
+      "answers": [
+        {
+          "text": "preventDefault()",
+          "is-correct": false
+        },
+        {
+          "text": "stopPropagation()",
+          "is-correct": true
+        },
+        {
+          "text": "cancelEvent()",
+          "is-correct": false
+        },
+        {
+          "text": "stopDefault()",
+          "is-correct": false
+        }
+      ],
+      "explanation": "stopPropagation() prevents further capture and bubbling through ancestors, but it does not cancel the default action.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-021",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What is a closure?",
+      "answers": [
+        {
+          "text": "A closed browser tab",
+          "is-correct": false
+        },
+        {
+          "text": "An immutable object",
+          "is-correct": false
+        },
+        {
+          "text": "A function plus access to outer scope",
+          "is-correct": true
+        },
+        {
+          "text": "A completed Promise",
+          "is-correct": false
+        }
+      ],
+      "explanation": "A closure is a function together with access to the lexical environment where it was created.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-022",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which statement about arrow functions is correct?",
+      "answers": [
+        {
+          "text": "They have their own this",
+          "is-correct": false
+        },
+        {
+          "text": "They cannot return values",
+          "is-correct": false
+        },
+        {
+          "text": "They must be async",
+          "is-correct": false
+        },
+        {
+          "text": "They capture lexical this",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Arrow functions do not bind their own this; they use this from the surrounding lexical scope.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-023",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does JSON.stringify() usually produce from a JavaScript value?",
+      "answers": [
+        {
+          "text": "A JSON string",
+          "is-correct": true
+        },
+        {
+          "text": "A DOM node",
+          "is-correct": false
+        },
+        {
+          "text": "A Promise",
+          "is-correct": false
+        },
+        {
+          "text": "A parsed object",
+          "is-correct": false
+        }
+      ],
+      "explanation": "JSON.stringify() serializes supported JavaScript values into JSON text.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-024",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does JSON.parse() do?",
+      "answers": [
+        {
+          "text": "Formats JavaScript code",
+          "is-correct": false
+        },
+        {
+          "text": "Parses JSON text into a value",
+          "is-correct": true
+        },
+        {
+          "text": "Clones every object type",
+          "is-correct": false
+        },
+        {
+          "text": "Loads a JSON file",
+          "is-correct": false
+        }
+      ],
+      "explanation": "JSON.parse() converts valid JSON text into the corresponding JavaScript value.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-025",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "JSON.stringify() preserves functions as executable functions in the resulting JSON.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": false
+        },
+        {
+          "text": "False",
+          "is-correct": true
+        }
+      ],
+      "explanation": "JSON has no function type. Function-valued object properties are omitted, and functions in arrays become null.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-026",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which keyword marks a function so that it always returns a Promise?",
+      "answers": [
+        {
+          "text": "await",
+          "is-correct": false
+        },
+        {
+          "text": "defer",
+          "is-correct": false
+        },
+        {
+          "text": "async",
+          "is-correct": true
+        },
+        {
+          "text": "promise",
+          "is-correct": false
+        }
+      ],
+      "explanation": "An async function always returns a Promise, wrapping a non-Promise return value when needed.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-027",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Where can await normally be used in modern JavaScript?",
+      "answers": [
+        {
+          "text": "Only inside loops",
+          "is-correct": false
+        },
+        {
+          "text": "Only in callbacks",
+          "is-correct": false
+        },
+        {
+          "text": "Only in constructors",
+          "is-correct": false
+        },
+        {
+          "text": "Inside async functions and modules",
+          "is-correct": true
+        }
+      ],
+      "explanation": "await is valid inside async functions, and top-level await is also valid in ES modules.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-028",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does await do to a fulfilled Promise?",
+      "answers": [
+        {
+          "text": "Produces its fulfillment value",
+          "is-correct": true
+        },
+        {
+          "text": "Returns the Promise object",
+          "is-correct": false
+        },
+        {
+          "text": "Cancels it",
+          "is-correct": false
+        },
+        {
+          "text": "Makes it synchronous globally",
+          "is-correct": false
+        }
+      ],
+      "explanation": "await pauses that async evaluation until settlement and produces the fulfillment value, without blocking the JavaScript thread.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-029",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which Promise method registers fulfillment and rejection handlers?",
+      "answers": [
+        {
+          "text": "await()",
+          "is-correct": false
+        },
+        {
+          "text": "then()",
+          "is-correct": true
+        },
+        {
+          "text": "resolve()",
+          "is-correct": false
+        },
+        {
+          "text": "settle()",
+          "is-correct": false
+        }
+      ],
+      "explanation": "then() registers handlers and returns a new Promise.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-030",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which Promise method is commonly used to handle a rejection?",
+      "answers": [
+        {
+          "text": "fail()",
+          "is-correct": false
+        },
+        {
+          "text": "except()",
+          "is-correct": false
+        },
+        {
+          "text": "catch()",
+          "is-correct": true
+        },
+        {
+          "text": "error()",
+          "is-correct": false
+        }
+      ],
+      "explanation": "catch() registers a rejection handler and returns a new Promise.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-031",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "Promise.prototype.finally() receives the fulfillment value as its first argument.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": false
+        },
+        {
+          "text": "False",
+          "is-correct": true
+        }
+      ],
+      "explanation": "finally() is called without the Promise's fulfillment value or rejection reason. It is intended for cleanup logic.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-032",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which syntax gives a default parameter value of 10?",
+      "answers": [
+        {
+          "text": "function f(x: 10)",
+          "is-correct": false
+        },
+        {
+          "text": "function f(x ?? 10)",
+          "is-correct": false
+        },
+        {
+          "text": "function f(default x 10)",
+          "is-correct": false
+        },
+        {
+          "text": "function f(x = 10)",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Default parameters use = in the parameter list. The default is used when the argument is missing or explicitly undefined.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-033",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does arr.includes(value) return?",
+      "answers": [
+        {
+          "text": "A boolean",
+          "is-correct": true
+        },
+        {
+          "text": "An index",
+          "is-correct": false
+        },
+        {
+          "text": "A filtered array",
+          "is-correct": false
+        },
+        {
+          "text": "The matched element",
+          "is-correct": false
+        }
+      ],
+      "explanation": "includes() returns true if the array contains the searched value and false otherwise.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-034",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which string method tests whether a string begins with a given substring?",
+      "answers": [
+        {
+          "text": "begins()",
+          "is-correct": false
+        },
+        {
+          "text": "startsWith()",
+          "is-correct": true
+        },
+        {
+          "text": "includesStart()",
+          "is-correct": false
+        },
+        {
+          "text": "prefixOf()",
+          "is-correct": false
+        }
+      ],
+      "explanation": "startsWith() returns a boolean indicating whether the string begins with the supplied substring.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-035",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which syntax is an object method shorthand?",
+      "answers": [
+        {
+          "text": "greet: function() {}",
+          "is-correct": false
+        },
+        {
+          "text": "function greet: {}",
+          "is-correct": false
+        },
+        {
+          "text": "greet() {}",
+          "is-correct": true
+        },
+        {
+          "text": "method greet() {}",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Inside an object literal, greet() {} is shorthand method syntax.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-036",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "A variable declared with const must be initialized when it is declared.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "A const declaration requires an initializer because the binding cannot later be assigned for the first time.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-037",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does Object.keys(obj) return?",
+      "answers": [
+        {
+          "text": "All inherited keys",
+          "is-correct": false
+        },
+        {
+          "text": "Only symbol keys",
+          "is-correct": false
+        },
+        {
+          "text": "Property values",
+          "is-correct": false
+        },
+        {
+          "text": "Own enumerable string keys",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Object.keys() returns an array of the object's own enumerable string-keyed property names.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-038",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does Object.values(obj) return?",
+      "answers": [
+        {
+          "text": "Own enumerable property values",
+          "is-correct": true
+        },
+        {
+          "text": "All prototype values",
+          "is-correct": false
+        },
+        {
+          "text": "Only numeric values",
+          "is-correct": false
+        },
+        {
+          "text": "Key-value pairs",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Object.values() returns the values of the object's own enumerable string-keyed properties.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-039",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does Object.entries(obj) return?",
+      "answers": [
+        {
+          "text": "A Set",
+          "is-correct": false
+        },
+        {
+          "text": "An array of [key, value] pairs",
+          "is-correct": true
+        },
+        {
+          "text": "A Map object",
+          "is-correct": false
+        },
+        {
+          "text": "Only property names",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Object.entries() returns an array of [key, value] pairs for own enumerable string-keyed properties.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-040",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which loop directly iterates values from an iterable such as an array?",
+      "answers": [
+        {
+          "text": "for...in",
+          "is-correct": false
+        },
+        {
+          "text": "while...in",
+          "is-correct": false
+        },
+        {
+          "text": "for...of",
+          "is-correct": true
+        },
+        {
+          "text": "each...of",
+          "is-correct": false
+        }
+      ],
+      "explanation": "for...of iterates values from an iterable. for...in iterates enumerable string property names.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-041",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "for...in is generally intended to iterate enumerable property names rather than array values.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "for...in visits enumerable string property names, including inherited ones unless filtered. for...of is usually better for array values.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-042",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which method copies an array shallowly without changing it?",
+      "answers": [
+        {
+          "text": "splice()",
+          "is-correct": false
+        },
+        {
+          "text": "shift()",
+          "is-correct": false
+        },
+        {
+          "text": "sort()",
+          "is-correct": false
+        },
+        {
+          "text": "slice()",
+          "is-correct": true
+        }
+      ],
+      "explanation": "slice() with no arguments returns a shallow copy. splice() mutates the original array.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-043",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which array method can remove or insert elements by mutating the original array?",
+      "answers": [
+        {
+          "text": "splice()",
+          "is-correct": true
+        },
+        {
+          "text": "slice()",
+          "is-correct": false
+        },
+        {
+          "text": "concat()",
+          "is-correct": false
+        },
+        {
+          "text": "map()",
+          "is-correct": false
+        }
+      ],
+      "explanation": "splice() changes the original array by removing, replacing, or inserting elements.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-044",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does the ternary operator use between the condition and the first result?",
+      "answers": [
+        {
+          "text": "??",
+          "is-correct": false
+        },
+        {
+          "text": "?",
+          "is-correct": true
+        },
+        {
+          "text": ":",
+          "is-correct": false
+        },
+        {
+          "text": "=>",
+          "is-correct": false
+        }
+      ],
+      "explanation": "The conditional operator has the form condition ? valueIfTrue : valueIfFalse.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-045",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which block handles an exception thrown inside try?",
+      "answers": [
+        {
+          "text": "else",
+          "is-correct": false
+        },
+        {
+          "text": "case",
+          "is-correct": false
+        },
+        {
+          "text": "catch",
+          "is-correct": true
+        },
+        {
+          "text": "error",
+          "is-correct": false
+        }
+      ],
+      "explanation": "A catch block handles exceptions thrown from the associated try block.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-046",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "A finally block can run whether the try block completes normally or throws.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "finally is designed for cleanup and normally runs after try and catch processing, regardless of success or failure.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-047",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which statement explicitly throws an exception?",
+      "answers": [
+        {
+          "text": "raise",
+          "is-correct": false
+        },
+        {
+          "text": "error",
+          "is-correct": false
+        },
+        {
+          "text": "reject",
+          "is-correct": false
+        },
+        {
+          "text": "throw",
+          "is-correct": true
+        }
+      ],
+      "explanation": "throw evaluates an expression and raises it as an exception.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-048",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which method converts a Set into an array using standard syntax?",
+      "answers": [
+        {
+          "text": "Array.from(set)",
+          "is-correct": true
+        },
+        {
+          "text": "set.toArray()",
+          "is-correct": false
+        },
+        {
+          "text": "Array(set)",
+          "is-correct": false
+        },
+        {
+          "text": "Object.values(set)",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Array.from(set) creates an array from the Set's iterable values. Spread syntax such as [...set] also works.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-049",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which built-in collection stores unique values and preserves insertion order?",
+      "answers": [
+        {
+          "text": "Object",
+          "is-correct": false
+        },
+        {
+          "text": "Set",
+          "is-correct": true
+        },
+        {
+          "text": "Array",
+          "is-correct": false
+        },
+        {
+          "text": "WeakMap",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Set stores unique values and iterates them in insertion order.",
+      "verified": false
+    },
+    {
+      "id": "javascript-medium-050",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "A Map can use an object as a key.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Map keys can be values of any type, including objects. Plain object property keys are limited to strings and symbols.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-001",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What happens when a let binding is accessed before its declaration in the same scope?",
+      "answers": [
+        {
+          "text": "It is undefined",
+          "is-correct": false
+        },
+        {
+          "text": "It becomes global",
+          "is-correct": false
+        },
+        {
+          "text": "A ReferenceError is thrown",
+          "is-correct": true
+        },
+        {
+          "text": "It returns null",
+          "is-correct": false
+        }
+      ],
+      "explanation": "The binding exists in the temporal dead zone until its declaration is evaluated, so access before that point throws ReferenceError.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-002",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which statement about function declarations is generally true?",
+      "answers": [
+        {
+          "text": "They are never hoisted",
+          "is-correct": false
+        },
+        {
+          "text": "They are blockless only",
+          "is-correct": false
+        },
+        {
+          "text": "They require const",
+          "is-correct": false
+        },
+        {
+          "text": "Their bindings are initialized early",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Function declarations are instantiated before normal statement execution, so they are often callable before their source position.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-003",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "A class declaration can be safely accessed before the declaration line because classes are fully initialized during hoisting.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": false
+        },
+        {
+          "text": "False",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Class declarations create bindings before execution but remain uninitialized until evaluation reaches the class declaration.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-004",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "How does Array.prototype.reduce() use its callback?",
+      "answers": [
+        {
+          "text": "To produce one accumulated result",
+          "is-correct": true
+        },
+        {
+          "text": "To sort elements",
+          "is-correct": false
+        },
+        {
+          "text": "To find only the first match",
+          "is-correct": false
+        },
+        {
+          "text": "To mutate every item automatically",
+          "is-correct": false
+        }
+      ],
+      "explanation": "reduce() repeatedly combines the accumulator with array elements to produce one final result.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-005",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What equality algorithm does Set use for its values?",
+      "answers": [
+        {
+          "text": "Strict equality only",
+          "is-correct": false
+        },
+        {
+          "text": "SameValueZero",
+          "is-correct": true
+        },
+        {
+          "text": "Object.is only",
+          "is-correct": false
+        },
+        {
+          "text": "Abstract equality",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Set uses SameValueZero. This treats NaN as equal to NaN and treats +0 and -0 as the same value.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-006",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which expression is true even though NaN === NaN is false?",
+      "answers": [
+        {
+          "text": "NaN == NaN",
+          "is-correct": false
+        },
+        {
+          "text": "NaN < NaN",
+          "is-correct": false
+        },
+        {
+          "text": "Object.is(NaN, NaN)",
+          "is-correct": true
+        },
+        {
+          "text": "NaN > NaN",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Object.is(NaN, NaN) is true. Strict and loose equality both treat NaN as unequal to itself.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-007",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What is special about Object.is(+0, -0)?",
+      "answers": [
+        {
+          "text": "It throws",
+          "is-correct": false
+        },
+        {
+          "text": "It is true",
+          "is-correct": false
+        },
+        {
+          "text": "It returns undefined",
+          "is-correct": false
+        },
+        {
+          "text": "It is false",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Object.is distinguishes +0 from -0, so Object.is(+0, -0) is false. Strict equality considers them equal.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-008",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does Function.prototype.bind() return?",
+      "answers": [
+        {
+          "text": "A new bound function",
+          "is-correct": true
+        },
+        {
+          "text": "The function's result",
+          "is-correct": false
+        },
+        {
+          "text": "A Promise",
+          "is-correct": false
+        },
+        {
+          "text": "The original function only",
+          "is-correct": false
+        }
+      ],
+      "explanation": "bind() creates a new function with a fixed this value and optionally pre-supplied arguments.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-009",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "Arrow functions can be used as constructors with new.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": false
+        },
+        {
+          "text": "False",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Arrow functions do not have [[Construct]] and cannot be called with new.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-010",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does new.target indicate inside a function or constructor?",
+      "answers": [
+        {
+          "text": "The prototype object",
+          "is-correct": false
+        },
+        {
+          "text": "Whether it was invoked with new",
+          "is-correct": true
+        },
+        {
+          "text": "The current this value",
+          "is-correct": false
+        },
+        {
+          "text": "The class name",
+          "is-correct": false
+        }
+      ],
+      "explanation": "new.target is defined for constructor-style calls and identifies the constructor that new invoked.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-011",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which statement about class methods is correct?",
+      "answers": [
+        {
+          "text": "They are enumerable by default",
+          "is-correct": false
+        },
+        {
+          "text": "They are copied per instance",
+          "is-correct": false
+        },
+        {
+          "text": "They are on the prototype",
+          "is-correct": true
+        },
+        {
+          "text": "They use var scope",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Ordinary instance methods declared in a class body are defined on the class prototype and are non-enumerable.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-012",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does super.method() do in a derived class method?",
+      "answers": [
+        {
+          "text": "Calls a global function",
+          "is-correct": false
+        },
+        {
+          "text": "Creates a new parent",
+          "is-correct": false
+        },
+        {
+          "text": "Changes this permanently",
+          "is-correct": false
+        },
+        {
+          "text": "Calls a method on the parent prototype",
+          "is-correct": true
+        }
+      ],
+      "explanation": "super.method() resolves the method from the superclass prototype while keeping the current receiver as this.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-013",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What must a derived class constructor do before using this?",
+      "answers": [
+        {
+          "text": "Call super()",
+          "is-correct": true
+        },
+        {
+          "text": "Call Object.create()",
+          "is-correct": false
+        },
+        {
+          "text": "Call bind()",
+          "is-correct": false
+        },
+        {
+          "text": "Return null",
+          "is-correct": false
+        }
+      ],
+      "explanation": "A derived constructor must call super() before accessing this, because the base constructor initializes the instance.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-014",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "Private class fields declared with #name are accessible with bracket notation such as obj[\"#name\"].",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": false
+        },
+        {
+          "text": "False",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Private fields use private names, not string property keys. They can only be accessed with # syntax where the private name is in scope.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-015",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which built-in language feature produces iterator values lazily with yield?",
+      "answers": [
+        {
+          "text": "A class constructor",
+          "is-correct": false
+        },
+        {
+          "text": "A generator function",
+          "is-correct": true
+        },
+        {
+          "text": "A Proxy only",
+          "is-correct": false
+        },
+        {
+          "text": "JSON.parse()",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Calling a generator function returns a generator object that implements the iterator protocol and yields values on demand.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-016",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which keyword yields a value from a generator function?",
+      "answers": [
+        {
+          "text": "return",
+          "is-correct": false
+        },
+        {
+          "text": "await",
+          "is-correct": false
+        },
+        {
+          "text": "yield",
+          "is-correct": true
+        },
+        {
+          "text": "emit",
+          "is-correct": false
+        }
+      ],
+      "explanation": "yield pauses generator execution and produces a value to the iterator consumer.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-017",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does Symbol.iterator define for an object?",
+      "answers": [
+        {
+          "text": "Its JSON format",
+          "is-correct": false
+        },
+        {
+          "text": "Its prototype chain",
+          "is-correct": false
+        },
+        {
+          "text": "Its equality rules",
+          "is-correct": false
+        },
+        {
+          "text": "How it becomes iterable",
+          "is-correct": true
+        }
+      ],
+      "explanation": "A method stored at Symbol.iterator returns an iterator, allowing the object to participate in iteration protocols such as for...of.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-018",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which Promise combinator rejects as soon as any input Promise rejects?",
+      "answers": [
+        {
+          "text": "Promise.all()",
+          "is-correct": true
+        },
+        {
+          "text": "Promise.allSettled()",
+          "is-correct": false
+        },
+        {
+          "text": "Promise.any()",
+          "is-correct": false
+        },
+        {
+          "text": "Promise.resolve()",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Promise.all() fulfills when all inputs fulfill, but rejects as soon as one input rejects.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-019",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which Promise combinator waits for every input to settle and never rejects because an input rejected?",
+      "answers": [
+        {
+          "text": "Promise.race()",
+          "is-correct": false
+        },
+        {
+          "text": "Promise.allSettled()",
+          "is-correct": true
+        },
+        {
+          "text": "Promise.any()",
+          "is-correct": false
+        },
+        {
+          "text": "Promise.all()",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Promise.allSettled() waits for every input and fulfills with status objects describing each outcome.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-020",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "Promise.any() fulfills when the first input fulfills and rejects with AggregateError if every input rejects.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Promise.any() ignores rejections until one fulfills. If none fulfills, it rejects with an AggregateError.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-021",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which Promise combinator settles with the first input that settles, whether fulfilled or rejected?",
+      "answers": [
+        {
+          "text": "Promise.any()",
+          "is-correct": false
+        },
+        {
+          "text": "Promise.all()",
+          "is-correct": false
+        },
+        {
+          "text": "Promise.race()",
+          "is-correct": true
+        },
+        {
+          "text": "Promise.allSettled()",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Promise.race() adopts the outcome of the first input Promise to settle.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-022",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "When does a .then() handler run for an already fulfilled Promise?",
+      "answers": [
+        {
+          "text": "Immediately in the same call stack",
+          "is-correct": false
+        },
+        {
+          "text": "Only on the next animation frame",
+          "is-correct": false
+        },
+        {
+          "text": "As a timer task",
+          "is-correct": false
+        },
+        {
+          "text": "As a queued microtask",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Promise reaction handlers are queued as jobs commonly exposed by browsers as microtasks, so they run after the current stack clears.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-023",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which browser API queues a callback directly in the microtask queue?",
+      "answers": [
+        {
+          "text": "queueMicrotask()",
+          "is-correct": true
+        },
+        {
+          "text": "setTimeout()",
+          "is-correct": false
+        },
+        {
+          "text": "requestAnimationFrame()",
+          "is-correct": false
+        },
+        {
+          "text": "setInterval()",
+          "is-correct": false
+        }
+      ],
+      "explanation": "queueMicrotask() schedules a callback as a microtask, which runs after the current task and before the next task.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-024",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does the delete operator do to a configurable own object property?",
+      "answers": [
+        {
+          "text": "Sets it to undefined only",
+          "is-correct": false
+        },
+        {
+          "text": "Removes the property",
+          "is-correct": true
+        },
+        {
+          "text": "Freezes the object",
+          "is-correct": false
+        },
+        {
+          "text": "Removes its prototype",
+          "is-correct": false
+        }
+      ],
+      "explanation": "delete removes a configurable property from an object. Assigning undefined leaves the property present.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-025",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "delete arr[1] reduces arr.length by one and shifts later elements left.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": false
+        },
+        {
+          "text": "False",
+          "is-correct": true
+        }
+      ],
+      "explanation": "delete removes the property but leaves a hole in the array. The array length does not shrink and later indexes are not shifted.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-026",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which Object.defineProperty() attribute controls whether a property appears in Object.keys()?",
+      "answers": [
+        {
+          "text": "writable",
+          "is-correct": false
+        },
+        {
+          "text": "configurable",
+          "is-correct": false
+        },
+        {
+          "text": "enumerable",
+          "is-correct": true
+        },
+        {
+          "text": "value",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Object.keys() includes own enumerable string-keyed properties, so the enumerable attribute controls inclusion.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-027",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which descriptor attribute controls whether a data property's value can be assigned?",
+      "answers": [
+        {
+          "text": "enumerable",
+          "is-correct": false
+        },
+        {
+          "text": "configurable",
+          "is-correct": false
+        },
+        {
+          "text": "get",
+          "is-correct": false
+        },
+        {
+          "text": "writable",
+          "is-correct": true
+        }
+      ],
+      "explanation": "writable controls assignment to a data property. configurable controls deletion and most descriptor reconfiguration.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-028",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does Object.freeze() do to an ordinary object's own data properties?",
+      "answers": [
+        {
+          "text": "Makes them non-writable and non-configurable",
+          "is-correct": true
+        },
+        {
+          "text": "Makes nested objects immutable",
+          "is-correct": false
+        },
+        {
+          "text": "Removes the prototype",
+          "is-correct": false
+        },
+        {
+          "text": "Makes them enumerable",
+          "is-correct": false
+        }
+      ],
+      "explanation": "freeze() prevents extensions and makes existing own properties non-configurable; own data properties also become non-writable.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-029",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "Object.freeze() recursively freezes nested objects.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": false
+        },
+        {
+          "text": "False",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Object.freeze() is shallow. Nested objects remain mutable unless they are separately frozen.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-030",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What is true about ES module imported bindings?",
+      "answers": [
+        {
+          "text": "They are copied snapshots",
+          "is-correct": false
+        },
+        {
+          "text": "They are live bindings",
+          "is-correct": true
+        },
+        {
+          "text": "They are writable by importers",
+          "is-correct": false
+        },
+        {
+          "text": "They are always default exports",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Imported names are live read-only views of the exporter's bindings, so later exporter updates can be observed.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-031",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which statement about top-level await is correct?",
+      "answers": [
+        {
+          "text": "It works in classic scripts",
+          "is-correct": false
+        },
+        {
+          "text": "It blocks the browser thread",
+          "is-correct": false
+        },
+        {
+          "text": "It is allowed in ES modules",
+          "is-correct": true
+        },
+        {
+          "text": "It requires generators",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Top-level await is valid in ES modules. It can delay dependent module evaluation without blocking the JavaScript thread.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-032",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does a Proxy handler's get trap intercept?",
+      "answers": [
+        {
+          "text": "Property writes only",
+          "is-correct": false
+        },
+        {
+          "text": "Function creation",
+          "is-correct": false
+        },
+        {
+          "text": "Variable declarations",
+          "is-correct": false
+        },
+        {
+          "text": "Property reads",
+          "is-correct": true
+        }
+      ],
+      "explanation": "The get trap intercepts property access operations on the Proxy.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-033",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Why is Reflect.get() often useful inside a Proxy get trap?",
+      "answers": [
+        {
+          "text": "It forwards property access semantics",
+          "is-correct": true
+        },
+        {
+          "text": "It disables the trap",
+          "is-correct": false
+        },
+        {
+          "text": "It freezes the target",
+          "is-correct": false
+        },
+        {
+          "text": "It clones the receiver",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Reflect.get() performs the corresponding property get operation and can preserve receiver behavior when forwarding a trap.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-034",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "A Proxy handler may violate all target invariants without causing errors.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": false
+        },
+        {
+          "text": "False",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Proxy traps must respect language invariants. Violating certain invariants causes a TypeError.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-035",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which collection allows object keys but does not keep those objects alive solely because they are keys?",
+      "answers": [
+        {
+          "text": "Map",
+          "is-correct": false
+        },
+        {
+          "text": "WeakMap",
+          "is-correct": true
+        },
+        {
+          "text": "Set",
+          "is-correct": false
+        },
+        {
+          "text": "Array",
+          "is-correct": false
+        }
+      ],
+      "explanation": "WeakMap holds keys weakly, so key membership alone does not keep an otherwise unreachable object alive.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-036",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which values may be WeakMap keys in modern JavaScript?",
+      "answers": [
+        {
+          "text": "Only strings",
+          "is-correct": false
+        },
+        {
+          "text": "Any primitive",
+          "is-correct": false
+        },
+        {
+          "text": "Objects and non-registered symbols",
+          "is-correct": true
+        },
+        {
+          "text": "Numbers and BigInts",
+          "is-correct": false
+        }
+      ],
+      "explanation": "WeakMap keys may be objects or non-registered symbols. Registered symbols and other primitives cannot be keys.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-037",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What happens if a BigInt is mixed with a Number in arithmetic such as 1n + 1?",
+      "answers": [
+        {
+          "text": "It returns 2n",
+          "is-correct": false
+        },
+        {
+          "text": "It returns 2",
+          "is-correct": false
+        },
+        {
+          "text": "It returns NaN",
+          "is-correct": false
+        },
+        {
+          "text": "A TypeError is thrown",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Most arithmetic operators do not mix BigInt and Number operands, so 1n + 1 throws TypeError.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-038",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which operator can compare a BigInt and Number without requiring them to be the same type?",
+      "answers": [
+        {
+          "text": "Relational < or >",
+          "is-correct": true
+        },
+        {
+          "text": "Strict equality ===",
+          "is-correct": false
+        },
+        {
+          "text": "Bitwise >>>",
+          "is-correct": false
+        },
+        {
+          "text": "Unary +",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Relational comparison can compare BigInt and Number values. Arithmetic mixing generally throws, and unary + does not support BigInt.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-039",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does structuredClone() provide for supported values?",
+      "answers": [
+        {
+          "text": "A shallow copy",
+          "is-correct": false
+        },
+        {
+          "text": "A deep clone using the structured clone algorithm",
+          "is-correct": true
+        },
+        {
+          "text": "JSON text",
+          "is-correct": false
+        },
+        {
+          "text": "A frozen copy",
+          "is-correct": false
+        }
+      ],
+      "explanation": "structuredClone() deeply clones many built-in structured data types and can preserve cycles, unlike JSON serialization.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-040",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "structuredClone() can clone functions.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": false
+        },
+        {
+          "text": "False",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Functions are not structured-cloneable, so attempting to clone one produces a DataCloneError.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-041",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "In const {x = 5} = obj, when is the default value 5 used?",
+      "answers": [
+        {
+          "text": "When x is falsy",
+          "is-correct": false
+        },
+        {
+          "text": "When x is null or undefined",
+          "is-correct": false
+        },
+        {
+          "text": "Only when x is undefined",
+          "is-correct": true
+        },
+        {
+          "text": "Only when x is missing and null",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Destructuring defaults apply when the extracted value is undefined. A value of null, 0, false, or \"\" does not trigger the default.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-042",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does optional chaining obj?.method() do if obj is null?",
+      "answers": [
+        {
+          "text": "Calls method with null this",
+          "is-correct": false
+        },
+        {
+          "text": "Throws before chaining",
+          "is-correct": false
+        },
+        {
+          "text": "Returns null",
+          "is-correct": false
+        },
+        {
+          "text": "Returns undefined",
+          "is-correct": true
+        }
+      ],
+      "explanation": "The optional chain short-circuits when obj is null or undefined, so the call is skipped and the expression yields undefined.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-043",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which statement about nullish coalescing is correct?",
+      "answers": [
+        {
+          "text": "null ?? 5 gives 5",
+          "is-correct": true
+        },
+        {
+          "text": "0 ?? 5 gives 5",
+          "is-correct": false
+        },
+        {
+          "text": "\"\" ?? \"x\" gives \"x\"",
+          "is-correct": false
+        },
+        {
+          "text": "false ?? true gives true",
+          "is-correct": false
+        }
+      ],
+      "explanation": "?? uses its right operand only when the left operand is null or undefined. Other falsy values are preserved.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-044",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which syntax creates a computed property name in an object literal?",
+      "answers": [
+        {
+          "text": "{key: value}",
+          "is-correct": false
+        },
+        {
+          "text": "{[key]: value}",
+          "is-correct": true
+        },
+        {
+          "text": "{(key): value}",
+          "is-correct": false
+        },
+        {
+          "text": "{<key>: value}",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Square brackets in an object literal compute the property key from an expression.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-045",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which built-in symbol customizes how an object is tested by instanceof?",
+      "answers": [
+        {
+          "text": "Symbol.iterator",
+          "is-correct": false
+        },
+        {
+          "text": "Symbol.toPrimitive",
+          "is-correct": false
+        },
+        {
+          "text": "Symbol.hasInstance",
+          "is-correct": true
+        },
+        {
+          "text": "Symbol.match",
+          "is-correct": false
+        }
+      ],
+      "explanation": "A function-like object's Symbol.hasInstance method can customize the behavior of the instanceof operator.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-046",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "The right-hand side of instanceof can customize the check through Symbol.hasInstance.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "instanceof consults the right-hand side's @@hasInstance method when available, allowing custom instance checks.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-047",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which method changes a function call's this value and accepts arguments individually?",
+      "answers": [
+        {
+          "text": "bind()",
+          "is-correct": false
+        },
+        {
+          "text": "apply()",
+          "is-correct": false
+        },
+        {
+          "text": "invoke()",
+          "is-correct": false
+        },
+        {
+          "text": "call()",
+          "is-correct": true
+        }
+      ],
+      "explanation": "call() invokes the function immediately with the supplied this value followed by individual arguments.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-048",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which method invokes a function with thisArg and an array-like list of arguments?",
+      "answers": [
+        {
+          "text": "apply()",
+          "is-correct": true
+        },
+        {
+          "text": "bind()",
+          "is-correct": false
+        },
+        {
+          "text": "call()",
+          "is-correct": false
+        },
+        {
+          "text": "run()",
+          "is-correct": false
+        }
+      ],
+      "explanation": "apply() invokes the function immediately and accepts arguments from an array-like value.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-049",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does Object.create(proto) do?",
+      "answers": [
+        {
+          "text": "Clones proto's own properties",
+          "is-correct": false
+        },
+        {
+          "text": "Creates an object with proto as its prototype",
+          "is-correct": true
+        },
+        {
+          "text": "Freezes proto",
+          "is-correct": false
+        },
+        {
+          "text": "Creates a class",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Object.create(proto) creates a new object whose [[Prototype]] is the supplied value.",
+      "verified": false
+    },
+    {
+      "id": "javascript-hard-050",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "Object.hasOwn(obj, key) checks only obj's own property, not an inherited property with the same key.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Object.hasOwn() returns true only for an own property. The in operator, by contrast, also searches the prototype chain.",
+      "verified": false
+    },
+    {
+      "id": "javascript-extreme-001",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which comparison treats NaN as equal to itself and also distinguishes +0 from -0?",
+      "answers": [
+        {
+          "text": "==",
+          "is-correct": false
+        },
+        {
+          "text": "===",
+          "is-correct": false
+        },
+        {
+          "text": "SameValueZero",
+          "is-correct": false
+        },
+        {
+          "text": "Object.is()",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Object.is() uses SameValue semantics: NaN equals itself, while +0 and -0 are distinct. SameValueZero does not distinguish the two zeros.",
+      "verified": false
+    },
+    {
+      "id": "javascript-extreme-002",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What happens when an array's length is set to a smaller valid integer?",
+      "answers": [
+        {
+          "text": "Elements at removed indexes are deleted",
+          "is-correct": true
+        },
+        {
+          "text": "Only length changes",
+          "is-correct": false
+        },
+        {
+          "text": "Indexes are shifted down",
+          "is-correct": false
+        },
+        {
+          "text": "The array becomes sparse only",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Reducing length deletes own array elements whose indexes are at or above the new length. Non-configurable elements can prevent full truncation.",
+      "verified": false
+    },
+    {
+      "id": "javascript-extreme-003",
+      "difficulty": "EXTREME",
+      "type": "TRUE_FALSE",
+      "text": "A destructuring default value is used when the matched value is null.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": false
+        },
+        {
+          "text": "False",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Destructuring defaults are triggered by undefined, not null. null is treated as an explicit value.",
+      "verified": false
+    },
+    {
+      "id": "javascript-extreme-004",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "If queueMicrotask(a) runs before Promise.resolve().then(b) in the same task, which normally runs first?",
+      "answers": [
+        {
+          "text": "b",
+          "is-correct": false
+        },
+        {
+          "text": "a",
+          "is-correct": true
+        },
+        {
+          "text": "They run simultaneously",
+          "is-correct": false
+        },
+        {
+          "text": "Order is unspecified",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Both enqueue microtasks. With no intervening behavior, they run FIFO in the order they were queued, so a runs before b.",
+      "verified": false
+    },
+    {
+      "id": "javascript-extreme-005",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What is required when a Proxy ownKeys trap reports keys for a non-extensible target?",
+      "answers": [
+        {
+          "text": "Only enumerable keys",
+          "is-correct": false
+        },
+        {
+          "text": "Only string keys",
+          "is-correct": false
+        },
+        {
+          "text": "Exactly the target's own keys",
+          "is-correct": true
+        },
+        {
+          "text": "Sorted keys",
+          "is-correct": false
+        }
+      ],
+      "explanation": "For a non-extensible target, ownKeys must report exactly the target's own property keys, subject to Proxy invariants.",
+      "verified": false
+    },
+    {
+      "id": "javascript-extreme-006",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "When does an iterator's return() method matter during for...of?",
+      "answers": [
+        {
+          "text": "Only on normal completion",
+          "is-correct": false
+        },
+        {
+          "text": "Before the first next()",
+          "is-correct": false
+        },
+        {
+          "text": "Only for arrays",
+          "is-correct": false
+        },
+        {
+          "text": "When iteration closes early",
+          "is-correct": true
+        }
+      ],
+      "explanation": "IteratorClose can call return() when iteration ends abruptly or early, such as through break, allowing cleanup.",
+      "verified": false
+    },
+    {
+      "id": "javascript-extreme-007",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "How does Promise resolution handle a fulfilled value that is a thenable?",
+      "answers": [
+        {
+          "text": "Assimilates its then behavior",
+          "is-correct": true
+        },
+        {
+          "text": "Stores it unchanged immediately",
+          "is-correct": false
+        },
+        {
+          "text": "Rejects all thenables",
+          "is-correct": false
+        },
+        {
+          "text": "Converts it to JSON",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Promise resolution adopts thenables by invoking their then method according to the Promise resolution procedure.",
+      "verified": false
+    },
+    {
+      "id": "javascript-extreme-008",
+      "difficulty": "EXTREME",
+      "type": "TRUE_FALSE",
+      "text": "Imported ES module bindings are writable from the importing module if the exporter used let.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": false
+        },
+        {
+          "text": "False",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Imported bindings are live but read-only to the importer. The exporting module may update its own let binding.",
+      "verified": false
+    },
+    {
+      "id": "javascript-extreme-009",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which statement about Array.prototype.sort() in modern ECMAScript is correct?",
+      "answers": [
+        {
+          "text": "It always sorts numerically",
+          "is-correct": false
+        },
+        {
+          "text": "It must be stable",
+          "is-correct": true
+        },
+        {
+          "text": "It returns a new array",
+          "is-correct": false
+        },
+        {
+          "text": "It ignores compareFn",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Modern ECMAScript requires a stable sort. sort() mutates the array, and without compareFn it compares string representations.",
+      "verified": false
+    },
+    {
+      "id": "javascript-extreme-010",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What happens if Object.freeze() is called on a non-empty typed array with elements in current browsers?",
+      "answers": [
+        {
+          "text": "It always succeeds",
+          "is-correct": false
+        },
+        {
+          "text": "It detaches the buffer",
+          "is-correct": false
+        },
+        {
+          "text": "It throws a TypeError",
+          "is-correct": true
+        },
+        {
+          "text": "It zeroes the elements",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Freezing a typed array view with elements throws TypeError. A zero-length typed array can be frozen.",
+      "verified": false
+    }
+  ]
+}

@@ -3,6 +3,7 @@
 import "../main.js";
 import {
   getStat,
+  getXpToNextLevel,
   getNextDifficulty,
   CLASS_STATS,
   ITEMS,
@@ -11,6 +12,8 @@ import {
   TOWER_INFO,
 } from "../game/player.js";
 import { loadGame } from "../game/save.js";
+import { leaveGamePage, startMusic } from "../ui/music.js";
+import { togglePanel } from "../ui/panels.js";
 
 // ========================================
 // #region Variables
@@ -42,33 +45,23 @@ const towerPlay = document.getElementById("tower-play");
 // #endregion Variables
 // ========================================
 // #region Event listeners
-toggles.forEach((toggle) => toggle.addEventListener("click", togglePanel));
+toggles.forEach((toggle) =>
+  toggle.addEventListener("click", () => togglePanel(toggle, toggles)),
+);
 towerPrev.addEventListener("click", () => changeTower(-1));
 towerNext.addEventListener("click", () => changeTower(1));
 towerPlay.addEventListener("click", startClimb);
 // #endregion Event listeners
 // ========================================
 // #region Functions
-// Opens the clicked tab's panel and closes the other one,
-// so only one side panel is open at a time.
-function togglePanel(event) {
-  const clicked = event.currentTarget;
-
-  toggles.forEach((toggle) => {
-    const panel = document.getElementById(toggle.getAttribute("aria-controls"));
-    const isOpen = toggle === clicked && !panel.classList.contains("is-open");
-
-    panel.classList.toggle("is-open", isOpen);
-    toggle.setAttribute("aria-expanded", isOpen);
-  });
-}
-
 // Writes the player status screen.
 function showPlayer(player) {
   playerName.textContent = player.name;
   playerClass.textContent = player.heroClass;
   playerLevel.textContent = player.level;
-  playerXp.textContent = player.xp;
+  const nextLevelXp = getXpToNextLevel(player);
+  playerXp.textContent =
+    nextLevelXp === null ? "Max" : `${player.xp} / ${nextLevelXp}`;
   playerAvatar.src = `/avatars/${player.avatar}.webp`;
   playerAvatar.alt = `${player.name}'s avatar`;
 }
@@ -125,7 +118,7 @@ function startClimb() {
   const tower = TOWERS[towerIndex];
   const difficulty = getNextDifficulty(player, tower);
   const params = new URLSearchParams({ tower, difficulty });
-  window.location.href = `/pages/singleplayer.html?${params}`;
+  leaveGamePage(`/pages/singleplayer.html?${params}`);
 }
 // #endregion Functions
 // ========================================
@@ -135,4 +128,5 @@ if (player) {
   showStats(player);
   showInventory(player);
   showTower();
+  startMusic("lobby");
 }

@@ -1,8 +1,10 @@
 // Battle rules: plain functions over plain values, no DOM.
 import {
+  ATTACK_BONUS_PER_POINT,
   CRIT_MULTIPLIER,
   DEFENSE_REDUCTION_PER_POINT,
-  REFERENCE_ATTACK,
+  MONSTER_BASE_DAMAGE,
+  MONSTER_DAMAGE_PER_CR,
 } from "./constants.js";
 
 /**
@@ -25,7 +27,7 @@ export function rollCrit(critChance) {
  * @returns {number} Damage to the monster.
  */
 export function getPlayerHit(monster, playerAttack, isCrit) {
-  const attackBonus = Math.max(playerAttack / REFERENCE_ATTACK, 1);
+  const attackBonus = 1 + playerAttack * ATTACK_BONUS_PER_POINT;
   const critBonus = isCrit ? CRIT_MULTIPLIER : 1;
 
   // Rounded up, so a 3-hit monster never needs a 4th hit because of rounding
@@ -36,15 +38,17 @@ export function getPlayerHit(monster, playerAttack, isCrit) {
 
 /**
  * Damage a wrong answer does to the player:
- * player max HP × the floor's hit share, minus 1% per defense point (at least 1).
+ * base + per challenge rating, minus 1% per defense point (at least 1).
  *
- * @param {object} monster - { monsterHitShare }
- * @param {object} player - { maxHp, defense }
+ * @param {object} monster - { challengeRating }
+ * @param {object} player - { defense }
  * @returns {number} Damage to the player.
  */
 export function getMonsterHit(monster, player) {
   const reduction = 1 - player.defense * DEFENSE_REDUCTION_PER_POINT;
-  const damage = player.maxHp * monster.monsterHitShare * reduction;
+  const damage =
+    (MONSTER_BASE_DAMAGE + monster.challengeRating * MONSTER_DAMAGE_PER_CR) *
+    reduction;
 
   return Math.max(Math.round(damage), 1);
 }
@@ -53,11 +57,24 @@ export function getMonsterHit(monster, player) {
  * Starts a fight: the monster at full HP, the player with the HP they have left.
  *
  * @param {object} player - { hp, maxHp, attack, defense, critChance }
- * @param {object} monster - { name, maxHp, questionsToDefeat, monsterHitShare, isBoss, … }
+ * @param {object} monster - { name, maxHp, challengeRating, questionsToDefeat, isBoss, … }
  * @returns {object} The battle state.
  */
 export function createBattle(player, monster) {
   return { player, monster, monsterHp: monster.maxHp };
+}
+
+/**
+ * Heals the player, but never above max HP.
+ *
+ * @param {object} battle - The current battle state.
+ * @param {number} amount - HP to heal.
+ * @returns {object} The new battle state.
+ */
+export function healPlayer(battle, amount) {
+  const hp = Math.min(battle.player.hp + amount, battle.player.maxHp);
+
+  return { ...battle, player: { ...battle.player, hp } };
 }
 
 /**

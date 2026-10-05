@@ -26,6 +26,55 @@
 
 // #endregion Grid
 // ========================================
+// #region Screen fade
+// Game pages start black and fade in. JS adds .is-leaving to fade back to black
+// before the page changes. Header and footer are outside main, so they stay.
+.site-lobby,
+.site-singleplayer {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+    background-color: black;
+    animation: screen-fade-in 0.8s ease-out forwards;
+  }
+
+  &.is-leaving::before {
+    animation: screen-fade-out 0.7s ease-in forwards;
+  }
+}
+
+@keyframes screen-fade-in {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes screen-fade-out {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-lobby::before,
+  .site-singleplayer::before {
+    display: none;
+  }
+}
+
+// #endregion Screen fade
+// ========================================
 // #region Mobile
 
 // #endregion Mobile

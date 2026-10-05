@@ -10,11 +10,17 @@ import {
   DIFFICULTIES,
   TOWER_INFO,
   TOWERS,
+  addXp,
   getStat,
+  markCleared,
+  rollLoot,
+  toPlayerXp,
+  usePotion,
 } from "../game/player.js";
-import { addXp, markCleared, toPlayerXp } from "../game/progress.js";
 import { loadGame, saveGame } from "../game/save.js";
 import { startGame } from "../ui/battle-screen.js";
+import { leaveGamePage, startMusic } from "../ui/music.js";
+import { togglePanel } from "../ui/panels.js";
 
 // ========================================
 // #region Variables
@@ -31,7 +37,9 @@ const player = loadGame(); // null when no hero has been created yet
 // #endregion Variables
 // ========================================
 // #region Event listeners
-toggles.forEach((toggle) => toggle.addEventListener("click", togglePanel));
+toggles.forEach((toggle) =>
+  toggle.addEventListener("click", () => togglePanel(toggle, toggles)),
+);
 // #endregion Event listeners
 // ========================================
 // #region Start
@@ -55,7 +63,9 @@ if (!player) {
     loadQuestions: () => getQuestions(tower, difficulty, QUESTIONS_PER_RUN),
     onMonsterSlain: saveMonsterSlain,
     onLeaveTower: goToLobby,
+    onUsePotion: drinkPotion,
   });
+  startMusic("battle");
 }
 // #endregion Start
 // ========================================
@@ -69,7 +79,7 @@ function isPlayable(towerId, difficultyName) {
   );
 }
 
-// A monster is slain: add its XP (and mark the tower cleared after the boss),
+// A monster is slain: add its XP and loot (and mark the tower cleared after the boss),
 // then save. The lobby reads the save, so it shows the new level/XP and the
 // next difficulty.
 function saveMonsterSlain(monster, isTowerCleared) {
@@ -78,29 +88,26 @@ function saveMonsterSlain(monster, isTowerCleared) {
   }
 
   const levelsGained = addXp(player, monster.xp);
+  const loot = rollLoot(player, monster.lootMultiplier);
 
   return {
     xpGained: toPlayerXp(monster.xp),
     levelsGained,
     level: player.level,
+    loot,
     isSaved: saveGame(player),
   };
 }
 
-function goToLobby() {
-  window.location.href = LOBBY_URL;
+function drinkPotion() {
+  if (!usePotion(player)) return false;
+
+  saveGame(player);
+  return true;
 }
 
-function togglePanel(event) {
-  const clicked = event.currentTarget;
-
-  toggles.forEach((toggle) => {
-    const panel = document.getElementById(toggle.getAttribute("aria-controls"));
-    const isOpen = toggle === clicked && !panel.classList.contains("is-open");
-
-    panel.classList.toggle("is-open", isOpen);
-    toggle.setAttribute("aria-expanded", isOpen);
-  });
+function goToLobby() {
+  leaveGamePage(LOBBY_URL);
 }
 // #endregion Functions
 // ========================================

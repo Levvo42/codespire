@@ -2,3 +2,23 @@
 a:visited:hover {
   color: red;
 }
+
+// button_Play Music
+.music-btn {
+  position: fixed;
+  top: 80px;
+  right: 1.3rem;
+  background: #000;
+  padding: 0.3rem 0.5rem;
+  border: 2px solid #6e5710;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.7rem;
+  z-index: 1;
+
+  img {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: block;
+  }
+}

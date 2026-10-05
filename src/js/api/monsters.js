@@ -1,7 +1,6 @@
 // D&D 5e API: https://www.dnd5eapi.co (no API key needed)
 import { shuffle } from "../utils/shuffle.js";
 
-// Secret tower & boss (KEEP IT OR I WILL RESIGN!!!!)
 const DND_API_URL = "https://www.dnd5eapi.co";
 const MAX_PICK_ATTEMPTS = 8; // monsters to check before taking the closest match
 const RARE_CLIMB_CHANCE = 0.032; // a rare climb where every floor is the same monster
@@ -15,7 +14,7 @@ let isRareClimb = false;
  *
  * @param {object} floor - A tier from TOWER_LAYOUTS.
  * @param {string[]} usedMonsters - Monster indexes already used in this climb.
- * @returns {Promise<object>} { index, name, maxHp, xp, imageUrl, questionsToDefeat, monsterHitShare, isBoss, isRaid }
+ * @returns {Promise<object>} { index, name, maxHp, challengeRating, xp, imageUrl, questionsToDefeat, lootMultiplier, isBoss, isRaid }
  * @throws {Error} If a request fails or no monster matches.
  */
 export async function getMonsterForFloor(floor, usedMonsters) {
@@ -86,10 +85,11 @@ function toMonster(monster, floor) {
     index: monster.index,
     name: monster.name,
     maxHp: monster.hit_points,
-    xp: monster.xp ?? 0, // D&D XP for slaying it (scaled in game/progress.js)
+    challengeRating: monster.challenge_rating,
+    xp: monster.xp ?? 0, // D&D XP for slaying it (scaled in game/player.js)
     imageUrl: monster.image ? `${DND_API_URL}${monster.image}` : null,
     questionsToDefeat: floor.questionsToDefeat,
-    monsterHitShare: floor.monsterHitShare,
+    lootMultiplier: floor.lootMultiplier,
     isBoss: Boolean(floor.isBoss),
     isRaid: false,
   };
