@@ -19,7 +19,7 @@ import {
 } from "../game/player.js";
 import { loadGame, saveGame } from "../game/save.js";
 import { startGame } from "../ui/battle-screen.js";
-import { startMusic } from "../ui/music.js";
+import { leaveGamePage, startMusic } from "../ui/music.js";
 import { togglePanel } from "../ui/panels.js";
 
 // ========================================
@@ -107,7 +107,7 @@ function drinkPotion() {
 }
 
 function goToLobby() {
-  window.location.href = LOBBY_URL;
+  leaveGamePage(LOBBY_URL);
 }
 // #endregion Functions
 // ========================================

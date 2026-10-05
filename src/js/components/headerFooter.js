@@ -40,7 +40,7 @@ const headerTemplate = `
       <button class="site-settings__button" id="settings-new" type="button">New game</button>
       <button class="site-settings__button" id="settings-save" type="button">Save game</button>
       <button class="site-settings__button" id="settings-load" type="button">Load game</button>
-      <input id="settings-file" type="file" accept=".json,application/json" hidden />
+      <input id="settings-file" type="file" accept=".txt,.json,text/plain,application/json" hidden />
     </div>
     <p class="site-settings__message" id="settings-message" role="status"></p>
     <button class="site-settings__button" id="settings-close" type="button">Close</button>
