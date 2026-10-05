@@ -12,7 +12,7 @@ import { createClimb, isLastFloor } from "../game/tower.js";
 import { showError } from "./error-message.js";
 import { fitText } from "./fit-text.js";
 import { endRaid, getRaidName, goblinSays, startRaid } from "./goblin-raid.js";
-import fallbackMonsterImage from "../../assets/images/placeholderlogo.png";
+import fallbackMonsterImage from "../../assets/images/codespire-logo.webp";
 
 // ========================================
 // #region Variables
