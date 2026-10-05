@@ -10,7 +10,8 @@ import theLossOfANewfoundFriend from "../../assets/music/the_loss_of_a_newfound_
 import theTrickstersPath from "../../assets/music/the_tricksters_path.ogg";
 import voidOfThought from "../../assets/music/void_of_thought.ogg";
 import { loadSettings } from "../game/settings.js";
-
+import playIcon from "../../assets/icons/sound-on.svg";
+import pauseIcon from "../../assets/icons/sound-off.svg";
 // ========================================
 // #region Variables
 const PLAYLISTS = {
@@ -29,6 +30,18 @@ let audio = null;
 let playlist = [];
 let musicKey = "";
 let track = 0;
+
+// #region Music-button
+const playBtn = document.createElement("button");
+playBtn.className = "music-btn";
+playBtn.setAttribute("aria-label", "Turn sound off");
+
+const icon = document.createElement("img");
+icon.src = pauseIcon;
+icon.alt = "sound off";
+playBtn.appendChild(icon);
+// #endregion Music-button
+
 // #endregion Variables
 // ========================================
 // #region Functions
@@ -41,6 +54,11 @@ export function startMusic(playlistName) {
   track = position.track;
 
   audio = new Audio(playlist[track]);
+  // Body
+  if (!document.body.contains(playBtn)) {
+    document.body.appendChild(playBtn);
+  }
+
   audio.volume = loadSettings().volume;
   audio.addEventListener(
     "loadedmetadata",
@@ -56,6 +74,22 @@ export function startMusic(playlistName) {
 
   playMusic();
 }
+
+// #region Sound controls
+playBtn.addEventListener("click", () => {
+  if (audio.paused) {
+    audio.play();
+    icon.src = pauseIcon;
+    icon.alt = "sound off";
+    playBtn.setAttribute("aria-label", "Turn sound off");
+  } else {
+    audio.pause();
+    icon.src = playIcon;
+    icon.alt = "sound on";
+    playBtn.setAttribute("aria-label", "Turn sound on");
+  }
+});
+// #endregion Sound controls
 
 function playMusic() {
   audio.play().catch(waitForClick);
