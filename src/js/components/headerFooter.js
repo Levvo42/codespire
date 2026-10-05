@@ -1,4 +1,4 @@
-import logo from "../../assets/images/codespire-logo.png";
+import logo from "../../assets/images/codespire-logo.webp";
 const headerTemplate = `
   <header class="site-header">
     <img
@@ -6,8 +6,8 @@ const headerTemplate = `
       loading="eager"
       class="site-header__logo"
       alt=".codeSpire"
-      width="60"
-      height="30"
+      width="448"
+      height="113"
     />
     <nav class="site-header__nav" id="header-navigation">
       <a href="/index.html">Main Menu</a>
