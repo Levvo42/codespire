@@ -226,10 +226,11 @@
 
   // #region mainpage background
   background-image: url("../../assets/images/lobby-bg.webp");
+  background-repeat: no-repeat;
 
   /* background-size: 200dvh; */
   background-position: top;
-  background-size: auto;
+  background-size: cover;
 
   // #endregion mainpage background
 }
