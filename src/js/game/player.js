@@ -32,8 +32,8 @@ export const ITEM_INFO = {
 };
 export const TOWER_INFO = {
   html: { name: "HTML", available: true },
-  css: { name: "CSS", available: false },
-  javascript: { name: "JavaScript", available: false },
+  css: { name: "CSS", available: true },
+  javascript: { name: "JavaScript", available: true },
   python: { name: "Python", available: false },
   csharp: { name: "C#", available: false },
 };

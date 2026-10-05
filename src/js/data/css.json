@@ -1,0 +1,3926 @@
+{
+  "topic": "css",
+  "version": 1,
+  "questions": [
+    {
+      "id": "css-easy-001",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property changes the text colour of an element?",
+      "answers": [
+        {
+          "text": "color",
+          "is-correct": true
+        },
+        {
+          "text": "font-color",
+          "is-correct": false
+        },
+        {
+          "text": "background-color",
+          "is-correct": false
+        },
+        {
+          "text": "text-color",
+          "is-correct": false
+        }
+      ],
+      "explanation": "color sets the text colour. background-color sets the background, while font-color and text-color are not CSS properties.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-002",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "A class selector starts with a # character.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": false
+        },
+        {
+          "text": "False",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Class selectors start with a dot, such as .card. The # character starts an ID selector.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-003",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property sets an element's background colour?",
+      "answers": [
+        {
+          "text": "background-color",
+          "is-correct": true
+        },
+        {
+          "text": "color",
+          "is-correct": false
+        },
+        {
+          "text": "background-image",
+          "is-correct": false
+        },
+        {
+          "text": "fill",
+          "is-correct": false
+        }
+      ],
+      "explanation": "background-color sets the background colour of an element. color affects text.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-004",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which HTML line correctly links an external stylesheet named styles.css?",
+      "answers": [
+        {
+          "text": "<link src='styles.css'>",
+          "is-correct": false
+        },
+        {
+          "text": "<style src='styles.css'>",
+          "is-correct": false
+        },
+        {
+          "text": "<stylesheet href='styles.css'>",
+          "is-correct": false
+        },
+        {
+          "text": "<link rel='stylesheet' href='styles.css'>",
+          "is-correct": true
+        }
+      ],
+      "explanation": "An external stylesheet is linked with a link element using rel='stylesheet' and href pointing to the CSS file.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-005",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which syntax creates a CSS comment?",
+      "answers": [
+        {
+          "text": "/* comment */",
+          "is-correct": true
+        },
+        {
+          "text": "// comment",
+          "is-correct": false
+        },
+        {
+          "text": "## comment",
+          "is-correct": false
+        },
+        {
+          "text": "<!-- comment -->",
+          "is-correct": false
+        }
+      ],
+      "explanation": "CSS comments use /* at the start and */ at the end.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-006",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which selector targets the element with id='menu'?",
+      "answers": [
+        {
+          "text": "*menu",
+          "is-correct": false
+        },
+        {
+          "text": ".menu",
+          "is-correct": false
+        },
+        {
+          "text": "menu",
+          "is-correct": false
+        },
+        {
+          "text": "#menu",
+          "is-correct": true
+        }
+      ],
+      "explanation": "An ID selector starts with #, so #menu matches id='menu'.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-007",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which selector targets every p element?",
+      "answers": [
+        {
+          "text": "*p",
+          "is-correct": false
+        },
+        {
+          "text": ".p",
+          "is-correct": false
+        },
+        {
+          "text": "p",
+          "is-correct": true
+        },
+        {
+          "text": "#p",
+          "is-correct": false
+        }
+      ],
+      "explanation": "A type selector uses the element name directly. p matches all p elements.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-008",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "The font-size property controls the size of text.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "font-size sets the size of text.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-009",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property adds space inside an element, between its content and border?",
+      "answers": [
+        {
+          "text": "padding",
+          "is-correct": true
+        },
+        {
+          "text": "gap",
+          "is-correct": false
+        },
+        {
+          "text": "margin",
+          "is-correct": false
+        },
+        {
+          "text": "outline",
+          "is-correct": false
+        }
+      ],
+      "explanation": "padding adds space inside the border. margin creates space outside the border.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-010",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property creates space outside an element's border?",
+      "answers": [
+        {
+          "text": "border-spacing",
+          "is-correct": false
+        },
+        {
+          "text": "padding",
+          "is-correct": false
+        },
+        {
+          "text": "margin",
+          "is-correct": true
+        },
+        {
+          "text": "inset",
+          "is-correct": false
+        }
+      ],
+      "explanation": "margin creates space outside the border. padding adds space inside it.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-011",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which declaration adds a 2px solid black border on all sides?",
+      "answers": [
+        {
+          "text": "border: black fill 2px;",
+          "is-correct": false
+        },
+        {
+          "text": "border-width: solid 2px black;",
+          "is-correct": false
+        },
+        {
+          "text": "outline: black 2px inside;",
+          "is-correct": false
+        },
+        {
+          "text": "border: 2px solid black;",
+          "is-correct": true
+        }
+      ],
+      "explanation": "The border shorthand can combine width, style, and colour, as in border: 2px solid black;.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-012",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "A card should have a specified horizontal size. Which property sets that width?",
+      "answers": [
+        {
+          "text": "size",
+          "is-correct": false
+        },
+        {
+          "text": "inline-size-only",
+          "is-correct": false
+        },
+        {
+          "text": "height",
+          "is-correct": false
+        },
+        {
+          "text": "width",
+          "is-correct": true
+        }
+      ],
+      "explanation": "width sets an element's width in the horizontal dimension in typical horizontal writing modes.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-013",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property controls the vertical size of an element when you give it a length such as 200px?",
+      "answers": [
+        {
+          "text": "size-y",
+          "is-correct": false
+        },
+        {
+          "text": "min-width",
+          "is-correct": false
+        },
+        {
+          "text": "height",
+          "is-correct": true
+        },
+        {
+          "text": "block-height",
+          "is-correct": false
+        }
+      ],
+      "explanation": "height sets an element's height.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-014",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "1rem is relative to the root element's font size.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "The rem unit is based on the root element's font size, normally the html element.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-015",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does 16px represent in CSS?",
+      "answers": [
+        {
+          "text": "16 CSS pixels",
+          "is-correct": true
+        },
+        {
+          "text": "16 percent of the parent",
+          "is-correct": false
+        },
+        {
+          "text": "16 root font units",
+          "is-correct": false
+        },
+        {
+          "text": "16 viewport units",
+          "is-correct": false
+        }
+      ],
+      "explanation": "px is the CSS pixel unit. It is not a percentage or a root-relative unit.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-016",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "For width: 50%; on a normal block, the percentage is generally based on what?",
+      "answers": [
+        {
+          "text": "The element's font size",
+          "is-correct": false
+        },
+        {
+          "text": "The viewport height",
+          "is-correct": false
+        },
+        {
+          "text": "The containing block's width",
+          "is-correct": true
+        },
+        {
+          "text": "The root font size",
+          "is-correct": false
+        }
+      ],
+      "explanation": "For width, a percentage is generally resolved against the width of the containing block.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-017",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which selector targets elements with class='card'?",
+      "answers": [
+        {
+          "text": ".card",
+          "is-correct": true
+        },
+        {
+          "text": "card",
+          "is-correct": false
+        },
+        {
+          "text": "[id='card']",
+          "is-correct": false
+        },
+        {
+          "text": "#card",
+          "is-correct": false
+        }
+      ],
+      "explanation": "A class selector starts with a dot, so .card matches elements whose class list contains card.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-018",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which selector targets elements with both card and featured classes?",
+      "answers": [
+        {
+          "text": ".card .featured",
+          "is-correct": false
+        },
+        {
+          "text": ".card#featured",
+          "is-correct": false
+        },
+        {
+          "text": ".card.featured",
+          "is-correct": true
+        },
+        {
+          "text": "card.featured",
+          "is-correct": false
+        }
+      ],
+      "explanation": ".card.featured has no space, so it matches one element that has both classes.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-019",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which selector groups all h1 and h2 elements into the same rule?",
+      "answers": [
+        {
+          "text": "h1, h2",
+          "is-correct": true
+        },
+        {
+          "text": "h1 h2",
+          "is-correct": false
+        },
+        {
+          "text": "h1 > h2",
+          "is-correct": false
+        },
+        {
+          "text": "h1 + h2",
+          "is-correct": false
+        }
+      ],
+      "explanation": "A comma separates selectors in a selector list, so h1, h2 matches both types.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-020",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "The selector .card p matches p elements that are descendants of an element with class card.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "A space is the descendant combinator, so .card p matches p elements anywhere inside .card.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-021",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which selector matches p elements that are direct children of .card?",
+      "answers": [
+        {
+          "text": ".card p",
+          "is-correct": false
+        },
+        {
+          "text": ".card > p",
+          "is-correct": true
+        },
+        {
+          "text": ".card ~ p",
+          "is-correct": false
+        },
+        {
+          "text": ".card + p",
+          "is-correct": false
+        }
+      ],
+      "explanation": "The > combinator matches direct children. A space matches descendants at any depth.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-022",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which selector matches every element?",
+      "answers": [
+        {
+          "text": "html * only",
+          "is-correct": false
+        },
+        {
+          "text": "::all",
+          "is-correct": false
+        },
+        {
+          "text": "all",
+          "is-correct": false
+        },
+        {
+          "text": "*",
+          "is-correct": true
+        }
+      ],
+      "explanation": "The universal selector * matches elements without restricting their type.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-023",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property chooses the typeface used for text?",
+      "answers": [
+        {
+          "text": "font-family",
+          "is-correct": true
+        },
+        {
+          "text": "text-family",
+          "is-correct": false
+        },
+        {
+          "text": "font-weight",
+          "is-correct": false
+        },
+        {
+          "text": "font-style",
+          "is-correct": false
+        }
+      ],
+      "explanation": "font-family specifies a prioritized list of font families.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-024",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property makes text bold when given a suitable value such as 700?",
+      "answers": [
+        {
+          "text": "font-weight",
+          "is-correct": true
+        },
+        {
+          "text": "font-style",
+          "is-correct": false
+        },
+        {
+          "text": "text-weight",
+          "is-correct": false
+        },
+        {
+          "text": "font-size",
+          "is-correct": false
+        }
+      ],
+      "explanation": "font-weight controls the thickness of glyphs. Values such as 700 are commonly bold.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-025",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which declaration centres inline text inside its block container?",
+      "answers": [
+        {
+          "text": "margin-text: auto;",
+          "is-correct": false
+        },
+        {
+          "text": "justify-text: center;",
+          "is-correct": false
+        },
+        {
+          "text": "align-content: center;",
+          "is-correct": false
+        },
+        {
+          "text": "text-align: center;",
+          "is-correct": true
+        }
+      ],
+      "explanation": "text-align: center; centres inline content, including text, within the block.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-026",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property controls the distance between lines of text?",
+      "answers": [
+        {
+          "text": "line-height",
+          "is-correct": true
+        },
+        {
+          "text": "font-gap",
+          "is-correct": false
+        },
+        {
+          "text": "word-spacing",
+          "is-correct": false
+        },
+        {
+          "text": "letter-spacing",
+          "is-correct": false
+        }
+      ],
+      "explanation": "line-height controls the height of line boxes and therefore the spacing between lines of text.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-027",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "border-radius can round the corners of an element's border box.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "border-radius rounds the corners of an element's border box and background.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-028",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which declaration removes the usual underline from a link's text decoration?",
+      "answers": [
+        {
+          "text": "underline: none;",
+          "is-correct": false
+        },
+        {
+          "text": "text-style: clear;",
+          "is-correct": false
+        },
+        {
+          "text": "font-decoration: none;",
+          "is-correct": false
+        },
+        {
+          "text": "text-decoration: none;",
+          "is-correct": true
+        }
+      ],
+      "explanation": "text-decoration: none; removes text decorations such as the usual underline.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-029",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property limits an element so its width cannot grow beyond a chosen value?",
+      "answers": [
+        {
+          "text": "min-width",
+          "is-correct": false
+        },
+        {
+          "text": "max-width",
+          "is-correct": true
+        },
+        {
+          "text": "width-limit",
+          "is-correct": false
+        },
+        {
+          "text": "overflow-width",
+          "is-correct": false
+        }
+      ],
+      "explanation": "max-width sets an upper limit for the used width.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-030",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property can require an element to be at least a certain height?",
+      "answers": [
+        {
+          "text": "min-height",
+          "is-correct": true
+        },
+        {
+          "text": "height-min",
+          "is-correct": false
+        },
+        {
+          "text": "block-limit",
+          "is-correct": false
+        },
+        {
+          "text": "max-height",
+          "is-correct": false
+        }
+      ],
+      "explanation": "min-height sets the minimum allowed height.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-031",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does padding: 10px 20px; mean?",
+      "answers": [
+        {
+          "text": "10px left/right, 20px top/bottom",
+          "is-correct": false
+        },
+        {
+          "text": "10px top, 20px right, 0 bottom/left",
+          "is-correct": false
+        },
+        {
+          "text": "10px top/bottom, 20px left/right",
+          "is-correct": true
+        },
+        {
+          "text": "10px all sides, then 20px extra",
+          "is-correct": false
+        }
+      ],
+      "explanation": "With two values, the first is top and bottom, and the second is left and right.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-032",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which declaration removes margin on all four sides?",
+      "answers": [
+        {
+          "text": "padding: 0;",
+          "is-correct": false
+        },
+        {
+          "text": "spacing: 0;",
+          "is-correct": false
+        },
+        {
+          "text": "margin: none;",
+          "is-correct": false
+        },
+        {
+          "text": "margin: 0;",
+          "is-correct": true
+        }
+      ],
+      "explanation": "margin: 0; sets all four margin sides to zero.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-033",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which is a valid modern CSS hexadecimal colour?",
+      "answers": [
+        {
+          "text": "hex(ff8800)",
+          "is-correct": false
+        },
+        {
+          "text": "#ff8800",
+          "is-correct": true
+        },
+        {
+          "text": "#gg8800",
+          "is-correct": false
+        },
+        {
+          "text": "0xff8800",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Hex colours begin with # and use hexadecimal digits 0–9 and a–f.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-034",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "rgb(255 0 0) is valid modern CSS colour syntax.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Modern CSS allows space-separated rgb() components, so rgb(255 0 0) represents red.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-035",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which keyword makes a CSS colour fully transparent?",
+      "answers": [
+        {
+          "text": "none",
+          "is-correct": false
+        },
+        {
+          "text": "transparent",
+          "is-correct": true
+        },
+        {
+          "text": "clear",
+          "is-correct": false
+        },
+        {
+          "text": "invisible",
+          "is-correct": false
+        }
+      ],
+      "explanation": "transparent is a valid CSS colour keyword representing a fully transparent colour.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-036",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property changes an element's overall transparency?",
+      "answers": [
+        {
+          "text": "visibility",
+          "is-correct": false
+        },
+        {
+          "text": "opacity",
+          "is-correct": true
+        },
+        {
+          "text": "alpha",
+          "is-correct": false
+        },
+        {
+          "text": "filter-alpha",
+          "is-correct": false
+        }
+      ],
+      "explanation": "opacity controls the opacity of an element and its contents, from 0 to 1.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-037",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which is the correct basic form of a CSS declaration?",
+      "answers": [
+        {
+          "text": "value: property;",
+          "is-correct": false
+        },
+        {
+          "text": "property(value);",
+          "is-correct": false
+        },
+        {
+          "text": "property: value;",
+          "is-correct": true
+        },
+        {
+          "text": "property = value;",
+          "is-correct": false
+        }
+      ],
+      "explanation": "A CSS declaration uses a property name, a colon, a value, and normally a semicolon.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-038",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Where are declarations placed in a normal CSS style rule?",
+      "answers": [
+        {
+          "text": "Inside square brackets",
+          "is-correct": false
+        },
+        {
+          "text": "After an equals sign",
+          "is-correct": false
+        },
+        {
+          "text": "Inside parentheses",
+          "is-correct": false
+        },
+        {
+          "text": "Inside curly braces",
+          "is-correct": true
+        }
+      ],
+      "explanation": "A style rule places its declaration block inside curly braces after the selector.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-039",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which selector targets all elements named section?",
+      "answers": [
+        {
+          "text": "#section",
+          "is-correct": false
+        },
+        {
+          "text": "section",
+          "is-correct": true
+        },
+        {
+          "text": ".section",
+          "is-correct": false
+        },
+        {
+          "text": "[class='section']",
+          "is-correct": false
+        }
+      ],
+      "explanation": "section is a type selector that matches section elements.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-040",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which HTML element can contain CSS directly in the document head?",
+      "answers": [
+        {
+          "text": "<link>",
+          "is-correct": false
+        },
+        {
+          "text": "<style>",
+          "is-correct": true
+        },
+        {
+          "text": "<script>",
+          "is-correct": false
+        },
+        {
+          "text": "<css>",
+          "is-correct": false
+        }
+      ],
+      "explanation": "The style element contains embedded CSS rules. link is used to reference an external stylesheet.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-041",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "padding-top adds space above the content but inside the element's border.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "padding-top adds inner space between the top content edge and the top border.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-042",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property sets only the left margin?",
+      "answers": [
+        {
+          "text": "left-margin",
+          "is-correct": false
+        },
+        {
+          "text": "margin-left",
+          "is-correct": true
+        },
+        {
+          "text": "margin-inline",
+          "is-correct": false
+        },
+        {
+          "text": "padding-left",
+          "is-correct": false
+        }
+      ],
+      "explanation": "margin-left sets the physical left margin. padding-left affects inner spacing instead.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-043",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which declaration gives an element a 4px dashed border?",
+      "answers": [
+        {
+          "text": "border-width: dashed 4px;",
+          "is-correct": false
+        },
+        {
+          "text": "border-style: 4px dashed;",
+          "is-correct": false
+        },
+        {
+          "text": "outline-style: 4px dashed;",
+          "is-correct": false
+        },
+        {
+          "text": "border: 4px dashed;",
+          "is-correct": true
+        }
+      ],
+      "explanation": "border can combine the border width and style. A colour may be omitted and defaults to currentColor.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-044",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property changes only the style of a border, such as solid or dashed?",
+      "answers": [
+        {
+          "text": "border-type",
+          "is-correct": false
+        },
+        {
+          "text": "border-pattern",
+          "is-correct": false
+        },
+        {
+          "text": "border-style",
+          "is-correct": true
+        },
+        {
+          "text": "outline-shape",
+          "is-correct": false
+        }
+      ],
+      "explanation": "border-style selects styles such as solid, dashed, dotted, or none.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-045",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property changes only the thickness of a border?",
+      "answers": [
+        {
+          "text": "outline-width-only",
+          "is-correct": false
+        },
+        {
+          "text": "border-width",
+          "is-correct": true
+        },
+        {
+          "text": "border-size",
+          "is-correct": false
+        },
+        {
+          "text": "border-weight",
+          "is-correct": false
+        }
+      ],
+      "explanation": "border-width controls border thickness.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-046",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which declaration sets the top and bottom padding to 8px and left and right padding to 0?",
+      "answers": [
+        {
+          "text": "padding: 8px 0 0;",
+          "is-correct": false
+        },
+        {
+          "text": "padding: 8px 0;",
+          "is-correct": true
+        },
+        {
+          "text": "padding: 8px;",
+          "is-correct": false
+        },
+        {
+          "text": "padding: 0 8px;",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Two-value padding syntax uses vertical first and horizontal second: 8px 0.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-047",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property is used to set an image as an element's background?",
+      "answers": [
+        {
+          "text": "content-image",
+          "is-correct": false
+        },
+        {
+          "text": "background-src",
+          "is-correct": false
+        },
+        {
+          "text": "background-image",
+          "is-correct": true
+        },
+        {
+          "text": "image-source",
+          "is-correct": false
+        }
+      ],
+      "explanation": "background-image accepts image values such as url(...) and gradients.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-048",
+      "difficulty": "EASY",
+      "type": "TRUE_FALSE",
+      "text": "CSS property names such as color and margin are written before their values in declarations.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "CSS declarations use property: value;, so the property name comes first.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-049",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which declaration sets text to 1.25 times the root font size?",
+      "answers": [
+        {
+          "text": "font-size: 1.25em-root;",
+          "is-correct": false
+        },
+        {
+          "text": "font-size: 1.25px;",
+          "is-correct": false
+        },
+        {
+          "text": "font-size: 1.25rem;",
+          "is-correct": true
+        },
+        {
+          "text": "font-size: 1.25%;",
+          "is-correct": false
+        }
+      ],
+      "explanation": "rem is relative to the root element's font size, so 1.25rem is 1.25 times that size.",
+      "verified": false
+    },
+    {
+      "id": "css-easy-050",
+      "difficulty": "EASY",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which declaration sets a background colour using a named CSS colour?",
+      "answers": [
+        {
+          "text": "background: colour blue;",
+          "is-correct": false
+        },
+        {
+          "text": "background-color: blue;",
+          "is-correct": true
+        },
+        {
+          "text": "background-color: #blue;",
+          "is-correct": false
+        },
+        {
+          "text": "color-background: blue;",
+          "is-correct": false
+        }
+      ],
+      "explanation": "blue is a valid named CSS colour, and background-color applies it to the element's background.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-001",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "With box-sizing: border-box;, what does a declared width include?",
+      "answers": [
+        {
+          "text": "Content only",
+          "is-correct": false
+        },
+        {
+          "text": "Margin, border, padding, content",
+          "is-correct": false
+        },
+        {
+          "text": "Content, padding, and border",
+          "is-correct": true
+        },
+        {
+          "text": "Content and padding only",
+          "is-correct": false
+        }
+      ],
+      "explanation": "border-box makes the declared width include the content, padding, and border. Margin remains outside that width.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-002",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What is the default box-sizing value for most elements?",
+      "answers": [
+        {
+          "text": "padding-box",
+          "is-correct": false
+        },
+        {
+          "text": "border-box",
+          "is-correct": false
+        },
+        {
+          "text": "margin-box",
+          "is-correct": false
+        },
+        {
+          "text": "content-box",
+          "is-correct": true
+        }
+      ],
+      "explanation": "The initial value of box-sizing is content-box, so width and height apply to the content box.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-003",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which display value makes an element a flex container?",
+      "answers": [
+        {
+          "text": "display: flexible;",
+          "is-correct": false
+        },
+        {
+          "text": "display: block-flex;",
+          "is-correct": false
+        },
+        {
+          "text": "display: flow;",
+          "is-correct": false
+        },
+        {
+          "text": "display: flex;",
+          "is-correct": true
+        }
+      ],
+      "explanation": "display: flex; creates a block-level flex container for its direct children.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-004",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which display value creates a grid container?",
+      "answers": [
+        {
+          "text": "display: grid;",
+          "is-correct": true
+        },
+        {
+          "text": "display: table-grid;",
+          "is-correct": false
+        },
+        {
+          "text": "display: layout-grid;",
+          "is-correct": false
+        },
+        {
+          "text": "display: columns;",
+          "is-correct": false
+        }
+      ],
+      "explanation": "display: grid; creates a grid container and makes its direct children grid items.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-005",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "display: none; removes the element from layout, so it takes up no space.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "display: none; removes the element's box from the layout and it takes up no space.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-006",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which statement best describes display: inline-block;?",
+      "answers": [
+        {
+          "text": "It behaves like none",
+          "is-correct": false
+        },
+        {
+          "text": "It behaves exactly like inline",
+          "is-correct": false
+        },
+        {
+          "text": "It forces a new flex row",
+          "is-correct": false
+        },
+        {
+          "text": "It is inline outside but accepts box dimensions",
+          "is-correct": true
+        }
+      ],
+      "explanation": "inline-block flows inline with surrounding content but forms a box that can use width and height.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-007",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property controls the main-axis direction of a flex container?",
+      "answers": [
+        {
+          "text": "flex-direction",
+          "is-correct": true
+        },
+        {
+          "text": "align-items",
+          "is-correct": false
+        },
+        {
+          "text": "justify-content",
+          "is-correct": false
+        },
+        {
+          "text": "order",
+          "is-correct": false
+        }
+      ],
+      "explanation": "flex-direction sets the flex container's main-axis direction, such as row or column.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-008",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property distributes flex items along the main axis?",
+      "answers": [
+        {
+          "text": "place-items",
+          "is-correct": false
+        },
+        {
+          "text": "justify-content",
+          "is-correct": true
+        },
+        {
+          "text": "align-items",
+          "is-correct": false
+        },
+        {
+          "text": "align-self",
+          "is-correct": false
+        }
+      ],
+      "explanation": "justify-content distributes free space along the flex container's main axis.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-009",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property aligns flex items along the cross axis within a single flex line?",
+      "answers": [
+        {
+          "text": "justify-items",
+          "is-correct": false
+        },
+        {
+          "text": "flex-align",
+          "is-correct": false
+        },
+        {
+          "text": "align-items",
+          "is-correct": true
+        },
+        {
+          "text": "justify-self",
+          "is-correct": false
+        }
+      ],
+      "explanation": "align-items sets the default cross-axis alignment for flex items in the line.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-010",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "flex-wrap: wrap; allows flex items to move onto additional lines when needed.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "flex-wrap: wrap; permits multiple flex lines instead of forcing all items onto one line.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-011",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property sets space between rows and columns in both Grid and Flexbox?",
+      "answers": [
+        {
+          "text": "spacing",
+          "is-correct": false
+        },
+        {
+          "text": "margin-gap",
+          "is-correct": false
+        },
+        {
+          "text": "grid-space",
+          "is-correct": false
+        },
+        {
+          "text": "gap",
+          "is-correct": true
+        }
+      ],
+      "explanation": "gap sets gutters between rows and columns and works in both Grid and Flexbox.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-012",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does grid-template-columns: 1fr 1fr; create?",
+      "answers": [
+        {
+          "text": "Two fixed 1px columns",
+          "is-correct": false
+        },
+        {
+          "text": "Two equal flexible columns",
+          "is-correct": true
+        },
+        {
+          "text": "One column split by a line",
+          "is-correct": false
+        },
+        {
+          "text": "One column and one row",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Two 1fr tracks share the available flexible space equally, producing two equal flexible columns.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-013",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which function is useful for repeating the same Grid track definition?",
+      "answers": [
+        {
+          "text": "loop()",
+          "is-correct": false
+        },
+        {
+          "text": "tracks()",
+          "is-correct": false
+        },
+        {
+          "text": "repeat()",
+          "is-correct": true
+        },
+        {
+          "text": "clone()",
+          "is-correct": false
+        }
+      ],
+      "explanation": "repeat() repeats a track pattern, such as repeat(3, 1fr).",
+      "verified": false
+    },
+    {
+      "id": "css-medium-014",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which declaration makes a grid item span from column line 1 to column line 3?",
+      "answers": [
+        {
+          "text": "grid-column: 1 - 3;",
+          "is-correct": false
+        },
+        {
+          "text": "grid-column: 1 / 3;",
+          "is-correct": true
+        },
+        {
+          "text": "grid-span: 1 / 3;",
+          "is-correct": false
+        },
+        {
+          "text": "column: lines(1, 3);",
+          "is-correct": false
+        }
+      ],
+      "explanation": "grid-column accepts start and end grid lines separated by /, so 1 / 3 spans two column tracks.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-015",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "Only direct children of a grid container become grid items.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "The direct children of a grid container are grid items. Deeper descendants are not grid items of that outer grid.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-016",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which position value keeps an element in normal flow but lets top/left offsets move it relative to its normal position?",
+      "answers": [
+        {
+          "text": "fixed",
+          "is-correct": false
+        },
+        {
+          "text": "absolute",
+          "is-correct": false
+        },
+        {
+          "text": "relative",
+          "is-correct": true
+        },
+        {
+          "text": "static",
+          "is-correct": false
+        }
+      ],
+      "explanation": "position: relative keeps the element's normal-flow space while offsets visually shift it from that position.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-017",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "An absolutely positioned element is usually positioned relative to what?",
+      "answers": [
+        {
+          "text": "Its own margin box",
+          "is-correct": false
+        },
+        {
+          "text": "The root font size",
+          "is-correct": false
+        },
+        {
+          "text": "Its nearest positioned ancestor",
+          "is-correct": true
+        },
+        {
+          "text": "The previous sibling",
+          "is-correct": false
+        }
+      ],
+      "explanation": "An absolute element uses its containing block, commonly established by its nearest ancestor whose position is not static.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-018",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which position value normally keeps an element at the same viewport location while the page scrolls?",
+      "answers": [
+        {
+          "text": "relative",
+          "is-correct": false
+        },
+        {
+          "text": "fixed",
+          "is-correct": true
+        },
+        {
+          "text": "absolute",
+          "is-correct": false
+        },
+        {
+          "text": "sticky",
+          "is-correct": false
+        }
+      ],
+      "explanation": "position: fixed normally positions the element relative to the viewport, so it stays put while the document scrolls.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-019",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "For position: sticky; to stick at the top, which declaration is commonly needed?",
+      "answers": [
+        {
+          "text": "top: 0;",
+          "is-correct": true
+        },
+        {
+          "text": "position-offset: top;",
+          "is-correct": false
+        },
+        {
+          "text": "margin-top: sticky;",
+          "is-correct": false
+        },
+        {
+          "text": "align-top: 0;",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Sticky positioning needs an inset threshold such as top: 0; to define where the element should stick.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-020",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "position: static; ignores top, right, bottom, and left offsets.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Static positioning is the normal default positioning scheme, and inset offsets do not reposition a static element.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-021",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which pseudo-class matches an element when the pointer is over it?",
+      "answers": [
+        {
+          "text": "::hover",
+          "is-correct": false
+        },
+        {
+          "text": ":active",
+          "is-correct": false
+        },
+        {
+          "text": ":focus",
+          "is-correct": false
+        },
+        {
+          "text": ":hover",
+          "is-correct": true
+        }
+      ],
+      "explanation": ":hover matches while a pointing device is over the element.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-022",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which pseudo-class is commonly used to style a keyboard-focused form control?",
+      "answers": [
+        {
+          "text": ":focus",
+          "is-correct": true
+        },
+        {
+          "text": ":checked",
+          "is-correct": false
+        },
+        {
+          "text": ":target-only",
+          "is-correct": false
+        },
+        {
+          "text": ":visited",
+          "is-correct": false
+        }
+      ],
+      "explanation": ":focus matches an element that has focus, including controls focused from the keyboard.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-023",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does li:nth-child(2) select?",
+      "answers": [
+        {
+          "text": "The second li of every type only",
+          "is-correct": false
+        },
+        {
+          "text": "Every second li anywhere",
+          "is-correct": false
+        },
+        {
+          "text": "An li that is the second child of its parent",
+          "is-correct": true
+        },
+        {
+          "text": "All li after the second",
+          "is-correct": false
+        }
+      ],
+      "explanation": "nth-child(2) matches an element only if it is the second child of its parent and also matches li.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-024",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which selector matches every odd-numbered child that is an li?",
+      "answers": [
+        {
+          "text": "li:nth-of-parent(odd)",
+          "is-correct": false
+        },
+        {
+          "text": "li:nth-child(odd)",
+          "is-correct": true
+        },
+        {
+          "text": "li:odd-child",
+          "is-correct": false
+        },
+        {
+          "text": "li:nth(odd)",
+          "is-correct": false
+        }
+      ],
+      "explanation": "li:nth-child(odd) matches li elements whose child position is odd.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-025",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "The ::before syntax denotes a pseudo-element, while :hover denotes a pseudo-class.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "::before creates a pseudo-element; :hover represents an element state and is a pseudo-class.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-026",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which at-rule is used for viewport-based responsive breakpoints?",
+      "answers": [
+        {
+          "text": "@viewport",
+          "is-correct": false
+        },
+        {
+          "text": "@supports",
+          "is-correct": false
+        },
+        {
+          "text": "@responsive",
+          "is-correct": false
+        },
+        {
+          "text": "@media",
+          "is-correct": true
+        }
+      ],
+      "explanation": "@media applies styles only when a media query condition matches, such as a viewport width condition.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-027",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which media query applies when the viewport is 700px wide or narrower?",
+      "answers": [
+        {
+          "text": "@media width <= 700px {}",
+          "is-correct": false
+        },
+        {
+          "text": "@media (max-width: 700px)",
+          "is-correct": true
+        },
+        {
+          "text": "@media (min-width: 700px)",
+          "is-correct": false
+        },
+        {
+          "text": "@media (width > 700px)",
+          "is-correct": false
+        }
+      ],
+      "explanation": "@media (max-width: 700px) matches viewport widths up to and including 700px.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-028",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which selector has greater specificity?",
+      "answers": [
+        {
+          "text": "*",
+          "is-correct": false
+        },
+        {
+          "text": "#card",
+          "is-correct": true
+        },
+        {
+          "text": ".card",
+          "is-correct": false
+        },
+        {
+          "text": "div",
+          "is-correct": false
+        }
+      ],
+      "explanation": "An ID selector such as #card has greater specificity than a class selector, type selector, or universal selector.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-029",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "If two matching rules have equal origin, layer, importance, and specificity, what normally breaks the tie?",
+      "answers": [
+        {
+          "text": "Alphabetical property order",
+          "is-correct": false
+        },
+        {
+          "text": "The earlier rule",
+          "is-correct": false
+        },
+        {
+          "text": "The shorter selector",
+          "is-correct": false
+        },
+        {
+          "text": "Source order: the later rule",
+          "is-correct": true
+        }
+      ],
+      "explanation": "When the relevant cascade factors and specificity are equal, the later declaration in source order wins.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-030",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "A directly targeted color declaration on a child can override a color inherited from a more specific parent selector.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "A value declared directly on the child beats an inherited value, even if the parent's selector is more specific.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-031",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property normally inherits from a parent element?",
+      "answers": [
+        {
+          "text": "width",
+          "is-correct": false
+        },
+        {
+          "text": "border",
+          "is-correct": false
+        },
+        {
+          "text": "color",
+          "is-correct": true
+        },
+        {
+          "text": "margin",
+          "is-correct": false
+        }
+      ],
+      "explanation": "color is inherited by default. Box properties such as margin, border, and width normally are not.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-032",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property normally does NOT inherit from a parent?",
+      "answers": [
+        {
+          "text": "color",
+          "is-correct": false
+        },
+        {
+          "text": "padding",
+          "is-correct": true
+        },
+        {
+          "text": "line-height",
+          "is-correct": false
+        },
+        {
+          "text": "font-family",
+          "is-correct": false
+        }
+      ],
+      "explanation": "padding is not inherited by default, while common text properties such as color and font-family are.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-033",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does the inherit keyword do for a property?",
+      "answers": [
+        {
+          "text": "Uses the property's initial value",
+          "is-correct": false
+        },
+        {
+          "text": "Uses the browser stylesheet only",
+          "is-correct": false
+        },
+        {
+          "text": "Copies the parent's computed value",
+          "is-correct": true
+        },
+        {
+          "text": "Removes the declaration",
+          "is-correct": false
+        }
+      ],
+      "explanation": "inherit explicitly makes the property take the computed value from the parent.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-034",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which declaration transitions opacity changes over 300ms?",
+      "answers": [
+        {
+          "text": "transition-opacity: 300ms;",
+          "is-correct": false
+        },
+        {
+          "text": "transition: opacity 300ms;",
+          "is-correct": true
+        },
+        {
+          "text": "transform: opacity 300ms;",
+          "is-correct": false
+        },
+        {
+          "text": "animation: opacity 300ms;",
+          "is-correct": false
+        }
+      ],
+      "explanation": "transition can name the property and duration, so transition: opacity 300ms; animates changes to opacity.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-035",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "A CSS transition needs a change between values; declaring transition alone does not create a visible animation.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "transition defines how eligible property changes interpolate. A property value still needs to change, such as on :hover.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-036",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property sets how long a transition takes?",
+      "answers": [
+        {
+          "text": "transition-time",
+          "is-correct": false
+        },
+        {
+          "text": "animation-duration",
+          "is-correct": false
+        },
+        {
+          "text": "transition-duration",
+          "is-correct": true
+        },
+        {
+          "text": "transition-delay",
+          "is-correct": false
+        }
+      ],
+      "explanation": "transition-duration sets the time taken by a transition. transition-delay postpones its start.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-037",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which transition timing function starts slowly, speeds up, then slows down?",
+      "answers": [
+        {
+          "text": "linear",
+          "is-correct": false
+        },
+        {
+          "text": "step-start",
+          "is-correct": false
+        },
+        {
+          "text": "ease",
+          "is-correct": true
+        },
+        {
+          "text": "steps(1)",
+          "is-correct": false
+        }
+      ],
+      "explanation": "ease is the default cubic-bezier timing function and accelerates then decelerates.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-038",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which declaration lays flex items out vertically by default from top to bottom?",
+      "answers": [
+        {
+          "text": "align-items: column;",
+          "is-correct": false
+        },
+        {
+          "text": "flex-direction: column;",
+          "is-correct": true
+        },
+        {
+          "text": "display: column-flex;",
+          "is-correct": false
+        },
+        {
+          "text": "flex-direction: row;",
+          "is-correct": false
+        }
+      ],
+      "explanation": "flex-direction: column; makes the main axis vertical and places items from block-start toward block-end.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-039",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property can override align-items for one flex item?",
+      "answers": [
+        {
+          "text": "align-self",
+          "is-correct": true
+        },
+        {
+          "text": "place-content",
+          "is-correct": false
+        },
+        {
+          "text": "flex-align-self",
+          "is-correct": false
+        },
+        {
+          "text": "justify-self",
+          "is-correct": false
+        }
+      ],
+      "explanation": "align-self overrides the container's align-items value for an individual flex item.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-040",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "In a flex container, order can change visual order without changing the DOM order.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "The order property changes flex-item visual ordering, but it does not rewrite the document's DOM order.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-041",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which Grid declaration creates three equal flexible columns?",
+      "answers": [
+        {
+          "text": "grid-template: columns(3);",
+          "is-correct": false
+        },
+        {
+          "text": "grid-template-columns: 3fr;",
+          "is-correct": false
+        },
+        {
+          "text": "grid-columns: 1fr 3;",
+          "is-correct": false
+        },
+        {
+          "text": "grid-template-columns: repeat(3, 1fr);",
+          "is-correct": true
+        }
+      ],
+      "explanation": "repeat(3, 1fr) creates three tracks, each with an equal flex factor of 1.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-042",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property controls implicit Grid row sizes?",
+      "answers": [
+        {
+          "text": "auto-rows",
+          "is-correct": false
+        },
+        {
+          "text": "grid-row-size",
+          "is-correct": false
+        },
+        {
+          "text": "grid-template-auto",
+          "is-correct": false
+        },
+        {
+          "text": "grid-auto-rows",
+          "is-correct": true
+        }
+      ],
+      "explanation": "grid-auto-rows specifies the size of rows created implicitly by grid auto-placement.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-043",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which declaration places a grid item across two column tracks from its auto-placed start?",
+      "answers": [
+        {
+          "text": "grid-column: span 2;",
+          "is-correct": true
+        },
+        {
+          "text": "column-span: 2;",
+          "is-correct": false
+        },
+        {
+          "text": "grid-span: columns 2;",
+          "is-correct": false
+        },
+        {
+          "text": "grid-column: 2 span;",
+          "is-correct": false
+        }
+      ],
+      "explanation": "grid-column: span 2; tells the item to span two grid tracks from its determined start line.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-044",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property controls the stacking order of positioned overlapping elements?",
+      "answers": [
+        {
+          "text": "z-index",
+          "is-correct": true
+        },
+        {
+          "text": "stack-order",
+          "is-correct": false
+        },
+        {
+          "text": "layer-index",
+          "is-correct": false
+        },
+        {
+          "text": "depth",
+          "is-correct": false
+        }
+      ],
+      "explanation": "z-index participates in stacking order for positioned elements and also applies to flex and grid items.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-045",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "A larger z-index always beats every smaller z-index anywhere on the page.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": false
+        },
+        {
+          "text": "False",
+          "is-correct": true
+        }
+      ],
+      "explanation": "z-index values are compared within stacking contexts. A child cannot escape its ancestor's stacking context just by using a huge value.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-046",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which value hides an element visually but normally keeps its layout space?",
+      "answers": [
+        {
+          "text": "visibility: hidden;",
+          "is-correct": true
+        },
+        {
+          "text": "position: hidden;",
+          "is-correct": false
+        },
+        {
+          "text": "display: none;",
+          "is-correct": false
+        },
+        {
+          "text": "opacity: remove;",
+          "is-correct": false
+        }
+      ],
+      "explanation": "visibility: hidden hides the element while its box still occupies layout space. display: none removes the box.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-047",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which pseudo-class matches a checked checkbox or radio button?",
+      "answers": [
+        {
+          "text": ":valid",
+          "is-correct": false
+        },
+        {
+          "text": ":selected",
+          "is-correct": false
+        },
+        {
+          "text": ":enabled",
+          "is-correct": false
+        },
+        {
+          "text": ":checked",
+          "is-correct": true
+        }
+      ],
+      "explanation": ":checked matches checked radio buttons and checkboxes, and selected option elements.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-048",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which selector has specificity 0-1-1?",
+      "answers": [
+        {
+          "text": "nav.active",
+          "is-correct": true
+        },
+        {
+          "text": "nav a",
+          "is-correct": false
+        },
+        {
+          "text": "#nav",
+          "is-correct": false
+        },
+        {
+          "text": ".nav .item",
+          "is-correct": false
+        }
+      ],
+      "explanation": "nav.active contains one class and one type selector, giving specificity 0-1-1.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-049",
+      "difficulty": "MEDIUM",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which declaration centers flex items along both axes when flex-direction is row?",
+      "answers": [
+        {
+          "text": "justify-content: center; align-items: center;",
+          "is-correct": true
+        },
+        {
+          "text": "place-self: center;",
+          "is-correct": false
+        },
+        {
+          "text": "justify-items: center; align-content: center;",
+          "is-correct": false
+        },
+        {
+          "text": "text-align: center; vertical-align: middle;",
+          "is-correct": false
+        }
+      ],
+      "explanation": "With the default row direction, justify-content centers on the main axis and align-items centers on the cross axis.",
+      "verified": false
+    },
+    {
+      "id": "css-medium-050",
+      "difficulty": "MEDIUM",
+      "type": "TRUE_FALSE",
+      "text": "margin is part of the CSS box model but lies outside the border edge.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "The box model consists of content, padding, border, and margin, with margin outside the border.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-001",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What is the specificity of .card:hover?",
+      "answers": [
+        {
+          "text": "0-1-0",
+          "is-correct": false
+        },
+        {
+          "text": "0-2-0",
+          "is-correct": true
+        },
+        {
+          "text": "0-1-1",
+          "is-correct": false
+        },
+        {
+          "text": "0-2-1",
+          "is-correct": false
+        }
+      ],
+      "explanation": ".card contributes one class and :hover contributes one pseudo-class, producing specificity 0-2-0.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-002",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What is the specificity of #app .card p?",
+      "answers": [
+        {
+          "text": "1-0-2",
+          "is-correct": false
+        },
+        {
+          "text": "1-2-0",
+          "is-correct": false
+        },
+        {
+          "text": "1-1-1",
+          "is-correct": true
+        },
+        {
+          "text": "0-2-1",
+          "is-correct": false
+        }
+      ],
+      "explanation": "#app adds one ID, .card one class, and p one type selector, giving 1-1-1.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-003",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What specificity does :is(.card, #hero) contribute?",
+      "answers": [
+        {
+          "text": "1-0-0",
+          "is-correct": true
+        },
+        {
+          "text": "0-1-0",
+          "is-correct": false
+        },
+        {
+          "text": "1-1-0",
+          "is-correct": false
+        },
+        {
+          "text": "0-0-0",
+          "is-correct": false
+        }
+      ],
+      "explanation": ":is() takes the specificity of its most specific argument. #hero is 1-0-0, which is higher than .card.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-004",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What specificity does :where(#app .card) contribute by itself?",
+      "answers": [
+        {
+          "text": "1-1-0",
+          "is-correct": false
+        },
+        {
+          "text": "1-0-0",
+          "is-correct": false
+        },
+        {
+          "text": "0-0-0",
+          "is-correct": true
+        },
+        {
+          "text": "0-1-0",
+          "is-correct": false
+        }
+      ],
+      "explanation": ":where() always contributes zero specificity, regardless of the selectors inside it.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-005",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What specificity does :has(.item, #selected) contribute?",
+      "answers": [
+        {
+          "text": "0-1-0",
+          "is-correct": false
+        },
+        {
+          "text": "1-0-0",
+          "is-correct": true
+        },
+        {
+          "text": "1-1-0",
+          "is-correct": false
+        },
+        {
+          "text": "0-0-0",
+          "is-correct": false
+        }
+      ],
+      "explanation": ":has() uses the specificity of its most specific argument. #selected contributes 1-0-0.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-006",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "Adding !important changes a selector's specificity value.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": false
+        },
+        {
+          "text": "False",
+          "is-correct": true
+        }
+      ],
+      "explanation": "!important affects cascade precedence, not the selector's specificity calculation.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-007",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "For cascade specificity, what weight does the selector .card::before have?",
+      "answers": [
+        {
+          "text": "0-1-1",
+          "is-correct": true
+        },
+        {
+          "text": "0-2-0",
+          "is-correct": false
+        },
+        {
+          "text": "0-1-0",
+          "is-correct": false
+        },
+        {
+          "text": "0-0-2",
+          "is-correct": false
+        }
+      ],
+      "explanation": ".card contributes one class and ::before counts like a type selector, so the specificity is 0-1-1.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-008",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What is the specificity of li:nth-child(2 of .item)?",
+      "answers": [
+        {
+          "text": "0-1-2",
+          "is-correct": false
+        },
+        {
+          "text": "0-2-1",
+          "is-correct": true
+        },
+        {
+          "text": "0-2-0",
+          "is-correct": false
+        },
+        {
+          "text": "0-1-1",
+          "is-correct": false
+        }
+      ],
+      "explanation": "li adds 0-0-1, :nth-child adds 0-1-0, and the of-selector .item adds 0-1-0, totaling 0-2-1.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-009",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which declaration definitely creates a new stacking context?",
+      "answers": [
+        {
+          "text": "opacity: 0.9;",
+          "is-correct": true
+        },
+        {
+          "text": "z-index: 5; on a static block",
+          "is-correct": false
+        },
+        {
+          "text": "overflow: hidden;",
+          "is-correct": false
+        },
+        {
+          "text": "display: block;",
+          "is-correct": false
+        }
+      ],
+      "explanation": "An opacity value below 1 creates a stacking context. z-index alone on a normal static block does not.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-010",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "A flex item with z-index: 1 can create a stacking context even if its position is static.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "A flex item with z-index other than auto creates a stacking context without needing position to be non-static.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-011",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which positioned element creates a stacking context even when z-index is auto?",
+      "answers": [
+        {
+          "text": "position: static",
+          "is-correct": false
+        },
+        {
+          "text": "position: sticky",
+          "is-correct": true
+        },
+        {
+          "text": "position: relative",
+          "is-correct": false
+        },
+        {
+          "text": "position: absolute",
+          "is-correct": false
+        }
+      ],
+      "explanation": "A sticky-positioned element creates a stacking context. Relative and absolute positioning need a non-auto z-index for that reason alone.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-012",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What extra effect does transform: translateX(0); have besides a visually neutral transform?",
+      "answers": [
+        {
+          "text": "It disables z-index",
+          "is-correct": false
+        },
+        {
+          "text": "It makes the element fixed",
+          "is-correct": false
+        },
+        {
+          "text": "It removes the element from flow",
+          "is-correct": false
+        },
+        {
+          "text": "It creates a stacking context",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Any transform value other than none creates a stacking context, even if the visual transform happens to be neutral.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-013",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does 1fr represent in a Grid track?",
+      "answers": [
+        {
+          "text": "One intrinsic content unit",
+          "is-correct": false
+        },
+        {
+          "text": "One CSS pixel",
+          "is-correct": false
+        },
+        {
+          "text": "One fraction of flexible leftover space",
+          "is-correct": true
+        },
+        {
+          "text": "One percent of container width",
+          "is-correct": false
+        }
+      ],
+      "explanation": "fr is a flex unit that takes a share of the grid container's flexible leftover space.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-014",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does minmax(200px, 1fr) mean for a grid track?",
+      "answers": [
+        {
+          "text": "Between 1px and 200px",
+          "is-correct": false
+        },
+        {
+          "text": "At most 200px",
+          "is-correct": false
+        },
+        {
+          "text": "At least 200px and flexibly larger",
+          "is-correct": true
+        },
+        {
+          "text": "Exactly 200px",
+          "is-correct": false
+        }
+      ],
+      "explanation": "The track has a 200px minimum and a flexible 1fr maximum, so it cannot shrink below 200px.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-015",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "In minmax(), a flex value such as 1fr is valid as the minimum track size.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": false
+        },
+        {
+          "text": "False",
+          "is-correct": true
+        }
+      ],
+      "explanation": "A flex value such as 1fr is not valid in the minimum position of minmax(); flex values may be used as the maximum.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-016",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "How does auto-fit differ from auto-fill in repeat() when extra repeated tracks are empty?",
+      "answers": [
+        {
+          "text": "auto-fill makes tracks intrinsic",
+          "is-correct": false
+        },
+        {
+          "text": "auto-fit collapses empty tracks",
+          "is-correct": true
+        },
+        {
+          "text": "auto-fit disables wrapping",
+          "is-correct": false
+        },
+        {
+          "text": "auto-fill collapses empty tracks",
+          "is-correct": false
+        }
+      ],
+      "explanation": "auto-fit collapses empty repeated tracks, letting occupied tracks expand. auto-fill keeps the empty repeated tracks.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-017",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Why is minmax(0, 1fr) often used for Grid columns containing long content?",
+      "answers": [
+        {
+          "text": "It permits the track to shrink below its content-based automatic minimum",
+          "is-correct": true
+        },
+        {
+          "text": "It forces equal row heights",
+          "is-correct": false
+        },
+        {
+          "text": "It disables overflow",
+          "is-correct": false
+        },
+        {
+          "text": "It makes the grid intrinsic",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Using 0 as the minimum can let an fr track shrink smaller than its content's automatic minimum, avoiding unexpected track expansion.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-018",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does flex-grow: 0; mean for a flex item?",
+      "answers": [
+        {
+          "text": "Its basis becomes zero",
+          "is-correct": false
+        },
+        {
+          "text": "It cannot shrink",
+          "is-correct": false
+        },
+        {
+          "text": "It is removed from layout",
+          "is-correct": false
+        },
+        {
+          "text": "It cannot receive positive free space by growing",
+          "is-correct": true
+        }
+      ],
+      "explanation": "flex-grow: 0 prevents the item from growing to consume positive free space. It may still shrink if flex-shrink allows it.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-019",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "When does flex-shrink matter?",
+      "answers": [
+        {
+          "text": "Only in column layouts",
+          "is-correct": false
+        },
+        {
+          "text": "When items need to shrink because free space is negative",
+          "is-correct": true
+        },
+        {
+          "text": "Only when flex-grow is zero",
+          "is-correct": false
+        },
+        {
+          "text": "When there is positive free space",
+          "is-correct": false
+        }
+      ],
+      "explanation": "flex-shrink distributes negative free space when flex items would otherwise exceed the container's main size.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-020",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "flex-basis sets a flex item's initial main size before free space is distributed.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "flex-basis supplies the starting main-size basis used by the flex sizing algorithm before grow or shrink is applied.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-021",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What are the initial values of flex-grow, flex-shrink, and flex-basis?",
+      "answers": [
+        {
+          "text": "0 1 auto",
+          "is-correct": true
+        },
+        {
+          "text": "0 0 auto",
+          "is-correct": false
+        },
+        {
+          "text": "1 0 auto",
+          "is-correct": false
+        },
+        {
+          "text": "1 1 0",
+          "is-correct": false
+        }
+      ],
+      "explanation": "The initial longhand values are flex-grow: 0, flex-shrink: 1, and flex-basis: auto.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-022",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which declaration prevents a flex item from shrinking due to flex-shrink?",
+      "answers": [
+        {
+          "text": "flex-wrap: nowrap;",
+          "is-correct": false
+        },
+        {
+          "text": "flex-shrink: 0;",
+          "is-correct": true
+        },
+        {
+          "text": "flex-grow: 0;",
+          "is-correct": false
+        },
+        {
+          "text": "flex-basis: none;",
+          "is-correct": false
+        }
+      ],
+      "explanation": "flex-shrink: 0 removes that item's shrink factor. It can therefore overflow if the container is too small.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-023",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Why can min-width: 0; be useful on a flex item containing long unbroken content?",
+      "answers": [
+        {
+          "text": "It creates a new formatting context",
+          "is-correct": false
+        },
+        {
+          "text": "It changes flex-basis to zero",
+          "is-correct": false
+        },
+        {
+          "text": "It enables flex-wrap",
+          "is-correct": false
+        },
+        {
+          "text": "It lets the item shrink below its automatic minimum size",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Flex items can have an automatic minimum size based on content. min-width: 0 allows the item to shrink below that limit.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-024",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "Ordinary custom properties declared with --name inherit by default.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Custom properties defined with the --name syntax inherit by default unless registered behavior changes that.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-025",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which correctly declares and uses a custom property?",
+      "answers": [
+        {
+          "text": "$brand: red; color: $brand;",
+          "is-correct": false
+        },
+        {
+          "text": "--brand: red; color: var(--brand);",
+          "is-correct": true
+        },
+        {
+          "text": "@brand: red; color: brand();",
+          "is-correct": false
+        },
+        {
+          "text": "var-brand: red; color: --brand;",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Custom properties start with -- and are referenced with var(), as in var(--brand).",
+      "verified": false
+    },
+    {
+      "id": "css-hard-026",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "If --gap is not defined, what does gap: var(--gap, 1rem); use?",
+      "answers": [
+        {
+          "text": "0",
+          "is-correct": false
+        },
+        {
+          "text": "inherit",
+          "is-correct": false
+        },
+        {
+          "text": "1rem",
+          "is-correct": true
+        },
+        {
+          "text": "The declaration becomes invalid",
+          "is-correct": false
+        }
+      ],
+      "explanation": "The second argument to var() is a fallback used when the referenced custom property is unavailable.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-027",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which statement about custom property names is correct?",
+      "answers": [
+        {
+          "text": "They cannot contain hyphens",
+          "is-correct": false
+        },
+        {
+          "text": "They must be declared on :root",
+          "is-correct": false
+        },
+        {
+          "text": "--Theme and --theme are distinct",
+          "is-correct": true
+        },
+        {
+          "text": "They are case-insensitive",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Custom property names are case-sensitive, so --Theme and --theme are different properties.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-028",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which declaration commonly makes .card::before generate an empty box that can then be styled?",
+      "answers": [
+        {
+          "text": "content: none;",
+          "is-correct": false
+        },
+        {
+          "text": "pseudo-content: empty;",
+          "is-correct": false
+        },
+        {
+          "text": "display: before;",
+          "is-correct": false
+        },
+        {
+          "text": "content: '';",
+          "is-correct": true
+        }
+      ],
+      "explanation": "For ::before and ::after, content: '' creates generated content. content: none suppresses the pseudo-element.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-029",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does article:has(> img) match?",
+      "answers": [
+        {
+          "text": "Only empty articles",
+          "is-correct": false
+        },
+        {
+          "text": "Images directly inside articles",
+          "is-correct": false
+        },
+        {
+          "text": "Articles immediately after images",
+          "is-correct": false
+        },
+        {
+          "text": "Articles with a direct-child img",
+          "is-correct": true
+        }
+      ],
+      "explanation": ":has(> img) matches an article when it has an img as a direct child.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-030",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": ":where() always has zero specificity, but :is() takes the specificity of its most specific argument.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": ":where() is intentionally zero-specificity. :is() adopts the highest specificity among its selector arguments.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-031",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does clamp(1rem, 3vw, 2rem) express?",
+      "answers": [
+        {
+          "text": "The smaller of 1rem and 2rem",
+          "is-correct": false
+        },
+        {
+          "text": "Exactly 3vw",
+          "is-correct": false
+        },
+        {
+          "text": "A value that cannot use viewport units",
+          "is-correct": false
+        },
+        {
+          "text": "A value between 1rem and 2rem, preferring 3vw",
+          "is-correct": true
+        }
+      ],
+      "explanation": "clamp(min, preferred, max) uses the preferred value while constraining it between the minimum and maximum.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-032",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does width: min(90vw, 1200px); choose?",
+      "answers": [
+        {
+          "text": "Always 90vw",
+          "is-correct": false
+        },
+        {
+          "text": "The larger computed value",
+          "is-correct": false
+        },
+        {
+          "text": "The smaller computed value",
+          "is-correct": true
+        },
+        {
+          "text": "Always 1200px",
+          "is-correct": false
+        }
+      ],
+      "explanation": "min() selects the smallest of its resolved arguments, so the width will not exceed either limit.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-033",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does width: max(20rem, 50%); choose?",
+      "answers": [
+        {
+          "text": "Always 50%",
+          "is-correct": false
+        },
+        {
+          "text": "Always 20rem",
+          "is-correct": false
+        },
+        {
+          "text": "The smaller resolved value",
+          "is-correct": false
+        },
+        {
+          "text": "The larger resolved value",
+          "is-correct": true
+        }
+      ],
+      "explanation": "max() chooses the largest resolved argument, providing a lower bound such as 20rem.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-034",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which at-rule defines animation keyframes?",
+      "answers": [
+        {
+          "text": "@keyframes",
+          "is-correct": true
+        },
+        {
+          "text": "@transition",
+          "is-correct": false
+        },
+        {
+          "text": "@animation",
+          "is-correct": false
+        },
+        {
+          "text": "@frames",
+          "is-correct": false
+        }
+      ],
+      "explanation": "@keyframes defines the stages of a CSS animation.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-035",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which declaration repeats a CSS animation indefinitely?",
+      "answers": [
+        {
+          "text": "animation-iteration-count: infinite;",
+          "is-correct": true
+        },
+        {
+          "text": "animation-repeat: forever;",
+          "is-correct": false
+        },
+        {
+          "text": "animation-loop: true;",
+          "is-correct": false
+        },
+        {
+          "text": "animation-duration: infinite;",
+          "is-correct": false
+        }
+      ],
+      "explanation": "animation-iteration-count: infinite; repeats the animation without a finite iteration limit.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-036",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "A transform can visually move an element without changing the normal-flow space originally allocated to it.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Transforms affect rendering after layout; surrounding normal-flow layout is still based on the element's original box position.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-037",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does animation-fill-mode: forwards; do after an animation finishes?",
+      "answers": [
+        {
+          "text": "Freezes layout for one frame",
+          "is-correct": false
+        },
+        {
+          "text": "Deletes the element",
+          "is-correct": false
+        },
+        {
+          "text": "Keeps the computed values from the animation's final relevant keyframe",
+          "is-correct": true
+        },
+        {
+          "text": "Restarts it",
+          "is-correct": false
+        }
+      ],
+      "explanation": "forwards retains the values from the animation's final relevant keyframe after the active animation period.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-038",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which property changes the point around which transforms such as rotate() are applied?",
+      "answers": [
+        {
+          "text": "rotate-origin",
+          "is-correct": false
+        },
+        {
+          "text": "transform-origin",
+          "is-correct": true
+        },
+        {
+          "text": "transform-box-only",
+          "is-correct": false
+        },
+        {
+          "text": "perspective-origin-only",
+          "is-correct": false
+        }
+      ],
+      "explanation": "transform-origin sets the origin used by transforms such as rotation and scaling.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-039",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which logical property sets the margin at the start of the inline axis?",
+      "answers": [
+        {
+          "text": "margin-block-start",
+          "is-correct": false
+        },
+        {
+          "text": "inline-margin",
+          "is-correct": false
+        },
+        {
+          "text": "margin-inline-start",
+          "is-correct": true
+        },
+        {
+          "text": "margin-left-start",
+          "is-correct": false
+        }
+      ],
+      "explanation": "margin-inline-start follows the writing mode and direction instead of always meaning physical left.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-040",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "In horizontal left-to-right writing, margin-inline-start usually maps to margin-left.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "In the common horizontal LTR writing mode, inline-start is the left side. In RTL it maps to the right.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-041",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which logical property corresponds to an element's size along the inline axis?",
+      "answers": [
+        {
+          "text": "logical-width-only",
+          "is-correct": false
+        },
+        {
+          "text": "block-size",
+          "is-correct": false
+        },
+        {
+          "text": "writing-size",
+          "is-correct": false
+        },
+        {
+          "text": "inline-size",
+          "is-correct": true
+        }
+      ],
+      "explanation": "inline-size controls the dimension along the inline axis, which is usually width in horizontal writing.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-042",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which declaration enables inline-size container queries on an element?",
+      "answers": [
+        {
+          "text": "container-type: inline-size;",
+          "is-correct": true
+        },
+        {
+          "text": "container-size: auto;",
+          "is-correct": false
+        },
+        {
+          "text": "contain-query: inline;",
+          "is-correct": false
+        },
+        {
+          "text": "display: container;",
+          "is-correct": false
+        }
+      ],
+      "explanation": "container-type: inline-size establishes a query container for the inline axis.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-043",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which at-rule applies styles based on a query container's size?",
+      "answers": [
+        {
+          "text": "@scope-size",
+          "is-correct": false
+        },
+        {
+          "text": "@container",
+          "is-correct": true
+        },
+        {
+          "text": "@supports",
+          "is-correct": false
+        },
+        {
+          "text": "@media",
+          "is-correct": false
+        }
+      ],
+      "explanation": "@container evaluates conditions against an eligible query container rather than the viewport.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-044",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does 1cqi represent in a size-container query context?",
+      "answers": [
+        {
+          "text": "1rem of the query container",
+          "is-correct": false
+        },
+        {
+          "text": "1% of viewport width",
+          "is-correct": false
+        },
+        {
+          "text": "1% of the query container's inline size",
+          "is-correct": true
+        },
+        {
+          "text": "1px in the container",
+          "is-correct": false
+        }
+      ],
+      "explanation": "cqi is a container query length unit equal to 1% of the query container's inline size.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-045",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "container-name lets a @container rule target a specifically named query container.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "A container can be named and then referenced by name in an @container rule.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-046",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does grid-column: 1 / -1; commonly do in an explicit grid?",
+      "answers": [
+        {
+          "text": "Reverses column order",
+          "is-correct": false
+        },
+        {
+          "text": "Moves the item to column -1",
+          "is-correct": false
+        },
+        {
+          "text": "Creates one implicit column",
+          "is-correct": false
+        },
+        {
+          "text": "Spans from the first to the last explicit column line",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Line -1 refers to the final line of the explicit grid, so 1 / -1 commonly spans the full explicit grid width.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-047",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What can grid-auto-flow: dense; do?",
+      "answers": [
+        {
+          "text": "Preserve visual order strictly",
+          "is-correct": false
+        },
+        {
+          "text": "Force equal track sizes",
+          "is-correct": false
+        },
+        {
+          "text": "Disable implicit tracks",
+          "is-correct": false
+        },
+        {
+          "text": "Backfill earlier holes with later items",
+          "is-correct": true
+        }
+      ],
+      "explanation": "dense packing may place later items into earlier gaps, which can make visual order differ from source order.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-048",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Which shorthand sets both align-items and justify-items on a grid container?",
+      "answers": [
+        {
+          "text": "place-items",
+          "is-correct": true
+        },
+        {
+          "text": "place-content",
+          "is-correct": false
+        },
+        {
+          "text": "grid-align",
+          "is-correct": false
+        },
+        {
+          "text": "place-self",
+          "is-correct": false
+        }
+      ],
+      "explanation": "place-items is shorthand for align-items and justify-items.",
+      "verified": false
+    },
+    {
+      "id": "css-hard-049",
+      "difficulty": "HARD",
+      "type": "MULTIPLE_CHOICE",
+      "text": "For transform: translateX(50%);, the percentage is normally relative to what?",
+      "answers": [
+        {
+          "text": "The transformed element's reference box width",
+          "is-correct": true
+        },
+        {
+          "text": "The parent width",
+          "is-correct": false
+        },
+        {
+          "text": "The root font size",
+          "is-correct": false
+        },
+        {
+          "text": "The viewport width",
+          "is-correct": false
+        }
+      ],
+      "explanation": "A percentage translate is resolved against the transform reference box, normally the element's own reference box width for translateX().",
+      "verified": false
+    },
+    {
+      "id": "css-hard-050",
+      "difficulty": "HARD",
+      "type": "TRUE_FALSE",
+      "text": "A @keyframes rule may use from and to instead of 0% and 100%.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "from is equivalent to 0%, and to is equivalent to 100% in @keyframes.",
+      "verified": false
+    },
+    {
+      "id": "css-extreme-001",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Two adjacent block siblings have vertical margins of 30px and 20px, both positive and collapsible. What is the gap between them?",
+      "answers": [
+        {
+          "text": "30px",
+          "is-correct": true
+        },
+        {
+          "text": "10px",
+          "is-correct": false
+        },
+        {
+          "text": "50px",
+          "is-correct": false
+        },
+        {
+          "text": "20px",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Adjacent vertical margins can collapse. With two positive margins, the collapsed margin is the larger one, so the gap is 30px.",
+      "verified": false
+    },
+    {
+      "id": "css-extreme-002",
+      "difficulty": "EXTREME",
+      "type": "TRUE_FALSE",
+      "text": "Margins of flex items do not collapse with each other or with their flex container.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": true
+        },
+        {
+          "text": "False",
+          "is-correct": false
+        }
+      ],
+      "explanation": "Margin collapsing does not occur for flex items, unlike some vertical margins in normal block flow.",
+      "verified": false
+    },
+    {
+      "id": "css-extreme-003",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "An ancestor has transform: translateZ(0);. What can this change for a fixed-position descendant?",
+      "answers": [
+        {
+          "text": "The transformed ancestor can become its containing block",
+          "is-correct": true
+        },
+        {
+          "text": "The descendant stops creating a box",
+          "is-correct": false
+        },
+        {
+          "text": "Nothing; fixed always uses the viewport",
+          "is-correct": false
+        },
+        {
+          "text": "The descendant becomes static",
+          "is-correct": false
+        }
+      ],
+      "explanation": "A non-none transform creates a stacking context and a containing block for fixed and absolutely positioned descendants.",
+      "verified": false
+    },
+    {
+      "id": "css-extreme-004",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "A rule uses :is() and :where(). Which candidate selector ends up with specificity 1-1-0?",
+      "answers": [
+        {
+          "text": ".panel:where(#app)",
+          "is-correct": false
+        },
+        {
+          "text": ":is(#app, .panel) .card",
+          "is-correct": true
+        },
+        {
+          "text": "*:where(#app) .card",
+          "is-correct": false
+        },
+        {
+          "text": ":where(#app) .card",
+          "is-correct": false
+        }
+      ],
+      "explanation": ":is(#app, .panel) contributes the highest argument specificity, 1-0-0; adding .card gives 1-1-0. :where() contributes zero.",
+      "verified": false
+    },
+    {
+      "id": "css-extreme-005",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Within the same author origin, which normal declaration has highest layer precedence?",
+      "answers": [
+        {
+          "text": "A rule in the last declared layer",
+          "is-correct": false
+        },
+        {
+          "text": "An unlayered rule",
+          "is-correct": true
+        },
+        {
+          "text": "A rule in the first declared layer",
+          "is-correct": false
+        },
+        {
+          "text": "The rule with the longest selector",
+          "is-correct": false
+        }
+      ],
+      "explanation": "For normal author declarations, unlayered styles outrank all layered styles. Among layers, later layers outrank earlier ones.",
+      "verified": false
+    },
+    {
+      "id": "css-extreme-006",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "Given @layer reset, base, utilities;, which layer has highest precedence for conflicting !important author declarations?",
+      "answers": [
+        {
+          "text": "utilities",
+          "is-correct": false
+        },
+        {
+          "text": "All layers are equal",
+          "is-correct": false
+        },
+        {
+          "text": "reset",
+          "is-correct": true
+        },
+        {
+          "text": "base",
+          "is-correct": false
+        }
+      ],
+      "explanation": "For !important declarations, cascade-layer order is reversed: earlier layers outrank later layers, so reset has highest layer precedence.",
+      "verified": false
+    },
+    {
+      "id": "css-extreme-007",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does grid-template-columns: subgrid; do on a nested grid that spans parent columns?",
+      "answers": [
+        {
+          "text": "Copies only the parent's gap",
+          "is-correct": false
+        },
+        {
+          "text": "Disables Grid layout",
+          "is-correct": false
+        },
+        {
+          "text": "Creates equal 1fr columns",
+          "is-correct": false
+        },
+        {
+          "text": "Uses the spanned parent column tracks",
+          "is-correct": true
+        }
+      ],
+      "explanation": "subgrid makes that axis use the tracks of the spanned portion of the parent grid instead of defining independent tracks.",
+      "verified": false
+    },
+    {
+      "id": "css-extreme-008",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "In horizontal writing, padding-top: 10%; is resolved against which dimension of the containing block?",
+      "answers": [
+        {
+          "text": "The viewport height",
+          "is-correct": false
+        },
+        {
+          "text": "The element's own height",
+          "is-correct": false
+        },
+        {
+          "text": "Its height",
+          "is-correct": false
+        },
+        {
+          "text": "Its inline size, usually width",
+          "is-correct": true
+        }
+      ],
+      "explanation": "Percentage padding resolves against the containing block's inline size, which is normally its width in horizontal writing.",
+      "verified": false
+    },
+    {
+      "id": "css-extreme-009",
+      "difficulty": "EXTREME",
+      "type": "MULTIPLE_CHOICE",
+      "text": "What does the CSS-wide keyword unset do?",
+      "answers": [
+        {
+          "text": "Rolls back only one cascade layer",
+          "is-correct": false
+        },
+        {
+          "text": "Always inherits",
+          "is-correct": false
+        },
+        {
+          "text": "Inherits if the property naturally inherits; otherwise uses initial",
+          "is-correct": true
+        },
+        {
+          "text": "Always uses the initial value",
+          "is-correct": false
+        }
+      ],
+      "explanation": "unset behaves like inherit for inherited properties and like initial for non-inherited properties.",
+      "verified": false
+    },
+    {
+      "id": "css-extreme-010",
+      "difficulty": "EXTREME",
+      "type": "TRUE_FALSE",
+      "text": "For author CSS, revert always produces exactly the same result as initial.",
+      "answers": [
+        {
+          "text": "True",
+          "is-correct": false
+        },
+        {
+          "text": "False",
+          "is-correct": true
+        }
+      ],
+      "explanation": "revert rolls the cascade back to an earlier origin, often exposing user or browser styles. initial uses the property's specification-defined initial value.",
+      "verified": false
+    }
+  ]
+}
