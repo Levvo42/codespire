@@ -845,6 +845,15 @@ $glow:
   filter: grayscale(1) brightness(0.6);
 }
 
+// #region Music button position
+.page-singleplayer {
+  .music-btn {
+    top: 11rem;
+  }
+}
+
+// #endregion Music button position
+
 // #endregion Mobile
 // ========================================
 // #region Short phones
@@ -1379,6 +1388,15 @@ $glow:
       display: none;
     }
   }
+
+  // #region Music button position
+  .page-singleplayer {
+    .music-btn {
+      top: 5rem;
+    }
+  }
+
+  // #endregion Music button position
 }
 
 // #endregion Desktop

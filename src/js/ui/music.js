@@ -11,7 +11,8 @@ import theLossOfANewfoundFriend from "../../assets/music/the_loss_of_a_newfound_
 import theTrickstersPath from "../../assets/music/the_tricksters_path.ogg";
 import voidOfThought from "../../assets/music/void_of_thought.ogg";
 import { loadSettings } from "../game/settings.js";
-
+import playIcon from "../../assets/icons/sound-on.svg";
+import pauseIcon from "../../assets/icons/sound-off.svg";
 // ========================================
 // #region Variables
 const PLAYLISTS = {
@@ -35,7 +36,19 @@ let musicKey = "";
 let track = 0;
 let targetVolume = 0;
 let fadeFrame = 0;
-let isLeaving = false;
+const isLeaving = false;
+
+// #region Music-button
+const playBtn = document.createElement("button");
+playBtn.className = "music-btn";
+playBtn.setAttribute("aria-label", "Turn sound off");
+
+const icon = document.createElement("img");
+icon.src = pauseIcon;
+icon.alt = "sound off";
+playBtn.appendChild(icon);
+// #endregion Music-button
+
 // #endregion Variables
 // ========================================
 // #region Functions
@@ -49,7 +62,7 @@ export function startMusic(playlistName) {
 
   targetVolume = loadSettings().volume;
   audio = new Audio(playlist[track]);
-  audio.volume = 0;
+  audio.volume = loadSettings().volume;
   audio.addEventListener(
     "loadedmetadata",
     () => (audio.currentTime = position.time),
@@ -60,23 +73,6 @@ export function startMusic(playlistName) {
   window.addEventListener("pagehide", savePosition);
   window.addEventListener("pageshow", returnToPage);
 
-  playMusic();
-}
-
-// Fades the screen to black and the music to silent, then opens the url.
-export function leaveGamePage(url) {
-  isLeaving = true;
-  document.querySelector("main").classList.add("is-leaving");
-  fadeTo(0, FADE_OUT_MS);
-  setTimeout(() => (window.location.href = url), FADE_OUT_MS);
-}
-
-// Back button: the browser can show the old page from memory, still faded out.
-function returnToPage(event) {
-  if (!event.persisted) return;
-
-  isLeaving = false;
-  document.querySelector("main").classList.remove("is-leaving");
   playMusic();
 }
 
