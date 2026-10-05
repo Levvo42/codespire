@@ -13,10 +13,10 @@
 $animation-speed: 1.5;
 
 // Stone frame around the monster
-// monster_border_square.png: the outlines (a square version of monster_border.png)
-// monster_border_mask.png: the same stones filled in, so the colour stays inside them
-$frame-image: url("../../assets/images/monster_border_square.png");
-$frame-mask: url("../../assets/images/monster_border_mask.png");
+// monster_border_square.webp: the outlines (a square version of monster_border.png)
+// monster_border_mask.webp: the same stones filled in, so the colour stays inside them
+$frame-image: url("../../assets/images/monster_border_square.webp");
+$frame-mask: url("../../assets/images/monster_border_mask.webp");
 $frame-size: min(100cqh, 100cqw); // as big as the scene allows, always square
 // the stones' inner edge is at 13–15% of the frame, so the picture tucks under them
 $frame-picture-inset: calc(#{$frame-size} * 0.125);
@@ -58,7 +58,7 @@ $glow:
   flex-direction: column;
   height: 100dvh;
   background-color: #1e1e1e;
-  background-image: url("../../assets/images/placeholder-singleplayer-bg-image.jpg");
+  background-image: url("../../assets/images/singleplayer-bg.webp");
   background-size: cover;
   background-position: center;
 }
@@ -140,6 +140,44 @@ $glow:
     display: none;
   }
 
+  // Loading: everything that changes per encounter is hidden behind the
+  // loader until JS has the monster, its picture and the questions.
+  // visibility (not display) keeps the layout, so nothing jumps when it shows.
+  &--loading &__boss,
+  &--loading &__scene,
+  &--loading &__dialog,
+  &--loading &__answers {
+    visibility: hidden;
+  }
+
+  &__loader {
+    display: none;
+    grid-row: boss-start / answers-end;
+    grid-column: 1 / -1;
+    z-index: 2;
+    place-content: center;
+    justify-items: center;
+    gap: 0.75rem;
+    margin: 0;
+    font-family: rpgFont, sans-serif;
+    font-size: 1.25rem;
+    color: goldenrod;
+    text-shadow: 0 2px 4px rgb(0 0 0 / 80%);
+  }
+
+  &--loading &__loader {
+    display: grid;
+  }
+
+  &__spinner {
+    width: 2.5rem;
+    aspect-ratio: 1;
+    border: 0.25rem solid rgb(255 255 255 / 20%);
+    border-top-color: goldenrod;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+  }
+
   &--hurt {
     animation: screen-shake 0.45s * $animation-speed ease-out;
 
@@ -211,11 +249,6 @@ $glow:
     font-weight: lighter;
     font-size: 1.2rem;
     color: goldenrod;
-
-    &--loading {
-      animation: loading-pulse 0.8s * $animation-speed ease-in-out infinite
-        alternate;
-    }
   }
 
   &__boss-health {
@@ -408,16 +441,24 @@ $glow:
       animation: monster-crit 0.55s * $animation-speed ease-out;
     }
 
+    // greyed out, but still in the frame (an empty frame looks broken)
     &--defeated {
-      opacity: 0.15;
-      filter: grayscale(1);
+      filter: grayscale(1) brightness(0.5);
       animation: monster-defeated 0.8s * $animation-speed ease-in;
     }
+  }
 
-    // while the next monster loads (keeps its space so nothing jumps)
-    &--hidden {
-      visibility: hidden;
-    }
+  // Shown instead of the picture when the monster has none or it failed to load
+  &__monster-missing {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 8%; // stays clear of the stones, also in the small result frame
+    font-size: 0.875rem;
+    text-align: center;
+    color: rgb(255 255 255 / 70%);
   }
 
   // "-34" floating up from the hit (created by JS, removed when done)
@@ -1023,14 +1064,17 @@ $glow:
 
 @keyframes monster-defeated {
   from {
-    opacity: 1;
     filter: none;
   }
 
   to {
-    opacity: 0.15;
-    transform: translateY(1.5rem) scale(0.85);
-    filter: grayscale(1);
+    filter: grayscale(1) brightness(0.5);
+  }
+}
+
+@keyframes spin {
+  to {
+    rotate: 360deg;
   }
 }
 
@@ -1083,12 +1127,6 @@ $glow:
   from {
     opacity: 0;
     transform: translateY(-0.75rem);
-  }
-}
-
-@keyframes loading-pulse {
-  to {
-    opacity: 0.4;
   }
 }
 

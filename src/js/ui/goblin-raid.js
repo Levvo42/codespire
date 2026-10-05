@@ -73,7 +73,7 @@ const LINES = {
   ],
 };
 
-let names = []; // shuffled once per raid, so each goblin gets its own name
+let names = []; // shuffled on the raid's first name, cleared by endRaid
 let talkTimer;
 let bannerEndsAt = 0; // goblins wait until the banner is gone before talking
 // #endregion Variables
@@ -81,12 +81,11 @@ let bannerEndsAt = 0; // goblins wait until the banner is gone before talking
 // #region Exported functions
 
 /**
- * Starts a raid: shuffles the goblin names and shows the warning banner.
+ * Starts a raid: shows the warning banner.
  *
  * @param {HTMLElement} scene - The battle scene the banner is shown in.
  */
 export function startRaid(scene) {
-  names = shuffle(NAMES);
   bannerEndsAt = Date.now() + BANNER_MS;
 
   const banner = document.createElement("p");
@@ -112,6 +111,7 @@ export function startRaid(scene) {
 export function endRaid(scene) {
   clearTimeout(talkTimer);
   bannerEndsAt = 0;
+  names = []; // the next raid gets newly shuffled names
   scene
     .querySelectorAll(`.${BLOCK}__raid-banner, .${BLOCK}__goblin-talk`)
     .forEach((element) => element.remove());
@@ -125,6 +125,11 @@ export function endRaid(scene) {
  * @returns {string}
  */
 export function getRaidName(floorIndex, isBoss) {
+  // shuffled once per raid, so each goblin gets its own name
+  if (names.length === 0) {
+    names = shuffle(NAMES);
+  }
+
   return isBoss ? BOSS_NAME : `Goblin ${names[floorIndex % names.length]}`;
 }
 
