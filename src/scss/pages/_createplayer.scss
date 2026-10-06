@@ -2,6 +2,11 @@
 // ========================================
 // MAIN
 // ========================================
+// #region Import variables
+@use "/src/scss/base/variables" as *;
+
+// #endregion Import variables
+// ========================================
 // 1. Mobile main layout
 // 2. Tablet layout
 // 3. Desktop layout
@@ -23,6 +28,7 @@
   justify-items: center;
 
   @media (height < 45rem) {
+    // vertical breakpoint to remove text that wouldnt fit a small screen
     .site-createplayer-lore {
       display: none;
     }
@@ -172,7 +178,7 @@
 // =====================================
 // Tablet
 // =====================================
-@media (width >= 48rem) {
+@media (width >= $breakpoint-tablet) {
   .site-createplayer-container {
     max-width: 36rem;
   }
@@ -191,7 +197,7 @@
 // =====================================
 // Desktop
 // =====================================
-@media (width >= 64rem) {
+@media (width >= $breakpoint-desktop) {
   .site-createplayer-container {
     max-width: 40rem;
     padding: 1rem 1.5rem;

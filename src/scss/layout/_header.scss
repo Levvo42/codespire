@@ -39,7 +39,7 @@
   }
 
   // banner overall background
-  background-image: url("/src/assets/images/header-banner.jpg");
+  background-image: url("/src/assets/images/header-banner.webp");
   background-size: 100% 100%;
   opacity: 0.99;
 
@@ -50,6 +50,10 @@
     height: 3.5rem;
     filter: drop-shadow(0 8px 4px rgb(0 0 0))
       drop-shadow(3px -3px 25px rgb(102 134 80)) sepia(0.6) saturate(1.5);
+
+    &-link {
+      justify-self: start;
+    }
   }
 
   // Menu button styling for hamburger menu
@@ -127,7 +131,7 @@
       padding-block: 0.5rem;
       padding-bottom: 1rem;
       padding-inline: 0.1rem;
-      background-image: url("/src/assets/images/header-banner.jpg");
+      background-image: url("/src/assets/images/header-banner.webp");
       opacity: 0.975;
       border-radius: 0.35rem;
 

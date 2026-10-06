@@ -8,17 +8,12 @@
 // #region Import variables
 @use "/src/scss/base/variables" as *;
 
-@font-face {
-  font-family: rpgFont;
-  src: url("/src/assets/fonts/TWBOZ.ttf");
-}
-
 // #endregion Import variables
 // ========================================
 // #region Mobile
 .site-footer {
   // styling
-  background-image: url("/src/assets/images/header-banner.jpg");
+  background-image: url("/src/assets/images/header-banner.webp");
   background-size: 100% 100%;
   opacity: 0.9;
   display: flex;
@@ -69,7 +64,7 @@
 // ========================================
 // #region Tablet
 
-@media (width >= 48rem) {
+@media (width >= $breakpoint-tablet) {
   // placeholder
 }
 
@@ -77,7 +72,7 @@
 // ========================================
 // #region desktop
 
-@media (width >= 64rem) {
+@media (width >= $breakpoint-desktop) {
   // placeholder
 }
 

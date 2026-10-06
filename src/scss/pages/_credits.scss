@@ -1,3 +1,9 @@
+// ========================================
+// #region Import variables
+@use "/src/scss/base/variables" as *;
+
+// #endregion Import variables
+// ========================================
 @keyframes creditsmove {
   from {
     transform: translateY(80dvh);
@@ -171,7 +177,7 @@ audio {
 // =====================================
 // Tablet
 // =====================================
-@media (width >= 48rem) {
+@media (width >= $breakpoint-tablet) {
   .site-credits {
     &__container {
       width: min(500px, 80vw);
@@ -213,7 +219,7 @@ audio {
 // =====================================
 // Desktop
 // =====================================
-@media (width >= 64rem) {
+@media (width >= $breakpoint-desktop) {
   .site-credits {
     &__container {
       width: min(700px, 70vw);

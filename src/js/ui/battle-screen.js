@@ -12,7 +12,6 @@ import { createClimb, isLastFloor } from "../game/tower.js";
 import { showError } from "./error-message.js";
 import { fitText } from "./fit-text.js";
 import { endRaid, getRaidName, goblinSays, startRaid } from "./goblin-raid.js";
-import fallbackMonsterImage from "../../assets/images/placeholderlogo.png";
 
 // ========================================
 // #region Variables
@@ -26,6 +25,8 @@ const MIN_TEXT_REM = 0.75; // long text shrinks, but never below this
 const ANIMATION_SPEED = 1.5;
 const HIT_PAUSE_MS = 450 * ANIMATION_SPEED; // time to watch the hit before the result text shows
 const NUMBER_COUNT_MS = 500 * ANIMATION_SPEED; // HP numbers count down/up over this time
+// The loading screen stays at least this long, so it never just flickers
+const MIN_LOADING_MS = 400;
 
 const BLOCK = "site-singleplayer";
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -53,6 +54,7 @@ const elements = {
   bossHearts: select("boss-hearts"),
   scene: document.querySelector(`.${BLOCK}__scene`),
   monsterImage: select("monster-image"),
+  monsterMissing: select("monster-missing"),
   monsterFrame: select("monster-frame"),
   dialog: document.querySelector(`.${BLOCK}__dialog`),
   feedback: select("feedback"),
@@ -87,6 +89,7 @@ let battle = null; // the current fight
 let questions = [];
 let questionIndex = 0;
 let retryAction = null; // what "Try again" does: restart the climb, or retry a failed load
+let loadingSince = 0; // when the loading screen was shown
 // #endregion Variables
 // ========================================
 // #region Exported functions
@@ -120,13 +123,14 @@ export function startGame(options) {
   elements.dialogText.addEventListener("animationend", updateScrollHint);
   window.addEventListener("resize", fitQuestionText); // e.g. a phone turned sideways
 
-  // If an API image fails to load, show our placeholder instead
-  // (only once, so a broken placeholder can't loop)
-  elements.monsterImage.addEventListener("error", () => {
-    if (!elements.monsterImage.src.endsWith(fallbackMonsterImage)) {
-      elements.monsterImage.src = fallbackMonsterImage;
-    }
-  });
+  // If the picture still fails (it was preloaded), show "Monster image" instead
+  elements.monsterImage.addEventListener("error", () =>
+    showMonsterImage(false),
+  );
+
+  // Same for the whole climb, so set once (not per floor)
+  elements.difficulty.textContent = toTitleCase(game.difficulty);
+  elements.towerName.textContent = game.towerName;
 
   renderPlayer();
   startClimb({ moveFocus: false }); // no focus jump on page load
@@ -137,7 +141,7 @@ export function startGame(options) {
 
 // A fresh climb: full HP, new questions, first floor. Also "Try again" after dying.
 async function startClimb({ moveFocus = true } = {}) {
-  showOutcomeButton(null);
+  setLoading();
   climb = createClimb(game.layout, game.stats);
   battle = null;
   questionIndex = -1; // showNewQuestion() moves it to 0 for the first question
@@ -188,37 +192,43 @@ async function loadFloor() {
   }
 }
 
+// Everything for the floor (monster, picture) is loaded behind the loading
+// screen first. Only when all of it is ready is the encounter shown, in one go.
 async function startFloor({ moveFocus = true } = {}) {
   setLoading();
 
   const floor = climb.floors[climb.floorIndex];
   let monster = await game.loadMonster(floor, climb.usedMonsters);
 
-  // Goblin raid: it starts on the first floor (banner + green look), then
-  // every goblin gets its own name (and the boss is the warlord)
+  // Goblin raid: every goblin gets its own name (and the boss is the warlord)
   if (monster.isRaid) {
-    if (climb.floorIndex === 0) {
-      elements.main.classList.add(`${BLOCK}--raid`);
-      startRaid(elements.scene);
-    }
-
     monster = {
       ...monster,
       name: getRaidName(climb.floorIndex, monster.isBoss),
     };
   }
 
-  // Download the picture while "Loading…" shows, so it appears all at once
-  const imageUrl = await preloadImage(monster.imageUrl);
+  // Download the picture first (false = no picture, or it failed)
+  const hasImage = await loadMonsterImage(monster.imageUrl);
+  await wait(MIN_LOADING_MS - (Date.now() - loadingSince));
 
   climb = { ...climb, usedMonsters: [...climb.usedMonsters, monster.index] };
   battle = createBattle(climb.player, monster);
 
-  renderFloor(imageUrl);
-  renderHealth();
+  // Everything is ready: fill in the new encounter, then show it
+  renderFloor(hasImage);
+  renderHealth({ instant: true });
   showNewQuestion(); // every monster gets a new question, not the last one again
-  playAnimation(elements.monsterImage, `${BLOCK}__monster--enter`);
+  elements.main.classList.remove(`${BLOCK}--loading`);
+  elements.main.classList.toggle(`${BLOCK}--raid`, monster.isRaid === true);
+  fitQuestionText(); // measured now that the box is laid out
+  playAnimation(getMonsterElement(), `${BLOCK}__monster--enter`);
   playAnimation(elements.boss, `${BLOCK}__boss--enter`);
+
+  // the raid starts on the first floor: banner first, then the goblin talks
+  if (monster.isRaid && climb.floorIndex === 0) {
+    startRaid(elements.scene);
+  }
 
   if (monster.isRaid) {
     goblinSays(elements.scene, monster.isBoss ? "boss" : "enter");
@@ -283,7 +293,7 @@ async function handleAnswer(chosenIndex) {
   // 2. The hit itself: monster shakes, or the screen flashes red
   if (isCorrect) {
     playAnimation(
-      elements.monsterImage,
+      getMonsterElement(),
       isCrit ? `${BLOCK}__monster--crit` : `${BLOCK}__monster--hit`,
     );
     // inside the frame, so it stays on the monster when the frame resizes
@@ -327,7 +337,7 @@ async function handleAnswer(chosenIndex) {
 
   // 4. Big moments get their own animation before the button shows
   if (battle.outcome === "victory") {
-    await playAnimation(elements.monsterImage, `${BLOCK}__monster--defeated`, {
+    await playAnimation(getMonsterElement(), `${BLOCK}__monster--defeated`, {
       keep: true,
     });
   } else if (battle.outcome === "defeat") {
@@ -407,14 +417,13 @@ function renderInventory() {
   }
 }
 
-// While the next monster loads: clear the old fight so nothing stale shows
+// The loading screen: hides the boss, scene, question and answers until the
+// next encounter is fully loaded, so nothing old or half-loaded ever shows
 function setLoading() {
+  loadingSince = Date.now();
+  elements.main.classList.add(`${BLOCK}--loading`);
   showOutcomeButton(null);
   elements.main.classList.remove(`${BLOCK}--result`);
-  elements.bossName.textContent = "Loading…";
-  elements.bossName.classList.add(`${BLOCK}__boss-name--loading`);
-  // The defeated monster must not show again while the next one loads
-  elements.monsterImage.classList.add(`${BLOCK}__monster--hidden`);
   elements.feedback.hidden = true;
   elements.roll.hidden = true;
   elements.explanation.hidden = true;
@@ -424,22 +433,30 @@ function setLoading() {
   });
 }
 
-function renderFloor(imageUrl) {
+function renderFloor(hasImage) {
   const { monster } = battle;
 
-  elements.difficulty.textContent = toTitleCase(game.difficulty);
-  elements.towerName.textContent = game.towerName;
   elements.towerLevel.textContent = `${climb.floorIndex + 1}/${climb.floors.length}`;
-  elements.bossName.classList.remove(`${BLOCK}__boss-name--loading`);
   elements.bossName.textContent = monster.isBoss
     ? `Boss: ${monster.name}`
     : monster.name;
-  elements.monsterImage.src = imageUrl; // already downloaded, so it swaps instantly
   elements.monsterImage.alt = monster.name;
-  elements.monsterImage.classList.remove(
-    `${BLOCK}__monster--defeated`,
-    `${BLOCK}__monster--hidden`,
-  );
+  elements.monsterImage.classList.remove(`${BLOCK}__monster--defeated`);
+  elements.monsterMissing.classList.remove(`${BLOCK}__monster--defeated`);
+  showMonsterImage(hasImage);
+}
+
+// The picture (already loaded), or the "Monster image" text when there is none
+function showMonsterImage(hasImage) {
+  elements.monsterImage.hidden = !hasImage;
+  elements.monsterMissing.hidden = hasImage;
+}
+
+// Whichever is showing: the picture or the "Monster image" text
+function getMonsterElement() {
+  return elements.monsterImage.hidden
+    ? elements.monsterMissing
+    : elements.monsterImage;
 }
 
 function renderQuestion() {
@@ -504,13 +521,14 @@ function getQuestionLines() {
   return Math.max(Math.floor(textHeight / lineHeight), 1);
 }
 
-function renderHealth() {
+// instant: a new monster's HP is set, not counted up from the last one's
+function renderHealth({ instant = false } = {}) {
   const { player, monster, monsterHp } = battle;
 
-  countTo(elements.bossHp, monsterHp);
+  countTo(elements.bossHp, monsterHp, { instant });
   renderHearts(elements.bossHearts, monsterHp, monster.maxHp, "Boss health");
 
-  countTo(elements.playerHp, player.hp);
+  countTo(elements.playerHp, player.hp, { instant });
   renderHearts(elements.playerHearts, player.hp, player.maxHp, "Player health");
   elements.playerHealth.classList.toggle(
     `${BLOCK}__player-health--low`,
@@ -573,8 +591,11 @@ function showOutcomeButton(outcome) {
 // A failed API call: tell the player and offer "Try again" for that step
 function showLoadError(message, error, retry) {
   showError(message, error);
-  elements.bossName.classList.remove(`${BLOCK}__boss-name--loading`);
+  elements.main.classList.remove(`${BLOCK}--loading`);
   elements.bossName.textContent = "Could not load";
+  elements.monsterImage.hidden = true;
+  elements.monsterMissing.hidden = true;
+  showText(elements.roll, message);
   elements.main.classList.add(`${BLOCK}--result`); // room for the Try again button
   showOutcomeButton("defeat");
   retryAction = retry;
@@ -655,8 +676,13 @@ function playAnimation(element, className, { keep = false } = {}) {
       resolve();
     };
 
-    if (getComputedStyle(element).animationName === "none") {
-      finish(); // reduced motion, or no animation for this class
+    // reduced motion, no animation for this class, or not on screen
+    // (a hidden element never fires animationend, so don't wait for it)
+    if (
+      getComputedStyle(element).animationName === "none" ||
+      element.getClientRects().length === 0
+    ) {
+      finish();
       return;
     }
 
@@ -681,10 +707,10 @@ function showDamageNumber(container, damage, type) {
 }
 
 // HP numbers count down/up instead of jumping
-function countTo(element, target) {
+function countTo(element, target, { instant = false } = {}) {
   const start = Number(element.textContent) || 0;
 
-  if (reducedMotion.matches || start === target) {
+  if (instant || reducedMotion.matches || start === target) {
     element.textContent = target;
     return;
   }
@@ -702,22 +728,22 @@ function countTo(element, target) {
   });
 }
 
-// Downloads an image before it is shown. Resolves with the url to use:
-// the monster's own picture, or our placeholder if it has none or fails.
-function preloadImage(url) {
-  return new Promise((resolve) => {
-    if (!url) {
-      resolve(fallbackMonsterImage);
-      return;
-    }
+// Loads the monster's picture into the (hidden) img while the loading screen
+// shows. decode() waits until it is downloaded and ready to draw, so it
+// appears all at once. Resolves false if there is no picture or it failed.
+async function loadMonsterImage(url) {
+  if (!url) {
+    return false;
+  }
 
-    const image = new Image();
-    image.addEventListener("load", () => resolve(url), { once: true });
-    image.addEventListener("error", () => resolve(fallbackMonsterImage), {
-      once: true,
-    });
-    image.src = url;
-  });
+  elements.monsterImage.src = url;
+
+  try {
+    await elements.monsterImage.decode();
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 function wait(ms) {

@@ -3,8 +3,8 @@
 import "../main.js";
 import { loadSettings } from "../game/settings.js";
 
-import playIcon from "../../assets/icons/sound-on.svg";
-import pauseIcon from "../../assets/icons/sound-off.svg";
+import playIcon from "../../assets/icons/sound-off.svg";
+import pauseIcon from "../../assets/icons/sound-on.svg";
 
 // #region Elements
 const music = document.getElementById("music");
@@ -18,8 +18,8 @@ document.addEventListener(
 
 // #region Sound toggle icon
 const icon = document.createElement("img");
-icon.src = playIcon;
-icon.alt = "sound on";
+icon.src = pauseIcon;
+icon.alt = "sound off";
 playBtn.appendChild(icon);
 // #endregion Sound toggle icon
 
@@ -33,13 +33,13 @@ music.play().catch(() => {
 playBtn.addEventListener("click", () => {
   if (music.paused) {
     music.play();
-    icon.src = playIcon;
-    icon.alt = "sound on";
+    icon.src = pauseIcon;
+    icon.alt = "sound off";
     playBtn.setAttribute("aria-label", "Turn sound off");
   } else {
     music.pause();
-    icon.src = pauseIcon;
-    icon.alt = "sound off";
+    icon.src = playIcon;
+    icon.alt = "sound on";
     playBtn.setAttribute("aria-label", "Turn sound on");
   }
 });

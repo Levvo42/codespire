@@ -5,14 +5,16 @@ import {
   getStat,
   getXpToNextLevel,
   getNextDifficulty,
+  DIFFICULTIES,
   CLASS_STATS,
   ITEMS,
   ITEM_INFO,
   TOWERS,
   TOWER_INFO,
 } from "../game/player.js";
-import { loadGame } from "../game/save.js";
-import { startMusic } from "../ui/music.js";
+import { loadGame, saveGame } from "../game/save.js";
+import { showError } from "../ui/error-message.js"; //added error ui from battle screen
+import { leaveGamePage, startMusic } from "../ui/music.js";
 import { togglePanel } from "../ui/panels.js";
 
 // ========================================
@@ -41,6 +43,11 @@ const towerSign = document.getElementById("tower-sign");
 const towerPrev = document.getElementById("tower-prev");
 const towerNext = document.getElementById("tower-next");
 const towerPlay = document.getElementById("tower-play");
+// Update the button's action label and prestige sign for the selected tower.
+const towerPlayActionLabel = towerPlay.querySelector(".site-lobby__hint");
+// used for changing play to prestige
+const towerPrestigeSign = document.getElementById("tower-sign__prestige");
+// used to show tracked prestige#
 
 // #endregion Variables
 // ========================================
@@ -89,6 +96,26 @@ function showInventory(player) {
   }
 }
 
+// ++this tower's prestige and resets difficulty.
+function prestigeTower(tower) {
+  // only a fully clearedtower can prestige.
+  if (player.clearedLevels[tower] !== DIFFICULTIES.at(-1)) return;
+
+  const previousPrestige = player.prestigeLevels[tower]; // =tmp fallback memory
+  player.prestigeLevels[tower] += 1; // prestige rank++
+  player.clearedLevels[tower] = null; // difficulty reset
+
+  if (!saveGame(player)) {
+    // prestige failsafecheck
+    player.prestigeLevels[tower] = previousPrestige; // restores fallbackmemory
+    player.clearedLevels[tower] = DIFFICULTIES.at(-1); // resets tower to hard
+    showError("Could not save prestige.");
+    return; //abort prestige function post fail
+  }
+
+  showTower();
+}
+
 // Moves one tower back (-1) or forward (1) and wraps around at the ends.
 function changeTower(step) {
   towerIndex = towerIndex + step;
@@ -102,6 +129,7 @@ function showTower() {
   const tower = TOWERS[towerIndex];
   const info = TOWER_INFO[tower];
   const difficulty = getNextDifficulty(player, tower);
+  const prestige = player.prestigeLevels[tower];
 
   if (!info.available) {
     towerSign.textContent = `${info.name}: Coming soon`;
@@ -111,14 +139,33 @@ function showTower() {
     towerSign.textContent = `${info.name}: ${difficulty}`;
   }
 
-  towerPlay.disabled = !info.available || !difficulty;
+  towerPrestigeSign.textContent = `Prestige ${prestige}`; // sets prestige# sign
+  towerPrestigeSign.classList.toggle(
+    "site-lobby__sign-prestige--visible",
+    prestige > 0, // hides prestige if 0
+  );
+  // A fully cleared available tower uses Play as its prestige action.
+  const canPrestige =
+    info.available && player.clearedLevels[tower] === DIFFICULTIES.at(-1);
+  towerPlay.classList.toggle("site-lobby__button--prestige-ready", canPrestige);
+  towerPlayActionLabel.textContent = canPrestige ? "Play?" : "Play"; // changes play status to prestige
+  towerPlay.setAttribute("aria-label", canPrestige ? "Play?" : "Play");
+  towerPlay.disabled = //didnt remove but probably wont be needed after prestige implementation
+    !info.available ||
+    (!difficulty && player.clearedLevels[tower] !== DIFFICULTIES.at(-1));
 }
 // Goes to the fight page with the chosen tower and difficulty in the address.
 function startClimb() {
   const tower = TOWERS[towerIndex];
   const difficulty = getNextDifficulty(player, tower);
+  if (!difficulty) {
+    // No next difficulty means HARD is cleared; prestige instead of starting a run.
+    prestigeTower(tower);
+    return;
+  }
+
   const params = new URLSearchParams({ tower, difficulty });
-  window.location.href = `/pages/singleplayer.html?${params}`;
+  leaveGamePage(`/pages/singleplayer.html?${params}`);
 }
 // #endregion Functions
 // ========================================

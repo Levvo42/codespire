@@ -32,8 +32,8 @@ export const ITEM_INFO = {
 };
 export const TOWER_INFO = {
   html: { name: "HTML", available: true },
-  css: { name: "CSS", available: false },
-  javascript: { name: "JavaScript", available: false },
+  css: { name: "CSS", available: true },
+  javascript: { name: "JavaScript", available: true },
   python: { name: "Python", available: false },
   csharp: { name: "C#", available: false },
 };
@@ -71,7 +71,12 @@ export function checkName(name) {
 
 export function createPlayer(name, heroClass) {
   const clearedLevels = {};
-  TOWERS.forEach((tower) => (clearedLevels[tower] = null));
+  // Hooked prestige into difficulty tracker
+  const prestigeLevels = {};
+  TOWERS.forEach((tower) => {
+    clearedLevels[tower] = null;
+    prestigeLevels[tower] = 0;
+  });
 
   const inventory = {};
   for (const item of ITEMS) {
@@ -87,6 +92,7 @@ export function createPlayer(name, heroClass) {
     xp: 0,
     inventory,
     clearedLevels,
+    prestigeLevels, // added prestige to saves
     storyFlags: [], // e.g. "met-the-wizard"
     createdAt: Date.now(),
   };
@@ -118,6 +124,15 @@ export function parsePlayer(data) {
     const value = cleared[tower];
     if (value !== null && !DIFFICULTIES.includes(value)) return null;
   }
+  // Older saves have no prestige data, this is a failsafe to let them load
+  const prestige = data.prestigeLevels;
+  if (prestige !== undefined) {
+    if (typeof prestige !== "object" || prestige === null) return null;
+    for (const tower of TOWERS) {
+      if (!Number.isInteger(prestige[tower]) || prestige[tower] < 0)
+        return null;
+    }
+  }
   // Gate 8: inventory must be an object, and each item count a whole number, 0 or more.
   const inventory = data.inventory;
   if (typeof inventory !== "object" || inventory === null) return null;
@@ -137,7 +152,10 @@ export function parsePlayer(data) {
   player.xp = data.xp;
   player.avatar = data.avatar;
   player.storyFlags = [...data.storyFlags];
-  TOWERS.forEach((tower) => (player.clearedLevels[tower] = cleared[tower]));
+  TOWERS.forEach((tower) => {
+    player.clearedLevels[tower] = cleared[tower]; //added prestige to the difficulty loader
+    if (prestige !== undefined) player.prestigeLevels[tower] = prestige[tower];
+  });
   if (Number.isFinite(data.createdAt)) player.createdAt = data.createdAt;
   for (const item of ITEMS) {
     player.inventory[item] = inventory[item];

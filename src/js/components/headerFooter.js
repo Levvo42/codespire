@@ -1,13 +1,14 @@
+import logo from "../../assets/images/codespire-logo.webp";
 const headerTemplate = `
   <header class="site-header">
-    <img
-      src="/src/assets/images/codespire-logo.png"
+    <a href="/index.html" class="site-header__logo-link"><img
+      src="${logo}"
       loading="eager"
       class="site-header__logo"
       alt=".codeSpire"
-      width="60"
-      height="30"
-    />
+      width="448"
+      height="113"
+    /></a>
     <nav class="site-header__nav" id="header-navigation">
       <a href="/index.html">Main Menu</a>
       <a href="/pages/lobby.html">Play</a>
@@ -39,7 +40,7 @@ const headerTemplate = `
       <button class="site-settings__button" id="settings-new" type="button">New game</button>
       <button class="site-settings__button" id="settings-save" type="button">Save game</button>
       <button class="site-settings__button" id="settings-load" type="button">Load game</button>
-      <input id="settings-file" type="file" accept=".json,application/json" hidden />
+      <input id="settings-file" type="file" accept=".txt,.json,text/plain,application/json" hidden />
     </div>
     <p class="site-settings__message" id="settings-message" role="status"></p>
     <button class="site-settings__button" id="settings-close" type="button">Close</button>
