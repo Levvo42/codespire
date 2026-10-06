@@ -81,7 +81,7 @@
 // ========================================
 // #region Tablet
 
-@media (width >= 48rem) {
+@media (width >= $breakpoint-tablet) {
   // placeholder
 }
 
@@ -89,7 +89,7 @@
 // ========================================
 // #region desktop
 
-@media (width >= 64rem) {
+@media (width >= $breakpoint-desktop) {
   // placeholder
 }
 

@@ -3,7 +3,7 @@
 @use "modern-normalize";
 
 // Variables
-@use "base/variables";
+@use "base/variables" as *;
 
 // Base
 @use "base/base";
@@ -27,3 +27,8 @@
 @use "pages/story";
 @use "pages/credits";
 @use "pages/createplayer";
+
+:root {
+  // used to export variables for use in java
+  --breakpoint-desktop: #{$breakpoint-desktop}; // translating our desktop breakpoint for java
+}
