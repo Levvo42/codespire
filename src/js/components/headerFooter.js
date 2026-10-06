@@ -52,8 +52,8 @@ const footerTemplate = `
     <span class="site-footer__info">
       <a href="/pages/credits.html">About</a>
       <a href="/pages/lobby.html">Lobby</a>
-      <a href="/index.html">Bug Report</a>
-      <a href="/index.html">Socials</a>
+      <a href="/pages/bug-report.html">Bug Report</a>
+      <a href="/pages/createplayer.html">Socials</a>
     </span>
   </footer>
 `;
