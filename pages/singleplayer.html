@@ -10,24 +10,41 @@
       name="description"
       content="Answer questions to defeat monsters and climb the tower."
     />
+    <link rel="icon" href="/src/assets/images/codespire-logo.png" />
+    <!-- Start the connection to the monster API and the title font early -->
+    <link rel="preconnect" href="https://www.dnd5eapi.co" />
+    <link
+      rel="preload"
+      href="/src/assets/fonts/TWBOZ.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
   </head>
 
   <body class="page-singleplayer">
     <header data-site-header></header>
 
-    <main class="site-singleplayer">
+    <!-- Starts in the loading state: nothing old or half-loaded is ever shown.
+         JS removes site-singleplayer--loading when the encounter is ready. -->
+    <main class="site-singleplayer site-singleplayer--loading">
       <h1 class="visually-hidden">Singleplayer</h1>
+
+      <p class="site-singleplayer__loader" role="status">
+        <span class="site-singleplayer__spinner" aria-hidden="true"></span>
+        Loading…
+      </p>
 
       <!-- Boss: difficulty + tower level | name + health -->
       <section class="site-singleplayer__boss" aria-labelledby="boss-name">
         <div class="site-singleplayer__encounter">
           <p class="site-singleplayer__difficulty">
-            Difficulty: <span data-js="difficulty">Normal</span>
+            Difficulty: <span data-js="difficulty">-</span>
           </p>
           <p class="site-singleplayer__tower-level">
-            <span data-js="tower-name">CSS</span> Tower: Level
+            <span data-js="tower-name">-</span> Tower: Level
             <span class="site-singleplayer__level-number" data-js="tower-level"
-              >5</span
+              >-</span
             >
           </p>
         </div>
@@ -36,17 +53,17 @@
           id="boss-name"
           data-js="boss-name"
         >
-          Archduke Nicodemus Valerius von Dragomirov
+          Monster
         </h2>
         <p class="site-singleplayer__boss-health">
           <span class="site-singleplayer__health-value" data-js="boss-hp"
-            >500</span
+            >-</span
           >
           <!-- Each heart = 20% of max health. JS sets --fill (0%–100%) per heart -->
           <span
             class="site-singleplayer__hearts"
             role="img"
-            aria-label="Boss health: 500 of 500"
+            aria-label="Boss health"
             data-js="boss-hearts"
           >
             <span class="site-singleplayer__heart">♥</span>
@@ -61,28 +78,40 @@
       <section class="site-singleplayer__scene" aria-label="Battle scene">
         <img
           class="site-singleplayer__torch site-singleplayer__torch--left"
-          src="/src/assets/images/placeholder_torch.png"
+          src="/src/assets/images/torch.webp"
           alt=""
-          width="64"
-          height="128"
+          width="160"
+          height="192"
+          loading="lazy"
         />
         <!-- Stone frame around the monster (drawn in CSS, so it can be tinted) -->
         <div class="site-singleplayer__frame" data-js="monster-frame">
+          <!-- No picture until JS has the monster's (an empty 1px image until then) -->
           <img
             class="site-singleplayer__monster"
-            src="/src/assets/images/placeholderlogo.png"
-            alt="Monster"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            alt=""
             data-js="monster-image"
-            width="158"
-            height="50"
+            width="512"
+            height="512"
+            hidden
           />
+          <!-- Shown instead when the monster has no picture or it failed to load -->
+          <p
+            class="site-singleplayer__monster-missing"
+            data-js="monster-missing"
+            hidden
+          >
+            Monster image
+          </p>
         </div>
         <img
           class="site-singleplayer__torch site-singleplayer__torch--right"
-          src="/src/assets/images/placeholder_torch.png"
+          src="/src/assets/images/torch.webp"
           alt=""
-          width="64"
-          height="128"
+          width="160"
+          height="192"
+          loading="lazy"
         />
       </section>
 
@@ -95,7 +124,7 @@
         tabindex="-1"
       >
         <p class="site-singleplayer__feedback" data-js="feedback" hidden>
-          CORRECT!
+          Correct!
         </p>
         <!-- Everything between the feedback and the button scrolls inside the box -->
         <div class="site-singleplayer__dialog-text" data-js="dialog-text">
@@ -112,7 +141,7 @@
             (for example, via keyboard navigation).
           </p>
           <p class="site-singleplayer__question" data-js="question">
-            Which of the following are valid CSS pseudo-classes?
+            Loading question…
           </p>
         </div>
         <!-- One button per outcome, JS shows only one of them:
@@ -153,28 +182,28 @@
           type="button"
           data-js="answer-button"
         >
-          [A] :focus
+          [A]
         </button>
         <button
           class="site-singleplayer__answer"
           type="button"
           data-js="answer-button"
         >
-          [B] :hover
+          [B]
         </button>
         <button
           class="site-singleplayer__answer"
           type="button"
           data-js="answer-button"
         >
-          [C] ::before
+          [C]
         </button>
         <button
           class="site-singleplayer__answer"
           type="button"
           data-js="answer-button"
         >
-          [D] :active
+          [D]
         </button>
       </section>
 
@@ -215,7 +244,7 @@
             <div class="site-singleplayer__player-details">
               <img
                 class="site-singleplayer__avatar"
-                src="/avatars/default.webp"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                 alt="Player avatar"
                 width="128"
                 height="128"
@@ -236,12 +265,12 @@
             <p class="site-singleplayer__player-health" data-js="player-health">
               <span>Player health</span>
               <span class="site-singleplayer__health-value" data-js="player-hp"
-                >100</span
+                >-</span
               >
               <span
                 class="site-singleplayer__hearts"
                 role="img"
-                aria-label="Player health: 100 of 100"
+                aria-label="Player health"
                 data-js="player-hearts"
               >
                 <span class="site-singleplayer__heart">♥</span>
