@@ -1,0 +1,137 @@
+// Bug Report
+// ========================================
+// MAIN
+// ========================================
+// 1. Mobile main layout
+// 2. Tablet layout
+// 3. Desktop layout
+// ========================================
+
+// Mobile
+// ----------------------------------------
+// Body
+.page-bug-report {
+  background-color: #222116;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+// Main
+.bug-report {
+  padding: 1rem 0.5rem;
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  color: #e9eeb8e5;
+  align-content: start;
+
+  &__title {
+    text-align: center;
+    font-size: 1.6rem;
+  }
+
+  // ──────── ◇ ────────
+  &__divider {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    margin: 0.2rem 0;
+    gap: 0.5rem;
+
+    span {
+      display: block;
+      width: 100%;
+      height: 0.1rem;
+      background: #6e5710;
+    }
+  }
+
+  &__diamond {
+    width: 0.8rem;
+    height: 0.8rem;
+    border: 2px solid #6e5710;
+    rotate: 45deg;
+  }
+
+  // Form: Label/Input/Textarea/Button
+  &__form {
+    display: grid;
+    gap: 1rem;
+    width: 100%;
+    max-width: 35rem;
+    margin-inline: auto;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 2px solid #6e5710;
+  }
+
+  &__label {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: -0.5rem;
+    color: #f5f1d1;
+  }
+
+  &__file {
+    color: #f5f1d1;
+  }
+
+  &__email {
+    font-size: 1.2rem;
+    color: #f5f1d1;
+    border: 1px solid #6e5710;
+    border-radius: 0.5rem;
+    line-height: 1.4;
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 2px solid #6e5710;
+    font: inherit;
+    line-height: 1.4;
+    background: #f5f4f0;
+    color: #000;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  &__input::placeholder,
+  &__textarea::placeholder {
+    color: #555;
+    opacity: 1;
+  }
+
+  &__button {
+    justify-self: start;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid #6e5710;
+    cursor: pointer;
+    background: #0f140c;
+    color: #f5f1d1;
+    font-weight: 500;
+
+    &:hover {
+      background: #000;
+    }
+  }
+}
+
+// =====================================
+// Tablet
+// =====================================
+@media (width >= 48rem) {
+  // Todo: Tablet styles
+}
+
+// =====================================
+// Desktop
+// =====================================
+@media (width >= 64rem) {
+  // Todo: Desktop styles
+}
