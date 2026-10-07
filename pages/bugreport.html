@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeSpire — Bug Report</title>
+    <meta name="description" content="" />
+  </head>
+  <body class="page-bugreport">
+    <header data-site-header></header>
+    <main class="bugreport">
+      <h1 class="bugreport__title">Bug Report under construction</h1>
+      <div class="bugreport__divider">
+        <span></span>
+        <div class="bugreport__diamond"></div>
+        <span></span>
+      </div>
+      <form class="bugreport__form">
+        <label class="bugreport__label" for="bug-title"> Bug title </label>
+        <input class="bugreport__input" id="bug-title" type="text" required />
+        <label class="bugreport__label" for="bug-email">
+          Contact email (optional)
+        </label>
+        <input
+          class="bugreport__input"
+          id="bug-email"
+          type="email"
+          placeholder="name@example.com"
+        />
+        <label class="bugreport__label" for="bug-description">
+          Describe the bug
+        </label>
+        <textarea
+          class="bugreport__textarea"
+          id="bug-description"
+          rows="6"
+          required
+        >
+        </textarea>
+        <label class="bugreport__label" for="bug-image">
+          Attach image (optional)
+        </label>
+        <input
+          class="bugreport__input"
+          id="bug-image"
+          type="file"
+          accept="image/*"
+        />
+        <button class="bugreport__button" type="submit">Submit Report</button>
+      </form>
+    </main>
+    <footer data-site-footer></footer>
+    <script type="module" src="/src/js/pages/bugreport.js"></script>
+  </body>
+</html>

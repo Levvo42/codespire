@@ -1,3 +1,7 @@
+// #region Import variables
+@use "/src/scss/base/variables" as *;
+
+// #endregion Import variables
 // Bug Report
 // ========================================
 // MAIN
@@ -10,7 +14,7 @@
 // Mobile
 // ----------------------------------------
 // Body
-.page-bug-report {
+.page-bugreport {
   background-color: #222116;
   min-height: 100dvh;
   display: grid;
@@ -18,7 +22,7 @@
 }
 
 // Main
-.bug-report {
+.bugreport {
   padding: 1rem 0.5rem;
   display: grid;
   justify-items: center;
@@ -125,13 +129,13 @@
 // =====================================
 // Tablet
 // =====================================
-@media (width >= 48rem) {
+@media (width >= $breakpoint-tablet) {
   // Todo: Tablet styles
 }
 
 // =====================================
 // Desktop
 // =====================================
-@media (width >= 64rem) {
+@media (width >= $breakpoint-desktop) {
   // Todo: Desktop styles
 }
