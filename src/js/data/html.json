@@ -297,28 +297,28 @@
       "id": "html-easy-022",
       "difficulty": "EASY",
       "type": "MULTIPLE_CHOICE",
-      "text": "Which element is used to collect user input and submit form data?",
+      "text": "Which element groups form controls and can submit their data to a server?",
       "answers": [
         { "text": "<form>", "is-correct": true },
         { "text": "<fieldset>", "is-correct": false },
         { "text": "<input>", "is-correct": false },
         { "text": "<label>", "is-correct": false }
       ],
-      "explanation": "<form> represents a form containing controls that can be used to submit information.",
+      "explanation": "<form> contains form controls and defines how their data is submitted.",
       "verified": false
     },
     {
       "id": "html-easy-023",
       "difficulty": "EASY",
       "type": "MULTIPLE_CHOICE",
-      "text": "Which element creates a single-line text field?",
+      "text": "Which element with type='text' creates a single-line text field?",
       "answers": [
         { "text": "<textarea>", "is-correct": false },
         { "text": "<input>", "is-correct": true },
         { "text": "<label>", "is-correct": false },
         { "text": "<text>", "is-correct": false }
       ],
-      "explanation": "<input type='text'> creates a single-line text field. <textarea> is for multiple lines.",
+      "explanation": "<input type='text'> creates a single-line text field, while <textarea> allows multiple lines of text.",
       "verified": false
     },
     {
