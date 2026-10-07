@@ -2,6 +2,7 @@
 //
 // The stylesheet is imported here, not in each page script, so that no page
 // can forget it. Vite compiles the SCSS it finds through JS imports.
+
 import "../scss/style.scss";
 import { templateHeaderFooter } from "./components/headerFooter.js";
 import { initSettings } from "./ui/settings.js";
@@ -14,7 +15,9 @@ initSettings();
 const menuButton = document.querySelector(".site-header__menu-button");
 const navigation = document.querySelector(".site-header__nav");
 const menuText = menuButton?.querySelector("span");
-const desktopMedia = window.matchMedia("(min-width: 53rem)");
+const desktopBreakpoint = getComputedStyle(document.documentElement) // tells java to extract from document
+  .getPropertyValue("--breakpoint-desktop"); // variable to extract
+const desktopMedia = window.matchMedia(`(min-width: ${desktopBreakpoint})`);
 // #endregion Variables
 // ========================================
 // #region Event listeners

@@ -1,14 +1,14 @@
 import logo from "../../assets/images/codespire-logo.webp";
 const headerTemplate = `
   <header class="site-header">
-    <img
+    <a href="/index.html" class="site-header__logo-link"><img
       src="${logo}"
       loading="eager"
       class="site-header__logo"
       alt=".codeSpire"
       width="448"
       height="113"
-    />
+    /></a>
     <nav class="site-header__nav" id="header-navigation">
       <a href="/index.html">Main Menu</a>
       <a href="/pages/lobby.html">Play</a>
@@ -52,8 +52,8 @@ const footerTemplate = `
     <span class="site-footer__info">
       <a href="/pages/credits.html">About</a>
       <a href="/pages/lobby.html">Lobby</a>
-      <a href="/index.html">Bug Report</a>
-      <a href="/index.html">Socials</a>
+      <a href="/pages/bug-report.html">Bug Report</a>
+      <a href="/pages/createplayer.html">Socials</a>
     </span>
   </footer>
 `;
