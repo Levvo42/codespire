@@ -21,6 +21,7 @@ export default defineConfig({
         credits: resolve(import.meta.dirname, "pages/credits.html"),
         createplayer: resolve(import.meta.dirname, "pages/createplayer.html"),
         intro: resolve(import.meta.dirname, "pages/story/intro.html"),
+        bugreport: resolve(import.meta.dirname, "pages/story/bug-report.html"),
         prologue: resolve(import.meta.dirname, "pages/story/prologue.html"),
         chapter1: resolve(import.meta.dirname, "pages/story/chapter1.html"),
         chapter2: resolve(import.meta.dirname, "pages/story/chapter2.html"),
