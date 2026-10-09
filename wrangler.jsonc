@@ -10,4 +10,13 @@
       "database_id": "8f6ebdef-d29d-49a9-9b74-d21e46f8bc54",
     },
   ],
+  "previews": {
+    "d1_databases": [
+      {
+        "binding": "codespire_db",
+        "database_name": "codespire-db-preview",
+        "database_id": "748e6f8e-2a09-4dbc-8d55-55d34e4e3281",
+      },
+    ],
+  },
 }
