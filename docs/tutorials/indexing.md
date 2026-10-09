@@ -35,6 +35,18 @@ project-root/
 │       └── fonts/
 │
 ├── public/
+│   ├── favicon.svg
+│   ├── robots.txt
+│   └── sitemap.xml
+│
+├── server/
+│   └── index.js
+│
+├── migrations/
+│   └── 0001_init.sql
+│
+├── scripts/
+│   └── seed-questions.js
 │
 ├── docs/
 │   ├── project-structure.md
@@ -48,6 +60,7 @@ project-root/
 │   │
 │   ├── tutorials/
 │   │   ├── setup.md
+│   │   ├── backend.md
 │   │   ├── daily-git-operations.md
 │   │   ├── indexing.md
 │   │   ├── code-quality.md
@@ -64,8 +77,9 @@ project-root/
 ├── package.json
 ├── package-lock.json
 ├── vite.config.js
+├── wrangler.jsonc
 ├── .gitignore
-├── .env.example
+├── AGENTS.md
 └── README.md
 ```
 
@@ -79,11 +93,13 @@ HTML pages other than the main `index.html`.
 
 JavaScript used by the website.
 
-- `api/` — API requests
+- `api/` — API requests (the D&D API and our own `/api`)
 - `game/` — game rules, constants and state
 - `pages/` — one entry script per HTML page (`lobby.html` → `pages/lobby.js`)
 - `ui/` — interface behaviour
 - `utils/` — reusable helper functions
+- `data/` — the question JSON. The source for the database, not loaded by
+  the game itself
 - `main.js` — the setup every page shares; each page script imports it
 
 Which code belongs in which folder is explained in
@@ -104,6 +120,21 @@ Images, icons, audio and fonts used by the game.
 
 Files that Vite should serve directly without processing.
 
+### `server/`
+
+The Worker: our server code, which answers `/api/...` requests and talks to
+the database. See [backend.md](backend.md).
+
+### `migrations/`
+
+Numbered SQL files that create and change the database tables. Never edit one
+after it has been merged — add a new one.
+
+### `scripts/`
+
+Node scripts we run by hand, e.g. `seed-questions.js`, which turns the
+question JSON into `seed.sql`.
+
 ### `docs/`
 
 Project documentation.
@@ -116,7 +147,10 @@ Project documentation.
 
 ## Simple rule
 
-If it is used by the **game**, it belongs in `src/` or `public/`.
+If it is used by the **game in the browser**, it belongs in `src/` or `public/`.
+
+If it runs on the **server**, it belongs in `server/` (and `migrations/` for
+the database structure).
 
 If it is used to **explain the project**, it belongs in `docs/`.
 

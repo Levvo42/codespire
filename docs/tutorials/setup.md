@@ -172,19 +172,13 @@ cd C:\path\to\projects
 Clone the repository:
 
 ```powershell
-git clone <repository-url>
+git clone https://github.com/Levvo42/codespire.git
 ```
 
 Enter the project:
 
 ```powershell
-cd <project-folder>
-```
-
-Example:
-
-```powershell
-cd sys26d-sys26d-html-css-js-grupparbete-group-8
+cd codespire
 ```
 
 ---
@@ -210,15 +204,17 @@ Normally, this is the command team members should use after cloning or pulling d
 
 You do **not** need to install Vite separately after this.
 
-## Set Up Environment Variables
+## Set Up the Local Database
 
-The quiz API key lives in a local `.env` file that is **not** committed to git, so every team member creates their own. Copy the committed template:
+The questions come from our own server and database. Create your local copy of the database once:
 
 ```powershell
-Copy-Item .env.example .env
+npx wrangler d1 migrations apply codespire-db --local
+node scripts/seed-questions.js
+npx wrangler d1 execute codespire-db --local --file=seed.sql
 ```
 
-Then open `.env` and paste in the real key — ask for it in Discord (never post keys in the repo). See `docs/project-structure.md` for how `.env` variables work.
+No Cloudflare account is needed. What these commands do is explained in [backend.md](backend.md#running-it-locally).
 
 ---
 
@@ -297,7 +293,15 @@ npm list vite
 
 # 10. Run the Project Locally
 
-Start the Vite development server:
+The game needs two things running, each in its own terminal.
+
+Terminal 1 — the server (our API and database):
+
+```powershell
+npx wrangler dev
+```
+
+Terminal 2 — the Vite development server:
 
 ```powershell
 npm run dev
@@ -309,13 +313,13 @@ Vite will show a local address, usually:
 http://localhost:5173/
 ```
 
-Open that address in your browser.
+Open that address in your browser. Vite sends every `/api/...` request on to the server in terminal 1. Without it, the pages load but battles can't get any questions. See [backend.md](backend.md).
 
 ---
 
 # 11. Stop the Development Server
 
-In the terminal running Vite, press:
+In each terminal, press:
 
 ```text
 Ctrl + C
@@ -419,10 +423,9 @@ Do not commit these:
 ```text
 node_modules/
 dist/
-.env
+.wrangler/
+seed.sql
 ```
-
-(`.env.example` — the key-less template — **is** committed.)
 
 The project's `.gitignore` is already set up to handle all of this; the file itself has a comment explaining each rule.
 
@@ -445,9 +448,10 @@ npx vite --version
 npm ci
 ```
 
-## Start development server
+## Start development server (two terminals)
 
 ```powershell
+npx wrangler dev
 npm run dev
 ```
 
@@ -600,7 +604,18 @@ The usual workflow then becomes:
 
 ```powershell
 git pull
+npx wrangler dev
 npm run dev
+```
+
+(`npx wrangler dev` and `npm run dev` in separate terminals.)
+
+If the pull changed `migrations/` or the question JSON in `src/js/data/`, update your local database too (the same three commands as the first-time setup):
+
+```powershell
+npx wrangler d1 migrations apply codespire-db --local
+node scripts/seed-questions.js
+npx wrangler d1 execute codespire-db --local --file=seed.sql
 ```
 
 For everything else git — branches, commits, pull requests, and fixing mistakes — see [daily-git-operations.md](daily-git-operations.md).

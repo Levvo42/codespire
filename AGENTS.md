@@ -23,8 +23,12 @@ npm run check     # Prettier + ESLint + Stylelint + html-validate (same as CI)
 npx wrangler dev  # Worker + local D1 (localhost:8787), serves the built dist/
 ```
 
+While developing, run `npx wrangler dev` and `npm run dev` side by side; Vite
+proxies `/api` to the Worker.
+
 `npm run check` must pass before a PR. CI (`.github/workflows/ci.yml`) runs
-the same checks plus the build.
+the same checks plus the build. `.github/workflows/database.yml` keeps the
+online databases in sync (see below).
 
 ## Folder structure
 
@@ -72,13 +76,19 @@ Full conventions: `docs/tutorials/javascript.md`, `docs/tutorials/bem.md`,
   later battle math and loot. Never send `is_correct` to the browser.
 - Use `.prepare("... ? ...").bind(...)` for every query; never build SQL from
   user input.
-- `--local` commands use the copy in `.wrangler/`; `--remote` changes the live
-  database. Only test against `--local`.
-- Schema change: `npx wrangler d1 migrations create codespire-db <name>`, then
-  `npx wrangler d1 migrations apply codespire-db --local`.
-- Reseed questions: `node scripts/seed-questions.js`, then
+- Three databases: local (`.wrangler/`, `--local`), `codespire-db-preview`
+  (PR previews, `--remote --preview`) and `codespire-db` (live, `--remote`).
+  Only ever run `--local` commands; never run `--remote` ones.
+- `src/js/data/*.json` is the source of the questions. To change questions,
+  edit the JSON, then `node scripts/seed-questions.js` and
   `npx wrangler d1 execute codespire-db --local --file=seed.sql`.
-- Pushing code deploys code only. Remote migrations and seeds are run by hand.
+- Schema change: `npx wrangler d1 migrations create codespire-db <name>`, then
+  `npx wrangler d1 migrations apply codespire-db --local`. Never edit a merged
+  migration; only add tables/columns (old and new code overlap during deploys).
+- The Database workflow applies migrations and reseeds: on the preview database
+  for PRs that touch `migrations/` or `src/js/data/`, on the live database on
+  merge to `main`.
+- Full guide: `docs/tutorials/backend.md`.
 
 ## Workflow
 
