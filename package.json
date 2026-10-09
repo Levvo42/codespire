@@ -1,5 +1,5 @@
 {
-  "name": "sys26d-sys26d-html-css-js-grupparbete-group-8",
+  "name": "codespire",
   "version": "1.0.0",
   "private": true,
   "description": "Coding Trivia RPG built with HTML, SCSS, JavaScript and Vite.",
@@ -19,15 +19,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Medieinstitutet/sys26d-sys26d-html-css-js-grupparbete-group-8.git"
+    "url": "git+https://github.com/Levvo42/codespire.git"
   },
   "keywords": [],
   "license": "ISC",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/Medieinstitutet/sys26d-sys26d-html-css-js-grupparbete-group-8/issues"
+    "url": "https://github.com/Levvo42/codespire/issues"
   },
-  "homepage": "https://github.com/Medieinstitutet/sys26d-sys26d-html-css-js-grupparbete-group-8#readme",
+  "homepage": "https://github.com/Levvo42/codespire#readme",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "eslint": "^10.11.0",

@@ -142,21 +142,17 @@ Deployment + final documentation + demo
 
 | Status | Scope | Task                                  | Rank       | Assigned | Estimated | Actual |
 | ------ | ----- | ------------------------------------- | ---------- | -------- | --------: | -----: |
-| 🟥     | 🧪    | Research QuizAPI capabilities         | Novice     | —        |        2h |      — |
 | ✅     | 🧪    | Research D&D API capabilities         | Novice     | KM/FJ    |        2h |     2h |
 | ✅     | 🧪    | Research Web storage API capabilities | Novice     | MC       |        2h |     1h |
 | ✅     | 🎯    | Define internal question data model   | Novice     | MC       |        2h |     1h |
 | ✅     | 🎯    | Define internal monster data model    | Novice     | KM/FJ    |        2h |     2h |
-| 🟥     | 🎯    | Build QuizAPI service                 | Adept      | —        |        6h |      — |
 | ✅     | 🎯    | Build D&D monster API service         | Apprentice | KM/FJ    |        4h |     3h |
-| 🟥     | 🎯    | Normalize QuizAPI response data       | Apprentice | —        |        3h |      — |
 | ✅     | 🎯    | Normalize D&D monster data            | Apprentice | KM/FJ    |        3h |   1.5h |
 | 🟨     | 🎯    | Add loading state                     | Novice     | MC       |        2h |      — |
 | ✅     | 🎯    | Add API error state                   | Apprentice | KM       |        3h |     1h |
 | ✅     | 🎯    | Add fallback monster image            | Novice     | KM       |        1h |      — |
 | ✅     | 🎯    | Create mock question data             | Novice     | MC       |        1h |     1h |
 | ✅     | 🎯    | Create mock monster data              | Novice     | KM/FJ    |        1h |     1h |
-| 🟥     | 🎯    | Implement secure QuizAPI access/proxy | Adept      | —        |        6h |      — |
 
 ---
 
