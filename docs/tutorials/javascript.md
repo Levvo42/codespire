@@ -337,7 +337,7 @@ called it catches that and shows it.
  * Picks questions for one tower and difficulty in random order.
  *
  * @param {string} tower - A tower id from TOWERS, e.g. "html".
- * @param {string} difficulty - "EASY", "MEDIUM" or "HARD".
+ * @param {string} difficulty - "EASY", "MEDIUM", "HARD" or "EXTREME".
  * @param {number} count - How many to pick.
  * @returns {Promise<object[]>} Questions: { id, question, answers }
  * @throws {Error} If the request fails.
@@ -455,17 +455,19 @@ _ESLint:_ `no-console`, set to warn, with `warn` and `error` allowed.
 
 ## Where does the code go?
 
-`src/js/` has five folders and one shared file. The folder list is in
+`src/js/` has seven folders and one shared file. The folder list is in
 [indexing.md](indexing.md); this is what each one is allowed to contain.
 
-| Folder    | Contains                                             | Must not contain                |
-| --------- | ---------------------------------------------------- | ------------------------------- |
-| `api/`    | `fetch` calls, URLs, `import.meta.env`               | game rules, DOM code            |
-| `game/`   | Game rules, constants and state: damage, hearts      | **any DOM code**                |
-| `ui/`     | DOM: reading elements, rendering, event listeners    | game rules, `fetch`             |
-| `utils/`  | Small helpers used by several files (`shuffle`, ...) | anything game- or page-specific |
-| `pages/`  | One entry script per HTML page — wiring only         | rules, rendering, fetching      |
-| `main.js` | Shared setup every page needs (the SCSS import)      | page-specific code              |
+| Folder        | Contains                                             | Must not contain                |
+| ------------- | ---------------------------------------------------- | ------------------------------- |
+| `api/`        | `fetch` calls, URLs, `import.meta.env`               | game rules, DOM code            |
+| `game/`       | Game rules, constants and state: damage, hearts      | **any DOM code**                |
+| `ui/`         | DOM: reading elements, rendering, event listeners    | game rules, `fetch`             |
+| `utils/`      | Small helpers used by several files (`shuffle`, ...) | anything game- or page-specific |
+| `pages/`      | One entry script per HTML page — wiring only         | rules, rendering, fetching      |
+| `components/` | Shared templates (header, footer)                    | game rules, `fetch`             |
+| `data/`       | The question JSON, the source for the database       | code; the game never imports it |
+| `main.js`     | Shared setup every page needs (the SCSS import)      | page-specific code              |
 
 The one that matters most is **`game/` never touches the DOM**. Game rules
 written as plain functions over plain values can be read — and later tested —
