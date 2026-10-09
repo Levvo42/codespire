@@ -7,5 +7,6 @@
     "source.fixAll.stylelint": "explicit"
   },
   "stylelint.validate": ["css", "scss"],
-  "scss.validate": false
+  "scss.validate": false,
+  "files.associations": { "wrangler.jsonc": "jsonc" }
 }

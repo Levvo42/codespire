@@ -1,46 +1,57 @@
-// Questions for the battle.
-// For now they come from our own JSON files (src/js/data/{tower}.json).
-// When our question API is ready, only this file changes.
-import { shuffle } from "../utils/shuffle.js";
+// Questions for the battle, from our own API (server/index.js).
+// The browser never gets the correct answers: /api/answer checks them.
 
 /**
  * Picks questions for one tower and difficulty in random order.
  *
  * @param {string} tower - A tower id from TOWERS, e.g. "html".
  * @param {string} difficulty - "EASY", "MEDIUM" or "HARD".
- * @param {number} count - How many to pick (e.g. 33 out of 50).
- * @returns {Promise<object[]>} Questions: { question, answers, correctAnswer, explanation }
- * @throws {Error} If the tower has no questions file or no questions of that difficulty.
+ * @param {number} count - How many to pick.
+ * @returns {Promise<object[]>} Questions: { id, question, answers }
+ * @throws {Error} If the request fails.
  */
 export async function getQuestions(tower, difficulty, count) {
-  const { questions } = await import(`../data/${tower}.json`);
-  const pool = questions.filter(
-    (question) => question.difficulty === difficulty,
+  const response = await fetch(
+    `/api/questions?tower=${tower}&difficulty=${difficulty}&count=${count}`,
   );
 
-  if (pool.length === 0) {
-    throw new Error(`no ${difficulty} questions for the ${tower} tower`);
+  if (!response.ok) {
+    throw new Error(`the question server answered ${response.status}`);
   }
 
-  return shuffle(pool).slice(0, count).map(toQuestion);
+  const questions = await response.json();
+
+  return questions.map((question) => ({
+    id: question.id,
+    question: question.text,
+    answers: question.answers,
+  }));
 }
 
-// Our JSON → the shape the battle screen uses.
-// answers is 4 texts (multiple choice) or 2 (true/false).
-function toQuestion(question) {
-  const correctAnswer = question.answers.findIndex(
-    (answer) => answer["is-correct"],
-  );
+/**
+ * Asks the server if an answer is correct.
+ *
+ * @param {string} questionId - The question's id, e.g. "html-easy-001".
+ * @param {number} position - Index of the chosen answer.
+ * @returns {Promise<object>} { isCorrect, correctAnswer, explanation }
+ * @throws {Error} If the request fails.
+ */
+export async function checkAnswer(questionId, position) {
+  const response = await fetch("/api/answer", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ questionId, position }),
+  });
 
-  // A question without a correct answer would mark every answer wrong
-  if (correctAnswer === -1) {
-    throw new Error(`question ${question.id} has no correct answer`);
+  if (!response.ok) {
+    throw new Error(`the answer server answered ${response.status}`);
   }
 
+  const result = await response.json();
+
   return {
-    question: question.text,
-    answers: question.answers.map((answer) => answer.text),
-    correctAnswer,
-    explanation: question.explanation,
+    isCorrect: result.correct,
+    correctAnswer: result.correctPosition,
+    explanation: result.explanation,
   };
 }
