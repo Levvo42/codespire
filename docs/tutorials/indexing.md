@@ -67,7 +67,7 @@ project-root/
 │   │
 │   ├── project/
 │   │   ├── story-points.md
-│   │   ├── MVP Scope.md
+│   │   ├── roadmap.md
 │   │   └── Development.md
 │   │
 │   ├── tutorials/
@@ -81,7 +81,8 @@ project-root/
 │   │   └── semantic-html.md
 │   │
 │   ├── logs/
-│   │   └── README.md
+│   │   ├── README.md
+│   │   └── dnd-api.md
 │   │
 │   └── assets/
 │       └── images/
@@ -161,7 +162,7 @@ question JSON into `seed.sql`.
 Project documentation.
 
 - `team/` — group contract and meeting notes
-- `project/` — planning: story points, MVP scope and the Figma designs
+- `project/` — planning: story points, the roadmap and the Figma designs
 - `tutorials/` — guides for working in the project
 - `logs/` — what each API actually does (one file per API)
 - `assets/images/` — images used only in documentation

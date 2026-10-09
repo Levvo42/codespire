@@ -80,4 +80,4 @@ Difficulty should dynamically increase as the player progresses.
 - [Project structure](docs/project-structure.md)
 - [Story points](docs/project/story-points.md)
 - [API logs](docs/logs/README.md)
-- [MVP scope](docs/project/MVP%20Scope.md)
+- [Roadmap](docs/project/roadmap.md)
