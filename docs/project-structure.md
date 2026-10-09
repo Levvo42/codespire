@@ -6,7 +6,7 @@ Overview of the repo, what the config files do, and where to put things.
 
 ```
 index.html          Start page — Vite's main entry point
-pages/              All other HTML pages (lobby, singleplayer, tutorial, credits)
+pages/              All other HTML pages (lobby, singleplayer, story/ and more)
 src/
   js/               JavaScript (one entry script per page in js/pages/)
   scss/             SCSS styles (imported from JS, Vite compiles them)

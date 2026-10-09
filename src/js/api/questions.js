@@ -5,7 +5,7 @@
  * Picks questions for one tower and difficulty in random order.
  *
  * @param {string} tower - A tower id from TOWERS, e.g. "html".
- * @param {string} difficulty - "EASY", "MEDIUM" or "HARD".
+ * @param {string} difficulty - "EASY", "MEDIUM", "HARD" or "EXTREME".
  * @param {number} count - How many to pick.
  * @returns {Promise<object[]>} Questions: { id, question, answers }
  * @throws {Error} If the request fails.

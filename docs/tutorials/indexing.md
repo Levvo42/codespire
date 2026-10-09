@@ -10,12 +10,20 @@ project-root/
 ├── pages/
 │   ├── lobby.html
 │   ├── singleplayer.html
+│   ├── createplayer.html
 │   ├── tutorial.html
-│   └── credits.html
+│   ├── credits.html
+│   ├── bugreport.html
+│   └── story/
+│       ├── intro.html
+│       ├── prologue.html
+│       └── chapter1.html … chapter5.html
 │
 ├── src/
 │   ├── js/
 │   │   ├── api/
+│   │   ├── components/
+│   │   ├── data/
 │   │   ├── game/
 │   │   ├── pages/
 │   │   ├── ui/
@@ -26,15 +34,17 @@ project-root/
 │   │   ├── base/
 │   │   ├── layout/
 │   │   ├── components/
-│   │   └── pages/
+│   │   ├── pages/
+│   │   └── style.scss
 │   │
 │   └── assets/
 │       ├── images/
 │       ├── icons/
-│       ├── audio/
+│       ├── music/
 │       └── fonts/
 │
 ├── public/
+│   ├── avatars/
 │   ├── favicon.svg
 │   ├── robots.txt
 │   └── sitemap.xml
@@ -56,7 +66,9 @@ project-root/
 │   │   └── meetings/
 │   │
 │   ├── project/
-│   │   └── story-points.md
+│   │   ├── story-points.md
+│   │   ├── MVP Scope.md
+│   │   └── Development.md
 │   │
 │   ├── tutorials/
 │   │   ├── setup.md
@@ -74,6 +86,11 @@ project-root/
 │   └── assets/
 │       └── images/
 │
+├── .github/
+│   └── workflows/
+│       ├── ci.yml
+│       └── database.yml
+│
 ├── package.json
 ├── package-lock.json
 ├── vite.config.js
@@ -87,13 +104,15 @@ project-root/
 
 ### `pages/`
 
-HTML pages other than the main `index.html`.
+HTML pages other than the main `index.html`. The story pages live in
+`pages/story/`. Every page must also be listed in `vite.config.js`.
 
 ### `src/js/`
 
 JavaScript used by the website.
 
 - `api/` — API requests (the D&D API and our own `/api`)
+- `components/` — shared templates every page uses (header and footer)
 - `game/` — game rules, constants and state
 - `pages/` — one entry script per HTML page (`lobby.html` → `pages/lobby.js`)
 - `ui/` — interface behaviour
@@ -107,18 +126,20 @@ Which code belongs in which folder is explained in
 
 ### `src/scss/`
 
-All SCSS used by the website.
+All SCSS used by the website. `style.scss` imports every partial in
+`base/`, `layout/`, `components/` and `pages/`.
 
 ### `src/assets/`
 
-Images, icons, audio and fonts used by the game.
+Images, icons, music and fonts used by the game.
 
 > Git does not track empty folders — create a subfolder (e.g. `images/`) when
 > you add the first real file to it, not before.
 
 ### `public/`
 
-Files that Vite should serve directly without processing.
+Files that Vite should serve directly without processing, e.g. the player
+avatars in `avatars/`, whose paths are built at runtime.
 
 ### `server/`
 
@@ -140,7 +161,7 @@ question JSON into `seed.sql`.
 Project documentation.
 
 - `team/` — group contract and meeting notes
-- `project/` — planning and project structure
+- `project/` — planning: story points, MVP scope and the Figma designs
 - `tutorials/` — guides for working in the project
 - `logs/` — what each API actually does (one file per API)
 - `assets/images/` — images used only in documentation
@@ -154,5 +175,5 @@ the database structure).
 
 If it is used to **explain the project**, it belongs in `docs/`.
 
-For details on the config files, `.env`, and the `src/assets/` vs `public/`
+For details on the config files, secrets, and the `src/assets/` vs `public/`
 distinction, see [`docs/project-structure.md`](../project-structure.md).

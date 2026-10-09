@@ -118,10 +118,11 @@ with `Ctrl + C`.
 
 Open http://localhost:8787/api/health or
 http://localhost:8787/api/questions?tower=html&difficulty=EASY&count=2 in the
-browser. To test the POST route from PowerShell:
+browser. To test the POST route from PowerShell (this works in both Windows
+PowerShell 5.1 and PowerShell 7):
 
 ```powershell
-curl -X POST http://localhost:8787/api/answer -H "Content-Type: application/json" -d '{"questionId":"html-easy-001","position":1}'
+Invoke-RestMethod -Method Post -Uri http://localhost:8787/api/answer -ContentType "application/json" -Body '{"questionId":"html-easy-001","position":1}'
 ```
 
 ---
@@ -152,7 +153,8 @@ straight into a database — the next seed would delete them.
 
    - `id` must be unique: `<tower>-<difficulty>-<number>`. Never reuse or
      renumber an existing id — the game asks for answers by id.
-   - `difficulty`: `EASY`, `MEDIUM`, `HARD` or `EXTREME`.
+   - `difficulty`: `EASY`, `MEDIUM`, `HARD` or `EXTREME`. `EXTREME` is for
+     the coming prestige mode (after `HARD`); the game doesn't ask for it yet.
    - `type`: `MULTIPLE_CHOICE` (4 answers) or `TRUE_FALSE` (2 answers).
    - Exactly one answer has `"is-correct": true`.
 
