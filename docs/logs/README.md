@@ -1,13 +1,15 @@
 # API logs
 
-One markdown file per API we use, named after the API:
+One markdown file per external API we use, named after the API:
 
 ```text
 docs/logs/
 ├── README.md      ← this file: what to write and how
-├── quiz-api.md    ← QuizAPI: the trivia questions
 └── dnd-api.md     ← D&D 5e API: the monsters
 ```
+
+Our own server (`/api/questions`, `/api/answer`) is documented in
+[backend.md](../tutorials/backend.md).
 
 ---
 
@@ -107,5 +109,4 @@ Fields we use:
 ---
 
 Related: [javascript.md](../tutorials/javascript.md) (how we write `api/`
-functions) · [project-structure.md](../project-structure.md) (`.env` and API
-keys)
+functions) · [project-structure.md](../project-structure.md) (secrets)

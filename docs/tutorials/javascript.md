@@ -19,16 +19,16 @@ mean optional — it means a human catches it in code review instead.
 Names are read far more often than they are written. Predictable names mean
 you can guess what something is without opening the file.
 
-| What                    | How                | Example                           |
-| ----------------------- | ------------------ | --------------------------------- |
-| Variables and functions | `camelCase`        | `playerName`, `currentMonster`    |
-| Classes                 | `PascalCase`       | `Monster`, `Tower`                |
-| True constants          | `UPPER_SNAKE_CASE` | `BASE_MAX_HEARTS`, `QUIZ_API_URL` |
-| Booleans                | start `is/has/can` | `isGameOver`, `hasAnswered`       |
-| Functions               | start with a verb  | `getQuestions`, `renderHearts`    |
-| Files                   | `kebab-case.js`    | `battle-screen.js`                |
-| Entry scripts           | same name as page  | `pages/lobby.js` ← `lobby.html`   |
-| `data-js` values        | `kebab-case`       | `data-js="answer-button"`         |
+| What                    | How                | Example                          |
+| ----------------------- | ------------------ | -------------------------------- |
+| Variables and functions | `camelCase`        | `playerName`, `currentMonster`   |
+| Classes                 | `PascalCase`       | `Monster`, `Tower`               |
+| True constants          | `UPPER_SNAKE_CASE` | `BASE_MAX_HEARTS`, `DND_API_URL` |
+| Booleans                | start `is/has/can` | `isGameOver`, `hasAnswered`      |
+| Functions               | start with a verb  | `getQuestions`, `renderHearts`   |
+| Files                   | `kebab-case.js`    | `battle-screen.js`               |
+| Entry scripts           | same name as page  | `pages/lobby.js` ← `lobby.html`  |
+| `data-js` values        | `kebab-case`       | `data-js="answer-button"`        |
 
 A verb tells you the function _does_ something; a noun would read like a value.
 A boolean prefix tells you the `if` is a yes/no question, not a number.
@@ -184,8 +184,9 @@ catches it.
 
 ## Data from the APIs
 
-Both our APIs return `snake_case` fields: the D&D 5e API gives
-`hit_points` and `armor_class`, QuizAPI gives `correct_answer`.
+External APIs often return `snake_case` fields: the D&D 5e API gives
+`hit_points` and `armor_class`, and the database behind our own server has
+`question_id` and `is_correct`.
 
 **Don't rename API data while you are still holding API data.** If the object
 came from `fetch`, read it exactly as the API spelled it — that way you can
@@ -332,33 +333,31 @@ called it catches that and shows it.
 ```js
 // src/js/api/questions.js
 
-const QUIZ_API_URL = "https://quizapi.io/api/v1/questions";
-const TOO_MANY_REQUESTS = 429;
-
 /**
- * Fetches trivia questions for one tower.
+ * Picks questions for one tower and difficulty in random order.
  *
- * @param {string} category - Quiz API category, e.g. "javascript".
- * @param {number} limit - How many questions to fetch.
- * @returns {Promise<object[]>} The questions from the API.
- * @throws {Error} If the request fails or the API answers with an error.
+ * @param {string} tower - A tower id from TOWERS, e.g. "html".
+ * @param {string} difficulty - "EASY", "MEDIUM" or "HARD".
+ * @param {number} count - How many to pick.
+ * @returns {Promise<object[]>} Questions: { id, question, answers }
+ * @throws {Error} If the request fails.
  */
-export async function getQuestions(category, limit) {
-  const url =
-    `${QUIZ_API_URL}?apiKey=${import.meta.env.VITE_QUIZ_API}` +
-    `&category=${category}&limit=${limit}`;
-
-  const response = await fetch(url);
-
-  if (response.status === TOO_MANY_REQUESTS) {
-    throw new Error("we are out of requests for now — try again in a while");
-  }
+export async function getQuestions(tower, difficulty, count) {
+  const response = await fetch(
+    `/api/questions?tower=${tower}&difficulty=${difficulty}&count=${count}`,
+  );
 
   if (!response.ok) {
-    throw new Error(`the quiz server answered ${response.status}`);
+    throw new Error(`the question server answered ${response.status}`);
   }
 
-  return await response.json();
+  const questions = await response.json();
+
+  return questions.map((question) => ({
+    id: question.id,
+    question: question.text,
+    answers: question.answers,
+  }));
 }
 ```
 
@@ -372,7 +371,7 @@ import { showError } from "../ui/error-message.js";
 import { startBattle } from "../ui/battle-screen.js";
 
 try {
-  const questions = await getQuestions("javascript", QUESTIONS_PER_BATTLE);
+  const questions = await getQuestions("html", "EASY", QUESTIONS_PER_BATTLE);
 
   startBattle(questions);
 } catch (error) {
@@ -380,8 +379,8 @@ try {
 }
 ```
 
-The player then gets `Could not load questions: we are out of requests for
-now — try again in a while`, instead of a page that silently does nothing.
+The player then gets `Could not load questions: the question server answered
+500`, instead of a page that silently does nothing.
 
 One `try` around the whole chain is enough — it catches both our thrown
 `Error` and a network failure from `fetch` itself.
@@ -412,13 +411,11 @@ Because every error goes through this one function, swapping it for a proper
 in-game dialog later is a change to **one file**, not to every `catch` in the
 project.
 
-The API key comes from `import.meta.env.VITE_QUIZ_API`, never written into
-the code — see [project-structure.md](../project-structure.md) for `.env`.
-
 ### Write down what an API does
 
-Each API has a notes file in `docs/logs/`, named after the API:
-`docs/logs/quiz-api.md`, `docs/logs/dnd-api.md`. When you work out something
+Each external API has a notes file in `docs/logs/`, named after the API, e.g.
+`docs/logs/dnd-api.md`. Our own `/api` is documented in
+[backend.md](backend.md). When you work out something
 that wasn't obvious — what a field is really called, which status code means
 "out of requests", what you get back for a category that doesn't exist — add
 a line there, so the next person doesn't re-discover it with `console.log`.
