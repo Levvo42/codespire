@@ -29,6 +29,15 @@ git pull
 
 If `package.json` / `package-lock.json` changed, also run `npm ci`.
 
+If `migrations/` or the question JSON in `src/js/data/` changed, update your
+local database:
+
+```powershell
+npx wrangler d1 migrations apply codespire-db --local
+node scripts/seed-questions.js
+npx wrangler d1 execute codespire-db --local --file=seed.sql
+```
+
 ---
 
 ## Every day: starting a task
@@ -117,6 +126,18 @@ GitHub when the PR is merged (button in the PR).
 GitHub only allows the merge when the **CI check is green** and **one other
 team member has approved** the PR. How to review is described in
 [code-quality.md](code-quality.md#reviewing-a-teammates-pr).
+
+### What runs on your pull request
+
+| Check          | What it does                                                                                |
+| -------------- | ------------------------------------------------------------------------------------------- |
+| **CI**         | Prettier, linters and the build — the same as `npm run check` plus `npm run build`.         |
+| **Cloudflare** | Builds a preview of the whole site and comments a **Deployment URL** on the PR. Test there. |
+| **Database**   | Only when the PR changes `migrations/` or `src/js/data/`: updates the preview database.     |
+
+Merging into `main` deploys the live site, and if the PR changed migrations or
+questions, the Database workflow updates the live database too. Nobody needs a
+Cloudflare login for any of this. Details in [backend.md](backend.md).
 
 ---
 

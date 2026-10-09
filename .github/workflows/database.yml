@@ -1,0 +1,59 @@
+name: Database
+
+# Keeps the D1 databases in sync with the repo, so nobody needs a Cloudflare
+# login: pull requests update the preview database, merges to main update the
+# live one. See docs/tutorials/backend.md.
+
+on:
+  pull_request:
+    paths:
+      - "migrations/**"
+      - "src/js/data/**"
+      - "scripts/seed-questions.js"
+      - ".github/workflows/database.yml"
+  push:
+    branches: [main]
+    paths:
+      - "migrations/**"
+      - "src/js/data/**"
+      - "scripts/seed-questions.js"
+      - ".github/workflows/database.yml"
+
+permissions:
+  contents: read
+
+# One database update at a time per database, never cancelled halfway
+concurrency:
+  group: database-${{ github.event_name == 'push' && 'live' || 'preview' }}
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      # --preview targets preview_database_id in wrangler.jsonc
+      TARGET: ${{ github.event_name == 'pull_request' && '--preview' || '' }}
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Apply migrations
+        run: npx wrangler d1 migrations apply codespire-db --remote $TARGET
+
+      - name: Seed questions
+        run: |
+          node scripts/seed-questions.js
+          npx wrangler d1 execute codespire-db --remote $TARGET --file=seed.sql
