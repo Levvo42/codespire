@@ -45,18 +45,23 @@ npx wrangler d1 execute codespire-db --local --file=seed.sql
 Create a branch for the task. Never work directly on `main`.
 
 ```powershell
-git switch -c 12-lobby-layout
+git switch -c feat/12-lobby-layout
 ```
 
 - `switch -c` = create the branch and move to it.
-- Naming: `<issue-number>-<short-description>`, e.g. `12-lobby-layout`.
+- Naming: `<type>/<issue-number>-<short-description>`, e.g.
+  `feat/12-lobby-layout`. The type is the same as in commit messages (below):
+  `feat`, `fix`, `docs`, `style`, `refactor` or `chore`. No issue? Leave the
+  number out: `docs/backend-tutorial`.
 
-If you instead used GitHub's **"Create a branch"** button on an issue, the
-branch already exists on GitHub — fetch it and switch to it:
+If you instead used GitHub's **"Create a branch"** button on an issue, GitHub
+suggests a name like `12-lobby-layout`. Add the type in front (edit the
+**Branch name** field to `feat/12-lobby-layout`) before you click **Create
+branch**. The branch then exists on GitHub — fetch it and switch to it:
 
 ```powershell
 git fetch origin
-git switch 12-lobby-layout
+git switch feat/12-lobby-layout
 ```
 
 ---
@@ -110,7 +115,7 @@ Fix any errors first — see [code-quality.md](code-quality.md).
 First push of a new branch (`-u` links it to GitHub so later pushes are just `git push`):
 
 ```powershell
-git push -u origin 12-lobby-layout
+git push -u origin feat/12-lobby-layout
 ```
 
 After that, simply:
@@ -146,7 +151,7 @@ Cloudflare login for any of this. Details in [backend.md](backend.md).
 ```powershell
 git switch main
 git pull
-git branch -d 12-lobby-layout    # delete your local copy of the branch
+git branch -d feat/12-lobby-layout    # delete your local copy of the branch
 ```
 
 Then create a new branch for the next task.
@@ -161,7 +166,7 @@ final merge stays small:
 ```powershell
 git switch main
 git pull
-git switch 12-lobby-layout
+git switch feat/12-lobby-layout
 git merge main
 ```
 
@@ -267,7 +272,7 @@ git commit -m "chore: stop tracking file"
 **"I named my branch wrong"**:
 
 ```powershell
-git branch -m 12-better-name
+git branch -m feat/12-better-name
 ```
 
 **"I think I lost a commit"** — you almost never have. `git reflog` shows

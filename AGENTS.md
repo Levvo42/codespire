@@ -92,7 +92,8 @@ Full conventions: `docs/tutorials/javascript.md`, `docs/tutorials/bem.md`,
 
 ## Workflow
 
-- Work on a branch (`feat/...`, `fix/...`, `docs/...`), open a PR to `main`.
+- Work on a branch named `<type>/<issue-number>-<short-description>` (e.g.
+  `feat/12-lobby-layout`, `fix/...`, `docs/...`), open a PR to `main`.
 - Merging to `main` deploys the live site.
 - When a change alters how something works, update the matching doc in
   `docs/` in the same PR.
