@@ -262,8 +262,25 @@ function showNewQuestion() {
 }
 
 async function handleAnswer(chosenIndex) {
-  const { answers, correctAnswer, explanation } = questions[questionIndex];
-  const isCorrect = chosenIndex === correctAnswer;
+  // Locked right away, so a double click can't send two answers
+  elements.answerButtons.forEach((button) => {
+    button.disabled = true;
+  });
+
+  const { id, answers } = questions[questionIndex];
+  let result;
+
+  try {
+    result = await game.checkAnswer(id, chosenIndex);
+  } catch (error) {
+    showError(`Could not check the answer: ${error.message}`, error);
+    elements.answerButtons.forEach((button) => {
+      button.disabled = false;
+    });
+    return;
+  }
+
+  const { isCorrect, correctAnswer, explanation } = result;
   const isCrit = isCorrect && rollCrit(battle.player.critChance);
 
   battle = applyAnswer(battle, isCorrect, isCrit);

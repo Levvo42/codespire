@@ -1,5 +1,13 @@
 {
   "name": "codespire",
   "compatibility_date": "2026-10-01",
+  "main": "server/index.js",
   "assets": { "directory": "./dist" },
+  "d1_databases": [
+    {
+      "binding": "codespire_db",
+      "database_name": "codespire-db",
+      "database_id": "8f6ebdef-d29d-49a9-9b74-d21e46f8bc54",
+    },
+  ],
 }

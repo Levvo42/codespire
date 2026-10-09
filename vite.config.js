@@ -5,6 +5,12 @@ import { resolve } from "node:path";
 // A wider overview of the project (folders, package.json, where assets go)
 // lives in docs/project-structure.md.
 export default defineConfig({
+  // /api requests go to the Worker (npx wrangler dev) while developing
+  server: {
+    proxy: {
+      "/api": "http://localhost:8787",
+    },
+  },
   build: {
     rollupOptions: {
       // Vite only builds index.html by default. Every extra HTML page must be

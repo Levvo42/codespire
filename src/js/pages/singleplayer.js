@@ -3,7 +3,7 @@
 // The lobby opens this page as singleplayer.html?tower=html&difficulty=EASY
 import "../main.js";
 import { getMonsterForFloor } from "../api/monsters.js";
-import { getQuestions } from "../api/questions.js";
+import { checkAnswer, getQuestions } from "../api/questions.js";
 import { QUESTIONS_PER_RUN, TOWER_LAYOUTS } from "../game/constants.js";
 import {
   CLASS_STATS,
@@ -61,6 +61,7 @@ if (!player) {
     difficulty,
     loadMonster: getMonsterForFloor,
     loadQuestions: () => getQuestions(tower, difficulty, QUESTIONS_PER_RUN),
+    checkAnswer,
     onMonsterSlain: saveMonsterSlain,
     onLeaveTower: goToLobby,
     onUsePotion: drinkPotion,
